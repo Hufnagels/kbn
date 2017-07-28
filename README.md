@@ -16,3 +16,7 @@ app.scss -> <br />
 @import "node_modules/font-awesome/scss/font-awesome";<br />
 @import "node_modules/bulma/bulma";<br />
 @import "node_modules/buefy/src/scss/buefy";<br />
+
+## 3. step
+npm run dev <br />
+Setup Laravel environment<br />
