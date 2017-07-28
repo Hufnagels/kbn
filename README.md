@@ -20,3 +20,4 @@ app.scss -> <br />
 ## 3. step
 npm run dev <br />
 Setup Laravel environment<br />
+Create database<br />
