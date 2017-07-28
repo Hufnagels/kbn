@@ -2,10 +2,10 @@
 # After created new, empty laravel project
 ## 1. step
 
-* npm install <br />
-* npm install bulma <br />
-* npm install buefy <br />
-* npm install font-awesome <br />
+npm install <br />
+npm install bulma <br />
+npm install buefy <br />
+npm install font-awesome <br />
 
 ## 2. step
 app.js -> <br />
@@ -21,3 +21,5 @@ app.scss -> <br />
 npm run dev <br />
 Setup Laravel environment<br />
 Create database<br />
+
+## 4. step
