@@ -21,5 +21,6 @@ app.scss -> <br />
 npm run dev <br />
 Setup Laravel environment<br />
 Create database<br />
+npm run watch<br />
 
 ## 4. step
