@@ -792,7 +792,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
  */
 
 __webpack_require__(10);
-
+//require('node_modules/material-design-lite/material.min.js');
+//require('../../../node_modules/material-components-web/dist/material-components-web');
 window.Vue = __webpack_require__(34);
 
 
@@ -807,9 +808,16 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_0_buefy___default.a);
 
 //Vue.component('example', require('./components/Example.vue'));
 
-// const app = new Vue({
-//     el: '#app'
-// });
+var app = new Vue({
+  el: '#app',
+  data: {}
+});
+
+$(document).ready(function () {
+  $('.navbar-burger').click(function (e) {
+    $('#navMenu').toggleClass('is-active');
+  });
+});
 
 /***/ }),
 /* 10 */

@@ -6,7 +6,8 @@
  */
 
 require('./bootstrap');
-
+//require('node_modules/material-design-lite/material.min.js');
+//require('../../../node_modules/material-components-web/dist/material-components-web');
 window.Vue = require('vue');
 
 import Buefy from 'buefy';
@@ -21,6 +22,13 @@ Vue.use(Buefy);
 
 //Vue.component('example', require('./components/Example.vue'));
 
-// const app = new Vue({
-//     el: '#app'
-// });
+var app = new Vue({
+     el: '#app',
+     data: {}
+});
+
+$(document).ready(function(){
+  $('.navbar-burger').click(function (e) {
+    $('#navMenu').toggleClass('is-active');
+  })
+});

@@ -12,5 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('onepager');
 });
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
