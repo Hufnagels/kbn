@@ -24,3 +24,6 @@ Create database<br />
 npm run watch<br />
 
 ## 4. step
+install Laratrust<br />
+php artisan migrate<br />
+php artisan laratrust:migration<br />
