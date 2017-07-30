@@ -41,4 +41,6 @@ php artisan laratrust:seeder<br />
 * Contributor (slug: 'contributor') – somebody who can write and manage their own posts but cannot publish them.<br />
 * Subscriber (slug: 'subscriber') – somebody who can only manage their profile.<br />
 
+## 6. step
+php artisan vendor:publish --tag=laravel-pagination<br />
 
