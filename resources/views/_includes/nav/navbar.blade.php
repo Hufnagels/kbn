@@ -107,7 +107,7 @@
       <a class="navbar-item" href="{{ route('register') }}">SignUp</a>
       @else
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link " href="#">Helli Isti</a>
+        <a class="navbar-link " href="#">Hello {{ Auth::user()->name }}</a>
         <div id="blogDropdown" class="navbar-dropdown " data-style="width: 18rem;">
           <a class="navbar-item" href="/2017/07/24/access-previous-bulma-versions/">
               <div class="navbar-content">
@@ -115,20 +115,11 @@
                 <p>Access previous Bulma versions</p>
               </div>
           </a>
-          <a class="navbar-item" href="/2017/07/24/access-previous-bulma-versions/">
-              <div class="navbar-content">
-                <p><small class="has-text-info">24 Jul 2017</small></p>
-                <p>Access previous Bulma versions</p>
-              </div>
-          </a>
-          <a class="navbar-item" href="/2017/07/24/access-previous-bulma-versions/">
-              <div class="navbar-content">
-                <p><small class="has-text-info">24 Jul 2017</small></p>
-                <p>Access previous Bulma versions</p>
-              </div>
-          </a>
+          <a class="navbar-item" href="{{ route('manage.dashboard')}}">Dashboard</a>
+          <a class="navbar-item" href="">Profile</a>
           <hr class="navbar-divider">
-          <a class="navbar-item" href="http://bulma.io/blog/">Logout</a>
+          <a class="navbar-item" href="{{ route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+          @include('_includes.forms.logout')
         </div>
       </div>
       @endif
