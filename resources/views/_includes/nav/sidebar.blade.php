@@ -5,7 +5,7 @@
   </ul>
   <p class="menu-label">Administration</p>
   <ul class="menu-list">
-    <li><a>Users</a></li>
+    <li><a href="{{ route('users.index') }}">Users</a></li>
     <li><a>Roles & Permissions</a></li>
   </ul>
   <p class="menu-label">Manage content</p>

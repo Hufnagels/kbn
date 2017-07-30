@@ -18,17 +18,17 @@
 <body>
   @include('_includes.nav.navbar')
   <div class="columns manage">
-  <div class="column is-one-quarter">
-      @include('_includes.nav.sidebar')
-  </div>
-  <div class="column">
-    <div id="app">
+    <div class="column is-one-quarter">
+        @include('_includes.nav.sidebar')
+    </div>
+    <div class="column is-three-quarters">
+      <div id="app">
 
-      @yield('content')
+        @yield('content')
 
+      </div>
     </div>
   </div>
-</div>
 
 
 
