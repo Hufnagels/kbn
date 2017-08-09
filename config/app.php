@@ -182,6 +182,7 @@ return [
          * Third party Providers...
          */
         Laratrust\LaratrustServiceProvider::class,
+        Cornford\Googlmapper\MapperServiceProvider::class,
     ],
 
     /*
@@ -231,7 +232,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        'Laratrust'   => Laratrust\LaratrustFacade::class,
+        'Laratrust' => Laratrust\LaratrustFacade::class,
+        'Mapper'  => Cornford\Googlmapper\Facades\MapperFacade::class,
 
     ],
 

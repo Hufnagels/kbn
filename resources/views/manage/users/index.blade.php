@@ -1,8 +1,8 @@
 @extends('layouts.manage')
 
 @section('content')
-
-
+@if (Laratrust::can(['create-acl', 'create-user']) )
+<div class="flex-container"></div>
   <div class="columns">
     <div class="column">
       <div class="card">
@@ -11,18 +11,18 @@
             <div class="title">Manage Users</div>
           </div>
           <div class="column">
-            <a href="{{ route('users.create')}}" class="button is-primary is-inverted is-outlined is-pulled-right"> Create user</a>
+            <a href="{{ route('users.create')}}" class="button is-primary is-inverted is-outlined is-pulled-right"><i class="fa fa-user-plus m-r-10"></i> Create user</a>
           </div>
         </div>
         <div class="card-content">
-          <table class="table">
+          <table class="table is-narrow">
             <thead>
               <tr>
-                <th><abbr title="Position">ID</abbr></th>
-                <th><abbr title="Played">Name</abbr></th>
-                <th><abbr title="Won">Email</abbr></th>
-                <th><abbr title="Drawn">Date created</abbr></th>
-                <th><abbr title="Lost">Actions</abbr></th>
+                <th><abbr title="Id">ID</abbr></th>
+                <th><abbr title="name">Name</abbr></th>
+                <th><abbr title="Email">Email</abbr></th>
+                <th><abbr title="Date created">Date created</abbr></th>
+                <th><abbr title="Actions">Actions</abbr></th>
               </tr>
             </thead>
 
@@ -33,7 +33,11 @@
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->created_at->toFormattedDateString()}}</td>
-                <td><a href="{{ route('users.edit', $user->id)}}" title="Edit"><span class="fa fa-edit"></span></a></td>
+                <td>
+                  <a href="{{ route('users.edit', $user->id)}}" title="Edit"><span class="fa fa-edit"></span></a>
+                  <a href="{{ route('users.show', $user->id)}}" title="Show"><span class="fa fa-eye"></span></a>
+                  <a href="{{ route('users.destroy', $user->id)}}" title="Delete"><span class="fa fa-remove"></span></a>
+                </td>
               </tr>
               @endforeach
             </tbody>
@@ -44,8 +48,5 @@
 
     </div>
   </div>
-
-
-
-
+@endif
 @endsection

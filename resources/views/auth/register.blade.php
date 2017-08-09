@@ -64,7 +64,7 @@
                     </span>
                     @endif
                   </div>
-                    @if ($errors->has('password'))
+                  @if ($errors->has('password'))
                   <p class="help is-danger">{{ $errors->first('password') }}</p>
                   @endif
                 </div>
@@ -73,9 +73,7 @@
                   <label class="label">Re-type Password</label>
                   <div class="control has-icons-left has-icons-right">
                     <input class="input {{ $errors->has('password') ? ' is-danger' : '' }}" id="password-confirm" type="password" name="password_confirmation" required>
-                    <span class="icon is-small is-left">
-                      <i class="fa fa-key"></i>
-                    </span>
+                    <span class="icon is-small is-left"><i class="fa fa-key"></i></span>
                   </div>
 
                 </div>

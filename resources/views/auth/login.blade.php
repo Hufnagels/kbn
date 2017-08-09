@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@include('_includes.head')
+  <div id="app">
 
-@section('content')
 <section class="loginPage">
   <div class="columns">
     <div class="column is-offset-one-third is-one-third">
@@ -18,16 +18,12 @@
                   <label class="label">E-Mail Address</label>
                   <div class="control has-icons-left has-icons-right">
                     <input class="input {{ $errors->has('email') ? ' is-danger' : '' }}" id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
-                    <span class="icon is-small is-left">
-                      <i class="fa fa-envelope"></i>
-                    </span>
+                    <span class="icon is-small is-left"><i class="fa fa-envelope"></i></span>
                     @if ($errors->has('email'))
-                    <span class="icon is-small is-right">
-                      <i class="fa fa-warning"></i>
-                    </span>
+                    <span class="icon is-small is-right"><i class="fa fa-warning"></i></span>
                     @endif
                   </div>
-                    @if ($errors->has('email'))
+                  @if ($errors->has('email'))
                   <p class="help is-danger">{{ $errors->first('email') }}</p>
                   @endif
                 </div>
@@ -36,16 +32,12 @@
                   <label class="label">Password</label>
                   <div class="control has-icons-left has-icons-right">
                     <input class="input {{ $errors->has('password') ? ' is-danger' : '' }}" id="password" type="password" name="password" required>
-                    <span class="icon is-small is-left">
-                      <i class="fa fa-key"></i>
-                    </span>
+                    <span class="icon is-small is-left"><i class="fa fa-key"></i></span>
                     @if ($errors->has('password'))
-                    <span class="icon is-small is-right">
-                      <i class="fa fa-warning"></i>
-                    </span>
+                    <span class="icon is-small is-right"><i class="fa fa-warning"></i></span>
                     @endif
                   </div>
-                    @if ($errors->has('password'))
+                  @if ($errors->has('password'))
                   <p class="help is-danger">{{ $errors->first('password') }}</p>
                   @endif
                 </div>
@@ -73,10 +65,20 @@
         <div class="has-text-centered">
           <a class="button is-primary is-outlined" href="{{ route('password.request') }}" style="margin-left:0;">Forgot Your Password?</a>
         </div>
-
+      </div>
+      <div class="content m-t-20">
+        <div class="has-text-centered">
+          <a class="button is-primary is-outlined" href="/" style="margin-left:0;">Back to welcome page</a>
+        </div>
     </div>
     </div>
   </div>
 </section>
 
-@endsection
+
+</div>
+
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}"></script>
+</body>
+</html>

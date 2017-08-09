@@ -2,6 +2,7 @@
     height: 100vh;
     overflow-y: auto;
     padding: 1rem;
+    min-height: 100%;
 }
 .manage {
   &.columns {
@@ -15,4 +16,11 @@
 
 #app {
   margin-right: 10px;
+}
+
+.vueItem input[type=checkbox] {
+    display: none;
+}
+.subtitle:not(:last-child) {
+    margin-bottom: .3rem;
 }

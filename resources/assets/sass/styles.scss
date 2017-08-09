@@ -4,3 +4,16 @@
 .fa-facebook {
   color: #3b5998;
 }
+
+.contact_us_map {
+	width: 100%;
+	float: left;
+	height: 470px;
+	min-height: 470px;
+	position: relative;
+
+	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+ */
+	filter: gray; /* IE6-9 */
+	-webkit-filter: grayscale(99%); /* Chrome 19+ & Safari 6+ */
+	-webkit-backface-visibility: hidden;  /* Fix for transition flickering */
+}
