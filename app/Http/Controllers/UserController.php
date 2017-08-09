@@ -54,10 +54,10 @@ class UserController extends Controller
 
       if($user->save())
       {
-        return redirect()->route('manage.user.show', $user->id);
+        return redirect()->route('users.show', $user->id);
       } else {
         Session::flash('is-danger','Sorry, user can not be created');
-        return redirect()->route('manage.user.create');
+        return redirect()->route('users.create');
       }
     }
 
@@ -109,7 +109,7 @@ class UserController extends Controller
         return redirect()->route('users.show', $id);
       } else {
         Session::flush('error', 'Problem updating user');
-        return redirect()->route('users.edit', $id);
+        return redirect()->route('manage.users.edit', $id);
       }
 
     }

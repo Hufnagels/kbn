@@ -1,9 +1,7 @@
 @extends('layouts.manage')
 
 @section('content')
-@if(  (Auth::id() !== $user->id) || (!Auth::user()->can('update-profile', $roles)) ) 
- vége
-@else
+
 <div class="columns">
   <div class="column">
     <div class="card">
@@ -140,7 +138,7 @@
 
   </div>
 </div>
-@endif
+
 @endsection
 @section('scripts')
 <!-- Inside script -->

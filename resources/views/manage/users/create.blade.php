@@ -13,7 +13,7 @@
       </div>
       <div class="card-content">
         <form action="{{ route('users.store')}}" method="POST">
-
+          {{ csrf_field() }}
           <div class="columns">
 
             <div class="column">

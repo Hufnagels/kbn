@@ -18,12 +18,12 @@ class CreateNewsTable extends Migration
             $table->string('title', 100);
             $table->string('slug')->unique();
             $table->string('subtitle', 250);
-            $table->text('exerpt');
+            $table->text('excerpt');
             $table->text('body');
             $table->text('image')->nullable();
             $table->integer('author_id')->unsigned();
             $table->foreign('author_id')->references('id')->on('users')->onDelete('restrict');
-            $table->integer('is_published');
+            $table->integer('is_published')->default('0');
             $table->timestamps();
 
         });
