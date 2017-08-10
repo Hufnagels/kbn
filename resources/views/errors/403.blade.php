@@ -20,7 +20,7 @@
 <section id="errorPages" class="hero is-danger m-b-20">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title has-text-centered">403 Error</h1>
+      <h1 class="title has-text-centered">Error</h1>
       <h2 class="subtitle has-text-centered"></h2>
     </div>
   </div>

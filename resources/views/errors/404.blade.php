@@ -20,7 +20,7 @@
 <section id="errorPages" class="hero is-danger m-b-20">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title has-text-centered">404 Error</h1>
+      <h1 class="title has-text-centered">Page not found error</h1>
       <h2 class="subtitle has-text-centered"></h2>
     </div>
   </div>
@@ -41,6 +41,7 @@
             <h4>The page you are looking for might have been removed, had its name changed or is temporarily unavailable</h4>
             <h3>
               <a href="{{ route('welcome') }}" class="button is-dark is-medium">Go to the welcome page</a>
+              <a href="{{ url()->previous() }}" class="button is-dark is-inverted is-medium">Go to the previous page</a>
             </h3>
           </div>
         </div>

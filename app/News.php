@@ -15,6 +15,11 @@ class News extends Model
         return 'slug';
     }
 */
+    public function getRouteKey()
+    {
+    return $this->slug;
+    }
+
     public function author()
     {
       return $this->belongsTo(User::class);

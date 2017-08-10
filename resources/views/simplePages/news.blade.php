@@ -62,7 +62,6 @@
 
       </div><!-- end of left column -->
 
-
       <div class="column">
 
         <nav class="panel">
@@ -136,6 +135,5 @@
       </div>
     </div>
   </div>
-
 
 @endsection

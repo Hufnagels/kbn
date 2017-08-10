@@ -49,6 +49,15 @@ class Handler extends ExceptionHandler
         return redirect()->route('login');
       }
 
+      if ($exception instanceof ModelNotFoundException) {
+          //$exception = new NotFoundHttpException($exception->getMessage(), $exception);
+          return response()->view('errors.404', $exception, 404);
+      }
+
+      if ($exception instanceof CustomException) {
+          return response()->view('errors.404', $exception, 404);
+      }
+
         return parent::render($request, $exception);
     }
 

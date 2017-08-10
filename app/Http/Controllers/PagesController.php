@@ -60,6 +60,7 @@ class PagesController extends Controller
       //die("news");
       //\DB::enableQueryLog();
       //$item = News::published()->where('slug', $slug)->first();//findOrFail($slug);
+      if( empty($item['slug']) ) return view('errors.404');
       return view('simplePages.news', compact('item'));//, ['users' => $users]);
       //view('simplePages.news', compact('item'))->render();
       //dd(\DB::getQueryLog());
