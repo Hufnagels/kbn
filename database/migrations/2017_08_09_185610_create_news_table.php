@@ -17,7 +17,7 @@ class CreateNewsTable extends Migration
             $table->increments('id');
             $table->string('title', 100);
             $table->string('slug')->unique();
-            $table->string('subtitle', 250);
+            $table->string('subtitle', 250)->nullable();
             $table->text('excerpt');
             $table->text('body');
             $table->text('image')->nullable();

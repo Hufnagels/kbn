@@ -17,3 +17,7 @@
 	-webkit-filter: grayscale(99%); /* Chrome 19+ & Safari 6+ */
 	-webkit-backface-visibility: hidden;  /* Fix for transition flickering */
 }
+.image.is-150x150 {
+    height: 150px;
+    width: 150px;
+}

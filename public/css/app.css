@@ -14668,6 +14668,11 @@ button.nav-item.is-active {
   /* Fix for transition flickering */
 }
 
+.image.is-150x150 {
+  height: 150px;
+  width: 150px;
+}
+
 .menu {
   height: 100vh;
   overflow-y: auto;

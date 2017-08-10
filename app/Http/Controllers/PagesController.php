@@ -57,8 +57,9 @@ class PagesController extends Controller
       //$user = User::where('id', $id)->with('roles')->first();
       //$user = User::findOrFail($id);
       //return view('manage.users.edit')->withUser($user)->withRoles($roles);
-      $news = News::where('slug', $slug);
-      return view('simplePages.news')->withNews($news);//, ['users' => $users]);
+      //die("news");
+      $item = News::findOrFail($slug);
+      return view('simplePages.news', compact('item'));//, ['users' => $users]);
     }
 
     public function getEvents(){
