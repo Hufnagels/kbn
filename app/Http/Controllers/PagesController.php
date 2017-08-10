@@ -53,13 +53,16 @@ class PagesController extends Controller
 
     }
 
-    public function showPost($slug){
+    public function showPost(News $item){
       //$user = User::where('id', $id)->with('roles')->first();
       //$user = User::findOrFail($id);
       //return view('manage.users.edit')->withUser($user)->withRoles($roles);
       //die("news");
-      $item = News::findOrFail($slug);
+      //\DB::enableQueryLog();
+      //$item = News::published()->where('slug', $slug)->first();//findOrFail($slug);
       return view('simplePages.news', compact('item'));//, ['users' => $users]);
+      //view('simplePages.news', compact('item'))->render();
+      //dd(\DB::getQueryLog());
     }
 
     public function getEvents(){

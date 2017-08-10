@@ -9,11 +9,15 @@ class News extends Model
 {
 
     protected $dates = ['published_at'];
-
+/* implicit model binding
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+*/
     public function author()
     {
       return $this->belongsTo(User::class);
-
     }
 
     public function getImageUrlAttribute($value)

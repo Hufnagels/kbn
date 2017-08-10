@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use App\News;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -26,6 +27,9 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot();
+        Route::bind('news', function ($slug) {
+          return News::published()->where('slug', $slug)->first();
+        });
     }
 
     /**

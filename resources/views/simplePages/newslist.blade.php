@@ -48,7 +48,7 @@
           </div>
           <div class="media-content">
             <div class="content">
-              <h3 class="subtitle"><a class="" href="{{ route('news.show', $item->id)}}">{{$item->title}}</a></h3>
+              <h3 class="subtitle"><a class="" href="{{ route('news.show', $item->slug)}}">{{$item->title}}</a></h3>
               <p>{{$item->excerpt}}</p>
               <p><strong>{{$item->author->name}}</strong> <small>{{ '@'.str_slug($item->author->name,'') }}</small> <small>{{$item->date}}</small></p>
             </div>

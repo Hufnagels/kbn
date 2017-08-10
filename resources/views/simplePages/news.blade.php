@@ -60,7 +60,9 @@
           </div>
         </div>
 
-      </div>
+      </div><!-- end of left column -->
+
+
       <div class="column">
 
         <nav class="panel">
