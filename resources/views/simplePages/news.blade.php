@@ -23,9 +23,14 @@
         News name is ...
       </h1>
       <h2 class="subtitle has-text-centered">
-        Primary subtitle
+
       </h2>
     </div>
   </div>
 </section>
+  @foreach ($news as $item)
+    {{ $item->title }}
+  @endforeach
+
+
 @endsection

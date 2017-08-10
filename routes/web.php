@@ -14,7 +14,8 @@
 Route::get('/contact', 'PagesController@getcontact')->name('contact');
 Route::get('/about', 'PagesController@getAbout')->name('about');
 Route::get('/team', 'PagesController@getTeam')->name('team');
-Route::get('/news', 'PagesController@getPosts')->name('news');
+Route::get('/news/{news}', 'PagesController@showPost')->name('news.show');
+Route::get('/news', 'PagesController@getPosts')->name('newses');
 Route::get('/', 'PagesController@getIndex')->name('welcome');
 
 
@@ -28,7 +29,7 @@ Route::prefix('manage')->middleware('role:superadministrator|administrator|edito
   Route::resource('/users', 'UserController');
   Route::resource('/permissions', 'PermissionController', ['except' => 'destroy']);
   Route::resource('/roles', 'RoleController', ['except' => 'destroy']);
-  Route::resource('/posts', 'PostController', ['except' => 'destroy']);
+  //Route::resource('/posts', 'PostController', ['except' => 'destroy']);
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -32,7 +32,7 @@
       <a class="navbar-item " href="{{ route('contact') }}">Contact</a>
 
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link " href="{{ route('news') }}">News</a>
+        <a class="navbar-link " href="{{ route('newses') }}">News</a>
 
         <div id="blogDropdown" class="navbar-dropdown " data-style="width: 18rem;">
           <a class="navbar-item" href="/2017/07/24/access-previous-bulma-versions/">
@@ -54,7 +54,7 @@
               </div>
           </a>
           <hr class="navbar-divider">
-          <a class="navbar-item" href="{{ route('news') }}">More news</a>
+          <a class="navbar-item" href="{{ route('newses') }}">More news</a>
         </div>
       </div>
     </div>

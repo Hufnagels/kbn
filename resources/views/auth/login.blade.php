@@ -1,4 +1,7 @@
+<!DOCTYPE html>
+<html lang="{{ app()->getLocale() }}" class="mdc-typography">
 @include('_includes.head')
+<body>
   <div id="app">
 
 <section class="loginPage">

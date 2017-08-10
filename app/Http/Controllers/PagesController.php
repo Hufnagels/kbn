@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Mapper;
+use App\News;
+use App\User;
 
 class PagesController extends Controller
 {
+    protected $paginateLimit = 5;
+
 
     public function getIndex(){
       return view('simplePages.index');
@@ -40,7 +44,21 @@ class PagesController extends Controller
     }
 
     public function getPosts(){
-      return view('simplePages.newslist');
+      //\DB::enableQueryLog();
+      $news = News::with('author')->latestFirst()->published()->paginate($this->paginateLimit);
+      //$news = News::orderBy('created_at', 'desc')->with('author')->paginate(5);
+      return view('simplePages.newslist', compact('news'));//->withNews($news);//, ['users' => $users]);
+      //view('simplePages.newslist', compact('news'))->render();
+      //dd(\DB::getQueryLog());
+
+    }
+
+    public function showPost($slug){
+      //$user = User::where('id', $id)->with('roles')->first();
+      //$user = User::findOrFail($id);
+      //return view('manage.users.edit')->withUser($user)->withRoles($roles);
+      $news = News::where('slug', $slug);
+      return view('simplePages.news')->withNews($news);//, ['users' => $users]);
     }
 
     public function getEvents(){
