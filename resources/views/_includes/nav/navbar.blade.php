@@ -30,33 +30,8 @@
       <a class="navbar-item " href="{{ route('about') }}">About</a>
       <a class="navbar-item " href="{{ route('team') }}">Team</a>
       <a class="navbar-item " href="{{ route('contact') }}">Contact</a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link " href="{{ route('newses') }}">News</a>
-
-        <div id="blogDropdown" class="navbar-dropdown " data-style="width: 18rem;">
-          <a class="navbar-item" href="/2017/07/24/access-previous-bulma-versions/">
-              <div class="navbar-content">
-                <p><small class="has-text-info">24 Jul 2017</small></p>
-                <p>Access previous Bulma versions</p>
-              </div>
-          </a>
-          <a class="navbar-item" href="/2017/07/24/access-previous-bulma-versions/">
-              <div class="navbar-content">
-                <p><small class="has-text-info">24 Jul 2017</small></p>
-                <p>Access previous Bulma versions</p>
-              </div>
-          </a>
-          <a class="navbar-item" href="/2017/07/24/access-previous-bulma-versions/">
-              <div class="navbar-content">
-                <p><small class="has-text-info">24 Jul 2017</small></p>
-                <p>Access previous Bulma versions</p>
-              </div>
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item" href="{{ route('newses') }}">More news</a>
-        </div>
-      </div>
+      <a class="navbar-item " href="{{ route('newses') }}">News</a>
+      
     </div>
 
     <div class="navbar-end">

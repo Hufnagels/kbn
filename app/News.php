@@ -21,9 +21,16 @@ class News extends Model
     return $this->slug;
     }
 
+    //Author in user table
     public function author()
     {
       return $this->belongsTo(User::class);
+    }
+
+    //Category in categories table
+    public function category()
+    {
+      return $this->belongsTo(Category::class);
     }
 
     public function getImageUrlAttribute($value)

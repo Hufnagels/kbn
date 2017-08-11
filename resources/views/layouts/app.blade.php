@@ -7,6 +7,7 @@
     <div id="app1">
 
         @yield('content')
+        @yield('sidebar')
 
     </div>
     @include('_includes.footer')

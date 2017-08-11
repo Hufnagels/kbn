@@ -17,6 +17,18 @@
     border-color: transparent;
     color: rgba(0, 0, 0, 0.7);
 }
+.panel-heading.is-info {
+    background-color: #3273dc;
+    border-color: transparent;
+    color: rgba(0, 0, 0, 0.7);
+}
+.tag.is-sup {margin-top: -15px;
+    font-size: .6rem;
+    margin-left: 5px;
+}
+.panel .media-content .content {
+    color: #6f6f6f;
+}
 </style>
 @endsection
 @section('content')
@@ -43,7 +55,7 @@
         <article class="media">
           <div class="media-left">
             <figure class="image is-150x150">
-              <img src="{{ $item->imageUrl }}" alt="Image">
+              <img src="{{ $item->imageUrl }}" alt="{{$item->title}}">
             </figure>
           </div>
           <div class="media-content">
@@ -69,74 +81,8 @@
     </div>
     <div class="column">
 
-      <nav class="panel">
-        <p class="panel-heading is-warning">
-          repositories
-        </p>
-        <div class="panel-block">
-          <p class="control has-icons-left">
-            <input class="input is-small" type="text" placeholder="search">
-            <span class="icon is-small is-left">
-              <i class="fa fa-search"></i>
-            </span>
-          </p>
-        </div>
-        <p class="panel-tabs">
-          <a class="is-active">all</a>
-          <a>public</a>
-          <a>private</a>
-          <a>sources</a>
-          <a>forks</a>
-        </p>
-        <a class="panel-block is-active">
-          <span class="panel-icon">
-            <i class="fa fa-book"></i>
-          </span>
-          bulma
-        </a>
-        <a class="panel-block">
-          <span class="panel-icon">
-            <i class="fa fa-book"></i>
-          </span>
-          marksheet
-        </a>
-        <a class="panel-block">
-          <span class="panel-icon">
-            <i class="fa fa-book"></i>
-          </span>
-          minireset.css
-        </a>
-        <a class="panel-block">
-          <span class="panel-icon">
-            <i class="fa fa-book"></i>
-          </span>
-          jgthms.github.io
-        </a>
-        <a class="panel-block">
-          <span class="panel-icon">
-            <i class="fa fa-code-fork"></i>
-          </span>
-          daniellowtw/infboard
-        </a>
-        <a class="panel-block">
-          <span class="panel-icon">
-            <i class="fa fa-code-fork"></i>
-          </span>
-          mojs
-        </a>
-        <label class="panel-block">
-          <input type="checkbox">
-          remember me
-        </label>
-        <div class="panel-block">
-          <button class="button is-primary is-outlined is-fullwidth">
-            reset all filters
-          </button>
-        </div>
-      </nav>
-
-
-
+@include('simplePages.sidebar')
+      
     </div>
 
   </div>

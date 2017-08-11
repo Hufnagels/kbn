@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Mapper;
+use Carbon\Carbon;
+
 use App\News;
 use App\User;
+use App\Category;
+
 
 class PagesController extends Controller
 {
@@ -44,10 +48,15 @@ class PagesController extends Controller
     }
 
     public function getPosts(){
+
+      $categories = Category::with(['news' => function($query){
+        $query->published();
+      }])->orderBy('title', 'asc')->get();
+      
       //\DB::enableQueryLog();
       $news = News::with('author')->latestFirst()->published()->paginate($this->paginateLimit);
       //$news = News::orderBy('created_at', 'desc')->with('author')->paginate(5);
-      return view('simplePages.newslist', compact('news'));//->withNews($news);//, ['users' => $users]);
+      return view('simplePages.newslist', compact('news', 'categories'));//->withNews($news);//, ['users' => $users]);
       //view('simplePages.newslist', compact('news'))->render();
       //dd(\DB::getQueryLog());
 
@@ -68,6 +77,22 @@ class PagesController extends Controller
 
     public function getEvents(){
 
+    }
+    public function category($id){
+      $categories = Category::with(['news' => function($query){
+        $query->published();
+      }])->orderBy('title', 'asc')->get();
+
+      //\DB::enableQueryLog();
+      $news = News::with('author')
+                    ->latestFirst()
+                    ->published()
+                    ->where('category_id', $id)
+                    ->paginate($this->paginateLimit);
+      //$news = News::orderBy('created_at', 'desc')->with('author')->paginate(5);
+      return view('simplePages.newslist', compact('news', 'categories'));//->withNews($news);//, ['users' => $users]);
+      //view('simplePages.newslist', compact('news'))->render();
+      //dd(\DB::getQueryLog());
     }
 
 }
