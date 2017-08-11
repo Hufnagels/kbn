@@ -50,13 +50,13 @@
                 </div>
               </nav>
               <div class="content">
-                <h3>{{$item->excerpt}}</h3>
+                <h3>{!! $item->excerpt_html !!}</h3>
               </div>
 
             </div>
           </article>
           <div class="content">
-            {{$item->body}}
+            {!! $item->body_html !!}
           </div>
         </div>
 

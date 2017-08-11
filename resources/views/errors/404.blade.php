@@ -41,7 +41,7 @@
             <h4>The page you are looking for might have been removed, had its name changed or is temporarily unavailable</h4>
             <h3>
               <a href="{{ route('welcome') }}" class="button is-dark is-medium">Go to the welcome page</a>
-              <a href="{{ url()->previous() }}" class="button is-dark is-inverted is-medium">Go to the previous page</a>
+              <a href="javascript:history.back()" class="button is-dark is-inverted is-medium">Go to the previous page</a>
             </h3>
           </div>
         </div>

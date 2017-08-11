@@ -29,21 +29,22 @@ class NewsTableSeeder extends Seeder
           $publishedDate = clone($date);
           $createdDate = clone($date);
 
-          $posts[] = [
+          $news[] = [
             'title' => $faker->sentence(rand(5,8)),
             'slug' => $faker->slug(),
             'subtitle' => $faker->sentence(rand(5,8)),
             'excerpt' => $faker->text(rand(200,250)),
             'body' => $faker->paragraphs(rand(10,15), true),
             'image' => rand(0,1) == 1 ? $image : NULL,
-            'author_id' => rand(8,10),
+            'author_id' => rand(3,5), // users table specific users
             'is_published' => 0,
             'created_at' => $createdDate,
             'updated_at' => $createdDate,
             'published_at' => $i < 10 ? $publishedDate : (rand(0,1) == 0 ? NULL : $publishedDate->addDays(4)),
+
           ];
         }
 
-        DB::table('news')->insert($posts);
+        DB::table('news')->insert($news);
     }
 }
