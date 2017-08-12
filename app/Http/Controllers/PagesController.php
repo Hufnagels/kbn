@@ -63,6 +63,7 @@ class PagesController extends Controller
 
       // if( empty($item['slug']) ) return view('errors.404');
       //dd($item);
+      $item->increment('view_count');
       return view('simplePages.news', compact('item'));//, ['users' => $users]);
       //view('simplePages.news', compact('item'))->render();
       //dd(\DB::getQueryLog());

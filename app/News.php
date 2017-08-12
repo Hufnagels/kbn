@@ -8,7 +8,7 @@ use GrahamCampbell\Markdown\Facades\Markdown;
 
 class News extends Model
 {
-
+    protected $fillable = ['view_count'];
     protected $dates = ['published_at'];
 /* implicit model binding
     public function getRouteKeyName()
