@@ -1,7 +1,11 @@
-/*html, body {
+html {
     margin: 0;
     padding: 0;
+    position:relative;
     min-height: 100%;
+}
+body {
+  margin-bottom:250px;
 }
 .footer {
     position: absolute;
@@ -10,7 +14,8 @@
     width: 100%;
     overflow:hidden;
     padding: 3rem 1.5rem 4rem;
-}*/
+}
+/**/
 /*
 BULMA NAVBAR nav, nav img, dropdown, button
 */

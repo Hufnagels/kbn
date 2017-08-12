@@ -13984,19 +13984,27 @@ label.panel-block:hover {
   transition: opacity 86ms ease-out, visibility 86ms ease-out;
 }
 
-/*html, body {
-    margin: 0;
-    padding: 0;
-    min-height: 100%;
+html {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  min-height: 100%;
 }
+
+body {
+  margin-bottom: 250px;
+}
+
 .footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    overflow:hidden;
-    padding: 3rem 1.5rem 4rem;
-}*/
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  padding: 3rem 1.5rem 4rem;
+}
+
+/**/
 
 /*
 BULMA NAVBAR nav, nav img, dropdown, button
