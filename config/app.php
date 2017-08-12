@@ -180,6 +180,10 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         /*
+         * Own service provider
+        */
+        App\Providers\ComposerServiceProvider::class,
+        /*
          * Third party Providers...
          */
         Laratrust\LaratrustServiceProvider::class,

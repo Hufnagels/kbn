@@ -49,40 +49,57 @@
 <div class="container m-t-20">
   <div class="columns">
     <div class="column is-three-quarters">
-      @foreach ($news as $item)
-
-      <div class="box">
-        <article class="media">
-          <div class="media-left">
-            <figure class="image is-150x150">
-              <img src="{{ $item->imageUrl }}" alt="{{$item->title}}">
-            </figure>
-          </div>
-          <div class="media-content">
-            <div class="content">
-              <h3 class="subtitle"><a class="" href="{{ route('news.show', $item->slug)}}">{{$item->title}}</a></h3>
-              <p>{{$item->excerpt}}</p>
-              <p><strong>{{$item->author->name}}</strong> <small>{{ '@'.str_slug($item->author->name,'') }}</small> <small>{{$item->date}}</small></p>
-            </div>
-            <nav class="level is-mobile">
-              <div class="level-left">
-                <a class="level-item"><span class="icon is-small"><i class="fa fa-reply"></i></span></a>
-                <a class="level-item"><span class="icon is-small"><i class="fa fa-retweet"></i></span></a>
-                <a class="level-item"><span class="icon is-small"><i class="fa fa-heart"></i></span></a>
-              </div>
-            </nav>
-          </div>
-        </article>
+      @if(!$news->count() )
+      <div class="notification is-danger title">
+        <strong>Sorry</strong>, nothing found yet
       </div>
+      @else
+        @if(isset($categoryName))
+        <div class="notification is-info subtitle">
+          <strong>Category: </strong>{{$categoryName}}
+        </div>
+        @endif
+        @foreach ($news as $item)
 
-      @endforeach
+        <div class="box">
+          <article class="media">
+            <div class="media-left">
+              <figure class="image is-150x150">
+                <img src="{{ $item->imageUrl }}" alt="{{$item->title}}">
+              </figure>
+            </div>
+            <div class="media-content">
+              <div class="content">
+                <h3 class="subtitle"><a class="" href="{{ route('news.show', $item->slug)}}">{{$item->title}}</a></h3>
+                <p>{{$item->excerpt}}</p>
+                <p>
+                  <strong>{{$item->author->name}}</strong> |
+                  <small>{{ '@'.str_slug($item->author->name,'') }}</small> |
+                  <small>{{$item->date}}</small> |
+                  <small><a href="{{ route('news.category', $item->category->slug)}}">{{$item->category->title}}</a></small>
+                </p>
+              </div>
+              <nav class="level is-mobile">
+                <div class="level-left">
+                  <a class="level-item"><span class="icon is-small"><i class="fa fa-reply"></i></span></a>
+                  <a class="level-item"><span class="icon is-small"><i class="fa fa-retweet"></i></span></a>
+                  <a class="level-item"><span class="icon is-small"><i class="fa fa-heart"></i></span></a>
+                </div>
+              </nav>
+            </div>
+          </article>
+        </div>
+
+        @endforeach
+      @endif
+
 
       {{$news->links()}}
     </div>
     <div class="column">
 
 @include('simplePages.sidebar')
-      
+
     </div>
 
   </div>

@@ -29,7 +29,7 @@ class RouteServiceProvider extends ServiceProvider
         parent::boot();
         Route::bind('news', function ($slug) {
           //if(News::published()->where('slug', $slug)->exists())
-            return News::published()->where('slug', $slug)->first();
+            return News::published()->where('slug', $slug)->firstOrFail();
 
         });
     }

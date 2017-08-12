@@ -30,8 +30,27 @@
       <a class="navbar-item " href="{{ route('about') }}">About</a>
       <a class="navbar-item " href="{{ route('team') }}">Team</a>
       <a class="navbar-item " href="{{ route('contact') }}">Contact</a>
-      <a class="navbar-item " href="{{ route('newses') }}">News</a>
-      
+      <!--<a class="navbar-item " href="{{ route('newses') }}">News</a>-->
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link " href="{{ route('newses') }}">News</a>
+        <div id="blogDropdown" class="navbar-dropdown " data-style="width: 18rem;">
+          @foreach ($popularposts as $post)
+            <a class="navbar-item" href="{{ route('news.show', $post->slug)}}">
+              <div class="navbar-content">
+                <p>
+                  <small class="has-text-info">{{$post->date}}</small> |
+                  <small class="has-text-info">{{$post->author->name}}</small>
+                </p>
+                <p>{{$post->title}}</p>
+              </div>
+            </a>
+          @endforeach
+
+          <hr class="navbar-divider">
+          <a class="navbar-item " href="{{ route('newses') }}">More News</a>
+        </div>
+      </div>
+
     </div>
 
     <div class="navbar-end">

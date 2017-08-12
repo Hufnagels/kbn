@@ -49,27 +49,20 @@ class PagesController extends Controller
 
     public function getPosts(){
 
-      $categories = Category::with(['news' => function($query){
-        $query->published();
-      }])->orderBy('title', 'asc')->get();
-      
       //\DB::enableQueryLog();
       $news = News::with('author')->latestFirst()->published()->paginate($this->paginateLimit);
       //$news = News::orderBy('created_at', 'desc')->with('author')->paginate(5);
-      return view('simplePages.newslist', compact('news', 'categories'));//->withNews($news);//, ['users' => $users]);
+      return view('simplePages.newslist', compact('news'));//->withNews($news);//, ['users' => $users]);
       //view('simplePages.newslist', compact('news'))->render();
       //dd(\DB::getQueryLog());
 
     }
 
     public function showPost(News $item){
-      //$user = User::where('id', $id)->with('roles')->first();
-      //$user = User::findOrFail($id);
-      //return view('manage.users.edit')->withUser($user)->withRoles($roles);
-      //die("news");
       //\DB::enableQueryLog();
-      //$item = News::published()->where('slug', $slug)->first();//findOrFail($slug);
-      if( empty($item['slug']) ) return view('errors.404');
+
+      // if( empty($item['slug']) ) return view('errors.404');
+      //dd($item);
       return view('simplePages.news', compact('item'));//, ['users' => $users]);
       //view('simplePages.news', compact('item'))->render();
       //dd(\DB::getQueryLog());
@@ -78,19 +71,19 @@ class PagesController extends Controller
     public function getEvents(){
 
     }
-    public function category($id){
-      $categories = Category::with(['news' => function($query){
-        $query->published();
-      }])->orderBy('title', 'asc')->get();
+    public function category(Category $category){
 
       //\DB::enableQueryLog();
-      $news = News::with('author')
-                    ->latestFirst()
-                    ->published()
-                    ->where('category_id', $id)
-                    ->paginate($this->paginateLimit);
+
+      $categoryName = $category->title;
+      $news = $category
+                      ->news()
+                      ->with('author')
+                      ->latestFirst()
+                      ->published()
+                      ->paginate($this->paginateLimit);
       //$news = News::orderBy('created_at', 'desc')->with('author')->paginate(5);
-      return view('simplePages.newslist', compact('news', 'categories'));//->withNews($news);//, ['users' => $users]);
+      return view('simplePages.newslist', compact('news', 'categoryName'));//->withNews($news);//, ['users' => $users]);
       //view('simplePages.newslist', compact('news'))->render();
       //dd(\DB::getQueryLog());
     }

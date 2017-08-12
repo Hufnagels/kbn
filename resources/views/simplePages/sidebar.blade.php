@@ -9,7 +9,7 @@
 
   @foreach($categories as $category)
     @if($category->news->count() )
-    <a class="panel-block" href="{{ route('news.category', $category->id)}}">
+    <a class="panel-block" href="{{ route('news.category', $category->slug)}}">
       <span class="panel-icon"><i class="fa fa-book"></i></span>{{ $category->title}}
       <span class="tag is-rounded is-light is-sup">{{ $category->news->count()}}</span>
     </a>
@@ -19,20 +19,20 @@
 </nav>
 
 <nav class="panel">
-  <p class="panel-heading is-info">Popular posts</p>
+  <p class="panel-heading is-info">Popular news</p>
 
 
-  @foreach ($news as $item)
-  <a class="panel-block" href="{{ route('news.show', $item->slug)}}">
+  @foreach ($popularposts as $post)
+  <a class="panel-block" href="{{ route('news.show', $post->slug)}}">
     <article class="media">
       <figure class="media-left">
         <p class="image is-64x64">
-          <img src="{{ $item->imageUrl }}">
+          <img src="{{ $post->imageUrl }}">
         </p>
       </figure>
       <div class="media-content">
         <div class="content">
-          {{$item->title}}
+          {{$post->title}}
         </div>
       </div>
     </article>

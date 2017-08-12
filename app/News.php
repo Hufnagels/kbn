@@ -16,9 +16,9 @@ class News extends Model
         return 'slug';
     }
 */
-    public function getRouteKey()
+    public function getRouteKeyName()
     {
-    return $this->slug;
+      return 'slug';
     }
 
     //Author in user table
@@ -69,6 +69,11 @@ class News extends Model
     public function scopeLatestFirst($query)
     {
       return $query->orderBy('published_at', 'desc');
+    }
+
+    public function scopePopular($query)
+    {
+      return $query->orderBy('view_count', 'desc');
     }
 
     public function scopePublished($query)

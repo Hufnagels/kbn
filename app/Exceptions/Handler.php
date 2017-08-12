@@ -51,9 +51,12 @@ class Handler extends ExceptionHandler
 
       if ($exception instanceof ModelNotFoundException) {
           //$exception = new NotFoundHttpException($exception->getMessage(), $exception);
-          return response()->view('errors.404', $exception, 404);
+          return response()->view('errors.404', $exception->name, 404);
       }
 
+      if ($exception instanceof AuthorizationException) {
+          return response()->view('errors.authorization-error', $exception, 500);
+      }
       if ($exception instanceof CustomException) {
           return response()->view('errors.404', $exception, 404);
       }
