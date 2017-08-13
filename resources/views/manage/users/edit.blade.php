@@ -11,6 +11,33 @@
           </div>
         </div>
       </div>
+
+@if(Laratrust::hasRole(['owner | administrator']))
+<p>Laratrust::hasRole('superadministrator, administrator, author, editor')</p>
+@endif
+            @role('superadministrator, administrator, author, editor')
+                <p>role('superadministrator, administrator, author')</p>
+            @endrole
+
+            @permission('update-profile')
+                <p>permission('update-profile')</p>
+            @endpermission
+
+            @ability('owner', 'update-profile')
+                <p>ability('owner', 'update-profile')</p>
+            @endability
+
+            @canAndOwns('update-profile', $user)
+                <p>canAndOwns('update-profile', $user)</p>
+            @endOwns
+
+@hasRoleAndOwns('author', $user)
+    <p>hasRoleAndOwns('admin', $user)</p>
+@endOwns
+
+      @ability('owner', 'update-profile')
+
+
       <div class="card-content">
         <form action="{{ route('users.update', $user->id)}}" method="POST">
           {{ method_field('PUT') }}
@@ -129,7 +156,9 @@
 
         </form>
       </div>
-
+      <p>This is visible if the user has the permission and owns the object. Gets translated to
+      \Laratrust::canAndOwns('edit-post', $post)</p>
+  @endability
       <footer class="card-footer">
         <a href="{{ url()->previous() }}" class="card-footer-item is-pulled-right">Back</a>
       </footer>

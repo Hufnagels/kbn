@@ -11,6 +11,7 @@ class LaratrustSetupTables extends Migration
      */
     public function up()
     {
+      Schema::disableForeignKeyConstraints();
         // Create table for storing roles
         Schema::create('roles', function (Blueprint $table) {
             $table->increments('id');
@@ -65,6 +66,7 @@ class LaratrustSetupTables extends Migration
 
             $table->primary(['permission_id', 'role_id']);
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -74,6 +76,7 @@ class LaratrustSetupTables extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('permission_user');
         Schema::dropIfExists('permission_role');
         Schema::dropIfExists('permissions');

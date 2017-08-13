@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class CategoriesTableSeeder extends Seeder
 {
@@ -12,47 +13,56 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
         DB::table('categories')->truncate();
-
+        $this->command->info('Create category data');
+        $date = Carbon::create(2016, 6, 20, 9);
         DB::table('categories')->insert([
           [
             'title'=>'Microbit beginner',
             'slug'=>'microbit-beginner',
-            'type'=>'news'
+            'type'=>'news',
+            'created_at' => $date
           ],
           [
             'title'=>'Microbit intermediate',
             'slug'=>'microbit-intermediate',
-            'type'=>'news'
+            'type'=>'news',
+            'created_at' => $date
           ],
           [
             'title'=>'Oktatás',
             'slug'=>'oktatas',
-            'type'=>'news'
+            'type'=>'news',
+            'created_at' => $date
           ],
           [
             'title'=>'Interesting codes',
             'slug'=>'interesting-codes',
-            'type'=>'news'
+            'type'=>'news',
+            'created_at' => $date
           ],
           [
             'title'=>'Konferencia',
             'slug'=>'konferencia',
-            'type'=>'news'
+            'type'=>'news',
+            'created_at' => $date
           ],
           [
             'title'=>'Kiállítás',
             'slug'=>'kiallitas',
-            'type'=>'news'
+            'type'=>'news',
+            'created_at' => $date
           ],
           [
             'title'=>'Tábor',
             'slug'=>'tabor',
-            'type'=>'events'
+            'type'=>'events',
+            'created_at' => $date
           ],
           [
             'title'=>'Padagógus képzés',
             'slug'=>'pedagogus-kepzes',
-            'type'=>'events'
+            'type'=>'events',
+            'created_at' => $date
           ]
         ]);
 

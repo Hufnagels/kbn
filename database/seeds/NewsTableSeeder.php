@@ -15,7 +15,7 @@ class NewsTableSeeder extends Seeder
     {
         //reset table
         DB::table('news')->truncate();
-
+        $this->command->info('Create dummy News data');
         //insert some data
         $posts=[];
         $faker = Factory::create();
