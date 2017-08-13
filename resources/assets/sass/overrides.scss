@@ -40,7 +40,9 @@ a.navbar-item:hover, a.navbar-item.is-active, .navbar-link:hover, .navbar-link.i
 .navbar-item img {
     max-height: 3.75rem;
 }
-
+.navbar-dropdown {
+    z-index: 2000;
+}
 .navbar-end .navbar-dropdown {
   right:0;
   left: auto;

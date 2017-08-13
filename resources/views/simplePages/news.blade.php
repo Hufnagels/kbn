@@ -5,12 +5,22 @@
 #app {
     margin-right: 0px;
 }
-.notification {
-    padding: 1.25rem;
-    background-color:transparent;
+
+.news-container small.icon.is-small.postcount {
+    min-width: 5rem;
 }
-.notification .card{
-    margin: 1.25rem;
+.news-container .postcount >i.fa.fa-clone {
+    margin-right: .3rem;
+}
+.news-sidebar .panel-heading.is-warning {
+    background-color: #ffdd57;
+    border-color: transparent;
+    color: rgba(0, 0, 0, 0.7);
+}
+.news-sidebar .panel-heading.is-info {
+    background-color: #3273dc;
+    border-color: transparent;
+    color: rgba(0, 0, 0, 0.7);
 }
 </style>
 @endsection
@@ -25,7 +35,7 @@
   </div>
 </section>
 
-  <div class="container m-t-20">
+  <div class="container m-t-20 news-container">
     <div class="columns">
       <div class="column is-three-quarters">
 
@@ -41,10 +51,12 @@
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong>{{$item->author->name}}</strong> |
+                  <strong><a href="{{ route('news.author', $item->author->slug)}}">{{$item->author->name}}</a></strong> |
                   <small>{{ '@'.str_slug($item->author->name,'') }}</small> |
-                  <small>{{$item->date}}</small> | 
-                  <small><a href="{{ route('news.category', $item->category->slug)}}">{{$item->category->title}}</a></small>
+                  <small>{{$item->date}}</small> |
+                  <small><a href="{{ route('news.category', $item->category->slug)}}">{{$item->category->title}}</a></small> |
+                  <?php $postCount = $item->author->news->count(); ?>
+                  <small class="icon is-small postcount"><i class="fa fa-clone"></i>{{$postCount}} {{str_plural('post', $postCount)}}</small>
                 </p>
               </div>
               <nav class="level is-mobile">
@@ -67,7 +79,7 @@
 
       </div><!-- end of left column -->
 
-      <div class="column">
+      <div class="column news-sidebar">
 
         @include('simplePages.sidebar')
 

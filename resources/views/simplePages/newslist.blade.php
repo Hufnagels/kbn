@@ -5,29 +5,33 @@
 #app {
     margin-right: 0px;
 }
-.notification {
+.news-container .notification {
     padding: 1.25rem;
-    background-color:transparent;
 }
-.notification .card{
+
+.news-container .notification .card{
     margin: 1.25rem;
 }
-.panel-heading.is-warning {
+.news-sidebar .panel-heading.is-warning {
     background-color: #ffdd57;
     border-color: transparent;
     color: rgba(0, 0, 0, 0.7);
 }
-.panel-heading.is-info {
+.news-sidebar .panel-heading.is-info {
     background-color: #3273dc;
     border-color: transparent;
     color: rgba(0, 0, 0, 0.7);
 }
-.tag.is-sup {margin-top: -15px;
+.news-sidebar .tag.is-sup {margin-top: -15px;
     font-size: .6rem;
     margin-left: 5px;
 }
-.panel .media-content .content {
+.news-sidebar .panel .media-content .content {
     color: #6f6f6f;
+}
+
+.news-container .box:first-child, :not(.box) + .box {
+    margin-top: 1.5rem;
 }
 </style>
 @endsection
@@ -46,7 +50,7 @@
   </div>
 </section>
 
-<div class="container m-t-20">
+<div class="container m-t-20 news-container">
   <div class="columns">
     <div class="column is-three-quarters">
       @if(!$news->count() )
@@ -57,6 +61,11 @@
         @if(isset($categoryName))
         <div class="notification is-info subtitle">
           <strong>Category: </strong>{{$categoryName}}
+        </div>
+        @endif
+        @if(isset($authorName))
+        <div class="notification is-info subtitle">
+          <strong>Author: </strong>{{$authorName}}
         </div>
         @endif
         @foreach ($news as $item)
@@ -73,7 +82,7 @@
                 <h3 class="subtitle"><a class="" href="{{ route('news.show', $item->slug)}}">{{$item->title}}</a></h3>
                 <p>{{$item->excerpt}}</p>
                 <p>
-                  <strong>{{$item->author->name}}</strong> |
+                  <strong><a href="{{ route('news.author', $item->author->slug)}}">{{$item->author->name}}</a></strong> |
                   <small>{{ '@'.str_slug($item->author->name,'') }}</small> |
                   <small>{{$item->date}}</small> |
                   <small><a href="{{ route('news.category', $item->category->slug)}}">{{$item->category->title}}</a></small>
@@ -96,9 +105,9 @@
 
       {{$news->links()}}
     </div>
-    <div class="column">
+    <div class="column news-sidebar">
 
-@include('simplePages.sidebar')
+      @include('simplePages.sidebar')
 
     </div>
 

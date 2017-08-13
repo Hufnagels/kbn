@@ -14,9 +14,10 @@
 Route::get('/contact', 'PagesController@getcontact')->name('contact');
 Route::get('/about', 'PagesController@getAbout')->name('about');
 Route::get('/team', 'PagesController@getTeam')->name('team');
-Route::get('/news/category/{category}', 'PagesController@category')->name('news.category');
-Route::get('/news/{news}', 'PagesController@showPost')->name('news.show');
-Route::get('/news', 'PagesController@getPosts')->name('newses');
+Route::get('/news/author/{author}', 'PostController@author')->name('news.author');
+Route::get('/news/category/{category}', 'PostController@category')->name('news.category');
+Route::get('/news/{news}', 'PostController@showPost')->name('news.show');
+Route::get('/news', 'PostController@getPosts')->name('newses');
 Route::get('/', 'PagesController@getIndex')->name('welcome');
 
 

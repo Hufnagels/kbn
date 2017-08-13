@@ -13,7 +13,7 @@ use App\Category;
 
 class PagesController extends Controller
 {
-    protected $paginateLimit = 5;
+    // protected $paginateLimit = 5;
 
 
     public function getIndex(){
@@ -47,46 +47,46 @@ class PagesController extends Controller
       return view('simplePages.postContactForm');
     }
 
-    public function getPosts(){
-
-      //\DB::enableQueryLog();
-      $news = News::with('author')->latestFirst()->published()->paginate($this->paginateLimit);
-      //$news = News::orderBy('created_at', 'desc')->with('author')->paginate(5);
-      return view('simplePages.newslist', compact('news'));//->withNews($news);//, ['users' => $users]);
-      //view('simplePages.newslist', compact('news'))->render();
-      //dd(\DB::getQueryLog());
-
-    }
-
-    public function showPost(News $item){
-      //\DB::enableQueryLog();
-
-      // if( empty($item['slug']) ) return view('errors.404');
-      //dd($item);
-      $item->increment('view_count');
-      return view('simplePages.news', compact('item'));//, ['users' => $users]);
-      //view('simplePages.news', compact('item'))->render();
-      //dd(\DB::getQueryLog());
-    }
-
-    public function getEvents(){
-
-    }
-    public function category(Category $category){
-
-      //\DB::enableQueryLog();
-
-      $categoryName = $category->title;
-      $news = $category
-                      ->news()
-                      ->with('author')
-                      ->latestFirst()
-                      ->published()
-                      ->paginate($this->paginateLimit);
-      //$news = News::orderBy('created_at', 'desc')->with('author')->paginate(5);
-      return view('simplePages.newslist', compact('news', 'categoryName'));//->withNews($news);//, ['users' => $users]);
-      //view('simplePages.newslist', compact('news'))->render();
-      //dd(\DB::getQueryLog());
-    }
+    // public function getPosts(){
+    //
+    //   //\DB::enableQueryLog();
+    //   $news = News::with('author')->latestFirst()->published()->paginate($this->paginateLimit);
+    //   //$news = News::orderBy('created_at', 'desc')->with('author')->paginate(5);
+    //   return view('simplePages.newslist', compact('news'));//->withNews($news);//, ['users' => $users]);
+    //   //view('simplePages.newslist', compact('news'))->render();
+    //   //dd(\DB::getQueryLog());
+    //
+    // }
+    //
+    // public function showPost(News $item){
+    //   //\DB::enableQueryLog();
+    //
+    //   // if( empty($item['slug']) ) return view('errors.404');
+    //   //dd($item);
+    //   $item->increment('view_count');
+    //   return view('simplePages.news', compact('item'));//, ['users' => $users]);
+    //   //view('simplePages.news', compact('item'))->render();
+    //   //dd(\DB::getQueryLog());
+    // }
+    //
+    // public function getEvents(){
+    //
+    // }
+    // public function category(Category $category){
+    //
+    //   //\DB::enableQueryLog();
+    //
+    //   $categoryName = $category->title;
+    //   $news = $category
+    //                   ->news()
+    //                   ->with('author')
+    //                   ->latestFirst()
+    //                   ->published()
+    //                   ->paginate($this->paginateLimit);
+    //   //$news = News::orderBy('created_at', 'desc')->with('author')->paginate(5);
+    //   return view('simplePages.newslist', compact('news', 'categoryName'));//->withNews($news);//, ['users' => $users]);
+    //   //view('simplePages.newslist', compact('news'))->render();
+    //   //dd(\DB::getQueryLog());
+    // }
 
 }

@@ -14041,6 +14041,10 @@ a.navbar-item.is-active,
   max-height: 3.75rem;
 }
 
+.navbar-dropdown {
+  z-index: 2000;
+}
+
 .navbar-end .navbar-dropdown {
   right: 0;
   left: auto;

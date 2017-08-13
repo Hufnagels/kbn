@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password'
     ];
 
     /**
@@ -29,8 +29,17 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function getRouteKeyName()
+    {
+      return 'slug';
+    }
+
     public function news()
     {
-      return $this->hasMany(News::class);
+      /*
+      * second parameter is a foreign_key
+      * used for show news from author
+      */
+      return $this->hasMany(News::class, 'author_id');
     }
 }
