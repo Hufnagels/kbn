@@ -34,13 +34,7 @@
             </div>
           </div>
 
-          <div class="content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-            <a>#css</a> <a>#responsive</a>
-            <br>
-            <small>11:09 PM - 1 Jan 2016</small>
-          </div>
+          <div class="content">{!! $user->bio_html !!}</div>
         </div>
 
 

@@ -138,7 +138,7 @@
               <div class="field">
                 <label class="label">Biography</label>
                 <div class="control">
-                  <textarea class="textarea" placeholder="Textarea"></textarea>
+                  <textarea class="textarea" placeholder="Textarea">{{ $user->bio}}</textarea>
                 </div>
               </div>
             </div>

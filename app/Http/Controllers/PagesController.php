@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use App\News;
 use App\User;
 use App\Category;
+//use App\Mail\contactus;
 
 
 class PagesController extends Controller
@@ -43,8 +44,27 @@ class PagesController extends Controller
       return view('simplePages.contact');
     }
 
-    public function postContact(){
-      return view('simplePages.postContactForm');
+    public function postContact(Request $request){
+      $user = [
+              'name' => $request->get('name'),
+              'email' => $request->get('email'),
+              'message' => $request->get('message')
+          ];
+          /**
+          * User::create() helyett contact::create() kell
+          */
+      // \Mail::to($user)->send(new contactus($user));
+      \Mail::send('emails.webcontact', ['user' => $user], function ($m) use ($user) {
+
+            $m->from($user['email'], $user['name']);
+
+            $m->to('kbvconsulting@gmail.com', 'admin')
+              ->subject('From Your Website (a new contact): ' );
+
+        });
+
+      return redirect()->route('contact')->with('message', 'Thanks for contacting us!');
+      //return view('simplePages.contact')->with('message', 'Thanks for contacting us!');
     }
 
     // public function getPosts(){

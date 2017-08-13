@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laratrust\Traits\LaratrustUserTrait;
+use GrahamCampbell\Markdown\Facades\Markdown;
 
 class User extends Authenticatable
 {
@@ -41,5 +42,10 @@ class User extends Authenticatable
       * used for show news from author
       */
       return $this->hasMany(News::class, 'author_id');
+    }
+
+    public function getBioHtmlAttribute($value)
+    {
+      return $this->bio ? Markdown::convertToHtml(e($this->bio)) : NULL;
     }
 }

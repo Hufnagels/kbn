@@ -12,6 +12,7 @@
 */
 
 Route::get('/contact', 'PagesController@getcontact')->name('contact');
+Route::post('/contact', 'PagesController@postContact')->name('contact');
 Route::get('/about', 'PagesController@getAbout')->name('about');
 Route::get('/team', 'PagesController@getTeam')->name('team');
 Route::get('/news/author/{author}', 'PostController@author')->name('news.author');

@@ -82,7 +82,11 @@
 							</header>
 							<div class="card-content">
 								<div class="content">
-									<form class="form-horizontal" method="POST" action="{{ route('login') }}">
+								@if(Session::has('message'))
+									<div class="notification is-success">{{Session::get('message')}}</div>
+								@else
+
+									<form class="form-horizontal" method="POST" action="{{ route('contact') }}">
 											{{ csrf_field() }}
 											<div class="columns">
 												<div class="column">
@@ -124,7 +128,7 @@
 													<div class="field">
 														<label class="label">Message</label>
 														<div class="control">
-															<textarea class="textarea" id="message" type="message" name="message" placeholder="" rows="5" cols="150"></textarea>
+															<textarea class="textarea" id="message" type="text" name="message" placeholder="" rows="5" cols="150"></textarea>
 														</div>
 													</div>
 												</div>
@@ -136,6 +140,7 @@
 											</div>
 
 									</form>
+								@endif
 								</div>
 							</div>
 						</div>
