@@ -1,5 +1,5 @@
 @extends('layouts.manage')
-
+@section('title',' - Show permission')
 @section('content')
   <div class="flex-container"></div>
     <div class="columns">

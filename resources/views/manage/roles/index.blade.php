@@ -1,5 +1,5 @@
 @extends('layouts.manage')
-
+@section('title',' - Roles list')
 @section('content')
 @if (Laratrust::can(['create-acl', 'create-user']) )
   <div class="flex-container"></div>

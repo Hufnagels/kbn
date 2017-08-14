@@ -188,6 +188,7 @@ return [
          */
         Laratrust\LaratrustServiceProvider::class,
         Cornford\Googlmapper\MapperServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
 
     ],
 
@@ -241,6 +242,8 @@ return [
         'Laratrust' => Laratrust\LaratrustFacade::class,
         'Mapper'  => Cornford\Googlmapper\Facades\MapperFacade::class,
         'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 

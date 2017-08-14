@@ -1,5 +1,5 @@
 @extends('layouts.manage')
-
+@section('title',' - Create User')
 
 @section('content')
 

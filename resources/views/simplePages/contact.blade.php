@@ -93,7 +93,7 @@
 													<div class="field">
 														<label class="label">Név</label>
 														<div class="control has-icons-left has-icons-right">
-															<input class="input {{ $errors->has('name') ? ' is-danger' : '' }}" id="name" type="text" name="name" value="" required autofocus>
+															<input class="input {{ $errors->has('name') ? ' is-danger' : '' }}" id="name" type="text" name="name" value="{{ old('name') }}" required autofocus>
 															<span class="icon is-small is-left"><i class="fa fa-user"></i></span>
 														</div>
 													</div>
@@ -117,7 +117,7 @@
 													<div class="field">
 														<label class="label">Phone</label>
 														<div class="control has-icons-left has-icons-right">
-															<input class="input" id="phone" type="number" name="phone" value="" placeholder="06301234567">
+															<input class="input" id="phone" type="number" name="phone" value="{{ old('phone') }}" placeholder="06301234567">
 															<span class="icon is-small is-left"><i class="fa fa-phone"></i></span>
 														</div>
 													</div>
@@ -128,7 +128,7 @@
 													<div class="field">
 														<label class="label">Message</label>
 														<div class="control">
-															<textarea class="textarea" id="message" type="text" name="message" placeholder="" rows="5" cols="150"></textarea>
+															<textarea class="textarea {{ $errors->has('message') ? ' is-danger' : '' }}" id="message" type="text" name="message" placeholder="" rows="5" cols="150">{{ old('message') }}</textarea>
 														</div>
 													</div>
 												</div>

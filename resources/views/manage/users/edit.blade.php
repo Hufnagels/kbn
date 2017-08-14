@@ -1,5 +1,5 @@
 @extends('layouts.manage')
-
+@section('title',' - Edit User')
 @section('content')
 
 <div class="columns">

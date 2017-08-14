@@ -1,9 +1,19 @@
 .menu {
-    height: 100vh;
+    height: auto;
     overflow-y: auto;
     padding: 1rem;
-    min-height: 100%;
 }
+/**
+* BULMA Sidebar
+*
+*/
+@media screen and (min-width: 769px) {
+  .menu {
+      height: 100vh;
+      min-height: 100%;
+  }
+}
+
 .manage {
   &.columns {
     margin-bottom: 0;
@@ -23,4 +33,8 @@
 }
 .subtitle:not(:last-child) {
     margin-bottom: .3rem;
+}
+
+.control.is-danger > .input, .control.is-danger > .textarea, .control.is-danger > .select > select {
+    border-color: #ff3860;
 }

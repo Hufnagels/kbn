@@ -1,5 +1,5 @@
 @extends('layouts.manage')
-
+@section('title',' - Users list')
 @section('content')
 
 <div class="flex-container"></div>

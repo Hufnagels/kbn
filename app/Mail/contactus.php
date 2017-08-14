@@ -21,7 +21,7 @@ class contactus extends Mailable
     public function __construct($user)
     {
         $this->user = $user;
-        dd($this->user);
+        //dd($this->user);
     }
 
     /**

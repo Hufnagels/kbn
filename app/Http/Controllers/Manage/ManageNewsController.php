@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Manage;
 
 use Illuminate\Http\Request;
 //use App\Http\Controllers\Controller;
+use App\Http\Requests\NewsValidationRequest;
 use App\News;
+use App\User;
+use App\Category;
 
 class ManageNewsController extends BackendController
 {
@@ -17,8 +20,9 @@ class ManageNewsController extends BackendController
      */
     public function index()
     {
-      $newses = News::with('author')->orderBy('id', 'desc')->paginate($this->paginateLimit); //all();
-      return view('manage.news.index', compact('newses'));//, ['users' => $users]);
+      $newses = News::with('author', 'category')->orderBy('id', 'desc')->paginate($this->paginateLimit); //all();
+      $newsCount = News::count();
+      return view('manage.news.index', compact('newses', 'newsCount'));//, ['users' => $users]);
     }
 
     /**
@@ -26,9 +30,9 @@ class ManageNewsController extends BackendController
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(News $post)
     {
-        return view('manage.news.create');
+        return view('manage.news.create',compact('post'));
     }
 
     /**
@@ -37,9 +41,12 @@ class ManageNewsController extends BackendController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NewsValidationRequest $request)
     {
-        //
+
+        if($request['published_at'] <> NULL) $request['is_published']='1';
+        $request->user()->news()->create($request->all());
+        return redirect()->route('post.index')->with('message','News was created successfully');
     }
 
     /**
@@ -50,8 +57,10 @@ class ManageNewsController extends BackendController
      */
     public function show($id)
     {
-      $news = News::where('id', $id); //all();
-      return view('manage.news.show', compact('news'));//, ['users' => $users]);
+
+      $item = News::with('author', 'category')->where('id', $id); //all();
+      dd($item);
+      return view('manage.news.show', compact('item'));//, ['users' => $users]);
     }
 
     /**

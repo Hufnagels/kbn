@@ -8,7 +8,7 @@ use GrahamCampbell\Markdown\Facades\Markdown;
 
 class News extends Model
 {
-    protected $fillable = ['view_count'];
+    protected $fillable = ['title','slug', 'excerpt', 'body','image','is_published','published_at', 'category_id','view_count'];
     protected $dates = ['published_at'];
 /* implicit model binding
     public function getRouteKeyName()
@@ -33,6 +33,27 @@ class News extends Model
       return $this->belongsTo(Category::class);
     }
 
+    public function publicationStatusLabel()
+    {
+      if (! $this->published_at)
+      {
+        return '<span class="tag is-danger">Draft</span>';
+      }
+      elseif ($this->published_at && $this->published_at->isFuture())
+      {
+        return '<span class="tag is-warning">Scheduled</span>';
+      }
+      else
+      {
+        return '<span class="tag is-success">Published</span>';
+      }
+    }
+
+
+    /**
+    *
+    * LARAVEL Attributes
+    */
     public function getImageUrlAttribute($value)
     {
       $imageUrl ='';
@@ -85,6 +106,15 @@ class News extends Model
       return $this->excerpt ? Markdown::convertToHtml(e($this->excerpt)) : NULL;
     }
 
+    public function setPublishedAtAttribute($value)
+    {
+      $this->attributes['published_at'] = $value ?: NULL;
+    }
+
+      /**
+    *
+    * LARAVEL scopes
+    */
     public function scopeLatestFirst($query)
     {
       return $query->orderBy('published_at', 'desc');
@@ -99,4 +129,6 @@ class News extends Model
     {
       return $query->where('published_at', '<=', Carbon::now());
     }
+
+
 }

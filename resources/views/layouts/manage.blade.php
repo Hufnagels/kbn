@@ -8,14 +8,14 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }} - Management</title>
+    <title>{{ config('app.name', 'Laravel') }} - Manage @yield('title')</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="m-b-5">
   @include('_includes.nav.navbar')
   <div class="columns manage">
     <div class="column is-one-quarter">
