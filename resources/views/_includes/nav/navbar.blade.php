@@ -59,8 +59,9 @@
       <a class="navbar-item" href="{{ route('register') }}">SignUp</a>
       @else
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link " href="#">Hello {{ Auth::user()->name }}</a>
-        <div id="blogDropdown" class="navbar-dropdown " data-style="width: 18rem;">
+        <a class="navbar-link " href="#">
+          <img src="http://kvn.dev/images/news/128x128.png" alt="" class="image is-48x48" style="margin-right:5px;"> {{ Auth::user()->name }}</a>
+        <div id="loginDropdown" class="navbar-dropdown " data-style="width: 18rem;">
           <a class="navbar-item" href="/2017/07/24/access-previous-bulma-versions/">
               <div class="navbar-content">
                 <p><small class="has-text-info">24 Jul 2017</small></p>

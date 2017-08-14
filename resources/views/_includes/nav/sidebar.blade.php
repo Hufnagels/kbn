@@ -15,9 +15,9 @@
 
   <p class="menu-label">Manage content</p>
   <ul class="menu-list">
-    <li><a>Blogs</a></li>
+    <li><a href="{{ route('post.index') }}">News</a></li>
     <li><a>Events</a></li>
-    <li><a>Images</a></li>
+    <li><a>Categories</a></li>
 
   </ul>
 </aside>

@@ -1,7 +1,7 @@
 @extends('layouts.manage')
 
 @section('content')
-@if (Laratrust::can(['create-acl', 'create-user']) )
+
 <div class="flex-container"></div>
   <div class="columns">
     <div class="column">
@@ -48,5 +48,5 @@
 
     </div>
   </div>
-@endif
+
 @endsection

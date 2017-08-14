@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Manage;
 
 use Illuminate\Http\Request;
 
-class ManageController extends Controller
+class ManageController extends BackendController
 {
     //
     public function index()
@@ -12,7 +12,7 @@ class ManageController extends Controller
       return redirect()->route('manage.dashboard');
     }
 
-    public function dashboard($value='')
+    public function dashboard()
     {
       return view('manage.dashboard');
     }

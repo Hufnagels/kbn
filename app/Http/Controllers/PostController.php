@@ -19,10 +19,7 @@ class PostController extends Controller
 {
   protected $paginateLimit = 5;
 
-  public function index(){
-    $posts = News::orderBy('id', 'asc')->paginate(2); //all();
-    return view('manage.news.index')->withUsers($posts);//, ['users' => $users]);
-  }
+  
 
   public function getPosts(){
 

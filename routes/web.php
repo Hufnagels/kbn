@@ -27,12 +27,12 @@ Route::get('/', 'PagesController@getIndex')->name('welcome');
 Auth::routes();
 
 Route::prefix('manage')->middleware('role:superadministrator|administrator|editor|author')->group(function(){
-  Route::get('/', 'ManageController@index');
-  Route::get('/dashboard', 'ManageController@dashboard')->name('manage.dashboard');
+  Route::get('/', 'Manage\ManageController@index');
+  Route::get('/dashboard', 'Manage\ManageController@dashboard')->name('manage.dashboard');
   Route::resource('/users', 'UserController');
   Route::resource('/permissions', 'PermissionController', ['except' => 'destroy']);
   Route::resource('/roles', 'RoleController', ['except' => 'destroy']);
-  //Route::resource('/posts', 'PostController', ['except' => 'destroy']);
+  Route::resource('/post', 'Manage\ManageNewsController', ['except' => 'destroy']);
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'Manage\ManageController@index')->name('home');
