@@ -57,15 +57,17 @@ class News extends Model
     public function getImageUrlAttribute($value)
     {
       $imageUrl ='';
+      $imageDirectory = config('imageAttributes.image.news.directory');
       if (!is_null($this->image))
       {
-        $imagePath = public_path()."/images/news/" . $this->image;
+
+        $imagePath = public_path()."/".$imageDirectory."/" . $this->image;
         if (file_exists($imagePath))
         {
-          $imageUrl = asset('images/news/'. $this->image);
+          $imageUrl = asset($imageDirectory.'/'. $this->image);
         }
       } else {
-        $imageUrl = asset('images/news/128x128.png');
+        $imageUrl = asset($imageDirectory.'/128x128.png');
       }
       return $imageUrl;
     }
@@ -73,18 +75,20 @@ class News extends Model
     public function getImageThumbUrlAttribute($value)
     {
       $imageUrl ='';
+      $imageDirectory = config('imageAttributes.image.news.directory');
 
       if (!is_null($this->image))
       {
+
         $ext = substr(strrchr($this->image, '.'), 1);
         $thumbnail = str_replace(".{$ext}", "_thumb.{$ext}", $this->image);
-        $imagePath = public_path()."/images/news/" . $thumbnail;
+        $imagePath = public_path()."/".$imageDirectory."/" . $thumbnail;
         if (file_exists($imagePath))
         {
-          $imageUrl = asset('images/news/'. $this->image);
+          $imageUrl = asset($imageDirectory.'/'. $this->image);
         }
       } else {
-        $imageUrl = asset('images/news/128x128.png');
+        $imageUrl = asset($imageDirectory.'/128x128.png');
       }
       return $imageUrl;
     }

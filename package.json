@@ -21,6 +21,7 @@
     "buefy": "^0.4.6",
     "bulma": "^0.4.4",
     "font-awesome": "^4.7.0",
-    "material-components-web": "^0.16.0"
+    "material-components-web": "^0.16.0",
+    "trumbowyg": "^2.7.0"
   }
 }

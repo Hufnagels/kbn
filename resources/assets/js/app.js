@@ -8,6 +8,8 @@
 require('./bootstrap');
 //require('node_modules/material-design-lite/material.min.js');
 //require('../../../node_modules/material-components-web/dist/material-components-web');
+require('../../../node_modules/trumbowyg/dist/trumbowyg.min.js');
+
 window.Vue = require('vue');
 
 import Buefy from 'buefy';
@@ -54,4 +56,5 @@ $(document).ready(function(){
   $('.navbar-burger').click(function (e) {
     $('#navMenu').toggleClass('is-active');
   })
+  
 });
