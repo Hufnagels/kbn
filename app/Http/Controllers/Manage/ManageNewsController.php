@@ -76,9 +76,9 @@ class ManageNewsController extends BackendController
           if($successUpload)
           {
             $thumbWidth = config('imageAttributes.image.news.thumbnail.width');
-            $thumbHeight = config('imageAttributes.image.news.thumbnail.width');
+            $thumbHeight = config('imageAttributes.image.news.thumbnail.height');
             $width = config('imageAttributes.image.news.width');
-            $height = config('imageAttributes.image.news.width');
+            $height = config('imageAttributes.image.news.height');
             $thumbnail = str_replace(".{$extension}","_thumb.{$extension}", $fileName);
             Image::make($destination . "/" . $fileName)->resize($thumbWidth,$thumbHeight)->save($destination . "/" . $thumbnail);
             Image::make($destination . "/" . $fileName)->resize($width,$height)->save($destination . "/" . $fileName);
