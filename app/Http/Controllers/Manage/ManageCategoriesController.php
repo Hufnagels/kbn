@@ -116,7 +116,7 @@ class ManageCategoriesController extends BackendController
       if( !($category->id == config('categoryAttributes.category_default.id')) )
 
       {
-        News::where('category_id', $id)->update(['category_id' => config('categoryAttributes.category_default.id'))] );
+        News::where('category_id', $id)->update(['category_id' => config('categoryAttributes.category_default.id')] );
         $category->delete();
         return redirect()->route('category.index')->with('message', 'Category was deleted successfully');
       }
