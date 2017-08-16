@@ -122,7 +122,7 @@ class ManageCategoriesController extends BackendController
       }
       else
       {
-        return redirect()->route('category.index')->with('error', 'Can not delete this');
+        return redirect()->route('category.index')->with('error', 'Can not delete this category');
       }
 
     }
