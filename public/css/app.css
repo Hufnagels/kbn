@@ -15603,7 +15603,8 @@ body.trumbowyg-body-fullscreen {
   height: 100px;
 }
 
-.createnewspost .notification {
+.createnewspost .notification,
+.createcategory .notification {
   background-color: transparent;
 }
 

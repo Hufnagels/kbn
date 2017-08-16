@@ -17,7 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('slug')->unique();
-            $table->string('type'); // news, events
+            $table->string('type')->default('news'); // news, events
             $table->timestamps();
 
         });

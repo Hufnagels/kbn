@@ -17,7 +17,7 @@
   <ul class="menu-list">
     <li><a href="{{ route('post.index') }}">News</a></li>
     <li><a>Events</a></li>
-    <li><a>Categories</a></li>
+    <li><a href="{{ route('category.index') }}">Categories</a></li>
 
   </ul>
 </aside>

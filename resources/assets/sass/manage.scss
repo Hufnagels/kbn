@@ -41,7 +41,9 @@
 
 .textarea.excerpt {height:100px;}
 
-.createnewspost .notification {background-color:transparent}
+.createnewspost .notification,
+.createcategory .notification
+ {background-color:transparent}
 
 .notification strong {
     color: currentColor;

@@ -35,6 +35,9 @@ Route::prefix('manage')->middleware('role:superadministrator|administrator|edito
   Route::put('/post/restore/{post}', 'Manage\ManageNewsController@restore')->name('post.restore');
   Route::delete('/post/force-destroy/{post}', 'Manage\ManageNewsController@forcedestroy')->name('post.force-destroy');
   Route::resource('/post', 'Manage\ManageNewsController');
+  Route::put('/category/restore/{category}', 'Manage\ManageCategoriesController@restore')->name('category.restore');
+  Route::delete('/category/force-destroy/{category}', 'Manage\ManageCategoriesController@forcedestroy')->name('category.force-destroy');
+  Route::resource('/category', 'Manage\ManageCategoriesController');
 });
 
 Route::get('/home', 'Manage\ManageController@index')->name('home');

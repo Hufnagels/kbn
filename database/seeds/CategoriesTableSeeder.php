@@ -17,6 +17,12 @@ class CategoriesTableSeeder extends Seeder
         $date = Carbon::create(2016, 6, 20, 9);
         DB::table('categories')->insert([
           [
+            'title'=>'Uncategorized',
+            'slug'=>'uncategorized',
+            'type'=>'news',
+            'created_at' => $date
+          ],
+          [
             'title'=>'Microbit beginner',
             'slug'=>'microbit-beginner',
             'type'=>'news',
