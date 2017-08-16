@@ -18,6 +18,14 @@
 	-webkit-backface-visibility: hidden;  /* Fix for transition flickering */
 }
 .image.is-150x150 {
+    width: 150px;
+    height: 150px;
+}
+.image.is-250x170 {
     width: 250px;
     height: 170px;
+}
+.image.is-500x340 {
+    width: 500px;
+    height: 340px;
 }

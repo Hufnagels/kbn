@@ -13,7 +13,7 @@ class CreateNewsTable extends Migration
      */
     public function up()
     {
-        
+
         Schema::create('news', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title', 100);
@@ -26,7 +26,7 @@ class CreateNewsTable extends Migration
             $table->foreign('author_id')->references('id')->on('users')->onDelete('restrict');
             $table->integer('is_published')->default('0');
             $table->timestamps();
-
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

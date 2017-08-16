@@ -3,8 +3,8 @@ return [
   'image' => [
     'news' => [
       'directory' => 'images/news',
-      'width' => 250,
-      'height' => 170,
+      'width' => 500,
+      'height' => 340,
       'thumbnail' => [
         'width' => 250,
         'height' => 170
@@ -12,8 +12,8 @@ return [
     ],
     'events' => [
       'directory' => 'images/events',
-      'width' => 250,
-      'height' => 170,
+      'width' => 500,
+      'height' => 340,
       'thumbnail' => [
         'width' => 250,
         'height' => 170

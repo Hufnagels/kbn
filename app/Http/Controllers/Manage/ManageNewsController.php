@@ -11,6 +11,7 @@ use App\User;
 use App\Category;
 use Intervention\Image\Facades\Image;
 
+
 class ManageNewsController extends BackendController
 {
 
@@ -28,11 +29,41 @@ class ManageNewsController extends BackendController
         $this->uploadPath = public_path(config('imageAttributes.image.news.directory'));
     }
 
-    public function index()
+    public function index(Request $request)
     {
-      $newses = News::with('author', 'category')->orderBy('id', 'desc')->paginate($this->paginateLimit); //all();
-      $newsCount = News::count();
-      return view('manage.news.index', compact('newses', 'newsCount'));//, ['users' => $users]);
+      $onlyTrashed = FALSE;
+      if( ($status = $request->get('status')) && $status == 'trash')
+      {
+        $newses = News::onlyTrashed()->with('author', 'category')->latest()->paginate($this->paginateLimit); //all();
+        $newsCount = News::onlyTrashed()->count();
+        $onlyTrashed = TRUE;
+      }
+      elseif ($status == 'published')
+      {
+        $newses = News::published()->with('author', 'category')->latest()->paginate($this->paginateLimit); //all();
+        $newsCount = News::published()->count();
+
+      }
+      elseif ($status == 'scheduled')
+      {
+        $newses = News::scheduled()->with('author', 'category')->latest()->paginate($this->paginateLimit); //all();
+        $newsCount = News::scheduled()->count();
+
+      }
+      elseif ($status == 'draft')
+      {
+        $newses = News::draft()->with('author', 'category')->latest()->paginate($this->paginateLimit); //all();
+        $newsCount = News::draft()->count();
+
+      }
+      else
+      {
+        $newses = News::with('author', 'category')->latest()->paginate($this->paginateLimit); //all();
+        $newsCount = News::count();
+
+      }
+      $statusList = $this->statuslist();
+      return view('manage.news.index', compact('newses', 'newsCount', 'onlyTrashed', 'statusList'));//, ['users' => $users]);
     }
 
     /**
@@ -58,6 +89,97 @@ class ManageNewsController extends BackendController
         $request->user()->news()->create($data);
         return redirect()->route('post.index')->with('message','News was created successfully');
     }
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+
+      // $item = News::with('author', 'category')->where('id', $id); //all();
+      // dd($item);
+      // return view('manage.news.show', compact('item'));//, ['users' => $users]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+      $post = News::findOrFail($id); //all();
+      return view('manage.news.edit', compact('post'));//, ['users' => $users]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(NewsValidationRequest $request, $id)
+    {
+        $post = News::findOrFail($id);
+
+        $oldImage = $post->image;
+
+        $data = $this->handelRequest($request);
+        $post->update($data);
+
+        if( $oldImage !== $post->image)
+        {
+          $this->removeImage($oldImage);
+        }
+
+        return redirect()->route('post.index')->with('message','News was updated successfully');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+     /**/
+    public function destroy($id)
+    {
+        News::findOrFail($id)->delete();
+        return redirect()->route('post.index')->with('trash-message',['News has been moved to Trash', $id]);
+
+    }
+
+    public function forceDestroy($id)
+    {
+        $news = News::withTrashed()->findOrFail($id);
+        $news->forceDelete();
+        $this->removeImage($news->image);
+
+
+        return redirect('/manage/post?status=trash')->with('message','News has been deleted permanently');
+        // )->route('post.index'
+    }
+
+    public function restore($id)
+    {
+        $news = News::withTrashed()->findOrFail($id);
+        $news->restore();
+
+        return redirect()->back()->with('message','News has been Restored');
+        // redirect()->route('post.index')
+        // route('post.index')
+    }
+
+    /**
+    *
+    * FUNCTION SECTION
+    */
 
     public function handelRequest($request)
     {
@@ -89,52 +211,29 @@ class ManageNewsController extends BackendController
         }
         return $data;
     }
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
 
-      $item = News::with('author', 'category')->where('id', $id); //all();
-      dd($item);
-      return view('manage.news.show', compact('item'));//, ['users' => $users]);
+    public function removeImage($image)
+    {
+      if ( ! empty($image))
+      {
+        $imagePath = $this->uploadPath. '/' . $image;
+        $ext = pathinfo($image, PATHINFO_EXTENSION);
+        $thumbnail = pathinfo($image, PATHINFO_FILENAME)."_thumb.".$ext;
+        $thumbnailPath = $this->uploadPath. '/' . $thumbnail;
+//dd($thumbnailPath);
+        if( file_exists($imagePath)) unlink($imagePath);
+        if( file_exists($thumbnailPath)) unlink($thumbnailPath);
+      }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    private function statusList()
     {
-      $news = News::where('id', $id); //all();
-      return view('manage.news.edit', compact('news'));//, ['users' => $users]);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+      return [
+        'all' => News::count(),
+        'published' => News::published()->count(),
+        'scheduled' => News::scheduled()->count(),
+        'draft' => News::draft()->count(),
+        'trash' => News::onlyTrashed()->count()
+      ];
     }
 }

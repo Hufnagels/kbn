@@ -12,11 +12,19 @@
     <title>{{ config('app.name', 'Laravel') }} @yield('title')</title>
 
     <link rel="icon" href="fav.ico">
-    <!-- Styles -->
+    <!-- Styles
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
+    -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     @yield('styles')
 
 </head>
+<!--
+        <link rel="index" title="Index" href="../genindex.html">
+        <link rel="search" title="Search" href="../search.html">
+        <link rel="top" title="Laratrust Docs 4.0.0 documentation" href="../index.html">
+        <link rel="up" title="Usage" href="index.html">
+        <link rel="next" title="Soft Deleting" href="soft_deleting.html">
+        <link rel="prev" title="Usage" href="index.html">
+    -->

@@ -24,7 +24,7 @@ class NewsTableSeeder extends Seeder
         for($i=1; $i<=20; $i++)
         {
           //$date = date("Y-m-d H:i:s", strtotime("2017-07-20 10:10:10 + {$i} days"));
-          $image = 'Post_Image_'.rand(1,5).'.jpg';
+          $image = 'Post_Image_'.rand(1,5).'.png';
           $date->addDays($i);
           $publishedDate = clone($date);
           $createdDate = clone($date);

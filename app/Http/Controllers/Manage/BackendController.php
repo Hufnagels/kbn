@@ -1,4 +1,5 @@
 <?php
+/* ez nem kell */
 
 namespace App\Http\Controllers\Manage;
 

@@ -5,9 +5,11 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use GrahamCampbell\Markdown\Facades\Markdown;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class News extends Model
 {
+    use SoftDeletes;
     protected $fillable = ['title','slug', 'excerpt', 'body','image','is_published','published_at', 'category_id','view_count'];
     protected $dates = ['published_at'];
 /* implicit model binding
@@ -67,7 +69,7 @@ class News extends Model
           $imageUrl = asset($imageDirectory.'/'. $this->image);
         }
       } else {
-        $imageUrl = asset($imageDirectory.'/128x128.png');
+        $imageUrl = asset($imageDirectory.'/250x170.png');
       }
       return $imageUrl;
     }
@@ -85,10 +87,10 @@ class News extends Model
         $imagePath = public_path()."/".$imageDirectory."/" . $thumbnail;
         if (file_exists($imagePath))
         {
-          $imageUrl = asset($imageDirectory.'/'. $this->image);
+          $imageUrl = asset($imageDirectory.'/'. $thumbnail);
         }
       } else {
-        $imageUrl = asset($imageDirectory.'/128x128.png');
+        $imageUrl = asset($imageDirectory.'/250x170.png');
       }
       return $imageUrl;
     }
@@ -102,7 +104,8 @@ class News extends Model
 
     public function getBodyHtmlAttribute($value)
     {
-      return $this->body ? Markdown::convertToHtml(e($this->body)) : NULL;
+      // return $this->body ? Markdown::convertToHtml(e($this->body)) : NULL;
+      return $this->body ? html_entity_decode($this->body) : NULL;
     }
 
     public function getExcerptHtmlAttribute($value)
@@ -132,6 +135,14 @@ class News extends Model
     public function scopePublished($query)
     {
       return $query->where('published_at', '<=', Carbon::now());
+    }
+    public function scopeScheduled($query)
+    {
+      return $query->where('published_at', '>', Carbon::now());
+    }
+    public function scopeDraft($query)
+    {
+      return $query->whereNull('published_at');
     }
 
 

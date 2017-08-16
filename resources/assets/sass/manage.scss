@@ -42,3 +42,23 @@
 .textarea.excerpt {height:100px;}
 
 .createnewspost .notification {background-color:transparent}
+
+.notification strong {
+    color: currentColor;
+    margin-right: 20px;
+    line-height: 1.8rem;
+}
+
+form.allnewstable a span.fa{
+  margin-top:.2rem;
+}
+
+button.is-danger.is-outlined.allnewstable, button.is-danger.is-outlined.trashtable, button.is-info.is-outlined.trashtable{
+  border-color:transparent;
+}
+
+button.allnewstable > span.fa, button.trashtable > span.fa {
+    font-size: 16px;
+    text-align: center;
+    vertical-align: top;
+}

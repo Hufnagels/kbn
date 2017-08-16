@@ -11,50 +11,31 @@
             <div class="title">Manage News posts</div>
           </div>
           <div class="column">
-            <a href="{{ route('post.create')}}" class="button is-primary is-inverted is-outlined is-pulled-right"><i class="fa fa-user-plus m-r-10"></i> Create news post</a>
+            <a href="{{ route('post.create')}}" class="button is-primary is-inverted is-outlined is-pulled-right"><i class="fa fa-plus m-r-10"></i> Create news post</a>
           </div>
         </div>
-        <div class="card-content">
-          @if ( session('message'))
-          <div class="notification is-success"><strong>{{ session('message')}}</strong></div>
-          @endif
+        <div class="card-content p-t-0">
+
+          <p class="has-text-right m-b-10">{{ $newsCount}} {{str_plural('News Item',$newsCount)}}</p>
+          <div class="tabs is-small is-right">
+            <ul>
+              <li><a href="?status=all">All news</a></li>
+              <li><a href="?status=published">Published news</a></li>
+              <li><a href="?status=scheduled">Scheduled news</a></li>
+              <li><a href="?status=draft">Draft news</a></li>
+              <li><a href="?status=trash">News in Trash</a></li>
+            </ul>
+          </div>
+          @include('manage.news.message')
           @if ( ! $newsCount)
           <div class="notification is-warning"><strong>Currently no news found</strong></div>
           @else
-
-          <p class="has-text-right">{{ $newsCount}} {{str_plural('Item',$newsCount)}}</p>
-          <table class="table is-narrow">
-            <thead>
-              <tr>
-                <!--<th><abbr title="Id">ID</abbr></th>-->
-                <th width="40%"><abbr title="name">Title</abbr></th>
-                <th><abbr title="Email">Author</abbr></th>
-                <th><abbr title="Date created">Created</abbr></th>
-                <th><abbr title="Date created">Published</abbr></th>
-                <th><abbr title="Published state">Publish state</abbr></th>
-                <th><abbr title="Actions">Actions</abbr></th>
-              </tr>
-            </thead>
-
-            <tbody>
-              @foreach($newses as $news)
-              <tr>
-                <!--<td>{{$news->id}}</td>-->
-                <td>{{$news->title}}</td>
-                <td>{{$news->author->name}}</td>
-                <td>{{$news->created_at->toFormattedDateString()}}</td>
-                <td>{{ $news->published_at ? $news->published_at->toFormattedDateString() : 'not yet published'}}</td>
-                <td>{!! $news->publicationStatusLabel() !!}</td>
-                <td>
-                  <a href="{{ route('post.edit', $news->slug)}}" title="Edit"><span class="fa fa-edit"></span></a>
-                  <a href="{{ route('post.show', $news->slug)}}" title="Show"><span class="fa fa-eye"></span></a>
-
-                </td>
-              </tr>
-              @endforeach
-            </tbody>
-          </table>
-          {{$newses->links()}}
+          @if($onlyTrashed)
+            @include('manage.news.table-trashednews')
+          @else
+            @include('manage.news.table-allnews')
+          @endif
+          {{$newses->appends(Request::query())->render() }}
           @endif
         </div>
       </div>

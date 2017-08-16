@@ -14173,6 +14173,38 @@ button.nav-item.is-active {
   padding-bottom: calc(0.75rem - 3px);
 }
 
+.m-t-0 {
+  margin-top: 0px;
+}
+
+.p-t-0 {
+  padding-top: 0px;
+}
+
+.m-b-0 {
+  margin-bottom: 0px;
+}
+
+.p-b-0 {
+  padding-bottom: 0px;
+}
+
+.m-l-0 {
+  margin-left: 0px;
+}
+
+.p-l-0 {
+  padding-left: 0px;
+}
+
+.m-r-0 {
+  margin-right: 0px;
+}
+
+.p-r-0 {
+  padding-right: 0px;
+}
+
 .m-t-5 {
   margin-top: 5px;
 }
@@ -14682,8 +14714,18 @@ button.nav-item.is-active {
 }
 
 .image.is-150x150 {
+  width: 150px;
+  height: 150px;
+}
+
+.image.is-250x170 {
   width: 250px;
   height: 170px;
+}
+
+.image.is-500x340 {
+  width: 500px;
+  height: 340px;
 }
 
 /**
@@ -15563,5 +15605,32 @@ body.trumbowyg-body-fullscreen {
 
 .createnewspost .notification {
   background-color: transparent;
+}
+
+.notification strong {
+  color: currentColor;
+  margin-right: 20px;
+  line-height: 1.8rem;
+}
+
+form.allnewstable a span.fa,
+form.allnewstable a .icon span.mdi,
+.icon form.allnewstable a span.mdi {
+  margin-top: .2rem;
+}
+
+button.is-danger.is-outlined.allnewstable,
+button.is-danger.is-outlined.trashtable,
+button.is-info.is-outlined.trashtable {
+  border-color: transparent;
+}
+
+button.allnewstable > span.fa,
+.icon button.allnewstable > span.mdi,
+button.trashtable > span.fa,
+.icon button.trashtable > span.mdi {
+  font-size: 16px;
+  text-align: center;
+  vertical-align: top;
 }
 

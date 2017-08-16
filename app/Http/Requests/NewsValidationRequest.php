@@ -23,12 +23,21 @@ class NewsValidationRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-          'title' => 'required',
-          'slug' => 'required|unique:news',
-          'body' => 'required',
-          'category_id' => 'required',
-          'image' => 'image'
-        ];
+      $rules = [
+        'title' => 'required',
+        'slug' => 'required|unique:news',
+        'body' => 'required',
+        'category_id' => 'required',
+        'image' => 'image'
+      ];
+      switch($this->method()) {
+        case 'PUT':
+        case 'PATCH':
+          $rules['slug'] = 'required|unique:news,slug,'.$this->route('post');
+          break;
+      }
+
+      return $rules;
+
     }
 }

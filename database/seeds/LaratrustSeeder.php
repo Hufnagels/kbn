@@ -73,6 +73,8 @@ class LaratrustSeeder extends Seeder
                         'email' => $key.'@app.com',
                         'password' => bcrypt('password'),
                         'slug' => ucwords(str_replace("_", "-", $key)),
+                        'bio' => text(),
+                        'avatar' => string(),
                         'remember_token' => str_random(10),
                     ]);
                     foreach ($permissions as $p => $perm) {

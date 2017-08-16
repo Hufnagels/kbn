@@ -43,7 +43,7 @@
           <article class="media">
             @if ($item->imageUrl)
             <div class="media-left">
-              <figure class="image is-150x150">
+              <figure class="image is-500x340">
                 <img src="{{ $item->imageUrl }}" alt="{{$item->title}}">
               </figure>
             </div>
@@ -52,7 +52,7 @@
               <div class="content">
                 <p>
                   <strong><a href="{{ route('news.author', $item->author->slug)}}">{{$item->author->name}}</a></strong> |
-                  <small>{{ '@'.str_slug($item->author->name,'') }}</small> |
+                  <small>{{ '@'.str_slug($item->author->name,'') }}</small> <br>
                   <small>{{$item->date}}</small> |
                   <small><a href="{{ route('news.category', $item->category->slug)}}">{{$item->category->title}}</a></small> |
                   <?php $postCount = $item->author->news->count(); ?>
@@ -72,7 +72,7 @@
 
             </div>
           </article>
-          <div class="content">
+          <div class="content m-t-30">
             {!! $item->body_html !!}
           </div>
         </div>

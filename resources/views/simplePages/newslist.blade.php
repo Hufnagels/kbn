@@ -73,8 +73,8 @@
         <div class="box">
           <article class="media">
             <div class="media-left">
-              <figure class="image is-150x150">
-                <img src="{{ $item->imageUrl }}" alt="{{$item->title}}">
+              <figure class="image is-250x170">
+                <img src="{{ $item->image_thumb_url }}" alt="{{$item->title}}">
               </figure>
             </div>
             <div class="media-content">

@@ -32,7 +32,9 @@ Route::prefix('manage')->middleware('role:superadministrator|administrator|edito
   Route::resource('/users', 'UserController');
   Route::resource('/permissions', 'PermissionController', ['except' => 'destroy']);
   Route::resource('/roles', 'RoleController', ['except' => 'destroy']);
-  Route::resource('/post', 'Manage\ManageNewsController', ['except' => 'destroy']);
+  Route::put('/post/restore/{post}', 'Manage\ManageNewsController@restore')->name('post.restore');
+  Route::delete('/post/force-destroy/{post}', 'Manage\ManageNewsController@forcedestroy')->name('post.force-destroy');
+  Route::resource('/post', 'Manage\ManageNewsController');
 });
 
 Route::get('/home', 'Manage\ManageController@index')->name('home');

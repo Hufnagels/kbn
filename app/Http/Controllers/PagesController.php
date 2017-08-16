@@ -73,6 +73,16 @@ class PagesController extends Controller
       //return view('simplePages.contact')->with('message', 'Thanks for contacting us!');
     }
 
+    /**
+    *
+    * MOVED TO PostController
+    */
+    // public function getPosts()
+    // public function showPost(News $item)
+    // public function category(Category $category)
+    // public function author(User $author)
+
+
     // public function getPosts(){
     //
     //   //\DB::enableQueryLog();
