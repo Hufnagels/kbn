@@ -56,18 +56,25 @@
     <div class="navbar-end">
       @if (Auth::guest())
       <a class="navbar-item" href="{{ route('login') }}">SignIn</a>
-      
+
       @else
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link " href="#">
-          <img src="http://kvn.dev/images/news/128x128.png" alt="" class="image is-48x48" style="margin-right:5px;"> {{ Auth::user()->name }}</a>
+        <a class="navbar-link " href="#">{{ Auth::user()->name }}</a>
         <div id="loginDropdown" class="navbar-dropdown " data-style="width: 18rem;">
-          <a class="navbar-item" href="/2017/07/24/access-previous-bulma-versions/">
-              <div class="navbar-content">
-                <p><small class="has-text-info">24 Jul 2017</small></p>
-                <p>Access previous Bulma versions</p>
+          @if( (Auth::user()->avatar))
+          <div class="navbar-item image">
+            <div class="navbar-content">
+              <div class="level is-mobile">
+                <div class="level-center">
+                  <div class="level-item">
+                    <img src="http://kvn.dev/images/news/128x128.png" alt="" class="image is-128x128" style="">
+                  </div>
+                </div>
+
               </div>
-          </a>
+            </div>
+          </div>
+          @endif
           <a class="navbar-item" href="{{ route('manage.dashboard')}}">Administration</a>
           <a class="navbar-item" href="{{ route('users.show', Auth::user()->id)}}">Profile</a>
           <hr class="navbar-divider">

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 // use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryStoreRequest;
 use App\Http\Requests\CategoryUpdateRequest;
-// use App\Http\Requests\CategoryDestroyRequest;
+use App\Http\Requests\CategoryDestroyRequest;
 
 use App\Category;
 use App\News;
@@ -82,7 +82,8 @@ class ManageCategoriesController extends BackendController
      */
     public function edit($id)
     {
-      $category = Category::findOrFail($id); //all();
+      $category = Category::with('news')->findOrFail($id); //all();
+      //$newses = News::with('category_id',$id)->first();
       return view('manage.category.edit', compact('category'));//, ['users' => $users]);
     }
 
@@ -105,7 +106,7 @@ class ManageCategoriesController extends BackendController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy( $id)
+    public function destroy($id)
     {
       // CategoryDestroyRequest $request,
       // Category::findOrFail($id)->delete();
@@ -116,7 +117,7 @@ class ManageCategoriesController extends BackendController
       if( !($category->id == config('categoryAttributes.category_default.id')) )
 
       {
-        News::where('category_id', $id)->update(['category_id' => config('categoryAttributes.category_default.id')] );
+        News::where('category_id', $id)->update(['category_id' => config('categoryAttributes.default_category.id')] );
         $category->delete();
         return redirect()->route('category.index')->with('message', 'Category was deleted successfully');
       }
@@ -130,6 +131,7 @@ class ManageCategoriesController extends BackendController
     public function forceDestroy($id)
     {
         $category = Category::withTrashed()->findOrFail($id);
+        News::withTrashed()->where('category_id', $id)->update(['category_id' => config('categoryAttributes.default_category.id')]);
         $category->forceDelete();
 
 

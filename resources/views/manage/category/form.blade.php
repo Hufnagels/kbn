@@ -25,12 +25,37 @@
             <a href="{{ route('category.index') }}" class="button">Cancel</a>
           </div>
 
+
         </article>
       </div>
     </div>
-    @if( $category->id)
-    news lista
-    @endif
+    <div class="tile">
+      <article class="tile is-child notification">
+        <p class="subtitle">News in this category</p>
+      @if( $category->news )
+        <table class="table is-narrow">
+          <thead>
+            <tr>
+              <th width="100"><abbr title="Image"></abbr></th>
+              <th width="70%"><abbr title="Title">Title</abbr></th>
+              <th><abbr title="Author">Author</abbr></th>
+            </tr>
+          </thead>
+
+          <tbody>
+          @foreach ($category->news as $news)
+              <tr>
+                <td><img src="{{ $news->image_thumb_url }}" class="image is-125x85" ></td>
+                <td><a class="" href="{{ route('news.show', $news->slug)}}">{{$news->title}}</a></td>
+                <td>{{ $news->author->name }}</td>
+              </tr>
+          @endforeach
+            <tbody>
+        </table>
+      @endif
+      </article>
+    </div>
+
   </div>
 
 </div>

@@ -15,7 +15,7 @@ class Handler extends ExceptionHandler
      */
     protected $dontReport = [
         \Illuminate\Auth\AuthenticationException::class,
-        \Illuminate\Auth\Access\AuthorizationException::class,
+        //\Illuminate\Auth\Access\AuthorizationException::class,
         \Symfony\Component\HttpKernel\Exception\HttpException::class,
         \Illuminate\Database\Eloquent\ModelNotFoundException::class,
         \Illuminate\Session\TokenMismatchException::class,
@@ -45,21 +45,21 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
 /**/
-      if ( $exception instanceof \Illuminate\Session\TokenMismatchException ) {
-        return redirect()->route('login');
-      }
-
-      if ($exception instanceof ModelNotFoundException) {
-          //$exception = new NotFoundHttpException($exception->getMessage(), $exception);
-          return response()->view('errors.404', $exception->name, 404);
-      }
-
+      // if ( $exception instanceof \Illuminate\Session\TokenMismatchException ) {
+      //   return redirect()->route('login');
+      // }
+      //
+      // if ($exception instanceof ModelNotFoundException) {
+      //     //$exception = new NotFoundHttpException($exception->getMessage(), $exception);
+      //     return response()->view('errors.404', $exception->name, 404);
+      // }
+      //
       if ($exception instanceof AuthorizationException) {
-          return response()->view('errors.authorization-error', $exception, 500);
+          return response()->view('authorization-error', [], 500);
       }
-      if ($exception instanceof CustomException) {
-          return response()->view('errors.404', $exception, 404);
-      }
+      // if ($exception instanceof CustomException) {
+      //     return response()->view('errors.404', $exception, 404);
+      // }
 
         return parent::render($request, $exception);
     }

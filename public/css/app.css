@@ -14713,6 +14713,11 @@ button.nav-item.is-active {
   /* Fix for transition flickering */
 }
 
+.image.is-125x85 {
+  width: 125px;
+  height: 85px;
+}
+
 .image.is-150x150 {
   width: 150px;
   height: 150px;
@@ -15560,6 +15565,15 @@ body.trumbowyg-body-fullscreen {
   padding: 1rem;
 }
 
+.navbar-item.image img {
+  max-height: 100%;
+}
+
+.navbar-item.image {
+  min-height: 128px;
+  margin: 0;
+}
+
 /**
 * BULMA Sidebar
 *
@@ -15633,5 +15647,10 @@ button.trashtable > span.fa,
   font-size: 16px;
   text-align: center;
   vertical-align: top;
+}
+
+.radio input[type=radio] {
+  display: block;
+  margin: 5px 10px;
 }
 

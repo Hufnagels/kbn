@@ -1,7 +1,7 @@
 <?php
 return [
-  'default_category' => [
-    'title' => 'Uncategorized',
+  'users_default' => [
+    'name' => 'Uncategorized',
     'slug' => 'uncategozied',
     'id' => 1,
   ]

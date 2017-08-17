@@ -19,14 +19,14 @@ class PostController extends Controller
 {
   protected $paginateLimit = 5;
 
-  
+
 
   public function getPosts(){
 
     //\DB::enableQueryLog();
     $news = News::with('author')->latestFirst()->published()->paginate($this->paginateLimit);
     //$news = News::orderBy('created_at', 'desc')->with('author')->paginate(5);
-    return view('simplePages.newslist', compact('news'));//->withNews($news);//, ['users' => $users]);
+    return view('simplePages.news.newslist', compact('news'));//->withNews($news);//, ['users' => $users]);
     //view('simplePages.newslist', compact('news'))->render();
     //dd(\DB::getQueryLog());
 
@@ -38,7 +38,7 @@ class PostController extends Controller
     // if( empty($item['slug']) ) return view('errors.404');
     //dd($item);
     $item->increment('view_count');
-    return view('simplePages.news', compact('item'));//, ['users' => $users]);
+    return view('simplePages.news.news', compact('item'));//, ['users' => $users]);
     //view('simplePages.news', compact('item'))->render();
     //dd(\DB::getQueryLog());
   }
@@ -58,7 +58,7 @@ class PostController extends Controller
                     ->published()
                     ->paginate($this->paginateLimit);
     //$news = News::orderBy('created_at', 'desc')->with('author')->paginate(5);
-    return view('simplePages.newslist', compact('news', 'categoryName'));//->withNews($news);//, ['users' => $users]);
+    return view('simplePages.news.newslist', compact('news', 'categoryName'));//->withNews($news);//, ['users' => $users]);
     //view('simplePages.newslist', compact('news'))->render();
     //dd(\DB::getQueryLog());
   }
@@ -77,7 +77,7 @@ class PostController extends Controller
                     ->published()
                     ->paginate($this->paginateLimit);
 
-    return view('simplePages.newslist', compact('news', 'authorName'));
+    return view('simplePages.news.newslist', compact('news', 'authorName'));
 
     //dd(\DB::getQueryLog());
   }

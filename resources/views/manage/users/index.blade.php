@@ -11,38 +11,35 @@
             <div class="title">Manage Users</div>
           </div>
           <div class="column">
-            <a href="{{ route('users.create')}}" class="button is-primary is-inverted is-outlined is-pulled-right"><i class="fa fa-user-plus m-r-10"></i> Create user</a>
+            <a href="{{ route('users.create')}}" class="button is-primary is-inverted is-outlined is-pulled-right"><i class="fa fa-plus m-r-10"></i> Create new User</a>
           </div>
         </div>
-        <div class="card-content">
-          <table class="table is-narrow">
-            <thead>
-              <tr>
-                <th><abbr title="Id">ID</abbr></th>
-                <th><abbr title="name">Name</abbr></th>
-                <th><abbr title="Email">Email</abbr></th>
-                <th><abbr title="Date created">Date created</abbr></th>
-                <th><abbr title="Actions">Actions</abbr></th>
-              </tr>
-            </thead>
+        <div class="card-content p-t-0">
 
-            <tbody>
-              @foreach($users as $user)
-              <tr>
-                <td>{{$user->id}}</td>
-                <td>{{$user->name}}</td>
-                <td>{{$user->email}}</td>
-                <td>{{$user->created_at->toFormattedDateString()}}</td>
-                <td>
-                  <a href="{{ route('users.edit', $user->id)}}" title="Edit"><span class="fa fa-edit"></span></a>
-                  <a href="{{ route('users.show', $user->id)}}" title="Show"><span class="fa fa-eye"></span></a>
-                  <a href="{{ route('users.destroy', $user->id)}}" title="Delete"><span class="fa fa-remove"></span></a>
-                </td>
-              </tr>
-              @endforeach
-            </tbody>
-          </table>
-          {{$users->links()}}
+          <p class="has-text-right m-b-10">{{ $usersCount}} User {{str_plural('Item',$usersCount)}}</p>
+<!---->
+          <div class="tabs is-small is-right">
+            <ul>
+              <li><a href="?status=all">All users</a></li>
+              <li><a href="?status=trash">Users in Trash</a></li>
+            </ul>
+          </div>
+
+          @include('manage.partials.message')
+
+          @if ( ! $usersCount)
+            <div class="notification is-warning"><strong>Currently no user found</strong></div>
+          @else
+            @if($onlyTrashed)
+              @include('manage.users.table-trashedusers')
+            @else
+              @include('manage.users.table-allusers')
+            @endif
+
+
+            {{$users->appends(Request::query())->render() }}
+          @endif
+
         </div>
       </div>
 

@@ -21,8 +21,12 @@
       <td>
         {!! Form::open(['method' => 'DELETE', 'route' => ['category.destroy', $category->id],'class'=>'allnewstable']) !!}
         <a href="{{ route('category.edit', $category->id)}}" title="Edit"><span class="fa fa-edit"></span></a>
-        @if($category->news->count() < 1)
-        <button type="submit" class="button allnewstable is-danger is-outlined is-small"><span class="fa fa-remove"></span></button>
+        @if( ! ($category->id == config('categoryAttributes.default_category.id')) )
+        <button type="submit"
+        @if($category->news->count() > 0)
+          onclick="return confirm('This category has {{ $category->news->count() }} News binded to it');" 
+        @endif
+        class="button allnewstable is-danger is-outlined is-small"><span class="fa fa-remove"></span></button>
         @endif
         {!! Form::close() !!}
       </td>

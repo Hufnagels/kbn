@@ -14,8 +14,9 @@ use Input;
 class UserController extends Controller
 {
     //
+    protected $paginationLimit = 10;
     public function index(){
-      $users = User::orderBy('id', 'asc')->paginate(2); //all();
+      $users = User::orderBy('id', 'asc')->paginate($this->paginationLimit); //all();
       return view('manage.users.index')->withUsers($users);//, ['users' => $users]);
     }
 

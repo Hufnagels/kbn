@@ -25,6 +25,9 @@ class CreateNewsTable extends Migration
             $table->integer('author_id')->unsigned();
             $table->foreign('author_id')->references('id')->on('users')->onDelete('restrict');
             $table->integer('is_published')->default('0');
+            $table->integer('category_id')->unsigned()->default(0);
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('restrict');
+            $table->integer('view_count')->unsigned()->default(0);
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });

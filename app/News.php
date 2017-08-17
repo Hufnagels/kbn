@@ -51,7 +51,6 @@ class News extends Model
       }
     }
 
-
     /**
     *
     * LARAVEL Attributes

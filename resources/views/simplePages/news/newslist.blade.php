@@ -54,8 +54,8 @@
   <div class="columns">
     <div class="column is-three-quarters">
       @if(!$news->count() )
-      <div class="notification is-danger title">
-        <strong>Sorry</strong>, nothing found yet
+      <div class="notification is-warning subtitle">
+        <strong>Nothing found</strong>
       </div>
       @else
         @if(isset($categoryName))

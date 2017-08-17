@@ -36,7 +36,7 @@ class NewsTableSeeder extends Seeder
             'excerpt' => $faker->text(rand(200,250)),
             'body' => $faker->paragraphs(rand(10,15), true),
             'image' => rand(0,1) == 1 ? $image : NULL,
-            'author_id' => rand(3,5), // users table specific users
+            'author_id' => rand(1,3), // users table specific users
             'is_published' => 0,
             'created_at' => $createdDate,
             'updated_at' => $createdDate,

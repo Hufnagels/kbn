@@ -20,7 +20,7 @@
 <section id="errorPages" class="hero is-danger m-b-20">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title has-text-centered">Error</h1>
+      <h1 class="title has-text-centered">Something<br>went wrong</h1>
       <h2 class="subtitle has-text-centered"></h2>
     </div>
   </div>
@@ -37,12 +37,14 @@
         </figure>
         <div class="media-content">
           <div class="content">
-            <h1>Something<br>went wrong</h1>
-            <h4>The page you are looking for might have been removed, had its name changed or is temporarily unavailable</h4>
-            <h3>
-              <a href="{{ route('welcome') }}" class="button is-dark is-medium">Go to the welcome page</a>
-              <a href="{{ route('login') }}" class="button is-danger is-outlined is-medium">Go to the login page</a>
-            </h3>
+            <h1>{{ $exception->getMessage() }}</h1>
+          </div>
+            <div class="content m-t-50">
+            <p>
+              <a href="javascript:history.back()" class="button is-dark is-outlined is-small">Back to previous page</a>
+            <p>
+              <a href="{{ route('welcome') }}" class="button  is-small">Go to the welcome page</a>
+            </p>
 
           </div>
 

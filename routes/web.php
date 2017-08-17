@@ -28,13 +28,22 @@ Auth::routes();
 
 Route::prefix('manage')->middleware('role:superadministrator|administrator|editor|author')->group(function(){
   Route::get('/', 'Manage\ManageController@index');
+
   Route::get('/dashboard', 'Manage\ManageController@dashboard')->name('manage.dashboard');
-  Route::resource('/users', 'UserController');
+
+  Route::delete('/users/confirm/{user}', 'Manage\UsersController@confirm')->name('users.confirm');
+  Route::put('/users/restore/{user}', 'Manage\UsersController@restore')->name('users.restore');
+  Route::delete('/users/force-destroy/{user}', 'Manage\UsersController@forcedestroy')->name('users.force-destroy');
+  Route::resource('/users', 'Manage\UsersController');
+
+
   Route::resource('/permissions', 'PermissionController', ['except' => 'destroy']);
   Route::resource('/roles', 'RoleController', ['except' => 'destroy']);
+
   Route::put('/post/restore/{post}', 'Manage\ManageNewsController@restore')->name('post.restore');
   Route::delete('/post/force-destroy/{post}', 'Manage\ManageNewsController@forcedestroy')->name('post.force-destroy');
   Route::resource('/post', 'Manage\ManageNewsController');
+
   Route::put('/category/restore/{category}', 'Manage\ManageCategoriesController@restore')->name('category.restore');
   Route::delete('/category/force-destroy/{category}', 'Manage\ManageCategoriesController@forcedestroy')->name('category.force-destroy');
   Route::resource('/category', 'Manage\ManageCategoriesController');

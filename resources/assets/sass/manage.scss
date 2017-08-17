@@ -3,6 +3,14 @@
     overflow-y: auto;
     padding: 1rem;
 }
+
+.navbar-item.image img {
+    max-height: 100%;
+}
+.navbar-item.image {
+    min-height: 128px;
+    margin: 0;
+}
 /**
 * BULMA Sidebar
 *
@@ -63,4 +71,9 @@ button.allnewstable > span.fa, button.trashtable > span.fa {
     font-size: 16px;
     text-align: center;
     vertical-align: top;
+}
+
+.radio input[type=radio] {
+    display: block;
+    margin: 5px 10px;
 }
