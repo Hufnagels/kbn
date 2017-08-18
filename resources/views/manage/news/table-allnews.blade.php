@@ -23,8 +23,12 @@
       <td>
 
         {!! Form::open(['method' => 'DELETE', 'route' => ['post.destroy', $news->id],'class'=>'allnewstable']) !!}
+
         <a href="{{ route('post.edit', $news->id)}}" title="Edit"><span class="fa fa-edit"></span></a>
+
+        @if (check_user_permissions(request(), "News@destroy", $news->id))
         <button type="submit" class="button allnewstable is-danger is-outlined is-small"><span class="fa fa-remove"></span></button>
+        @endif
         {!! Form::close() !!}
       </td>
     </tr>

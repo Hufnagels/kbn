@@ -26,7 +26,7 @@ Route::get('/', 'PagesController@getIndex')->name('welcome');
 
 Auth::routes();
 
-Route::prefix('manage')->middleware('role:superadministrator|administrator|editor|author')->group(function(){
+Route::prefix('manage')->group(function(){
   Route::get('/', 'Manage\ManageController@index');
 
   Route::get('/dashboard', 'Manage\ManageController@dashboard')->name('manage.dashboard');

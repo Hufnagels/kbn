@@ -14,6 +14,7 @@ class NewsTableSeeder extends Seeder
     public function run()
     {
         //reset table
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         DB::table('news')->truncate();
         $this->command->info('Create dummy News data');
         //insert some data
@@ -37,6 +38,7 @@ class NewsTableSeeder extends Seeder
             'body' => $faker->paragraphs(rand(10,15), true),
             'image' => rand(0,1) == 1 ? $image : NULL,
             'author_id' => rand(1,3), // users table specific users
+            'category_id' => rand(1,7), // users table specific users
             'is_published' => 0,
             'created_at' => $createdDate,
             'updated_at' => $createdDate,
@@ -46,5 +48,6 @@ class NewsTableSeeder extends Seeder
         }
 
         DB::table('news')->insert($news);
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

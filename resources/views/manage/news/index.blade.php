@@ -19,6 +19,7 @@
           <p class="has-text-right m-b-10">{{ $newsCount}} News {{str_plural('Item',$newsCount)}}</p>
           <div class="tabs is-small is-right">
             <ul>
+              <li><a href="?status=all">Own news</a></li>
               <li><a href="?status=all">All news</a></li>
               <li><a href="?status=published">Published news</a></li>
               <li><a href="?status=scheduled">Scheduled news</a></li>

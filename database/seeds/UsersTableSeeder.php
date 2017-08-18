@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Faker\Factory;
+use Carbon\Carbon;
 
 class UsersTableSeeder extends Seeder
 {
@@ -12,8 +13,10 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
 
+      $this->command->info('Truncating Users table');
+      $this->truncateTables();
+        DB::table('permission_role')->truncate();
         $this->command->info('Create category data');
         $date = Carbon::create(2016, 6, 20, 9);
         DB::table('users')->insert([
@@ -61,5 +64,17 @@ class UsersTableSeeder extends Seeder
             /*'slug' => str_slug($user->name),*/
         }
 
+    }
+
+    /**
+     * Truncates all the laratrust tables and the users table
+     * @return    void
+     */
+    public function truncateTables()
+    {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        DB::table('users')->truncate();
+
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

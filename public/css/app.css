@@ -15649,7 +15649,7 @@ button.trashtable > span.fa,
   vertical-align: top;
 }
 
-.radio input[type=radio] {
+.radio.confirm input[type=radio] {
   display: block;
   margin: 5px 10px;
 }

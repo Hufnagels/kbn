@@ -12,6 +12,7 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         DB::table('categories')->truncate();
         $this->command->info('Create category data');
         $date = Carbon::create(2016, 6, 20, 9);
@@ -81,5 +82,6 @@ class CategoriesTableSeeder extends Seeder
             ->where('id', $news_id)
             ->update(['category_id'=>$category_id]);
         }
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

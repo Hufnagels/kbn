@@ -2,6 +2,7 @@
 @section('title',' - Permissions list')
 @section('content')
 @if (Laratrust::can(['create-acl', 'create-user']) )
+@endif
   <div class="flex-container"></div>
 
       <div class="columns">
@@ -45,5 +46,5 @@
           </div>
         </div>
       </div>
-@endif
+
 @endsection

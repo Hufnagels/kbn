@@ -29,10 +29,10 @@
                     <h2 class="subtitle ">What would you do?</h2>
                     <div class="field">
                       <div class="control m-t-20">
-                        <label class="radio"><input type="radio" name="delete_option" value="delete">Delete the user and all content what user {{$user->name}} created</label>
+                        <label class="radio confirm"><input type="radio" name="delete_option" value="delete">Delete the user and all content what user {{$user->name}} created</label>
                       </div>
                       <div class="control m-t-20">
-                        <label class="radio"><input type="radio" name="delete_option" value="attribute" checked>
+                        <label class="radio confirm"><input type="radio" name="delete_option" value="attribute" checked>
                           Delete the user and Attribute content to another user from the list:
                           <div class="select m-l-10">
                             {!! Form::select('selected_user', $users, null) !!}

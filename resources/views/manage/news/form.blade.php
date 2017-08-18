@@ -87,7 +87,9 @@
       </div>
       <hr>
       <div class="control m-t-30">
+
         {!! Form::submit('Publish', ['class' => 'button is-primary']) !!}
+
         <a href="{{ route('post.index') }}" class="button">Cancel</a>
       </div>
 
