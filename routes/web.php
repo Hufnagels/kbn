@@ -28,6 +28,8 @@ Auth::routes();
 
 Route::prefix('manage')->group(function(){
   Route::get('/', 'Manage\ManageController@index');
+  Route::get('/edit-account', 'Manage\ManageController@edit')->name('manage.account-edit');
+  Route::put('/edit-account', 'Manage\ManageController@update')->name('manage.account-update');
 
   Route::get('/dashboard', 'Manage\ManageController@dashboard')->name('manage.dashboard');
 

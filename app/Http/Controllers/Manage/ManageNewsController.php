@@ -56,13 +56,19 @@ class ManageNewsController extends BackendController
         $newsCount = News::draft()->count();
 
       }
+      elseif ($status == 'own')
+      {
+        $newses = $request->user()->news()->with('author', 'category')->latest()->paginate($this->paginateLimit); //all();
+        $newsCount = $request->user()->news()->count();
+
+      }
       else
       {
         $newses = News::with('author', 'category')->latest()->paginate($this->paginateLimit); //all();
         $newsCount = News::count();
 
       }
-      $statusList = $this->statuslist();
+      $statusList = $this->statuslist($request);
       return view('manage.news.index', compact('newses', 'newsCount', 'onlyTrashed', 'statusList'));//, ['users' => $users]);
     }
 
@@ -226,9 +232,10 @@ class ManageNewsController extends BackendController
       }
     }
 
-    private function statusList()
+    private function statusList($request)
     {
       return [
+        'own' => $request->user()->news()->count(),
         'all' => News::count(),
         'published' => News::published()->count(),
         'scheduled' => News::scheduled()->count(),

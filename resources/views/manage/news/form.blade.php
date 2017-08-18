@@ -72,12 +72,14 @@
               <img src="{{ ($post->image_thumb_url) ? $post->image_thumb_url : 'http://http://placehold.it/250x170&text=No+image%20(250x170)'}}" alt="">
             </div>
             <div class="m-t-20">
+              @if (check_user_permissions(request(), "News@edit", $post->id))
               <span href="#" class="button btn-default btn-file">
                 <!--<span class="fileinput-new">Select image</span>
                 <span class="button fileinput-exists">Change</span>-->
                 {!! Form::file('image') !!}
               </span>
               <a href="#" class="button fileinput-exists m-t-10" data-dismiss="fileinput">Remove</a>
+              @endif
             </div>
           </div>
         </div>
@@ -87,9 +89,9 @@
       </div>
       <hr>
       <div class="control m-t-30">
-
+        @if (check_user_permissions(request(), "ManageNews@edit", $post->id))
         {!! Form::submit('Publish', ['class' => 'button is-primary']) !!}
-
+        @endif
         <a href="{{ route('post.index') }}" class="button">Cancel</a>
       </div>
 

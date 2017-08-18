@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class HomeController extends BackendController
 {
-    
+
 
     /**
      * Show the application dashboard.
@@ -17,4 +17,6 @@ class HomeController extends BackendController
     {
         return view('home');
     }
+
+    
 }

@@ -45,6 +45,21 @@
           </div>
 
           <div class="field">
+            <label class="label">{!! Form::label('role', 'User role') !!}</label>
+            @if($user->exists && $user->id == config('userAttributes.users_default.id'))
+              {!! Form::hidden('role', $user->roles->first()->id ) !!}
+              <p class="is-size-6 has-text-primary">{{ $user->roles->first()->display_name}}</p>
+            @else
+              <div class="select {{ $errors->has('role') ? 'is-danger' : ''}}">
+                {!! Form::select('role', App\Role::pluck('display_name', 'id'), $user->exists ? $user->roles->first()->id : null, ['placeholder' => 'Select role....']) !!}
+              </div>
+              @if($errors->first('role'))
+              <p class="help is-danger">Must select user role</p>
+              @endif
+            @endif
+          </div>
+
+          <div class="field">
             <label class="label">{!! Form::label('bio', 'Biography') !!}</label>
             <div class="control {{ $errors->has('bio') ? 'is-danger' : ''}}">{!! Form::textarea('bio', null, ['class' => 'textarea']) !!}</div>
             @if($errors->has('bio'))

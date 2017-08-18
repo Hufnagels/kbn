@@ -76,7 +76,9 @@
           </div>
           @endif
           <a class="navbar-item" href="{{ route('manage.dashboard')}}">Administration</a>
-          <a class="navbar-item" href="{{ route('users.show', Auth::user()->id)}}">Profile</a>
+          @if (check_user_permissions(request(), "Users@index"))
+          <a class="navbar-item" href="{{ route('manage.account-edit')}}">Profile</a>
+          @endif
           <hr class="navbar-divider">
           <a class="navbar-item" href="{{ route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
           @include('_includes.forms.logout')

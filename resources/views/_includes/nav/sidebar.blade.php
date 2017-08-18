@@ -17,8 +17,8 @@
   <ul class="menu-list">
 
     <li><a {{ ( strpos(Route::currentRouteName(), 'post') > -1) ? 'class=is-active' : '' }} href="{{ route('post.index') }}">News</a></li>
-    <li><a>Events</a></li>
-    @if (check_user_permissions(request(), "Categories@index"))
+
+    @if (check_user_permissions(request(), "ManageCategories@index"))
     <li><a {{ ( strpos(Route::currentRouteName(), 'category') > -1) ? 'class=is-active' : '' }} href="{{ route('category.index') }}">Categories</a></li>
     @endif
   </ul>

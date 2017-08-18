@@ -2,6 +2,7 @@
 
 function check_user_permissions($request, $actionName = NULL, $id = NULL)
 {
+//dd($request->route()->getActionName());
     // current user
     $currentUser = $request->user();
 
@@ -13,11 +14,15 @@ function check_user_permissions($request, $actionName = NULL, $id = NULL)
         $currentActionName = $request->route()->getActionName();
     }
 
-//dd($currentActionName);
+// dd($currentActionName);
 
     list($controller, $method) = explode('@', $currentActionName);
-    $controller = str_replace(["App\\Http\\Controllers\\Manage\\Manage\\", "Controller"], "", $controller);
+//echo ($controller);
 
+    $controller = str_replace(["App\\Http\\Controllers\\Manage\\"], "", $controller);
+    $controller = str_replace(["Controller"], "", $controller);
+
+//dd($controller);
     $crudPermissionsMap = [
         // 'create' => ['create', 'store'],
         // 'update' => ['edit', 'update'],
@@ -27,10 +32,10 @@ function check_user_permissions($request, $actionName = NULL, $id = NULL)
     ];
 
     $classesMap = [
-        'News'       => 'news',
-        'Event'       => 'event',
-        'Users'      => 'user',
-        'Categories' => 'category'
+        'ManageNews'        => 'news',
+        'Event'             => 'event',
+        'Users'             => 'user',
+        'ManageCategories'  => 'category'
     ];
 
     foreach ($crudPermissionsMap as $permission => $methods)
@@ -53,6 +58,11 @@ function check_user_permissions($request, $actionName = NULL, $id = NULL)
         {
             $className = $classesMap[$controller];
 
+//dd($className);
+//echo $method;
+//echo (in_array($method, ['edit', 'update', 'destroy', 'restore', 'forceDestroy']));
+
+//dd( $className == 'news' && in_array($method, ['edit', 'update', 'destroy', 'restore', 'forceDestroy'])) ;
             if ($className == 'news' && in_array($method, ['edit', 'update', 'destroy', 'restore', 'forceDestroy']))
             {
                 $id = !is_null($id) ? $id : $request->route('post');
@@ -62,8 +72,10 @@ function check_user_permissions($request, $actionName = NULL, $id = NULL)
                 if ( $id &&
                     (!$currentUser->can('update-others-news') || !$currentUser->can('delete-others-news')) )
                 {
-// dd(!$currentUser->can('update-others-news'));
+//dd(!$currentUser->can('update-others-news'));
                     $news = \App\News::withTrashed()->find($id);
+//dd($news);
+                    if($news == NULL) return false;
                     if ($news->author_id !== $currentUser->id) {
                         return false;
                     }
