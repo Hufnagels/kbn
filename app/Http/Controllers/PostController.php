@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use App\News;
 use App\User;
 use App\Category;
+use App\Tag;
 
 use Hash;
 use Session;
@@ -23,12 +24,16 @@ class PostController extends Controller
 
   public function getPosts(){
 
-    //\DB::enableQueryLog();
-    $news = News::with('author')->latestFirst()->published()->paginate($this->paginateLimit);
+    // \DB::enableQueryLog();
+    $news = News::with('author', 'category', 'tags')
+                ->latestFirst()
+                ->published()
+                ->filterSearchTerm( request('term') )
+                ->paginate($this->paginateLimit);
     //$news = News::orderBy('created_at', 'desc')->with('author')->paginate(5);
     return view('simplePages.news.newslist', compact('news'));//->withNews($news);//, ['users' => $users]);
-    //view('simplePages.newslist', compact('news'))->render();
-    //dd(\DB::getQueryLog());
+    // view('simplePages.news.newslist', compact('news'))->render();
+    // dd(\DB::getQueryLog());
 
   }
 
@@ -43,9 +48,6 @@ class PostController extends Controller
     //dd(\DB::getQueryLog());
   }
 
-  public function getEvents(){
-
-  }
   public function category(Category $category){
 
     //\DB::enableQueryLog();
@@ -53,7 +55,7 @@ class PostController extends Controller
     $categoryName = $category->title;
     $news = $category
                     ->news()
-                    ->with('author')
+                    ->with('author', 'tags')
                     ->latestFirst()
                     ->published()
                     ->paginate($this->paginateLimit);
@@ -62,6 +64,7 @@ class PostController extends Controller
     //view('simplePages.newslist', compact('news'))->render();
     //dd(\DB::getQueryLog());
   }
+
   public function author(User $author){
 
     //\DB::enableQueryLog();
@@ -72,7 +75,7 @@ class PostController extends Controller
     $authorName = $author->name;
     $news = $author
                     ->news()
-                    ->with('category')
+                    ->with('category', 'tags')
                     ->latestFirst()
                     ->published()
                     ->paginate($this->paginateLimit);
@@ -81,4 +84,17 @@ class PostController extends Controller
 
     //dd(\DB::getQueryLog());
   }
+
+  public function tag(Tag $tag)
+    {
+        $tagName = $tag->name;
+//dd($tagName);
+        $news = $tag->news()
+                          ->with('author', 'category')
+                          ->latestFirst()
+                          ->published()
+                          ->simplePaginate($this->paginateLimit);
+
+         return view("simplePages.news.newslist", compact('news', 'tagName'));
+    }
 }

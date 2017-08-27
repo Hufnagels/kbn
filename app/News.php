@@ -35,6 +35,12 @@ class News extends Model
       return $this->belongsTo(Category::class);
     }
 
+    public function tags()
+    {
+      return $this->belongsToMany(Tag::class);
+    }
+
+
     public function publicationStatusLabel()
     {
       if (! $this->published_at)
@@ -112,6 +118,15 @@ class News extends Model
       return $this->excerpt ? Markdown::convertToHtml(e($this->excerpt)) : NULL;
     }
 
+    public function getTagsHtmlAttribute()
+    {
+        $anchors = [];
+        foreach($this->tags as $tag) {
+            $anchors[] = '<small><a href="' . route('news.tags', $tag->slug) . '">' . $tag->name . '</a></small>';
+        }
+        return implode(", ", $anchors);
+    }
+
     public function setPublishedAtAttribute($value)
     {
       $this->attributes['published_at'] = $value ?: NULL;
@@ -135,14 +150,44 @@ class News extends Model
     {
       return $query->where('published_at', '<=', Carbon::now());
     }
+
     public function scopeScheduled($query)
     {
       return $query->where('published_at', '>', Carbon::now());
     }
+
     public function scopeDraft($query)
     {
       return $query->whereNull('published_at');
     }
 
+    public function scopeFilterSearchTerm($query, $term)
+    {
+      if($term)
+      {
+        $query->where(function($q) use ($term)
+        {
+          // in users table as author name
+          $q->whereHas('author', function($qr) use ($term)
+          {
+            $qr->where('name', 'LIKE', "%{$term}%");
+          });
+
+          // in categories table as category title
+          $q->orwhereHas('category', function($qr) use ($term)
+          {
+            $qr->where('title', 'LIKE', "%{$term}%");
+          });
+
+          // in news title, excerpt
+          $q->orWhere('title', 'LIKE', "%{$term}%");
+          $q->orWhere('excerpt', 'LIKE', "%{$term}%");
+          // $q->orWhere('body', 'LIKE', "%{$term}%");
+
+
+
+        });
+      }
+    }
 
 }

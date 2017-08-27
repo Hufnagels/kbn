@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}" class="mdc-typography">
 @include('_includes.head')
-<body>
+<body >
 @include('_includes.nav.navbar')
 
     <div id="app1">

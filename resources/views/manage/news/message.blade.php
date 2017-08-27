@@ -1,5 +1,5 @@
 @if ( session('message'))
-<div class="notification is-success"><strong>{{ session('message')}}</strong></div>
+<div class="notification is-alert"><strong>{{ session('message')}}</strong></div>
 @endif
 @if(session('trash-message'))
 <div class="notification is-warning">

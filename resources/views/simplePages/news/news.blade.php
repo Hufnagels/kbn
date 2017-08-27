@@ -52,11 +52,15 @@
               <div class="content">
                 <p>
                   <strong><a href="{{ route('news.author', $item->author->slug)}}">{{$item->author->name}}</a></strong> |
-                  <small>{{ '@'.str_slug($item->author->name,'') }}</small> <br>
-                  <small>{{$item->date}}</small> |
-                  <small><a href="{{ route('news.category', $item->category->slug)}}">{{$item->category->title}}</a></small> |
+                  <small>{{ '@'.str_slug($item->author->name,'') }}</small> |
                   <?php $postCount = $item->author->news->count(); ?>
                   <small class="icon is-small postcount"><i class="fa fa-clone"></i>{{$postCount}} {{str_plural('post', $postCount)}}</small>
+                  <br>
+                  <small>{{$item->date}}</small>
+                  <br>
+                  <small><a href="{{ route('news.category', $item->category->slug)}}">{{$item->category->title}}</a></small> |
+
+                  {!! $item->tags_html !!}
                 </p>
               </div>
               <nav class="level is-mobile">

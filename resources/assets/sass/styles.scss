@@ -17,19 +17,23 @@
 	-webkit-filter: grayscale(99%); /* Chrome 19+ & Safari 6+ */
 	-webkit-backface-visibility: hidden;  /* Fix for transition flickering */
 }
-.image.is-125x85 {
-    width: 125px;
-    height: 85px;
+
+.home-welcome {
+    background-image: linear-gradient(45deg, #361752, #B31B67);
+    background-image: -webkit-linear-gradient(45deg, #361752, #B31B67);
+    background-image: -moz-linear-gradient(45deg, #361752, #B31B67);
+    background-image: -ms-linear-gradient(45deg, #361752, #B31B67);
+    background-image: -o-linear-gradient(45deg, #361752, #B31B67);
+
 }
-.image.is-150x150 {
-    width: 150px;
-    height: 150px;
-}
-.image.is-250x170 {
-    width: 250px;
-    height: 170px;
-}
-.image.is-500x340 {
-    width: 500px;
-    height: 340px;
+.home-welcome.is-fixed{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    color: white;
+    padding: 10rem;
+    font-size: 125%;
 }

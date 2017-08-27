@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/manage.css') }}" rel="stylesheet">
 </head>
 <body class="m-b-5">
   @include('_includes.nav.navbar')

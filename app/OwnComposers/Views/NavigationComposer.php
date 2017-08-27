@@ -6,12 +6,15 @@ use Illuminate\View\View;
 
 use App\Category;
 use App\News;
+use App\Tag;
 
 class NavigationComposer
 {
   public function compose(View $view)
   {
     $this->composeNewsCategories($view);
+
+    $this->composeNewsTags($view);
 
     $this->composeNewsPopularPosts($view);
 
@@ -25,6 +28,13 @@ class NavigationComposer
     }])->orderBy('title', 'asc')->get();
 
     $view->with('categories' , $categories);
+  }
+
+  public function composeNewsTags(View $view)
+  {
+    $tags = Tag::has('news')->get();//all();
+
+    $view->with( 'tags' , $tags);
   }
 
   public function composeNewsPopularPosts(View $view)

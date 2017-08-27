@@ -15,9 +15,10 @@ class DatabaseSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         // $this->call(LaratrustSeeder::class);
         // $this->call(UsersTableSeeder::class);
-        $this->call(CategoriesTableSeeder::class);
-        $this->call(NewsTableSeeder::class);
-        $this->call(RolesTableSeedr::class);
-        $this->call(PermissionsTableSeeder::class);
+        // $this->call(CategoriesTableSeeder::class);
+        // $this->call(NewsTableSeeder::class);
+        // $this->call(RolesTableSeedr::class);
+        // $this->call(PermissionsTableSeeder::class);
+        $this->call(TagsTableSeeder::class);
     }
 }

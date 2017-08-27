@@ -13,6 +13,28 @@ $sides: (top, bottom, left, right); // Leave this variable alone
   }
 }
 
-.is-fullwidth {
-  width: 100%;
+$roundamounts: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10); // border radius
+$sidesUpDwn: (top, bottom);
+$sidesLeRgh: (left, right);
+
+@each $radius in $roundamounts {
+    @each $tb in $sidesUpDwn {
+      @each $lr in $sidesLeRgh {
+        .is-rounded-border-#{str-slice($tb, 0, 1)}-#{str-slice($lr, 0, 1)}-#{$radius} {
+          border-#{$tb}-#{$lr}: #{$radius}px;
+        }
+      }
+      .is-rounded-border-top-bottom-left-#{$radius} {
+        border-top-left: #{$radius}px;
+        border-bottom-left: #{$radius}px;
+      }
+      .is-rounded-border-top-bottom-right-#{$radius} {
+        border-top-right: #{$radius}px;
+        border-bottom-right: #{$radius}px;
+      }
+    }
+
+    .is-rounded-border-#{$radius} {
+      border-radius: #{$radius}px;
+    }
 }

@@ -1,6 +1,6 @@
 @section('scripts')
 <!-- include summernote css/js-->
-    <script type="text/javascript" src="/js/jasny-bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jasny-bootstrap.min.js"></script>
     <script type="text/javascript">
         //$('ul.pagination').addClass('no-margin pagination-sm');
 
