@@ -19,6 +19,8 @@
 
     @yield('styles')
 
+    <!-- Scripts -->
+    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 </head>
 <!--
         <link rel="index" title="Index" href="../genindex.html">

@@ -199,6 +199,24 @@ button.nav-item {
 #app {
     margin-right: 0px;
 }
+
+.news-container small.icon.is-small.postcount {
+    min-width: 5rem;
+}
+.news-container .postcount >i.fa.fa-clone {
+    margin-right: .3rem;
+}
+
+.news-sidebar .panel-heading.is-warning {
+    background-color: #ffdd57;
+    border-color: transparent;
+    color: rgba(0, 0, 0, 0.7);
+}
+.news-sidebar .panel-heading.is-info {
+    background-color: #3273dc;
+    border-color: transparent;
+    color: rgba(0, 0, 0, 0.7);
+}
 .news-container .notification {
     padding: 1.25rem;
 }
@@ -207,7 +225,7 @@ button.nav-item {
     margin: 1.25rem;
 }
 
-.news-container  .field.is-grouped.is-grouped-multiline:last-child {
+.news-container .field.is-grouped.is-grouped-multiline:last-child {
     margin-bottom: 0.0rem;
 }
 .news-sidebar .panel-heading.is-warning {

@@ -44,6 +44,8 @@ class NavigationComposer
     $view->with( 'popularposts' , $popularposts);
   }
 
+  
+
   // public function composeNewsPopularPostsInMainNav(View $view)
   // {
   //   $popularposts = News::published()->popular()->take(3)->get();

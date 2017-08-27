@@ -15637,6 +15637,28 @@ button.nav-item.is-active {
   margin-right: 0px;
 }
 
+.news-container small.icon.is-small.postcount {
+  min-width: 5rem;
+}
+
+.news-container .postcount > i.fa.fa-clone,
+.news-container .icon .postcount > i.fa-clone.mdi,
+.icon .news-container .postcount > i.fa-clone.mdi {
+  margin-right: .3rem;
+}
+
+.news-sidebar .panel-heading.is-warning {
+  background-color: #ffdd57;
+  border-color: transparent;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.news-sidebar .panel-heading.is-info {
+  background-color: #3273dc;
+  border-color: transparent;
+  color: rgba(0, 0, 0, 0.7);
+}
+
 .news-container .notification {
   padding: 1.25rem;
 }
@@ -16655,6 +16677,15 @@ button.nav-item.is-active {
   color: white;
   padding: 10rem;
   font-size: 125%;
+}
+
+/*
+PARALLAX
+*/
+
+.parallax-window {
+  min-height: 400px;
+  background: transparent;
 }
 
 /**

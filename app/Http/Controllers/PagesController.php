@@ -3,14 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Mapper;
 use Carbon\Carbon;
 
 use App\News;
 use App\User;
 use App\Category;
+use App\Tag;
 //use App\Mail\contactus;
 
+use Hash;
+use Session;
+use Input;
 
 class PagesController extends Controller
 {
@@ -18,6 +23,7 @@ class PagesController extends Controller
 
 
     public function getIndex(){
+
       return view('simplePages.index');
     }
 

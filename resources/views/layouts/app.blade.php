@@ -12,8 +12,8 @@
     </div>
     @include('_includes.footer')
 
-    <!-- Scripts -->
-    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+
+
     @yield('scripts')
 
 </body>

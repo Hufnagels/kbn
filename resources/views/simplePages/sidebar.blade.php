@@ -29,7 +29,7 @@
   @foreach ($popularposts as $post)
   <a class="panel-block" href="{{ route('news.show', $post->slug)}}">
     <article class="media">
-      <figure class="media-left"><p class="image is-64x64"><img src="{{ $post->imageUrl }}" alt="{{ $post->title }}"></p></figure>
+      <figure class="media-left"><p class="image is-64x64"><img src="{{ $post->image_thumb_url }}" alt="{{ $post->title }}"></p></figure>
       <div class="media-content"><div class="content">{{$post->title}}</div></div>
     </article>
   </a>
@@ -47,7 +47,7 @@
         <div class="tags has-addons">
           <a href="{{ route('news.tags', $tag->slug) }}" class="tags has-addons">
             <span class="tag is-dark">{{ $tag->name }}</span>
-            <span class="tag is-info">0.5.0</span>
+            <!--<span class="tag is-info">0.5.0</span>-->
           </a>
         </div>
       </div>
