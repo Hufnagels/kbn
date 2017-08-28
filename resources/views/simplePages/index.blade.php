@@ -132,11 +132,11 @@
 
 </section>
 
-<section class="testimonial wow fadeInUp" id="">
+<section class="testimonial wow fadeInUp" id="" style="visibility:hidden;" data-wow-duration="5s" data-wow-delay="1s">
   <div class="hero-body">
     <div class="container gt_hdg_1 white_hdg">
-      <h1 class="title has-text-centered wow zoomIn" data-wow-duration="10s" data-wow-delay="5s" >Rólunk mondták</h1>
-      <h2 class="subtitle has-text-centered wow zoomIn" data-wow-duration="10s" data-wow-delay="15s">Kik vagyunk mi?</h2>
+      <h1 class="title has-text-centered wow zoomIn" data-wow-duration="5s" data-wow-delay="1s" >Rólunk mondták</h1>
+      <h2 class="subtitle has-text-centered wow zoomIn" data-wow-duration="5s" data-wow-delay="1s">Kik vagyunk mi?</h2>
     </div>
   </div>
 </section>

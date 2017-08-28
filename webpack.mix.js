@@ -12,5 +12,16 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
+    .js('resources/assets/js/manage.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')
-   .sass('resources/assets/sass/manage.scss', 'public/css');
+   .sass('resources/assets/sass/manage.scss', 'public/css')
+   .extract([
+     'moment',
+    ]);
+
+mix.webpackConfig({
+  plugins: [
+   // reduce bundle size by ignoring moment js local files
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+  ]
+});

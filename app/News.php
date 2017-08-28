@@ -103,7 +103,7 @@ class News extends Model
     public function getDateAttribute($value)
     {
       //setlocale(LC_TIME, 'HU');
-      return is_null($this->published_at) ? '' : $this->published_at->toFormattedDateString();
+      return is_null($this->published_at) ? '' : $this->published_at->format('Y.M.d'); //toFormattedDateString();
       //return $this->created_at->diffForHumans();
     }
 

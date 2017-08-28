@@ -20,6 +20,7 @@
   "dependencies": {
     "buefy": "^0.5.1",
     "bulma": "^0.5.1",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.47",
     "font-awesome": "^4.7.0",
     "material-components-web": "^0.16.0",
     "trumbowyg": "^2.7.0",

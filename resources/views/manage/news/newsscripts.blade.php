@@ -1,8 +1,8 @@
 @section('scripts')
-<!-- include summernote css/js-->
-    <script type="text/javascript" src="/assets/js/jasny-bootstrap.min.js"></script>
-    <script type="text/javascript">
-        //$('ul.pagination').addClass('no-margin pagination-sm');
+<!--
+    <script type="text/javascript" src="/assets/js/jasny-bootstrap.min.js"></script> -->
+<script type="text/javascript">
+$(function () {
 
         $('#title').on('blur', function() {
             var theTitle = this.value.toLowerCase().trim(),
@@ -14,17 +14,25 @@
 
             slugInput.val(theSlug);
         });
-        $.trumbowyg.svgPath = '/assets/js/ui/icons.svg';
+        $.trumbowyg.svgPath = "{!! asset('/assets/js/ui/icons.svg') !!}";
 
         //$('#excerpt').trumbowyg({resetCss: true});
         $('#body').trumbowyg({
           resetCss: true,
+          btnsDef: {
+                    // Customizables dropdowns
+                    image: {
+                      dropdown: ['insertImage', 'upload', 'base64', 'noembed'],
+                      ico: 'insertImage'
+                    }
+                },
           btns : [
             ['viewHTML'],
             ['formatting'],
             'btnGrp-semantic',
             ['superscript', 'subscript'],
             ['link'],
+            ['image'],
             'btnGrp-justify',
             'btnGrp-lists',
             ['removeformat'],
@@ -33,16 +41,31 @@
           autogrow: true
         });
 
-        $('.fileinput').fileinput();
-/*
-        var simplemde1 = new SimpleMDE({ element: $("#excerpt")[0] });
-        var simplemde2 = new SimpleMDE({ element: $("#body")[0] });
+        //$('.fileinput').fileinput();
 
-        $('#datetimepicker1').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm:ss',
-            showClear: true
+        function readURL(input) {
+          if (input.files && input.files[0]) {
+              var reader = new FileReader();
+              reader.onload = function (e) {
+                  $('#target').attr('src', e.target.result);
+              }
+
+              reader.readAsDataURL(input.files[0]);
+          }
+        }
+
+        $("#imgInp").change(function(){
+            readURL(this);
         });
 
+        $('#datetimepicker').datetimepicker({
+          locale: 'hu',
+          format: 'YYYY-MM-DD HH:mm:ss',
+          showClear: true
+        });
+});
+
+/*
         $('#draft-btn').click(function(e) {
             e.preventDefault();
             $('#published_at').val("");

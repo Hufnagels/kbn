@@ -51,7 +51,7 @@
 
       <div class="field">
         <label class="label">{!! Form::label('published_at', 'Publishing date') !!}</label>
-        <div class="control">{!! Form::date('published_at', \Carbon\Carbon::now()->format('yyyy-mm-dd'), ['class' => 'input']) !!}</div>
+        <div class="control">{!! Form::text('published_at', null, ['class' => 'input', 'id' => 'datetimepicker']) !!}</div>
       </div>
 
       <div class="field">
@@ -67,21 +67,23 @@
       <div class="field">
         <label class="label">{!! Form::label('image', 'News header image') !!}</label>
         <div class="control {{ $errors->has('image') ? 'is-danger' : ''}}">
-          <div class="fileinput fileinput-new" data-provides="fileinput">
-            <div class="fileinput-preview fileinput-exists thumbnail image is-16by9" style="">
-              <img src="{{ ($post->image_thumb_url) ? $post->image_thumb_url : 'http://http://placehold.it/250x170&text=No+image%20(250x170)'}}" alt="">
-            </div>
-            <div class="m-t-20">
-              @if (check_user_permissions(request(), "News@edit", $post->id))
-              <span href="#" class="button btn-default btn-file">
-                <!--<span class="fileinput-new">Select image</span>
-                <span class="button fileinput-exists">Change</span>-->
-                {!! Form::file('image') !!}
+          <figure>
+            <img id="target" class="image is-250x170" src="{{ ($post->image_thumb_url) ? $post->image_thumb_url : 'http://placehold.it/250x170&text=No+image%20(250x170)'}}" alt="">
+          </figure>
+          <div class="file m-t-20">
+            <label class="file-label">
+              <input class="file-input" type="file" name="image" id="imgInp">
+              <span class="file-cta">
+                <span class="file-icon"><i class="fa fa-upload"></i></span>
+                <span class="file-label">Choose a file…</span>
               </span>
-              <a href="#" class="button fileinput-exists m-t-10" data-dismiss="fileinput">Remove</a>
-              @endif
-            </div>
+            </label>
           </div>
+
+
+
+
+
         </div>
         @if($errors->has('image'))
         <p class="help is-danger">Upload one</p>
