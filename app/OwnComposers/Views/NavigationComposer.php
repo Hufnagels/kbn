@@ -18,6 +18,8 @@ class NavigationComposer
 
     $this->composeNewsPopularPosts($view);
 
+    $this->composeNewsWithImages($view);
+
     // $this->composeNewsPopularPostsInMainNav($view);
   }
 
@@ -39,12 +41,17 @@ class NavigationComposer
 
   public function composeNewsPopularPosts(View $view)
   {
-    $popularposts = News::published()->popular()->take(3)->get();
-
+    $popularposts = News::withImages()->published()->popular()->take(3)->get();
+//dd( $popularposts );
     $view->with( 'popularposts' , $popularposts);
   }
 
-  
+  public function composeNewsWithImages(View $view)
+  {
+    $latestpostswithimages = News::withImages()->published()->take(3)->get();
+// dd( $latestpostswithimages );
+    $view->with( 'latestpostswithimages' , $latestpostswithimages);
+  }
 
   // public function composeNewsPopularPostsInMainNav(View $view)
   // {

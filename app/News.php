@@ -140,6 +140,10 @@ class News extends Model
     {
       return $query->orderBy('published_at', 'desc');
     }
+    public function scopeWithImages($query)
+    {
+      return $query->where('image','<>', NULL);
+    }
 
     public function scopePopular($query)
     {

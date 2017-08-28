@@ -77,16 +77,14 @@
     $colorArray = ['is-success', 'is-warning', 'is-info', 'is-danger'];
     $index = 0;
     ?>
-    @foreach ($popularposts as $post)
+    @foreach ($latestpostswithimages as $post)
 
     <div class="tile is-parent ">
       <article class="tile is-child notification {{ $colorArray[$index]}}  wow bounceInDown" data-wow-duration="2s" data-wow-delay="1s">
         <div class="card wow animated ">
-          <!--
-          <div class="card-image">
-            <figure class="image is-4by3"><img src="{{ $post->image_thumb_url }}" alt="{{$post->title}}"></figure>
-          </div>
-          -->
+          <!-- -->
+          <div class="card-image"><figure class="image is-4by3"><img src="{{ $post->image_thumb_url }}" alt="{{$post->title}}"></figure></div>
+
           <div class="card-content">
 
             <div class="content">
