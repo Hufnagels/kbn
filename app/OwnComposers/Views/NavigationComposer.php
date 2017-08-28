@@ -41,7 +41,7 @@ class NavigationComposer
 
   public function composeNewsPopularPosts(View $view)
   {
-    $popularposts = News::withImages()->published()->popular()->take(3)->get();
+    $popularposts = News::published()->popular()->take(3)->get();
 //dd( $popularposts );
     $view->with( 'popularposts' , $popularposts);
   }
