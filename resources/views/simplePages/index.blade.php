@@ -70,7 +70,18 @@
 <div class="home-welcome is-fixed" style="position:absolute;top0;bottom:0;left:0;right:0;">Welcome page</div>
 -->
 <section class="headersection" id="">
-  <div class="parallax-window" data-parallax="scroll" data-image-src="{{ asset('/images/header/render07.png') }}"></div>
+
+  <div class="parallax-window" data-parallax="scroll" data-image-src="{{ asset('/images/header/render07.png') }}">
+
+    <section class="hero has-text-centered">
+      <div class="hero-body m-t-40">
+        <div class="container">
+          <h1 class="title is-size-1 has-text-danger is-uppercase wow bounceInDown" data-wow-duration="5s" data-wow-delay=".1s" style="visibility:hidden;">Kódvetők</h1>
+          <h2 class="title is-size-3 has-text-warning is-lowercase m-t-20 wow bounceInDown" data-wow-duration="2s" data-wow-delay=".1s" style="visibility:hidden;">Kódfarm</h2>
+        </div>
+      </div>
+    </section>
+  </div>
 
   <div class="tile is-ancestor information">
     <?php
