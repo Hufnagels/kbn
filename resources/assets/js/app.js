@@ -8,13 +8,17 @@
 require('./bootstrap');
 //require('node_modules/material-design-lite/material.min.js');
 //require('../../../node_modules/material-components-web/dist/material-components-web');
-require('../../../node_modules/trumbowyg/dist/trumbowyg.min.js');
+//require('node_modules/material-design-lite/material.min.js');
+const WOW = require('wowjs');
+window.wow = new WOW.WOW({ live: false });
+// require('../../../node_modules/wowjs/dist/wow.min.js');
 
 window.Vue = require('vue');
 
 import Buefy from 'buefy';
 
 Vue.use(Buefy);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -56,5 +60,5 @@ $(document).ready(function(){
   $('.navbar-burger').click(function (e) {
     $('#navMenu').toggleClass('is-active');
   })
-  
+  window.wow.init();
 });

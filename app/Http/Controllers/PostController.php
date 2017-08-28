@@ -18,7 +18,7 @@ use Input;
 
 class PostController extends Controller
 {
-  protected $paginateLimit = 5;
+  protected $paginateLimit = 9;
 
 
 

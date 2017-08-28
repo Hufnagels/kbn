@@ -23,38 +23,42 @@
       <div class="notification is-warning subtitle"><strong>Nothing found</strong></div>
       @else
         @include('simplePages.alert')
+        <div class="columns is-multiline msrItems">
 
         @foreach ($news as $item)
+        <div class="column msrItem">
 
-        <div class="box">
-          <article class="media">
-            <div class="media-left"><figure class="image is-250x170"><img src="{{ $item->image_thumb_url }}" alt="{{$item->title}}"></figure></div>
-            <div class="media-content">
+
+          <div class="card">
+            @if( $item->image_thumb_url != NULL)
+            <div class="card-image">
+              <figure class="image is-4by3"><img src="{{ $item->image_thumb_url }}" alt="{{$item->title}}"></figure>
+            </div>
+            @endif
+            <div class="card-content">
+
+
               <div class="content">
                 <h3 class="subtitle"><a class="" href="{{ route('news.show', $item->slug)}}">{{$item->title}}</a></h3>
                 <p>{{$item->excerpt}}</p>
                 <p>
                   <strong><a href="{{ route('news.author', $item->author->slug)}}">{{$item->author->name}}</a></strong> |
-                  <small>{{ '@'.str_slug($item->author->name,'') }}</small> |
-                  <small>{{$item->date}}</small> |
+                  <small>{{ '@'.str_slug($item->author->name,'') }}</small>
+                  <br>
+                  <small>{{$item->date}}</small>
+                  <br>
                   <small><a href="{{ route('news.category', $item->category->slug)}}">{{$item->category->title}}</a></small> |
 
                   {!! $item->tags_html !!}
 
                 </p>
               </div>
-              <nav class="level is-mobile">
-                <div class="level-left">
-                  <a class="level-item"><span class="icon is-small"><i class="fa fa-reply"></i></span></a>
-                  <a class="level-item"><span class="icon is-small"><i class="fa fa-retweet"></i></span></a>
-                  <a class="level-item"><span class="icon is-small"><i class="fa fa-heart"></i></span></a>
-                </div>
-              </nav>
             </div>
-          </article>
-        </div>
+          </div>
 
+        </div>
         @endforeach
+        </div>
       @endif
 
 
@@ -70,8 +74,14 @@
 
 </div>
 
+@endsection
 
-
-
-
+@section('scripts')
+<script type="text/javascript" src="/assets/js/masonry.min.js"></script>
+<script type="text/javascript">
+$('.msrItems').msrItems({
+		'colums': 3, //columns number
+		'margin': 15 //right and bottom margin
+	});
+</script>
 @endsection

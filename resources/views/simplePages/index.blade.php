@@ -6,7 +6,7 @@
   min-height:900px;
 }
 .headersection .parallax-window {
-  min-height:800px;
+  min-height:900px;
 }
 .headersection .tile.information
 {
@@ -70,7 +70,7 @@
 <div class="home-welcome is-fixed" style="position:absolute;top0;bottom:0;left:0;right:0;">Welcome page</div>
 -->
 <section class="headersection" id="">
-  <div class="parallax-window" data-parallax="scroll" data-image-src="{{ asset('/images/header/headerimage.jpg') }}"></div>
+  <div class="parallax-window" data-parallax="scroll" data-image-src="{{ asset('/images/header/render07.png') }}"></div>
 
   <div class="tile is-ancestor information">
     <?php
@@ -79,26 +79,28 @@
     ?>
     @foreach ($popularposts as $post)
 
-    <div class="tile is-parent">
-      <article class="tile is-child notification {{ $colorArray[$index]}}">
-        <div class="card">
+    <div class="tile is-parent ">
+      <article class="tile is-child notification {{ $colorArray[$index]}}  wow bounceInDown" data-wow-duration="2s" data-wow-delay="1s">
+        <div class="card wow animated ">
+          <!--
           <div class="card-image">
             <figure class="image is-4by3"><img src="{{ $post->image_thumb_url }}" alt="{{$post->title}}"></figure>
           </div>
+          -->
           <div class="card-content">
 
             <div class="content">
               <h3 class="subtitle"><a class="" href="{{ route('news.show', $post->slug)}}">{{$post->title}}</a></h3>
               <!--<p>{{$post->excerpt}}</p>-->
+
               <p>
                 <strong><a href="{{ route('news.author', $post->author->slug)}}">{{$post->author->name}}</a></strong> |
                 <small>{{ '@'.str_slug($post->author->name,'') }}</small> |
                 <small>{{$post->date}}</small> |
                 <small><a href="{{ route('news.category', $post->category->slug)}}">{{$post->category->title}}</a></small> |
-
                 {!! $post->tags_html !!}
-
               </p>
+              <!-- -->
             </div>
 
           </div>
@@ -117,38 +119,15 @@
       </article>
     </div>
 
-
-<!--
-  <div class="tile is-parent">
-    <article class="tile is-child notification is-warning">
-      <p class="title">Two</p>
-      <p class="subtitle">Subtitle</p>
-    </article>
-  </div>
-
-  <div class="tile is-parent">
-    <article class="tile is-child notification is-info">
-      <p class="title">Three</p>
-      <p class="subtitle">Subtitle</p>
-    </article>
-  </div>
-
-  <div class="tile is-parent">
-    <article class="tile is-child notification is-danger">
-      <p class="title">Four</p>
-      <p class="subtitle">Subtitle</p>
-    </article>
-  </div>
-  -->
 </div>
 
 </section>
 
 <section class="testimonial wow fadeInUp" id="">
   <div class="hero-body">
-    <div class="container gt_hdg_1 wow zoomIn white_hdg">
-      <h1 class="title has-text-centered">Rólunk mondták</h1>
-      <h2 class="subtitle has-text-centered">Kik vagyunk mi?</h2>
+    <div class="container gt_hdg_1 white_hdg">
+      <h1 class="title has-text-centered wow zoomIn" data-wow-duration="10s" data-wow-delay="5s" >Rólunk mondták</h1>
+      <h2 class="subtitle has-text-centered wow zoomIn" data-wow-duration="10s" data-wow-delay="15s">Kik vagyunk mi?</h2>
     </div>
   </div>
 </section>
@@ -172,7 +151,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script type="text/javascript" src="/assets/js/parallax.min.js"></script>
 <script type="text/javascript">
-  $('.parallax-window').parallax({imageSrc: "{{ asset('/images/header/headerimage.jpg') }}"});
+
+  $('.headersection .parallax-window').parallax({imageSrc: "{{ asset('/images/header/headerimage.jpg') }}"});
   alert( 'js works:' + $('.parallax-window') );
 </scripts>
 @endsection

@@ -74,7 +74,7 @@ class News extends Model
           $imageUrl = asset($imageDirectory.'/'. $this->image);
         }
       } else {
-        $imageUrl = asset($imageDirectory.'/250x170.png');
+        $imageUrl = NULL; //asset($imageDirectory.'/250x170.png');
       }
       return $imageUrl;
     }
@@ -95,7 +95,7 @@ class News extends Model
           $imageUrl = asset($imageDirectory.'/'. $thumbnail);
         }
       } else {
-        $imageUrl = asset($imageDirectory.'/250x170.png');
+        $imageUrl = NULL; //asset($imageDirectory.'/250x170.png');
       }
       return $imageUrl;
     }
