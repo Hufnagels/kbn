@@ -1,0 +1,327 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+<metadata>
+Created by FontForge 20161013 at Wed Jun 15 08:03:22 2005
+ By ,,,
+2004 Vic Fieger
+</metadata>
+<defs>
+<font id="KarmaticArcade" horiz-adv-x="1139" >
+  <font-face 
+    font-family="Karmatic Arcade"
+    font-weight="400"
+    font-stretch="normal"
+    units-per-em="2048"
+    panose-1="2 0 0 0 0 0 0 0 0 0"
+    ascent="1638"
+    descent="-410"
+    bbox="256 0 1280 1280"
+    underline-thickness="150"
+    underline-position="-442"
+    unicode-range="U+0020-20A7"
+  />
+<missing-glyph horiz-adv-x="1536" 
+d="M256 0v1280h1024v-1280h-1024zM288 32h960v1216h-960v-1216z" />
+    <glyph glyph-name=".notdef" horiz-adv-x="1536" 
+d="M256 0v1280h1024v-1280h-1024zM288 32h960v1216h-960v-1216z" />
+    <glyph glyph-name=".null" horiz-adv-x="0" 
+ />
+    <glyph glyph-name="nonmarkingreturn" horiz-adv-x="569" 
+ />
+    <glyph glyph-name="space" unicode=" " horiz-adv-x="569" 
+ />
+    <glyph glyph-name="Amacron" unicode="&#x100;" horiz-adv-x="1366" 
+ />
+    <glyph glyph-name="amacron" unicode="&#x101;" 
+ />
+    <glyph glyph-name="Abreve" unicode="&#x102;" horiz-adv-x="1366" 
+ />
+    <glyph glyph-name="abreve" unicode="&#x103;" 
+ />
+    <glyph glyph-name="Aogonek" unicode="&#x104;" horiz-adv-x="1366" 
+ />
+    <glyph glyph-name="aogonek" unicode="&#x105;" 
+ />
+    <glyph glyph-name="Cacute" unicode="&#x106;" horiz-adv-x="1479" 
+ />
+    <glyph glyph-name="cacute" unicode="&#x107;" horiz-adv-x="1024" 
+ />
+    <glyph glyph-name="Ccircumflex" unicode="&#x108;" horiz-adv-x="1479" 
+ />
+    <glyph glyph-name="ccircumflex" unicode="&#x109;" horiz-adv-x="1024" 
+ />
+    <glyph glyph-name="Cdotaccent" unicode="&#x10a;" horiz-adv-x="1479" 
+ />
+    <glyph glyph-name="cdotaccent" unicode="&#x10b;" horiz-adv-x="1024" 
+ />
+    <glyph glyph-name="Ccaron" unicode="&#x10c;" horiz-adv-x="1479" 
+ />
+    <glyph glyph-name="ccaron" unicode="&#x10d;" horiz-adv-x="1024" 
+ />
+    <glyph glyph-name="Dcaron" unicode="&#x10e;" horiz-adv-x="1479" 
+ />
+    <glyph glyph-name="dcaron" unicode="&#x10f;" horiz-adv-x="1259" 
+ />
+    <glyph glyph-name="Dcroat" unicode="&#x110;" horiz-adv-x="1479" 
+ />
+    <glyph glyph-name="dcroat" unicode="&#x111;" 
+ />
+    <glyph glyph-name="Emacron" unicode="&#x112;" horiz-adv-x="1366" 
+ />
+    <glyph glyph-name="emacron" unicode="&#x113;" 
+ />
+    <glyph glyph-name="Ebreve" unicode="&#x114;" horiz-adv-x="1366" 
+ />
+    <glyph glyph-name="ebreve" unicode="&#x115;" 
+ />
+    <glyph glyph-name="Edotaccent" unicode="&#x116;" horiz-adv-x="1366" 
+ />
+    <glyph glyph-name="edotaccent" unicode="&#x117;" 
+ />
+    <glyph glyph-name="Eogonek" unicode="&#x118;" horiz-adv-x="1366" 
+ />
+    <glyph glyph-name="eogonek" unicode="&#x119;" 
+ />
+    <glyph glyph-name="Ecaron" unicode="&#x11a;" horiz-adv-x="1366" 
+ />
+    <glyph glyph-name="ecaron" unicode="&#x11b;" 
+ />
+    <glyph glyph-name="Gcircumflex" unicode="&#x11c;" horiz-adv-x="1593" 
+ />
+    <glyph glyph-name="gcircumflex" unicode="&#x11d;" 
+ />
+    <glyph glyph-name="Gbreve" unicode="&#x11e;" horiz-adv-x="1593" 
+ />
+    <glyph glyph-name="gbreve" unicode="&#x11f;" 
+ />
+    <glyph glyph-name="Gdotaccent" unicode="&#x120;" horiz-adv-x="1593" 
+ />
+    <glyph glyph-name="gdotaccent" unicode="&#x121;" 
+ />
+    <glyph glyph-name="Gcommaaccent" unicode="&#x122;" horiz-adv-x="1593" 
+ />
+    <glyph glyph-name="gcommaaccent" unicode="&#x123;" 
+ />
+    <glyph glyph-name="Hcircumflex" unicode="&#x124;" horiz-adv-x="1479" 
+ />
+    <glyph glyph-name="hcircumflex" unicode="&#x125;" 
+ />
+    <glyph glyph-name="Hbar" unicode="&#x126;" horiz-adv-x="1479" 
+ />
+    <glyph glyph-name="hbar" unicode="&#x127;" 
+ />
+    <glyph glyph-name="Itilde" unicode="&#x128;" horiz-adv-x="569" 
+ />
+    <glyph glyph-name="itilde" unicode="&#x129;" horiz-adv-x="569" 
+ />
+    <glyph glyph-name="Imacron" unicode="&#x12a;" horiz-adv-x="569" 
+ />
+    <glyph glyph-name="imacron" unicode="&#x12b;" horiz-adv-x="569" 
+ />
+    <glyph glyph-name="Ibreve" unicode="&#x12c;" horiz-adv-x="569" 
+ />
+    <glyph glyph-name="ibreve" unicode="&#x12d;" horiz-adv-x="569" 
+ />
+    <glyph glyph-name="Iogonek" unicode="&#x12e;" horiz-adv-x="569" 
+ />
+    <glyph glyph-name="iogonek" unicode="&#x12f;" horiz-adv-x="455" 
+ />
+    <glyph glyph-name="Idotaccent" unicode="&#x130;" horiz-adv-x="569" 
+ />
+    <glyph glyph-name="dotlessi" unicode="&#x131;" horiz-adv-x="569" 
+ />
+    <glyph glyph-name="IJ" unicode="&#x132;" horiz-adv-x="1505" 
+ />
+    <glyph glyph-name="ij" unicode="&#x133;" horiz-adv-x="909" 
+ />
+    <glyph glyph-name="Jcircumflex" unicode="&#x134;" horiz-adv-x="1024" 
+ />
+    <glyph glyph-name="jcircumflex" unicode="&#x135;" horiz-adv-x="455" 
+ />
+    <glyph glyph-name="Kcommaaccent" unicode="&#x136;" horiz-adv-x="1366" 
+ />
+    <glyph glyph-name="kcommaaccent" unicode="&#x137;" horiz-adv-x="1024" 
+ />
+    <glyph glyph-name="kgreenlandic" unicode="&#x138;" horiz-adv-x="1024" 
+ />
+    <glyph glyph-name="Lacute" unicode="&#x139;" 
+ />
+    <glyph glyph-name="lacute" unicode="&#x13a;" horiz-adv-x="455" 
+ />
+    <glyph glyph-name="Lcommaaccent" unicode="&#x13b;" 
+ />
+    <glyph glyph-name="lcommaaccent" unicode="&#x13c;" horiz-adv-x="455" 
+ />
+    <glyph glyph-name="Lcaron" unicode="&#x13d;" 
+ />
+    <glyph glyph-name="lcaron" unicode="&#x13e;" horiz-adv-x="597" 
+ />
+    <glyph glyph-name="Ldot" unicode="&#x13f;" 
+ />
+    <glyph glyph-name="ldot" unicode="&#x140;" horiz-adv-x="684" 
+ />
+    <glyph glyph-name="Lslash" unicode="&#x141;" 
+ />
+    <glyph glyph-name="lslash" unicode="&#x142;" horiz-adv-x="455" 
+ />
+    <glyph glyph-name="Nacute" unicode="&#x143;" horiz-adv-x="1479" 
+ />
+    <glyph glyph-name="nacute" unicode="&#x144;" 
+ />
+    <glyph glyph-name="Ncommaaccent" unicode="&#x145;" horiz-adv-x="1479" 
+ />
+    <glyph glyph-name="ncommaaccent" unicode="&#x146;" 
+ />
+    <glyph glyph-name="Ncaron" unicode="&#x147;" horiz-adv-x="1479" 
+ />
+    <glyph glyph-name="ncaron" unicode="&#x148;" 
+ />
+    <glyph glyph-name="napostrophe" unicode="&#x149;" horiz-adv-x="1237" 
+ />
+    <glyph glyph-name="Eng" unicode="&#x14a;" horiz-adv-x="1481" 
+ />
+    <glyph glyph-name="eng" unicode="&#x14b;" 
+ />
+    <glyph glyph-name="Omacron" unicode="&#x14c;" horiz-adv-x="1593" 
+ />
+    <glyph glyph-name="omacron" unicode="&#x14d;" 
+ />
+    <glyph glyph-name="Obreve" unicode="&#x14e;" horiz-adv-x="1593" 
+ />
+    <glyph glyph-name="obreve" unicode="&#x14f;" 
+ />
+    <glyph glyph-name="Ohungarumlaut" unicode="&#x150;" horiz-adv-x="1593" 
+ />
+    <glyph glyph-name="ohungarumlaut" unicode="&#x151;" 
+ />
+    <glyph glyph-name="OE" unicode="&#x152;" horiz-adv-x="2048" 
+ />
+    <glyph glyph-name="oe" unicode="&#x153;" horiz-adv-x="1933" 
+ />
+    <glyph glyph-name="Racute" unicode="&#x154;" horiz-adv-x="1479" 
+ />
+    <glyph glyph-name="racute" unicode="&#x155;" horiz-adv-x="682" 
+ />
+    <glyph glyph-name="Rcommaaccent" unicode="&#x156;" horiz-adv-x="1479" 
+ />
+    <glyph glyph-name="rcommaaccent" unicode="&#x157;" horiz-adv-x="682" 
+ />
+    <glyph glyph-name="Rcaron" unicode="&#x158;" horiz-adv-x="1479" 
+ />
+    <glyph glyph-name="rcaron" unicode="&#x159;" horiz-adv-x="682" 
+ />
+    <glyph glyph-name="Sacute" unicode="&#x15a;" horiz-adv-x="1366" 
+ />
+    <glyph glyph-name="sacute" unicode="&#x15b;" horiz-adv-x="1024" 
+ />
+    <glyph glyph-name="Scircumflex" unicode="&#x15c;" horiz-adv-x="1366" 
+ />
+    <glyph glyph-name="scircumflex" unicode="&#x15d;" horiz-adv-x="1024" 
+ />
+    <glyph glyph-name="Scedilla" unicode="&#x15e;" horiz-adv-x="1366" 
+ />
+    <glyph glyph-name="scedilla" unicode="&#x15f;" horiz-adv-x="1024" 
+ />
+    <glyph glyph-name="Scaron" unicode="&#x160;" horiz-adv-x="1366" 
+ />
+    <glyph glyph-name="scaron" unicode="&#x161;" horiz-adv-x="1024" 
+ />
+    <glyph glyph-name="Tcommaaccent" unicode="&#x162;" horiz-adv-x="1251" 
+ />
+    <glyph glyph-name="tcommaaccent" unicode="&#x163;" horiz-adv-x="569" 
+ />
+    <glyph glyph-name="Tcaron" unicode="&#x164;" horiz-adv-x="1251" 
+ />
+    <glyph glyph-name="tcaron" unicode="&#x165;" horiz-adv-x="768" 
+ />
+    <glyph glyph-name="Tbar" unicode="&#x166;" horiz-adv-x="1251" 
+ />
+    <glyph glyph-name="tbar" unicode="&#x167;" horiz-adv-x="569" 
+ />
+    <glyph glyph-name="Utilde" unicode="&#x168;" horiz-adv-x="1479" 
+ />
+    <glyph glyph-name="utilde" unicode="&#x169;" 
+ />
+    <glyph glyph-name="Umacron" unicode="&#x16a;" horiz-adv-x="1479" 
+ />
+    <glyph glyph-name="umacron" unicode="&#x16b;" 
+ />
+    <glyph glyph-name="Ubreve" unicode="&#x16c;" horiz-adv-x="1479" 
+ />
+    <glyph glyph-name="ubreve" unicode="&#x16d;" 
+ />
+    <glyph glyph-name="Uring" unicode="&#x16e;" horiz-adv-x="1479" 
+ />
+    <glyph glyph-name="uring" unicode="&#x16f;" 
+ />
+    <glyph glyph-name="Uhungarumlaut" unicode="&#x170;" horiz-adv-x="1479" 
+ />
+    <glyph glyph-name="uhungarumlaut" unicode="&#x171;" 
+ />
+    <glyph glyph-name="Uogonek" unicode="&#x172;" horiz-adv-x="1479" 
+ />
+    <glyph glyph-name="uogonek" unicode="&#x173;" 
+ />
+    <glyph glyph-name="Wcircumflex" unicode="&#x174;" horiz-adv-x="1933" 
+ />
+    <glyph glyph-name="wcircumflex" unicode="&#x175;" horiz-adv-x="1479" 
+ />
+    <glyph glyph-name="Ycircumflex" unicode="&#x176;" horiz-adv-x="1366" 
+ />
+    <glyph glyph-name="ycircumflex" unicode="&#x177;" horiz-adv-x="1024" 
+ />
+    <glyph glyph-name="Ydieresis" unicode="&#x178;" horiz-adv-x="1366" 
+ />
+    <glyph glyph-name="Zacute" unicode="&#x179;" horiz-adv-x="1251" 
+ />
+    <glyph glyph-name="zacute" unicode="&#x17a;" horiz-adv-x="1024" 
+ />
+    <glyph glyph-name="Zdotaccent" unicode="&#x17b;" horiz-adv-x="1251" 
+ />
+    <glyph glyph-name="zdotaccent" unicode="&#x17c;" horiz-adv-x="1024" 
+ />
+    <glyph glyph-name="Zcaron" unicode="&#x17d;" horiz-adv-x="1251" 
+ />
+    <glyph glyph-name="zcaron" unicode="&#x17e;" horiz-adv-x="1024" 
+ />
+    <glyph glyph-name="longs" unicode="&#x17f;" horiz-adv-x="455" 
+ />
+    <glyph glyph-name="florin" unicode="&#x192;" 
+ />
+    <glyph glyph-name="Aringacute" unicode="&#x1fa;" horiz-adv-x="1366" 
+ />
+    <glyph glyph-name="aringacute" unicode="&#x1fb;" 
+ />
+    <glyph glyph-name="AEacute" unicode="&#x1fc;" horiz-adv-x="2048" 
+ />
+    <glyph glyph-name="aeacute" unicode="&#x1fd;" horiz-adv-x="1821" 
+ />
+    <glyph glyph-name="Oslashacute" unicode="&#x1fe;" horiz-adv-x="1593" 
+ />
+    <glyph glyph-name="oslashacute" unicode="&#x1ff;" horiz-adv-x="1251" 
+ />
+    <glyph glyph-name="Wgrave" unicode="&#x1e80;" horiz-adv-x="1933" 
+ />
+    <glyph glyph-name="wgrave" unicode="&#x1e81;" horiz-adv-x="1479" 
+ />
+    <glyph glyph-name="Wacute" unicode="&#x1e82;" horiz-adv-x="1933" 
+ />
+    <glyph glyph-name="wacute" unicode="&#x1e83;" horiz-adv-x="1479" 
+ />
+    <glyph glyph-name="Wdieresis" unicode="&#x1e84;" horiz-adv-x="1933" 
+ />
+    <glyph glyph-name="wdieresis" unicode="&#x1e85;" horiz-adv-x="1479" 
+ />
+    <glyph glyph-name="Ygrave" unicode="&#x1ef2;" horiz-adv-x="1366" 
+ />
+    <glyph glyph-name="ygrave" unicode="&#x1ef3;" horiz-adv-x="1024" 
+ />
+    <glyph glyph-name="franc" unicode="&#x20a3;" 
+ />
+    <glyph glyph-name="lira" unicode="&#x20a4;" 
+ />
+    <glyph glyph-name="peseta" unicode="&#x20a7;" horiz-adv-x="2240" 
+ />
+  </font>
+</defs></svg>

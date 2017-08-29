@@ -2,65 +2,7 @@
 @section('title',' - Home')
 @section('styles')
 <style>
-.headersection {
-  min-height:900px;
-}
-.headersection .parallax-window {
-  min-height:900px;
-}
-.headersection .tile.information
-{
-    margin-left: 10%;
-    margin-right: 10%;
-    position: relative;
-    top: -50px;
-}
-.headersection .notification
-{
-  padding: 0;
-}
 
-.headersection .card {
-  background: transparent;
-  -webkit-box-shadow: none;
-    box-shadow: none;
-}
-
-.testimonial {
-  min-height:400px;
-  background-image: url( '/images/header/testimonial-overlay.png' );
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    padding-bottom: 65px;
-    background-color: rgb(175, 23, 65);
-    position: relative;
-}
-.testimonial:before {
-    content: "";
-    position: absolute;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-    background-image: url('/images/header/testimonial-overlay.png');
-    background-repeat: repeat;
-    background-position: center;
-    opacity: 1;
-}
-.gt_hdg_1 {
-
-    width: 100%;
-    position: relative;
-    text-align: center;
-
-}
-.gt_hdg_1.white_hdg h1, .gt_hdg_1.white_hdg h2 {
-    color: #fff;
-}
-.gt_hdg_1 h1 {
-    text-transform: uppercase;
-    font-weight: 600;
-}
 </style>
 @endsection
 @section('content')
@@ -76,8 +18,12 @@
     <section class="hero has-text-centered">
       <div class="hero-body m-t-40">
         <div class="container">
-          <h1 class="title is-size-1 has-text-danger is-uppercase wow bounceInDown" data-wow-duration="5s" data-wow-delay=".1s" style="visibility:hidden;">Kódvetők</h1>
-          <h2 class="title is-size-3 has-text-warning is-lowercase m-t-20 wow bounceInDown" data-wow-duration="2s" data-wow-delay=".1s" style="visibility:hidden;">Kódfarm</h2>
+          <h1 class="title is-size-1 is-spaced is-uppercase wow bounceInDown" data-wow-duration="5s" data-wow-delay=".1s" style="visibility:hidden;">
+            Kódvetők
+          </h1>
+          <h2 class="subtitle is-size-3 is-spaced has-text-warning is-lowercase m-t-70 wow bounceInDown" data-wow-duration="2s" data-wow-delay=".1s" style="visibility:hidden;">
+            a Kódfarmon
+          </h2>
         </div>
       </div>
     </section>
