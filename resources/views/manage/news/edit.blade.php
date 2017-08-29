@@ -20,7 +20,8 @@
                 'method' => 'PUT',
                 'route' => ['post.update', $post->id],
                 'files' => TRUE,
-                'id' => 'update-post-form'
+                'id' => 'update-post-form',
+                'enctype' => 'multipart/form-data'
 
                 ])  !!}
 
