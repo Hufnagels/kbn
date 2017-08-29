@@ -50,7 +50,7 @@
           <a class="navbar-item " href="{{ route('newses') }}">More News</a>
         </div>
       </div>
-
+      <a class="navbar-item" href="{{ route('projects') }}">Projects</a>
     </div>
 
     <div class="navbar-end">

@@ -16,6 +16,9 @@ Route::post('/contact', 'PagesController@postContact')->name('contact');
 Route::get('/about', 'PagesController@getAbout')->name('about');
 Route::get('/team', 'PagesController@getTeam')->name('team');
 
+Route::get('/projects/{project}', 'PostController@showProject')->name('projects.show');
+Route::get('/projects', 'PostController@getProjects')->name('projects');
+
 Route::get('/news/author/{author}', 'PostController@author')->name('news.author');
 Route::get('/news/category/{category}', 'PostController@category')->name('news.category');
 Route::get('/news/tag/{tag}', 'PostController@tag')->name('news.tags');

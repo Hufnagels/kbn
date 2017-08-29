@@ -21,13 +21,46 @@ class PostController extends Controller
   protected $paginateLimit = 9;
 
 
+  /*
+  * NEWS SECTION - PROJECTS CATEGORY
+  */
+  public function getProjects(){
 
+    // \DB::enableQueryLog();
+    $news = News::with('author', 'category', 'tags')
+                ->latestFirst()
+                ->published()
+                ->where('category_id',10)
+                ->filterSearchTerm( request('term') )
+                ->paginate($this->paginateLimit);
+    //$news = News::orderBy('created_at', 'desc')->with('author')->paginate(5);
+    return view('simplePages.projects.projectlist', compact('news'));//->withNews($news);//, ['users' => $users]);
+    // view('simplePages.news.newslist', compact('news'))->render();
+    // dd(\DB::getQueryLog());
+
+  }
+
+  public function showProject(News $item){
+    //\DB::enableQueryLog();
+
+    // if( empty($item['slug']) ) return view('errors.404');
+    //dd($item);
+    $item->increment('view_count');
+    return view('simplePages.projects.project', compact('item'));//, ['users' => $users]);
+    //view('simplePages.news', compact('item'))->render();
+    //dd(\DB::getQueryLog());
+  }
+
+  /*
+  * NEWS SECTION
+  */
   public function getPosts(){
 
     // \DB::enableQueryLog();
     $news = News::with('author', 'category', 'tags')
                 ->latestFirst()
                 ->published()
+                ->where('category_id','<>', 10)
                 ->filterSearchTerm( request('term') )
                 ->paginate($this->paginateLimit);
     //$news = News::orderBy('created_at', 'desc')->with('author')->paginate(5);
@@ -51,7 +84,7 @@ class PostController extends Controller
   public function category(Category $category){
 
     //\DB::enableQueryLog();
-
+// dd($category);
     $categoryName = $category->title;
     $news = $category
                     ->news()
