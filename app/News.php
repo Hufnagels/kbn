@@ -136,6 +136,7 @@ class News extends Model
     *
     * LARAVEL scopes
     */
+
     public function scopeLatestFirst($query)
     {
       return $query->orderBy('published_at', 'desc');
@@ -187,11 +188,20 @@ class News extends Model
           $q->orWhere('title', 'LIKE', "%{$term}%");
           $q->orWhere('excerpt', 'LIKE', "%{$term}%");
           // $q->orWhere('body', 'LIKE', "%{$term}%");
-
-
-
         });
       }
+    }
+
+    public function scopeFilterProjectCategory($query)
+    {
+        $query->where(function($q)
+        {
+          $q->whereHas('category', function($qr)
+          {
+            $qr->where('id',  10);
+          });
+
+        });
     }
 
 }

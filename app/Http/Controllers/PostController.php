@@ -22,7 +22,7 @@ class PostController extends Controller
 
 
   /*
-  * NEWS SECTION - PROJECTS CATEGORY
+  * PROJECTS CATEGORY in NEWS
   */
   public function getProjects(){
 
@@ -42,9 +42,6 @@ class PostController extends Controller
 
   public function showProject(News $item){
     //\DB::enableQueryLog();
-
-    // if( empty($item['slug']) ) return view('errors.404');
-    //dd($item);
     $item->increment('view_count');
     return view('simplePages.projects.project', compact('item'));//, ['users' => $users]);
     //view('simplePages.news', compact('item'))->render();
@@ -63,19 +60,27 @@ class PostController extends Controller
                 ->where('category_id','<>', 10)
                 ->filterSearchTerm( request('term') )
                 ->paginate($this->paginateLimit);
-    //$news = News::orderBy('created_at', 'desc')->with('author')->paginate(5);
-    return view('simplePages.news.newslist', compact('news'));//->withNews($news);//, ['users' => $users]);
+
+    return view('simplePages.news.newslist', compact('news'));
     // view('simplePages.news.newslist', compact('news'))->render();
     // dd(\DB::getQueryLog());
 
   }
 
-  public function showPost(News $item){
+  public function showPost(Request $request, News $item){
     //\DB::enableQueryLog();
 
-    // if( empty($item['slug']) ) return view('errors.404');
-    //dd($item);
-    $item->increment('view_count');
+    $postkey = 'post_'.$item->id;
+    //$request->session()->forget($postkey);
+    // Check if blog session key exists
+    // If not, update view_count and create session key
+    if (!Session::has($postkey)) {
+        $item->increment('view_count');
+        Session::put($postkey, 1);
+    }
+    //$item->increment('view_count');
+    //dd($request->session()->all());
+
     return view('simplePages.news.news', compact('item'));//, ['users' => $users]);
     //view('simplePages.news', compact('item'))->render();
     //dd(\DB::getQueryLog());
@@ -84,7 +89,6 @@ class PostController extends Controller
   public function category(Category $category){
 
     //\DB::enableQueryLog();
-// dd($category);
     $categoryName = $category->title;
     $news = $category
                     ->news()
@@ -92,7 +96,6 @@ class PostController extends Controller
                     ->latestFirst()
                     ->published()
                     ->paginate($this->paginateLimit);
-    //$news = News::orderBy('created_at', 'desc')->with('author')->paginate(5);
     return view('simplePages.news.newslist', compact('news', 'categoryName'));//->withNews($news);//, ['users' => $users]);
     //view('simplePages.newslist', compact('news'))->render();
     //dd(\DB::getQueryLog());
@@ -121,7 +124,6 @@ class PostController extends Controller
   public function tag(Tag $tag)
     {
         $tagName = $tag->name;
-//dd($tagName);
         $news = $tag->news()
                           ->with('author', 'category')
                           ->latestFirst()

@@ -20,6 +20,7 @@ class NavigationComposer
 
     $this->composeNewsWithImages($view);
 
+    $this->composeNewsCategoryProjects($view);
     // $this->composeNewsPopularPostsInMainNav($view);
   }
 
@@ -53,6 +54,18 @@ class NavigationComposer
     $view->with( 'latestpostswithimages' , $latestpostswithimages);
   }
 
+  public function composeNewsCategoryProjects(View $view)
+  {
+// \DB::enableQueryLog();
+    $projectcategories = News::filterProjectCategory()
+      ->published()
+      ->orderBy('updated_at', 'asc')
+      ->take(2)
+      ->get();
+// dd($projectcategories);
+// dd(\DB::getQueryLog());
+    $view->with('projectcategories' , $projectcategories);
+  }
   // public function composeNewsPopularPostsInMainNav(View $view)
   // {
   //   $popularposts = News::published()->popular()->take(3)->get();
