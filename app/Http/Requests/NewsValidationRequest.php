@@ -25,6 +25,7 @@ class NewsValidationRequest extends FormRequest
     {
       $rules = [
         'title' => 'required',
+        'subtitle' => 'required',
         'slug' => 'required|unique:news',
         'body' => 'required',
         'category_id' => 'required',
