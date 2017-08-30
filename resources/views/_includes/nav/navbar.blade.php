@@ -1,7 +1,8 @@
 <nav class="navbar has-shadow">
   <div class="navbar-brand">
     <button class="navbar-item" href="{{ route('home')}}">
-      <img src="{{ asset('/images/logo_kv_004.png') }}" alt="">
+      <img src="{{ asset('/images/logo_kv_004.png') }}" alt="" class="is-hidden-touch">
+      <img src="{{ asset('/images/logo_kv_003.png') }}" alt="" class="is-hidden-desktop">
     </button>
 
     <a class="navbar-item is-hidden-desktop" href="https://www.facebook.com/kodvetok/" target="_blank">

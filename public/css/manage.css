@@ -89,3 +89,7 @@ button.trashtable > span.fa {
   margin: 5px 10px;
 }
 
+.news-container .field.is-grouped.is-grouped-multiline:last-child {
+  margin-bottom: 0.0rem;
+}
+

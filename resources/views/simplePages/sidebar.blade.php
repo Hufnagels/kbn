@@ -30,7 +30,7 @@
   <a class="panel-block" href="{{ route('news.show', $post->slug)}}">
     <article class="media">
       @if( $post->image_thumb_url )
-      <figure class="media-left"><p class="image is-64x64"><img src="{{ $post->image_thumb_url }}" alt="{{ $post->title }}" style="font-size:12px;"></p></figure>
+      <figure class="media-left is-hidden-touch"><p class="image is-64x64"><img src="{{ $post->image_thumb_url }}" alt="{{ $post->title }}" style="font-size:12px;"></p></figure>
       @endif
       <div class="media-content"><div class="content">{{$post->title}}</div></div>
     </article>

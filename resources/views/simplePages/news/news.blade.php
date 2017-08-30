@@ -2,26 +2,8 @@
 @section('title',' - News')
 @section('styles')
 <style>
-#app {
-    margin-right: 0px;
-}
 
-.news-container small.icon.is-small.postcount {
-    min-width: 5rem;
-}
-.news-container .postcount >i.fa.fa-clone {
-    margin-right: .3rem;
-}
-.news-sidebar .panel-heading.is-warning {
-    background-color: #ffdd57;
-    border-color: transparent;
-    color: rgba(0, 0, 0, 0.7);
-}
-.news-sidebar .panel-heading.is-info {
-    background-color: #3273dc;
-    border-color: transparent;
-    color: rgba(0, 0, 0, 0.7);
-}
+
 </style>
 @endsection
 @section('content')

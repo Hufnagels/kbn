@@ -3,6 +3,7 @@
 @section('styles')
 <style>
 
+
 </style>
 @endsection
 @section('content')
@@ -83,5 +84,12 @@ $('.msrItems').msrItems({
 		'colums': 3, //columns number
 		'margin': 15 //right and bottom margin
 	});
+  var time = undefined;
+      $( window ).on('resize', function(e) {
+          clearTimeout(time);
+          time = setTimeout(function(){
+              $('.msrItems').msrItems('refresh');
+          }, 200);
+      })
 </script>
 @endsection

@@ -33,7 +33,7 @@ $(document).ready(function(){
                   margin:0,
                   nav:false,
                   autoplay:true,
-                  autoplayTimeout:6000,
+                  autoplayTimeout:2000,
                   autoplayHoverPause:true,
                   responsive:{
                       0:{ items:1 },
@@ -41,11 +41,6 @@ $(document).ready(function(){
                       1000:{ items:3 }
                   }
               };
-
-
   owl.owlCarousel(owlConfig);
-  // Listen to owl events:
-  owl.on('initialized.owl.carousel', function(event) {
-    console.log(event)
-  })
+
 });

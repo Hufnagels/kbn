@@ -2,52 +2,6 @@
 @section('title',' - Contact')
 @section('styles')
 <style>
-#ContactMap {
-	position: relative;
-	min-height: 500px;
-	margin-bottom: 20px;
-}
-.gt_form_map {
-    position: absolute;
-    top: 10px;
-    left: 0px;
-    right: 0px;
-    margin: auto;
-    padding: 42px 0px;
-    -webkit-box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.09);
-    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.09);
-    background-color: rgba(255, 255, 255, 0.72);
-    z-index: 1000;
-    height: 474px;
-}
-@media screen and (max-width: 1007px) {
-	.gt_form_map {
-	    position: relative;
-	    top: -2px;
-
-	    margin: auto;
-	    width: 100%;
-	    padding: 42px 0px;
-	    -webkit-box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.09);
-	    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.09);
-	    background-color: rgba(255, 255, 255, 0.72);
-	    z-index: 1000;
-	    height: 474px;
-	}
-	.card {
-		max-width:100%;
-    width: 100%;
-    position: relative;
-	}
-}
-.card {
-    background-color: transparent;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    color: #4a4a4a;
-    max-width: 100%;
-    position: relative;
-}
 
 </style>
 @endsection

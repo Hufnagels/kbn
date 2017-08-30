@@ -80,8 +80,6 @@
 
   @include('simplePages.index.testimonial')
 
-
-
 </section>
 
 <section class="gallery wow zoomIn" id="gallerysection">

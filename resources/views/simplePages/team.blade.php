@@ -2,16 +2,7 @@
 @section('title',' - Team')
 @section('styles')
 <style>
-#app {
-    margin-right: 0px;
-}
-.notification {
-    padding: 0rem;
-    background-color:transparent;
-}
-.notification .card{
-    margin: 0rem;
-}
+
 </style>
 @endsection
 @section('content')
@@ -28,10 +19,10 @@
     </div>
   </div>
 </section>
-<section id="ourTeamList" class="section">
+<section id="ourTeamList" class="section teamlist">
   <div class="container">
     <div class="tile is-ancestor">
-      <div class="tile is-vertical is-8">
+      <div class="tile is-vertical is-12">
         <div class="tile">
           <div class="tile is-parent is-vertical">
             <article class="tile is-child notification">
@@ -105,68 +96,7 @@
           </article>
         </div>
       </div>
-      <div class="tile is-parent">
-        <article class="tile is-child notification">
 
-          <div class="card">
-            <div class="card-content">
-              <div class="media">
-                <div class="media-left">
-                  <figure class="image is-128x128"><img src="{{ asset('images/team/team-member-3.jpg') }}" alt="Image"></figure>
-                </div>
-                <div class="media-content">
-                  <p class="title is-4">Gabika</p>
-                  <p class="subtitle is-6">Tanár</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-content">
-              <div class="media">
-                <div class="media-left">
-                  <figure class="image is-128x128"><img src="{{ asset('images/team/team-member-3.jpg') }}" alt="Image"></figure>
-                </div>
-                <div class="media-content">
-                  <p class="title is-4">Gabika</p>
-                  <p class="subtitle is-6">Tanár</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-content">
-              <div class="media">
-                <div class="media-left">
-                  <figure class="image is-128x128"><img src="{{ asset('images/team/team-member-3.jpg') }}" alt="Image"></figure>
-                </div>
-                <div class="media-content">
-                  <p class="title is-4">Gabika</p>
-                  <p class="subtitle is-6">Tanár</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-content">
-              <div class="media">
-                <div class="media-left">
-                  <figure class="image is-128x128"><img src="{{ asset('images/team/team-member-3.jpg') }}" alt="Image"></figure>
-                </div>
-                <div class="media-content">
-                  <p class="title is-4">Gabika</p>
-                  <p class="subtitle is-6">Tanár</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </article>
-      </div>
     </div>
   </div>
 
