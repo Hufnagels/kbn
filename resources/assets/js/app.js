@@ -7,9 +7,11 @@
 
 require('./bootstrap');
 
+// window.owlcarousel = require('owl.carousel');
+
 const WOW = require('wowjs');
 window.wow = new WOW.WOW({ live: false });
-// require('../../../node_modules/wowjs/dist/wow.min.js');
+// require('../../../node_modules/owl.carousel/dist/owl.carousel.min.js');
 
 window.Vue = require('vue');
 

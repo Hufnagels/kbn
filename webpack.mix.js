@@ -1,4 +1,5 @@
 let mix = require('laravel-mix');
+let webpack = require('webpack');
 
 /*
  |--------------------------------------------------------------------------
@@ -18,7 +19,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .extract([
      'moment',
     ]);
-
+/**/
 mix.webpackConfig({
   plugins: [
    // reduce bundle size by ignoring moment js local files

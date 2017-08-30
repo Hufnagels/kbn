@@ -2,7 +2,28 @@
 @section('title',' - Home')
 @section('styles')
 <style>
+.gt_testi2_wrap p:before {
+    content: "\f10d";
+    position: absolute;
+    font-family: fontawesome;
+    top: 30px;
+    left: 20px;
+    width: auto;
+    height: auto;
+    color: #ebebeb;
+    font-size: 45px;
+    z-index: -1;
+}
 
+
+.gt_testimonial2_slider, .gt_testi2_wrap, .gt_testi2_detail {
+  float: left;
+  width: 100%;
+  position: relative;
+}
+.gt_testi2_wrap {
+  background-color: #fff;
+}
 </style>
 @endsection
 @section('content')
@@ -107,13 +128,24 @@
 
 </section>
 
-<section class="testimonial wow fadeInUp" id="" style="visibility:hidden;" data-wow-duration="5s" data-wow-delay="1s">
+<section class="testimonial wow fadeInUp" id=""  data-wow-duration="5s" data-wow-delay="1s">
   <div class="hero-body">
     <div class="container gt_hdg_1 white_hdg">
       <h1 class="title has-text-centered wow zoomIn" data-wow-duration="5s" data-wow-delay="1s" >Rólunk mondták</h1>
       <h2 class="subtitle has-text-centered wow zoomIn" data-wow-duration="5s" data-wow-delay="1s">Kik vagyunk mi?</h2>
     </div>
   </div>
+
+  <div class="columns is-mobile">
+    <div class="column is-8 is-offset-2">
+
+
+
+    </div>
+  </div>
+
+
+
 </section>
 
 <section class="" id="">
@@ -132,12 +164,13 @@
 @endsection
 
 @section('scripts')
-
-
 <script type="text/javascript" src="/assets/js/parallax.min.js"></script>
 <script type="text/javascript">
-
+$(document).ready(function(){
+	"use strict";
   $('.headersection .parallax-window').parallax({imageSrc: "{{ asset('/images/header/headerimage.jpg') }}"});
-  alert( 'js works:' + $('.parallax-window') );
+
+});
+
 </scripts>
 @endsection

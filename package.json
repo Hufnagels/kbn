@@ -23,6 +23,7 @@
     "eonasdan-bootstrap-datetimepicker": "^4.17.47",
     "font-awesome": "^4.7.0",
     "material-components-web": "^0.16.0",
+    "owl.carousel": "^2.2.0",
     "trumbowyg": "^2.7.0",
     "wowjs": "^1.1.3"
   }
