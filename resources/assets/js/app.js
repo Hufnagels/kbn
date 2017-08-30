@@ -7,7 +7,7 @@
 
 require('./bootstrap');
 
-// window.owlcarousel = require('owl.carousel');
+window.owlcarousel = require('owl.carousel');
 
 const WOW = require('wowjs');
 window.wow = new WOW.WOW({ live: false });
@@ -24,5 +24,28 @@ $(document).ready(function(){
   $('.navbar-burger').click(function (e) {
     $('#navMenu').toggleClass('is-active');
   })
+  console.log('Start');
   window.wow.init();
+
+  var owl = $('.owl-carousel'),
+  owlConfig = {
+                  loop:true,
+                  margin:0,
+                  nav:false,
+                  autoplay:true,
+                  autoplayTimeout:6000,
+                  autoplayHoverPause:true,
+                  responsive:{
+                      0:{ items:1 },
+                      600:{ items:1  },
+                      1000:{ items:3 }
+                  }
+              };
+
+
+  owl.owlCarousel(owlConfig);
+  // Listen to owl events:
+  owl.on('initialized.owl.carousel', function(event) {
+    console.log(event)
+  })
 });

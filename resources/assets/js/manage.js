@@ -19,7 +19,7 @@ require('../../../node_modules/bootstrap/dist/js/bootstrap.min.js');
 require('../../../node_modules/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js');
 // require('../../../node_modules/moment/moment.js');
 window.moment = require('moment');
-
+window.owlcarousel = require('owl.carousel');
 const WOW = require('wowjs');
 window.wow = new WOW.WOW({ live: false });
 
