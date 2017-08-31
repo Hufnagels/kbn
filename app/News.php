@@ -37,8 +37,18 @@ class News extends Model
 
     public function tags()
     {
-      return $this->belongsToMany(Tag::class);
+      return $this->morphToMany('App\Tag','taggable');
     }
+
+    // public function photos()
+    // {
+    //   return $this->morphMany('App\Photo','imageable');
+    // }
+    //
+    // public function videos()
+    // {
+    //   return $this->morphMany('App\Video','videoable');
+    // }
 
 
     public function publicationStatusLabel()

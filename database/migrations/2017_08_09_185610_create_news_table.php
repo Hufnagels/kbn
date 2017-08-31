@@ -30,7 +30,7 @@ class CreateNewsTable extends Migration
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('restrict');
             $table->integer('view_count')->unsigned()->default(0);
             $table->timestamps();
-            $table->timestamp('deleted_at')->nullable();
+            // $table->timestamp('deleted_at')->nullable();
         });
     }
 

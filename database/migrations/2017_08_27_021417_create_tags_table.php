@@ -13,6 +13,7 @@ class CreateTagsTable extends Migration
      */
     public function up()
     {
+        // Schema::dropIfExists('news_tag');
         Schema::create('tags', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
@@ -21,11 +22,11 @@ class CreateTagsTable extends Migration
         });
 
         //pivot table
-        Schema::create('news_tag', function (Blueprint $table) {
-            $table->integer('news_id');
-            $table->integer('tag_id');
-            $table->primary(['news_id', 'tag_id']);
-        });
+        // Schema::create('news_tag', function (Blueprint $table) {
+        //     $table->integer('news_id');
+        //     $table->integer('tag_id');
+        //     $table->primary(['news_id', 'tag_id']);
+        // });
     }
 
     /**
@@ -35,7 +36,7 @@ class CreateTagsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('news_tag');
+        // Schema::dropIfExists('news_tag');
         Schema::dropIfExists('tags');
     }
 }

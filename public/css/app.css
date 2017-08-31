@@ -16937,6 +16937,10 @@ button.nav-item.is-active {
   height: 340px;
 }
 
+.news-container .field.is-grouped.is-grouped-multiline:last-child {
+  margin-bottom: 0.0rem;
+}
+
 /*
 .news-container .box:first-child, :not(.box) + .box {
     margin-top: 1.5rem;

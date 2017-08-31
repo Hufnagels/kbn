@@ -30,7 +30,7 @@ class PostController extends Controller
     $news = News::with('author', 'category', 'tags')
                 ->latestFirst()
                 ->published()
-                ->where('category_id',10)
+                ->where('category_id',2)
                 ->filterSearchTerm( request('term') )
                 ->paginate($this->paginateLimit);
     //$news = News::orderBy('created_at', 'desc')->with('author')->paginate(5);
@@ -52,12 +52,17 @@ class PostController extends Controller
   * NEWS SECTION
   */
   public function getPosts(){
-
+  //   $post = News::find(1);
+  //
+  // foreach ($post->tags as $tag) {
+  //     echo $tag;
+  // }
+  // die();
     // \DB::enableQueryLog();
     $news = News::with('author', 'category', 'tags')
                 ->latestFirst()
                 ->published()
-                ->where('category_id','<>', 10)
+                ->where('category_id','<>', 2)
                 ->filterSearchTerm( request('term') )
                 ->paginate($this->paginateLimit);
 

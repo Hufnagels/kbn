@@ -61,7 +61,7 @@ class TagsTableSeeder extends Seeder
         foreach(News::all() as $post)
         {
           shuffle($tags);
-          for ($i=0; $i < rand(0, count($tags)-1); $i++)
+          for ($i=1; $i < rand(1, count($tags)-1); $i++)
           {
             $post->tags()->detach($tags[$i]);
             $post->tags()->attach($tags[$i]);

@@ -20,55 +20,51 @@ class CategoriesTableSeeder extends Seeder
           [
             'title'=>'Uncategorized',
             'slug'=>'uncategorized',
-            'type'=>'news',
+            'created_at' => $date
+          ],
+          [
+            'title'=>'Projekt',
+            'slug'=>'projekt',
             'created_at' => $date
           ],
           [
             'title'=>'Microbit beginner',
             'slug'=>'microbit-beginner',
-            'type'=>'news',
             'created_at' => $date
           ],
           [
             'title'=>'Microbit intermediate',
             'slug'=>'microbit-intermediate',
-            'type'=>'news',
             'created_at' => $date
           ],
           [
             'title'=>'Oktatás',
             'slug'=>'oktatas',
-            'type'=>'news',
             'created_at' => $date
           ],
           [
             'title'=>'Interesting codes',
             'slug'=>'interesting-codes',
-            'type'=>'news',
             'created_at' => $date
           ],
           [
             'title'=>'Konferencia',
             'slug'=>'konferencia',
-            'type'=>'news',
             'created_at' => $date
           ],
           [
             'title'=>'Kiállítás',
             'slug'=>'kiallitas',
-            'type'=>'news',
             'created_at' => $date
           ],
           [
             'title'=>'Tábor',
             'slug'=>'tabor',
-            'type'=>'events',
             'created_at' => $date
           ],
           [
             'title'=>'Padagógus képzés',
             'slug'=>'pedagogus-kepzes',
-            'type'=>'events',
             'created_at' => $date
           ]
         ]);
