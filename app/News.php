@@ -132,9 +132,12 @@ class News extends Model
     {
         $anchors = [];
         foreach($this->tags as $tag) {
+          if( !$tag->id == config('ownAttributes.default_tag.id') ){
             $anchors[] = '<small><a href="' . route('news.tags', $tag->slug) . '">' . $tag->name . '</a></small>';
+          }
         }
-        return implode(", ", $anchors);
+        // dd(count($anchors));
+        return count($anchors) ? (' | ' . implode(", ", $anchors)) : '';
     }
 
     public function setPublishedAtAttribute($value)

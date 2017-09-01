@@ -39,9 +39,10 @@
                   <small class="icon is-small postcount"><i class="fa fa-clone"></i>{{$postCount}} {{str_plural('post', $postCount)}}</small>
                   <br>
                   <small>{{$item->date}}</small>
+                  @if( !( $item->category->id == config('ownAttributes.default_category.id') ))
                   <br>
-                  <small><a href="{{ route('news.category', $item->category->slug)}}">{{$item->category->title}}</a></small> |
-
+                  <small><a href="{{ route('news.category', $item->category->slug)}}">{{$item->category->title}}</a></small>
+                  @endif
                   {!! $item->tags_html !!}
                 </p>
               </div>

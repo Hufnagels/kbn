@@ -1,10 +1,10 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Manage;
 use Illuminate\Http\Request;
 use App\Role;
 use App\Permission;
 use Session;
-class RoleController extends Controller
+class RoleController extends BackendController
 {
     /**
      * Display a listing of the resource.

@@ -2,10 +2,11 @@
 
 function check_user_permissions($request, $actionName = NULL, $id = NULL)
 {
-//dd($request->route()->getActionName());
+// dd($request->route()->getActionName());
     // current user
     $currentUser = $request->user();
-
+// dd($currentUser);
+// dd($actionName);
     // current action name
     if ($actionName) {
         $currentActionName = $actionName;
@@ -17,12 +18,12 @@ function check_user_permissions($request, $actionName = NULL, $id = NULL)
 // dd($currentActionName);
 
     list($controller, $method) = explode('@', $currentActionName);
-//echo ($controller);
+// echo ($controller);
 
     $controller = str_replace(["App\\Http\\Controllers\\Manage\\"], "", $controller);
     $controller = str_replace(["Controller"], "", $controller);
 
-//dd($controller);
+// dd($controller);
     $crudPermissionsMap = [
         // 'create' => ['create', 'store'],
         // 'update' => ['edit', 'update'],
@@ -35,7 +36,8 @@ function check_user_permissions($request, $actionName = NULL, $id = NULL)
         'ManageNews'        => 'news',
         'Event'             => 'event',
         'Users'             => 'user',
-        'ManageCategories'  => 'category'
+        'ManageCategories'  => 'category',
+        'ManageTag'         => 'tag'
     ];
 
     foreach ($crudPermissionsMap as $permission => $methods)
@@ -58,21 +60,21 @@ function check_user_permissions($request, $actionName = NULL, $id = NULL)
         {
             $className = $classesMap[$controller];
 
-//dd($className);
-//echo $method;
-//echo (in_array($method, ['edit', 'update', 'destroy', 'restore', 'forceDestroy']));
-
-//dd( $className == 'news' && in_array($method, ['edit', 'update', 'destroy', 'restore', 'forceDestroy'])) ;
+// dd($className);
+// dd($method);
+// echo $method;
+// dd(in_array($method, $methods));
+// dd( $className == 'tag' && in_array($method, ['edit', 'update', 'destroy', 'restore', 'forceDestroy'])) ;
             if ($className == 'news' && in_array($method, ['edit', 'update', 'destroy', 'restore', 'forceDestroy']))
             {
                 $id = !is_null($id) ? $id : $request->route('post');
-
+// dd($id);
                 // if the current user has not update-others-post/delete-others-post permission
                 // make sure she/he only modify his/her own post
                 if ( $id &&
                     (!$currentUser->can('update-others-news') || !$currentUser->can('delete-others-news')) )
                 {
-//dd(!$currentUser->can('update-others-news'));
+// dd(!$currentUser->can('update-others-news'));
                     $news = \App\News::withTrashed()->find($id);
 //dd($news);
                     if($news == NULL) return false;
@@ -81,8 +83,17 @@ function check_user_permissions($request, $actionName = NULL, $id = NULL)
                     }
                 }
             }
+            elseif ($className == 'tag' && in_array($method, ['edit', 'update', 'destroy', 'restore', 'forceDestroy']))
+            {
+// dd($method);
+// dd($className);
+              return true;
+            }
             // if the user has not permission don't allow the next request
             elseif ( ! $currentUser->can("{$permission}-{$className}")) {
+// dd( $permission);
+// dd($className);
+// dd( ! $currentUser->can("{$permission}-{$className}") );
                 return false;
             }
 

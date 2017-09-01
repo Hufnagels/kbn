@@ -5,10 +5,10 @@
         <article class="tile is-child notification">
 
           <div class="field">
-            <label class="label">{!! Form::label('title', 'Title') !!}</label>
-            <div class="control {{ $errors->has('title') ? 'is-danger' : ''}}">{!! Form::text('title', null, ['class' => 'input']) !!}</div>
-            @if($errors->has('title'))
-            <p class="help is-danger">Title is invalid</p>
+            <label class="label">{!! Form::label('name', 'Name') !!}</label>
+            <div class="control {{ $errors->has('name') ? 'is-danger' : ''}}">{!! Form::text('name', null, ['class' => 'input']) !!}</div>
+            @if($errors->has('name'))
+            <p class="help is-danger">Name is invalid</p>
             @endif
           </div>
 
@@ -21,36 +21,36 @@
           </div>
 
           <div class="control">
-            <button type="submit" class="button is-primary">{{ $category->id ? 'Update' : 'Store'}}</button>
-            <a href="{{ route('category.index') }}" class="button">Cancel</a>
+            <button type="submit" class="button is-primary">{{ $tag->id ? 'Update' : 'Store'}}</button>
+            <a href="{{ route('tag.index') }}" class="button">Cancel</a>
           </div>
 
 
         </article>
       </div>
     </div>
-    @if( $category->id )
+    @if($tag->id)
     <div class="tile">
       <article class="tile is-child notification">
-        <p class="subtitle">News in this category</p>
-      @if( $category->news )
+        <p class="subtitle">News in this tag</p>
+      @if( $tag->news )
         <table class="table is-narrow">
           <thead>
             <tr>
               <th width="100"><abbr title="Image"></abbr></th>
-              <th width="70%"><abbr title="Title">Title</abbr></th>
+              <th width="70%"><abbr title="Name">Name</abbr></th>
               <th><abbr title="Author">Author</abbr></th>
               <th><abbr title="Action">Action</abbr></th>
             </tr>
           </thead>
 
           <tbody>
-          @foreach ($category->news as $news)
+          @foreach ($tag->news as $news)
               <tr>
                 <td><img src="{{ $news->image_thumb_url }}" class="image is-125x85" ></td>
                 <td><a class="" href="{{ route('news.show', $news->slug)}}">{{$news->title}}</a></td>
                 <td>{{ $news->author->name }}</td>
-                <td><a href="{{ route('post.edit', $news->id)}}" title="Edit"><span class="fa fa-edit"></span></a></td>
+                <td><a href="{{ route('post.edit', $tag->id)}}" title="Edit"><span class="fa fa-edit"></span></a></td>
               </tr>
           @endforeach
             <tbody>

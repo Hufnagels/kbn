@@ -15,18 +15,20 @@
       <!--<td>{{$category->id}}</td>-->
       <td>{{$category->title}}</td>
       <td>{{$category->slug}}</td>
-      <td>{{$category->news->count()}}</td>
+      <td class="has-text-centered">{{$category->news->count()}}</td>
 
 
       <td>
         {!! Form::open(['method' => 'DELETE', 'route' => ['category.destroy', $category->id],'class'=>'allnewstable']) !!}
         <a href="{{ route('category.edit', $category->id)}}" title="Edit"><span class="fa fa-edit"></span></a>
-        @if( ! ($category->id == config('categoryAttributes.default_category.id')) )
-        <button type="submit"
-        @if($category->news->count() > 0)
-          onclick="return confirm('This category has {{ $category->news->count() }} News binded to it');" 
-        @endif
-        class="button allnewstable is-danger is-outlined is-small"><span class="fa fa-remove"></span></button>
+        @if (check_user_permissions(request(), "ManageTag@destroy"))
+          @if( ! (($category->id == config('ownAttributes.default_category.id')) ||  ($category->id == config('ownAttributes.default_project_category.id')) ))
+          <button type="submit"
+          @if($category->news->count() > 0)
+            onclick="return confirm('This category has {{ $category->news->count() }} News binded to it');"
+          @endif
+          class="button allnewstable is-danger is-outlined is-small"><span class="fa fa-remove"></span></button>
+          @endif
         @endif
         {!! Form::close() !!}
       </td>

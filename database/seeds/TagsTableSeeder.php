@@ -16,9 +16,16 @@ class TagsTableSeeder extends Seeder
     {
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         DB::table('tags')->truncate();
+        DB::table('taggables')->truncate();
         $this->command->info('Create dummy Tags data');
 
         $date = Carbon::create(2016, 6, 20, 9);
+
+        $microbit = new Tag();
+        $microbit->name = "Untagged";
+        $microbit->slug = "untagged";
+        $microbit->created_at = $date;
+        $microbit->save();
 
         $microbit = new Tag();
         $microbit->name = "Microbit";

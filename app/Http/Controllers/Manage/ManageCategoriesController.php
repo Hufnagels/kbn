@@ -114,10 +114,10 @@ class ManageCategoriesController extends BackendController
 
       $category = Category::findOrFail($id);
 
-      if( !($category->id == config('categoryAttributes.category_default.id')) )
+      if( !($category->id == config('ownAttributes.default_category.id')) )
 
       {
-        News::where('category_id', $id)->update(['category_id' => config('categoryAttributes.default_category.id')] );
+        News::where('category_id', $id)->update(['category_id' => config('ownAttributes.default_category.id')] );
         $category->delete();
         return redirect()->route('category.index')->with('message', 'Category was deleted successfully');
       }
@@ -131,7 +131,7 @@ class ManageCategoriesController extends BackendController
     public function forceDestroy($id)
     {
         $category = Category::withTrashed()->findOrFail($id);
-        News::withTrashed()->where('category_id', $id)->update(['category_id' => config('categoryAttributes.default_category.id')]);
+        News::withTrashed()->where('category_id', $id)->update(['category_id' => config('ownAttributes.default_category.id')]);
         $category->forceDelete();
 
 

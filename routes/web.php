@@ -45,8 +45,8 @@ Route::prefix('manage')->group(function(){
   Route::resource('/users', 'Manage\UsersController');
 
 
-  Route::resource('/permissions', 'PermissionController', ['except' => 'destroy']);
-  Route::resource('/roles', 'RoleController', ['except' => 'destroy']);
+  Route::resource('/permissions', 'Manage\PermissionController', ['except' => 'destroy']);
+  Route::resource('/roles', 'Manage\RoleController', ['except' => 'destroy']);
 
   Route::put('/post/restore/{post}', 'Manage\ManageNewsController@restore')->name('post.restore');
   Route::delete('/post/force-destroy/{post}', 'Manage\ManageNewsController@forcedestroy')->name('post.force-destroy');
@@ -55,6 +55,11 @@ Route::prefix('manage')->group(function(){
   Route::put('/category/restore/{category}', 'Manage\ManageCategoriesController@restore')->name('category.restore');
   Route::delete('/category/force-destroy/{category}', 'Manage\ManageCategoriesController@forcedestroy')->name('category.force-destroy');
   Route::resource('/category', 'Manage\ManageCategoriesController');
+
+  Route::put('/tag/restore/{tag}', 'Manage\ManageTagController@restore')->name('tag.restore');
+  Route::delete('/tag/force-destroy/{tag}', 'Manage\ManageTagController@forcedestroy')->name('tag.force-destroy');
+  Route::resource('/tag', 'Manage\ManageTagController');
+
 });
 
 Route::get('/home', 'Manage\ManageController@index')->name('home');

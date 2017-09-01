@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Tag extends Model
 {
+  use SoftDeletes;
+  
   protected $fillable = ['name', 'slug'];
 
   public function getRouteKeyName()
@@ -28,9 +31,9 @@ class Tag extends Model
     return $this->morphedByMany('App\Video','taggable');
   }
 
-  // public function photos()
-  // {
-  //   return $this->morphByMany('App\Photo','taggable');
-  // }
+  public function photos()
+  {
+    return $this->morphedByMany('App\Photo','taggable');
+  }
 
 }

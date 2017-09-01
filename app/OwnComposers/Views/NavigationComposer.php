@@ -26,7 +26,7 @@ class NavigationComposer
 
   public function composeNewsCategories(View $view)
   {
-    $categories = Category::with(['news' => function($query){
+    $categories = Category::where('id', '<>', config('ownAttributes.default_category.id'))->with(['news' => function($query){
       $query->published();
     }])->orderBy('title', 'asc')->get();
 
@@ -35,7 +35,7 @@ class NavigationComposer
 
   public function composeNewsTags(View $view)
   {
-    $tags = Tag::has('news')->get();//all();
+    $tags = Tag::has('news')->where('id', '<>', config('ownAttributes.default_tag.id'))->get();//all();
 
     $view->with( 'tags' , $tags);
   }

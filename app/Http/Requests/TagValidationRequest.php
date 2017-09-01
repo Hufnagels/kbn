@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CategoryDestroyRequest extends FormRequest
+class tagValidationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,13 +13,9 @@ class CategoryDestroyRequest extends FormRequest
      */
     public function authorize()
     {
-        return (!( ($this->route('category') == config('ownAttributes.default_category.id') )));
+        return true;
     }
 
-    public function forbiddenResponse()
-    {
-        return redirect()->back()->with('message','Can not delete this');
-    }
     /**
      * Get the validation rules that apply to the request.
      *
@@ -27,8 +23,19 @@ class CategoryDestroyRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-          //
-        ];
+      $rules = [
+        'name' => 'required',
+        'slug' => 'required|unique:tags'
+
+      ];
+      switch($this->method()) {
+        case 'PUT':
+        case 'PATCH':
+          $rules['slug'] = 'required|unique:tags,slug,'.$this->route('tag');
+          break;
+      }
+
+      return $rules;
+
     }
 }

@@ -43,15 +43,18 @@
     margin-bottom: .3rem;
 }
 
-.control.is-danger > .input, .control.is-danger > .textarea, .control.is-danger > .select > select {
+.control.is-danger > .input,
+.control.is-danger >
+.textarea, .control.is-danger > .select > select {
     border-color: #ff3860;
 }
 
 .textarea.excerpt {height:100px;}
 
 .createnewspost .notification,
-.createcategory .notification
- {background-color:transparent}
+.createcategory .notification {
+  background-color:transparent
+}
 
 .notification strong {
     color: currentColor;
@@ -59,15 +62,21 @@
     line-height: 1.8rem;
 }
 
-form.allnewstable a span.fa{
+form.allnewstable a span.fa,
+form.alltagtable a span.fa{
   margin-top:.2rem;
 }
 
-button.is-danger.is-outlined.allnewstable, button.is-danger.is-outlined.trashtable, button.is-info.is-outlined.trashtable{
-  border-color:transparent;
+button.is-danger.is-outlined,
+button.is-danger.is-outlined.trashtable,
+button.is-info.is-outlined.trashtable {
+  border-color: transparent;
+  border: none;
 }
 
-button.allnewstable > span.fa, button.trashtable > span.fa {
+button.allnewstable > span.fa,
+button.alltagtable > span.fa,
+button.trashtable > span.fa {
     font-size: 16px;
     text-align: center;
     vertical-align: top;
