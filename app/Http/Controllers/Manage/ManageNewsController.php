@@ -92,7 +92,7 @@ class ManageNewsController extends BackendController
         {
           $post->tags()->sync($data['tags'], false);
         } else {
-          $post->tags()->sync(array());
+          $post->tags()->sync([config('ownAttributes.default_tag.id')]); //array()
         }
         return redirect()->route('post.index')->with('message','News was created successfully');
     }
@@ -122,7 +122,7 @@ class ManageNewsController extends BackendController
         {
           $post->tags()->sync($data['tags']);
         } else {
-          $post->tags()->sync(array());
+          $post->tags()->sync([config('ownAttributes.default_tag.id')]); //array()
         }
 
 

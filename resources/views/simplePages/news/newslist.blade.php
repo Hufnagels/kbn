@@ -51,6 +51,15 @@
                   </p>
                 </div>
               </div>
+
+              @if (!Auth::guest())
+                @if (check_user_permissions(request(), "ManageNews@edit", $item->id))
+                <footer class="card-footer">
+                  <p class="card-footer-item"><span><a href="{{ route('post.edit', $item->id)}}" title="Edit">Edit</a></span></p>
+                </footer>
+                @endif
+              @endif
+
             </div>
 
           </div>
