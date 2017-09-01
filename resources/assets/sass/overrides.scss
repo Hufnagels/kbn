@@ -195,6 +195,15 @@ button.nav-item {
 }
 
 .bootstrap-datetimepicker-widget {
-  background-color:white;
+  background-color:white ;
   border: 1px solid grey;
+}
+
+.select2-selection__choice  {
+  background-color: #00d1b2;
+  border: 1px solid transparent;
+
+}
+.select2-selection__choice__remove {
+  color: #fff;
 }

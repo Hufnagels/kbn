@@ -71,7 +71,7 @@ class ManageTagController extends BackendController
       {
         foreach($tag->news as $news)
         {
-          $news->tags()->sync( config('ownAttributes.default_tag.id') );
+          // $news->tags()->sync( config('ownAttributes.default_tag.id') );
         }
         // \DB::enableQueryLog();
 
@@ -89,7 +89,10 @@ class ManageTagController extends BackendController
     public function forceDestroy($id)
     {
         $tag = Tag::withTrashed()->findOrFail($id);
-        News::withTrashed()->where('tag_id', $id)->update(['tag_id' => config('ownAttributes.default_tag.id')]);
+        foreach($tag->news as $news)
+        {
+          $news->tags()->sync( config('ownAttributes.default_tag.id') );
+        }
         $tag->forceDelete();
 
 
@@ -101,9 +104,6 @@ class ManageTagController extends BackendController
     {
         $tag = Tag::withTrashed()->findOrFail($id);
         $tag->restore();
-
         return redirect()->back()->with('message','Tag has been Restored');
-        // redirect()->route('post.index')
-        // route('post.index')
     }
 }

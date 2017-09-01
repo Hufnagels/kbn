@@ -1,9 +1,10 @@
 @extends('layouts.manage')
 @section('title',' - Edit News post')
 @section('styles')
-<styles>
+  
+  <styles>
 
-</styles>
+  </styles>
 @endsection
 @section('content')
 <div class="columns">
@@ -25,7 +26,7 @@
 
                 ])  !!}
 
-                @include('manage.news.form')
+                @include('manage.news.formedit')
 
 
         {!! Form::close() !!}

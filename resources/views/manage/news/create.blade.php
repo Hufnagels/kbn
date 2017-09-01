@@ -1,9 +1,10 @@
 @extends('layouts.manage')
 @section('title',' - Create News post')
 @section('styles')
-<styles>
+  <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet">
+  <styles>
 
-</styles>
+  </styles>
 @endsection
 @section('content')
 <div class="columns">
@@ -23,7 +24,7 @@
                 'id' => 'create-post-form'
                 ])  !!}
 
-                @include('manage.news.form')
+                @include('manage.news.formcreate')
 
 
         {!! Form::close() !!}

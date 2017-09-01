@@ -9,6 +9,7 @@ use App\Http\Requests\NewsValidationRequest;
 use App\News;
 use App\User;
 use App\Category;
+use App\Tag;
 use Intervention\Image\Facades\Image;
 
 
@@ -72,104 +73,66 @@ class ManageNewsController extends BackendController
       return view('manage.news.index', compact('newses', 'newsCount', 'onlyTrashed', 'statusList'));//, ['users' => $users]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function show($id) { }
+
     public function create(News $post)
     {
-        return view('manage.news.create',compact('post'));
+        $tags = Tag::where('id', '<>', config('ownAttributes.default_tag.id'))->get();
+        return view('manage.news.create',compact('post', 'tags'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(NewsValidationRequest $request)
     {
         $data = $this->handelRequest($request);
+// dd($data['tags']);
         // if($request['published_at'] <> NULL) $request['is_published']='1';
-        $request->user()->news()->create($data);
+        $post = $request->user()->news()->create($data);
+// dd($post);
+        $post->tags()->sync($data['tags'], false);
         return redirect()->route('post.index')->with('message','News was created successfully');
     }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-
-      // $item = News::with('author', 'category')->where('id', $id); //all();
-      // dd($item);
-      // return view('manage.news.show', compact('item'));//, ['users' => $users]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-      $post = News::findOrFail($id); //all();
-      return view('manage.news.edit', compact('post'));//, ['users' => $users]);
+      $tags = Tag::where('id', '<>', config('ownAttributes.default_tag.id'))->get();
+      $post = News::findOrFail($id);
+// dd( $post->tags()->allRelatedIds() );
+      return view('manage.news.edit', compact('post', 'tags'));//, ['users' => $users]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(NewsValidationRequest $request, $id)
     {
         $post = News::findOrFail($id);
-
         $oldImage = $post->image;
-
         $data = $this->handelRequest($request);
+// dd($data['tags']);
         $post->update($data);
+
 
         if( $oldImage !== $post->image)
         {
           $this->removeImage($oldImage);
         }
 
+        $post->tags()->sync($data['tags']);
+
         return redirect()->route('post.index')->with('message','News was updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-     /**/
     public function destroy($id)
     {
         News::findOrFail($id)->delete();
         return redirect()->route('post.index')->with('trash-message',['News has been moved to Trash', $id]);
-
     }
 
     public function forceDestroy($id)
     {
         $news = News::withTrashed()->findOrFail($id);
         $news->forceDelete();
+        $news->tags()->detach();
         $this->removeImage($news->image);
 
-
         return redirect('/manage/post?status=trash')->with('message','News has been deleted permanently');
-        // )->route('post.index'
     }
 
     public function restore($id)

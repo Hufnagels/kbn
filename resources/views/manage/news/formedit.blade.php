@@ -80,15 +80,29 @@
             </label>
           </div>
 
-
-
-
-
         </div>
         @if($errors->has('image'))
         <p class="help is-danger">Upload one</p>
         @endif
       </div>
+
+      <div class="field">
+        <label class="label">{!! Form::label('tags', 'Tags') !!}</label>
+        <div class="control {{ $errors->has('tags') ? 'is-danger' : ''}}">
+          <div class="select1">
+            <select class="select2-multi" id="tag_edit" multiple="multiple" style="width:100%;" name="tags[]">
+              @foreach($tags as $tag)
+                <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+              @endforeach
+
+            </select>
+          </div>
+        </div>
+        @if($errors->has('tag_id'))
+        <p class="help is-danger">Select one</p>
+        @endif
+      </div>
+
       <hr>
       <div class="control m-t-30">
         @if (check_user_permissions(request(), "ManageNews@edit", $post->id))

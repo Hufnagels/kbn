@@ -40,6 +40,7 @@ class News extends Model
       return $this->morphToMany('App\Tag','taggable');
     }
 
+
     // public function photos()
     // {
     //   return $this->morphMany('App\Photo','imageable');
@@ -71,6 +72,7 @@ class News extends Model
     *
     * LARAVEL Attributes
     */
+
     public function getImageUrlAttribute($value)
     {
       $imageUrl ='';
@@ -132,7 +134,7 @@ class News extends Model
     {
         $anchors = [];
         foreach($this->tags as $tag) {
-          if( !$tag->id == config('ownAttributes.default_tag.id') ){
+          if( !($tag->id == config('ownAttributes.default_tag.id')) ){
             $anchors[] = '<small><a href="' . route('news.tags', $tag->slug) . '">' . $tag->name . '</a></small>';
           }
         }

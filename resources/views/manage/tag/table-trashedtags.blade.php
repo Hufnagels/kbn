@@ -2,7 +2,7 @@
   <thead>
     <tr>
       <!--<th><abbr title="Id">ID</abbr></th>-->
-      <th width="40%"><abbr title="Name">name</abbr></th>
+      <th width="40%"><abbr title="Name">Name</abbr></th>
       <th><abbr title="Slug">slug</abbr></th>
       <th><abbr title="Created at">Date Created</abbr></th>
       <th><abbr title="Actions">Actions</abbr></th>
@@ -13,7 +13,7 @@
     @foreach($tags as $tag)
     <tr>
       <!--<td>{{$tag->id}}</td>-->
-      <td>{{$tag->title}}</td>
+      <td>{{$tag->name}}</td>
       <td>{{$tag->slug}}</td>
       <td>{{$tag->created_at->toFormattedDateString()}}</td>
 

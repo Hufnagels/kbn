@@ -25,41 +25,36 @@
       @else
         @include('simplePages.alert')
         <div class="columns is-multiline msrItems">
+          @foreach ($news as $item)
+          <div class="column msrItem is-mobile ">
 
-        @foreach ($news as $item)
-        <div class="column msrItem">
-
-
-          <div class="card">
-            @if( $item->image_thumb_url != NULL)
-            <div class="card-image">
-              <figure class="image is-4by3"><img src="{{ $item->image_thumb_url }}" alt="{{$item->title}}"></figure>
-            </div>
-            @endif
-            <div class="card-content">
-
-
-              <div class="content">
-                <h3 class="subtitle"><a class="" href="{{ route('news.show', $item->slug)}}">{{$item->title}}</a></h3>
-                <p>{{$item->excerpt}}</p>
-                <p>
-                  <strong><a href="{{ route('news.author', $item->author->slug)}}">{{$item->author->name}}</a></strong> |
-                  <small>{{ '@'.str_slug($item->author->name,'') }}</small>
-                  <br>
-                  <small>{{$item->date}}</small>
-                  @if( !( $item->category->id == config('ownAttributes.default_category.id') ))
-                  <br>
-                  <small><a href="{{ route('news.category', $item->category->slug)}}">{{$item->category->title}}</a></small>
-                  @endif
-                  {!! $item->tags_html !!}
-
-                </p>
+            <div class="card">
+              @if( $item->image_thumb_url != NULL)
+              <div class="card-image">
+                <figure class="image is-4by3"><img src="{{ $item->image_thumb_url }}" alt="{{$item->title}}"></figure>
+              </div>
+              @endif
+              <div class="card-content">
+                <div class="content">
+                  <h3 class="subtitle"><a class="" href="{{ route('news.show', $item->slug)}}">{{$item->title}}</a></h3>
+                  <p>{{$item->excerpt}}</p>
+                  <p>
+                    <strong><a href="{{ route('news.author', $item->author->slug)}}">{{$item->author->name}}</a></strong> |
+                    <small>{{ '@'.str_slug($item->author->name,'') }}</small>
+                    <br>
+                    <small>{{$item->date}}</small>
+                    @if( !( $item->category->id == config('ownAttributes.default_category.id') ))
+                    <br>
+                    <small><a href="{{ route('news.category', $item->category->slug)}}">{{$item->category->title}}</a></small>
+                    @endif
+                    {!! $item->tags_html !!}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
 
-        </div>
-        @endforeach
+          </div>
+          @endforeach
         </div>
       @endif
 
@@ -81,16 +76,35 @@
 @section('scripts')
 <script type="text/javascript" src="/assets/js/masonry.min.js"></script>
 <script type="text/javascript">
+var columnNumber = 3;
+var time = undefined;
+if(document.body.clientWidth < 769)
+{
+  columnNumber = 1;
+} else {
+  columnNumber = 3;
+}
 $('.msrItems').msrItems({
-		'colums': 3, //columns number
-		'margin': 15 //right and bottom margin
-	});
-  var time = undefined;
-      $( window ).on('resize', function(e) {
-          clearTimeout(time);
-          time = setTimeout(function(){
-              $('.msrItems').msrItems('refresh');
-          }, 200);
-      })
+  'colums': columnNumber, //columns number
+  'margin': 10 //right and bottom margin
+});
+$( window ).on('resize', function(e) {
+  clearTimeout(time);
+  time = setTimeout(function(){
+    if(document.body.clientWidth < 769)
+    {
+      columnNumber = 1;
+    } else {
+      columnNumber = 3;
+    }
+    $('.msrItems').msrItems({
+      'colums': columnNumber, //columns number
+      'margin': 10 //right and bottom margin
+    });
+    console.log('resized')
+  }, 100);
+});
+
+
 </script>
 @endsection
