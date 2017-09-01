@@ -28,12 +28,23 @@ Route::get('/news', 'PostController@getPosts')->name('newses');
 Route::get('/', 'PagesController@getIndex')->name('welcome');
 
 
+Route::group(['middleware' => 'auth'], function () {
 
+});
 
 Auth::routes();
 
+
 Route::prefix('manage')->group(function(){
   Route::get('/', 'Manage\ManageController@index');
+
+  Route::get('/filemanager', 'Manage\ManageController@filemanager')->name('fm.show');;
+
+
+  Route::get('/laravel-filemanager', '\Unisharp\Laravelfilemanager\controllers\LfmController@show');
+  Route::post('/laravel-filemanager/upload', '\Unisharp\Laravelfilemanager\controllers\UploadController@upload');
+  // list all lfm routes here...
+
   Route::get('/edit-account', 'Manage\ManageController@edit')->name('manage.account-edit');
   Route::put('/edit-account', 'Manage\ManageController@update')->name('manage.account-update');
 

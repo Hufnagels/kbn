@@ -11,8 +11,11 @@ require('./bootstrap');
 //require('../../../node_modules/material-components-web/dist/material-components-web');
 //require('node_modules/material-design-lite/material.min.js');
 // require('../../../node_modules/trumbowyg/dist/trumbowyg.min.js');
-require('../../../node_modules/trumbowyg/dist/trumbowyg.min.js');
-require('../../../node_modules/trumbowyg/dist/plugins/base64/trumbowyg.base64.min.js');
+
+// require('../../../node_modules/trumbowyg/dist/trumbowyg.min.js');
+// require('../../../node_modules/trumbowyg/dist/plugins/base64/trumbowyg.base64.min.js');
+
+
 //require('../../../node_modules/trumbowyg/dist/plugins/upload/trumbowyg.upload.min.js');
 
 require('../../../node_modules/bootstrap/dist/js/bootstrap.min.js');

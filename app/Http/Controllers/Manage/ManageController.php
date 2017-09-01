@@ -50,4 +50,13 @@ class ManageController extends BackendController
 
       return redirect()->back()->with('message', 'Profile updated successfully');
     }
+    public function filemanager(Request $request)
+    {
+      $fmType = 'Images';
+      if( ($status = $request->get('status')) && $status == 'file')
+      {
+        $fmType = 'Files';
+      }
+      return view('manage.filemanager.index', compact('fmType'));
+    }
 }

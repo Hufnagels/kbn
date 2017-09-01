@@ -2,17 +2,12 @@
 @section('title',' - News list')
 @section('content')
 
-<div class="flex-container"></div>
   <div class="columns">
     <div class="column">
       <div class="card">
         <div class="card-header notification is-primary">
-          <div class="column">
-            <div class="title">Manage News posts</div>
-          </div>
-          <div class="column">
-            <a href="{{ route('post.create')}}" class="button is-primary is-inverted is-outlined is-pulled-right"><i class="fa fa-plus m-r-10"></i> Create news post</a>
-          </div>
+          <div class="column"><div class="title">Manage News posts</div></div>
+          <div class="column"><a href="{{ route('post.create')}}" class="button is-primary is-inverted is-outlined is-pulled-right"><i class="fa fa-plus m-r-10"></i> Create news post</a></div>
         </div>
         <div class="card-content p-t-0">
 

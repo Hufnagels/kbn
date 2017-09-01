@@ -183,6 +183,7 @@ return [
          * Own service provider
         */
         App\Providers\ComposerServiceProvider::class,
+
         /*
          * Third party Providers...
          */
@@ -190,6 +191,7 @@ return [
         Cornford\Googlmapper\MapperServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
 
     ],
 

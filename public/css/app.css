@@ -16951,20 +16951,6 @@ button.nav-item.is-active {
   background-color: rgba(0, 180, 209, 0.73);
 }
 
-.bootstrap-datetimepicker-widget {
-  background-color: white;
-  border: 1px solid grey;
-}
-
-.select2-selection__choice {
-  background-color: #00d1b2;
-  border: 1px solid transparent;
-}
-
-.select2-selection__choice__remove {
-  color: #fff;
-}
-
 .m-t-0 {
   margin-top: 0px;
 }

@@ -53,15 +53,24 @@
                   <a class="level-item"><span class="icon is-small"><i class="fa fa-heart"></i></span></a>
                 </div>
               </nav>
-              <div class="content">
-                <h3>{!! $item->excerpt_html !!}</h3>
-              </div>
+
 
             </div>
           </article>
           <div class="content m-t-30">
+            <h3>{!! $item->excerpt_html !!}</h3>
+          </div>
+          <div class="content m-t-10">
             {!! $item->body_html !!}
           </div>
+
+          @if (!Auth::guest())
+            @if (check_user_permissions(request(), "ManageNews@edit", $item->id))
+            <footer class="card-footer">
+              <p class="card-footer-item"><span><a href="{{ route('post.edit', $item->id)}}" title="Edit">Edit</a></span></p>
+            </footer>
+            @endif
+          @endif
         </div>
 
       </div><!-- end of left column -->

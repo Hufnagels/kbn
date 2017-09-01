@@ -88,8 +88,34 @@ button.trashtable > span.fa {
   vertical-align: top;
 }
 
+.bootstrap-datetimepicker-widget {
+  background-color: white;
+  border: 1px solid grey;
+}
+
+.select2-selection__choice {
+  background-color: #00d1b2;
+  border: 1px solid transparent;
+}
+
+.select2-selection__choice__remove {
+  color: #fff;
+}
+
+.media {
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+}
+
 .radio.confirm input[type=radio] {
   display: block;
   margin: 5px 10px;
+}
+
+.panel-primary > .panel-heading {
+  color: #fff;
+  background-color: #00d1b2;
+  border-color: #00d1b2;
 }
 
