@@ -88,7 +88,12 @@ class ManageNewsController extends BackendController
         // if($request['published_at'] <> NULL) $request['is_published']='1';
         $post = $request->user()->news()->create($data);
 // dd($post);
-        $post->tags()->sync($data['tags'], false);
+        if(!empty($data['tags']))
+        {
+          $post->tags()->sync($data['tags'], false);
+        } else {
+          $post->tags()->sync(array());
+        }
         return redirect()->route('post.index')->with('message','News was created successfully');
     }
 
@@ -113,8 +118,13 @@ class ManageNewsController extends BackendController
         {
           $this->removeImage($oldImage);
         }
+        if(!empty($data['tags']))
+        {
+          $post->tags()->sync($data['tags']);
+        } else {
+          $post->tags()->sync(array());
+        }
 
-        $post->tags()->sync($data['tags']);
 
         return redirect()->route('post.index')->with('message','News was updated successfully');
     }
