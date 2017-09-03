@@ -29,8 +29,9 @@ Route::get('/', 'PagesController@getIndex')->name('welcome');
 
 
 Route::group(['middleware' => 'auth'], function () {
-
 });
+
+
 
 Auth::routes();
 
@@ -38,31 +39,36 @@ Auth::routes();
 Route::prefix('manage')->group(function(){
   Route::get('/', 'Manage\ManageController@index');
 
+  // INDIVIDUAL MENU FOR UNISHARP FILEMANAGER
   Route::get('/filemanager', 'Manage\ManageController@filemanager')->name('fm.show');;
 
-
+  // UNISHARP FILEMANAGER
   Route::get('/laravel-filemanager', '\Unisharp\Laravelfilemanager\controllers\LfmController@show');
   Route::post('/laravel-filemanager/upload', '\Unisharp\Laravelfilemanager\controllers\UploadController@upload');
-  // list all lfm routes here...
 
+  // MANAGE USER PROFILE
   Route::get('/edit-account', 'Manage\ManageController@edit')->name('manage.account-edit');
   Route::put('/edit-account', 'Manage\ManageController@update')->name('manage.account-update');
 
+  // DASHBOARD
   Route::get('/dashboard', 'Manage\ManageController@dashboard')->name('manage.dashboard');
 
+  // MANAGE USERS
   Route::delete('/users/confirm/{user}', 'Manage\UsersController@confirm')->name('users.confirm');
   Route::put('/users/restore/{user}', 'Manage\UsersController@restore')->name('users.restore');
   Route::delete('/users/force-destroy/{user}', 'Manage\UsersController@forcedestroy')->name('users.force-destroy');
   Route::resource('/users', 'Manage\UsersController');
 
-
+  // MANAGE USERS ROLE AND PERMISSIONS
   Route::resource('/permissions', 'Manage\PermissionController', ['except' => 'destroy']);
   Route::resource('/roles', 'Manage\RoleController', ['except' => 'destroy']);
 
+  // MANAGE NEWS
   Route::put('/post/restore/{post}', 'Manage\ManageNewsController@restore')->name('post.restore');
   Route::delete('/post/force-destroy/{post}', 'Manage\ManageNewsController@forcedestroy')->name('post.force-destroy');
   Route::resource('/post', 'Manage\ManageNewsController');
 
+  // SEARCH SECTION
   Route::put('/category/restore/{category}', 'Manage\ManageCategoriesController@restore')->name('category.restore');
   Route::delete('/category/force-destroy/{category}', 'Manage\ManageCategoriesController@forcedestroy')->name('category.force-destroy');
   Route::resource('/category', 'Manage\ManageCategoriesController');
@@ -71,6 +77,10 @@ Route::prefix('manage')->group(function(){
   Route::delete('/tag/force-destroy/{tag}', 'Manage\ManageTagController@forcedestroy')->name('tag.force-destroy');
   Route::resource('/tag', 'Manage\ManageTagController');
 
+  // GOOGLE CALENDAR SECTION
+  Route::resource('/calendar', 'Manage\GoogleCalendarController');
 });
+// GOOGLE CALENDAR SECTION TOO FOR OAUTH request (outside auth middleware)
+Route::get('/manage/calendar/oauth', 'Manage\GoogleCalendarController@oauth')->name('calendar.oauthCallback');
 
 Route::get('/home', 'Manage\ManageController@index')->name('home');

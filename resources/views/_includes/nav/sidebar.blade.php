@@ -27,5 +27,6 @@
     @if (check_user_permissions(request(), "ManageTag@index"))
     <li><a {{ ( strpos(Route::currentRouteName(), 'fm') > -1) ? 'class=is-active' : '' }} href="{{ route('fm.show') }}">Filemanager</a></li>
     @endif
+    <li><a {{ ( strpos(Route::currentRouteName(), 'fm') > -1) ? 'class=is-active' : '' }} href="{{ route('calendar.index') }}">Calendar</a></li>
   </ul>
 </aside>
