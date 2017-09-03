@@ -21,10 +21,10 @@
 //Import material css
 //@import "node_modules/material-components-web/dist/material-components-web";
 
-@import "overrides";
+
 @import "helpers";
 @import "styles";
-
+@import "overrides";
 
 @import "node_modules/trumbowyg/dist/ui/sass/trumbowyg";
 /*@import "manage";*/

@@ -16728,229 +16728,6 @@ label.panel-block:hover {
   background: #869791;
 }
 
-html {
-  margin: 0;
-  padding: 0;
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 250px;
-  font-size: .85rem;
-}
-
-.footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  overflow: hidden;
-  padding: 3rem 1.5rem 4rem;
-}
-
-/**/
-
-/*
-BULMA NAVBAR nav, nav img, dropdown, button
-*/
-
-a.navbar-item,
-a.navbar-item.is-active,
-.navbar-link,
-.navbar-link.is-active {
-  border-bottom: 1px solid transparent;
-}
-
-a.navbar-item:hover,
-a.navbar-item.is-active,
-.navbar-link:hover,
-.navbar-link.is-active {
-  background-color: transparent;
-  color: #0a0a0a;
-  border-bottom: 1px solid #00d1b2;
-}
-
-.navbar .navbar-brand > a:hover {
-  background-color: transparent;
-  background: none;
-}
-
-.navbar .navbar-brand button {
-  background-color: transparent;
-  background: none;
-  border: none;
-}
-
-.navbar-item img {
-  max-height: 3.75rem;
-}
-
-.navbar-dropdown {
-  z-index: 2000;
-}
-
-.navbar-end .navbar-dropdown {
-  right: 0;
-  left: auto;
-}
-
-/*
-Login page
-*/
-
-.checkbox input[type=checkbox] {
-  display: block;
-  margin-right: 10px;
-}
-
-.loginPage {
-  padding-top: 20px;
-}
-
-.loginPage .image.is-3by1 {
-  padding-top: 5%;
-}
-
-.loginPage .control.has-icons-right .input,
-.loginPage .control.has-icons-right .select select {
-  padding-right: 0.25em;
-}
-
-.loginPage .control.has-icons-left .input,
-.loginPage .control.has-icons-left .select select {
-  padding-left: 3em;
-}
-
-.loginPage .input,
-.loginPage .textarea {
-  font-size: .7rem;
-  height: 3.25em;
-  line-height: 3.5rem;
-}
-
-/*
-NAVBAR nav, nav img, dropdown, button
-*/
-
-.nav {
-  height: 4.8rem;
-  max-height: 4.8rem;
-}
-
-.nav-item img {
-  max-height: 2.5rem;
-}
-
-.dropdown {
-  position: relative;
-}
-
-.dropdown .dropdown-menu {
-  display: none;
-  position: absolute;
-  left: 0;
-  top: 102%;
-  z-index: 1000;
-  background: white;
-  min-width: 200px;
-  text-align: left;
-  -webkit-box-shadow: 0 0 1px rgba(57, 70, 78, 0.15), 0 20px 55px -8px gba(57, 70, 78, 0.25);
-          box-shadow: 0 0 1px rgba(57, 70, 78, 0.15), 0 20px 55px -8px gba(57, 70, 78, 0.25);
-}
-
-.dropdown .dropdown-menu li.separator {
-  border-top: 1px solid #00d1b2;
-  margin: 5px 0;
-}
-
-.dropdown .dropdown-menu li > a {
-  margin: 5px 0 5px 10px;
-  padding-left: 10px;
-  display: block;
-}
-
-.dropdown .dropdown-menu li > a:hover {
-  background-color: #00d1b2;
-}
-
-.dropdown.is-aligned-right .dropdown-menu {
-  right: 0;
-  left: auto;
-}
-
-.dropdown.is-open .dropdown-menu {
-  display: block;
-}
-
-button.nav-item {
-  background-color: transparent;
-  border: none;
-  color: #00d1b2;
-}
-
-button.nav-item:hover {
-  color: #00d1b2;
-}
-
-button.nav-item.is-active {
-  color: #00d1b2;
-}
-
-button.nav-item.is-tab {
-  border-bottom: 1px solid transparent;
-  border-top: 1px solid transparent;
-  padding-bottom: calc(0.75rem - 1px);
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: calc(0.75rem - 1px);
-}
-
-button.nav-item:hover {
-  border-bottom-color: #00d1b2;
-  border-top-color: transparent;
-}
-
-button.nav-item.is-active {
-  border-bottom: 3px solid #00d1b2;
-  color: #00d1b2;
-  padding-bottom: calc(0.75rem - 3px);
-}
-
-.image.is-125x85 {
-  width: 125px;
-  height: 85px;
-}
-
-.image.is-150x150 {
-  width: 150px;
-  height: 150px;
-}
-
-.image.is-250x170 {
-  width: 250px;
-  height: 170px;
-}
-
-.image.is-500x340 {
-  width: 500px;
-  height: 340px;
-}
-
-.news-container .field.is-grouped.is-grouped-multiline:last-child {
-  margin-bottom: 0.0rem;
-}
-
-/*
-.news-container .box:first-child, :not(.box) + .box {
-    margin-top: 1.5rem;
-}
-*/
-
-.notification.is-alert {
-  background-color: rgba(0, 180, 209, 0.73);
-}
-
 .m-t-0 {
   margin-top: 0px;
 }
@@ -18193,6 +17970,12 @@ NEWS PAGE
   color: rgba(0, 0, 0, 0.7);
 }
 
+.news-sidebar .panel-heading.is-danger {
+  background-color: #ff3860;
+  border-color: transparent;
+  color: rgba(255, 255, 255, 0.81);
+}
+
 .news-sidebar .panel-heading.is-info {
   background-color: #3273dc;
   border-color: transparent;
@@ -18232,6 +18015,255 @@ NEWS PAGE
 .news-sidebar .tag.is-light {
   background-color: gainsboro;
   color: #363636;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 250px;
+  font-size: .85rem;
+}
+
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  padding: 3rem 1.5rem 4rem;
+}
+
+/**/
+
+/*
+BULMA NAVBAR nav, nav img, dropdown, button
+*/
+
+a.navbar-item,
+a.navbar-item.is-active,
+.navbar-link,
+.navbar-link.is-active {
+  border-bottom: 1px solid transparent;
+}
+
+a.navbar-item:hover,
+a.navbar-item.is-active,
+.navbar-link:hover,
+.navbar-link.is-active {
+  background-color: transparent;
+  color: #0a0a0a;
+  border-bottom: 1px solid #00d1b2;
+}
+
+.navbar .navbar-brand > a:hover {
+  background-color: transparent;
+  background: none;
+}
+
+.navbar .navbar-brand button {
+  background-color: transparent;
+  background: none;
+  border: none;
+}
+
+.navbar-item img {
+  max-height: 3.75rem;
+}
+
+.navbar-dropdown {
+  z-index: 2000;
+}
+
+.navbar-end .navbar-dropdown {
+  right: 0;
+  left: auto;
+}
+
+/*
+Login page
+*/
+
+.checkbox input[type=checkbox] {
+  display: block;
+  margin-right: 10px;
+}
+
+.loginPage {
+  padding-top: 20px;
+}
+
+.loginPage .image.is-3by1 {
+  padding-top: 5%;
+}
+
+.loginPage .control.has-icons-right .input,
+.loginPage .control.has-icons-right .select select {
+  padding-right: 0.25em;
+}
+
+.loginPage .control.has-icons-left .input,
+.loginPage .control.has-icons-left .select select {
+  padding-left: 3em;
+}
+
+.loginPage .input,
+.loginPage .textarea {
+  font-size: .7rem;
+  height: 3.25em;
+  line-height: 3.5rem;
+}
+
+/*
+NAVBAR nav, nav img, dropdown, button
+*/
+
+.nav {
+  height: 4.8rem;
+  max-height: 4.8rem;
+}
+
+.nav-item img {
+  max-height: 2.5rem;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 102%;
+  z-index: 1000;
+  background: white;
+  min-width: 200px;
+  text-align: left;
+  -webkit-box-shadow: 0 0 1px rgba(57, 70, 78, 0.15), 0 20px 55px -8px gba(57, 70, 78, 0.25);
+          box-shadow: 0 0 1px rgba(57, 70, 78, 0.15), 0 20px 55px -8px gba(57, 70, 78, 0.25);
+}
+
+.dropdown .dropdown-menu li.separator {
+  border-top: 1px solid #00d1b2;
+  margin: 5px 0;
+}
+
+.dropdown .dropdown-menu li > a {
+  margin: 5px 0 5px 10px;
+  padding-left: 10px;
+  display: block;
+}
+
+.dropdown .dropdown-menu li > a:hover {
+  background-color: #00d1b2;
+}
+
+.dropdown.is-aligned-right .dropdown-menu {
+  right: 0;
+  left: auto;
+}
+
+.dropdown.is-open .dropdown-menu {
+  display: block;
+}
+
+button.nav-item {
+  background-color: transparent;
+  border: none;
+  color: #00d1b2;
+}
+
+button.nav-item:hover {
+  color: #00d1b2;
+}
+
+button.nav-item.is-active {
+  color: #00d1b2;
+}
+
+button.nav-item.is-tab {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  padding-bottom: calc(0.75rem - 1px);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: calc(0.75rem - 1px);
+}
+
+button.nav-item:hover {
+  border-bottom-color: #00d1b2;
+  border-top-color: transparent;
+}
+
+button.nav-item.is-active {
+  border-bottom: 3px solid #00d1b2;
+  color: #00d1b2;
+  padding-bottom: calc(0.75rem - 3px);
+}
+
+.image.is-125x85 {
+  width: 125px;
+  height: 85px;
+}
+
+.image.is-150x150 {
+  width: 150px;
+  height: 150px;
+}
+
+.image.is-250x170 {
+  width: 250px;
+  height: 170px;
+}
+
+.image.is-500x340 {
+  width: 500px;
+  height: 340px;
+}
+
+.news-container .field.is-grouped.is-grouped-multiline:last-child {
+  margin-bottom: 0.0rem;
+}
+
+/*
+.news-container .box:first-child, :not(.box) + .box {
+    margin-top: 1.5rem;
+}
+*/
+
+.notification.is-alert {
+  background-color: rgba(0, 180, 209, 0.73);
+}
+
+.loginPage .input,
+.loginPage .textarea {
+  font-size: .7rem;
+  height: 3.25em;
+  line-height: 3em;
+}
+
+.panel-heading.is-danger {
+  background-color: #ff3860;
+  /*hsl(348, 100%, 61%);*/
+  color: whitesmoke;
+}
+
+.news-container > .tag.is-danger {
+  color: rgba(255, 255, 255, 0.81);
+}
+
+a.categoryItem {
+  color: rgba(255, 255, 255, 0.81);
+  /*hsl(348, 100%, 61%);*/
+}
+
+small {
+  line-height: 2rem;
 }
 
 /**

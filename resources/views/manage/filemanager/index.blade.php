@@ -11,8 +11,8 @@
         <div class="card-content p-t-0">
           <div class="tabs is-small is-right">
             <ul>
-              <li><a href="?status=image">Images</a></li>
-              <li><a href="?status=file">Files</a></li>
+              <li {{ ($fmType == 'Images' ? 'class=is-active' : '') }}><a href="?status=image">Images</a></li>
+              <li {{ ($fmType == 'Files' ? 'class=is-active' : '') }}><a href="?status=file">Files</a></li>
             </ul>
           </div>
           <iframe src="/laravel-filemanager?type={{ $fmType }}" style="width: 100%; height: 700px; overflow: hidden; border: 1px solid lightgrey;"></iframe>

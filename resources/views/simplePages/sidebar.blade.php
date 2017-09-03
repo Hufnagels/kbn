@@ -10,7 +10,7 @@
 </nav>
 
 <nav class="panel is-rounded-border-5">
-  <div class="panel-heading is-warning">Categories</div>
+  <div class="panel-heading is-danger">Categories</div>
 
   @foreach($categories as $category)
     @if($category->news->count() )

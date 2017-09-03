@@ -33,6 +33,7 @@ import Buefy from 'buefy';
 
 Vue.use(Buefy);
 
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -45,7 +46,8 @@ Vue.use(Buefy);
    el: '#app',
    data: {}
  });
-
+*/
+/*
 var app = new Vue({
      el: '#app',
      data: {
@@ -68,6 +70,14 @@ var app = new Vue({
         }
       }
     });
+*/
+/*
+new Vue({
+    el: '#app',
+    components: {
+      //nothing nessessary here
+    }
+})
 */
 $(document).ready(function(){
   $('.navbar-burger').click(function (e) {

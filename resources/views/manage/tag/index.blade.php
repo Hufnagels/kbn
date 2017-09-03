@@ -20,8 +20,8 @@
 <!---->
           <div class="tabs is-small is-right">
             <ul>
-              <li><a href="?status=all">All tags</a></li>
-              <li><a href="?status=trash">Tags in Trash</a></li>
+              <li {{ ( ((app('request')->input('status') == 'all') || (app('request')->input('status') == '')) ? 'class=is-active' : '') }}><a href="?status=all">All tags</a></li>
+              <li {{ (app('request')->input('status') == 'trash' ? 'class=is-active' : '') }}><a href="?status=trash">Tags in Trash</a></li>
             </ul>
           </div>
 

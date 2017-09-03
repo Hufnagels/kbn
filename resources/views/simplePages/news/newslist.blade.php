@@ -45,7 +45,7 @@
                     <small>{{$item->date}}</small>
                     @if( !( $item->category->id == config('ownAttributes.default_category.id') ))
                     <br>
-                    <small><a href="{{ route('news.category', $item->category->slug)}}">{{$item->category->title}}</a></small>
+                    <small><span class="tag is-danger"><a class="categoryItem" href="{{ route('news.category', $item->category->slug)}}">{{$item->category->title}}</a></span></small>
                     @endif
                     {!! $item->tags_html !!}
                   </p>
@@ -95,7 +95,7 @@ if(document.body.clientWidth < 769)
 }
 $('.msrItems').msrItems({
   'colums': columnNumber, //columns number
-  'margin': 10 //right and bottom margin
+  'margin': 20 //right and bottom margin
 });
 $( window ).on('resize', function(e) {
   clearTimeout(time);

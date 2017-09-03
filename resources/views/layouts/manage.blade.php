@@ -14,16 +14,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     -->
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet">
-    
+
     @yield('styles')
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/manage.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
-    <script src="{{ asset('js/manifest.js') }}"></script>
-    <script src="{{ asset('js/vendor.js') }}"></script>
-    <script src="{{ asset('js/manage.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manifest.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/vendor.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manage.js') }}"></script>
 </head>
 <body class="m-b-5">
   @include('_includes.nav.navbar')
@@ -33,18 +33,10 @@
     </div>
     <div class="column is-three-quarters">
       <div id="app">
-
         @yield('content')
-
       </div>
     </div>
   </div>
-
-
-
-
-
   @yield('scripts')
-
 </body>
 </html>

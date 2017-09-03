@@ -325,6 +325,12 @@ NEWS PAGE
     border-color: transparent;
     color: rgba(0, 0, 0, 0.7);
 }
+
+.news-sidebar .panel-heading.is-danger {
+    background-color: #ff3860;
+    border-color: transparent;
+    color: rgba(255, 255, 255, 0.81);
+}
 .news-sidebar .panel-heading.is-info {
     background-color: #3273dc;
     border-color: transparent;

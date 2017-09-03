@@ -20,7 +20,7 @@
   </div>
     <div class="columns is-multiline">
       @foreach ($roles as $role)
-        <div class="column is-one-quarter">
+        <div class="column is-one-quarter roleitem">
           <div class="box">
             <article class="media">
               <div class="media-content">

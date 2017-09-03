@@ -135,7 +135,7 @@ class News extends Model
         $anchors = [];
         foreach($this->tags as $tag) {
           if( !($tag->id == config('ownAttributes.default_tag.id')) ){
-            $anchors[] = '<small><a href="' . route('news.tags', $tag->slug) . '">' . $tag->name . '</a></small>';
+            $anchors[] = '<small><span class="tag is-dark"><a class="tagItem" href="' . route('news.tags', $tag->slug) . '">' . $tag->name . '</a></small></span>';
           }
         }
         // dd(count($anchors));

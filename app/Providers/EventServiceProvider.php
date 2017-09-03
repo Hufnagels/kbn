@@ -27,6 +27,22 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
+        // Event::listen('Unisharp\Laravelfilemanager\Events\*', function ($eventName, array $data){
+        //   switch ($eventName) {
+        //     case 'Unisharp\Laravelfilemanager\Events\FolderIsRenaming': break;
+        //     case 'Unisharp\Laravelfilemanager\Events\FolderWasRenamed':
+        //     // dd($eventName);
+        //     // dd($data);
+        //       break;
+        //     case 'Unisharp\Laravelfilemanager\Events\ImageWasDeleted': break;
+        //     case 'Unisharp\Laravelfilemanager\Events\ImageWasRenamed': break;
+        //     case 'Unisharp\Laravelfilemanager\Events\ImageWasUploaded':
+        //     // dd($eventName);
+        //     dd($data);
+        //     break;
+        //   }
+        //
+        // });
         //
     }
 }

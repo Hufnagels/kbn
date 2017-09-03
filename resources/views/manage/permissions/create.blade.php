@@ -1,16 +1,11 @@
 @extends('layouts.manage')
 @section('title',' - Create permission')
 @section('content')
-  <div class="flex-container">
-    <div class="columns m-t-10">
-      <div class="column">
-        <h1 class="title">Create New Permission</h1>
-      </div>
-    </div>
-    <hr class="m-t-0">
-
-    <div class="columns">
-      <div class="column">
+<div class="columns">
+  <div class="column">
+    <div class="card">
+      <div class="card-header notification is-primary"><div class="column"><div class="title">Create new permission</div></div></div>
+      <div class="card-content createnewpermission">
         <form action="{{route('permissions.store')}}" method="POST">
           {{csrf_field()}}
 
@@ -91,8 +86,9 @@
         </form>
       </div>
     </div>
+  </div>
+</div>
 
-  </div> <!-- end of .flex-container -->
 @endsection
 
 @section('scripts')

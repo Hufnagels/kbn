@@ -193,3 +193,23 @@ button.nav-item {
 .notification.is-alert {
   background-color: rgba(0, 180, 209, 0.73);
 }
+
+.loginPage .input, .loginPage .textarea{
+  font-size: .7rem;
+  height: 3.25em;
+  line-height: 3em;
+}
+.panel-heading.is-danger {
+    background-color: #ff3860; /*hsl(348, 100%, 61%);*/
+    color: whitesmoke;
+}
+.news-container > .tag.is-danger {
+  color: rgba(255, 255, 255, 0.81);;
+}
+
+a.categoryItem {
+  color: rgba(255, 255, 255, 0.81); /*hsl(348, 100%, 61%);*/
+}
+small {
+    line-height: 2rem;
+}
