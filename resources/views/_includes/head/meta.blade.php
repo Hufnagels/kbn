@@ -11,26 +11,29 @@
 Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 <meta property="og:url"           content="{{ Request::url() }}" />
 <meta property="og:type"          content="article" />
-<meta property="og:title"         content=
-<?php
-if(isset($item))
-  echo '"' . $item->title.'"';
-else
-echo "Kódvetők - Digitális Oktatási Műhely"
-?>
+<meta property="og:title"
+  @if(isset($item))
+    content="{{$item->title}}"
+  @else
+    content="Kódvetők - Digitális Oktatási Műhely"
+  @endif
 />
-<meta property="og:description"   content=
-<?php
-if(isset($item))
-  echo '"' . $item->excerpt .'"';
-else
-echo "KODVETOK, kodvetok, microbit, micro:bit, scratch, arduino, genuino ";
-?>
+<meta property="og:description"
+  @if(isset($item))
+    content="{{$item->excerpt}}"
+  @else
+    content="KODVETOK, kodvetok, microbit, micro:bit, scratch, arduino, genuino "
+  @endif
 />
-
-<meta property="og:image"         content="{{ asset('/images/header/render07.png') }}" />
-<meta property="og:image:width" content="450"/>
-<meta property="og:image:height" content="298"/>
+<meta property="og:image"
+  @if( (isset($item) && $item->imageUrl !== NULL))
+    content="{{ $item->imageUrl }}"
+  @else
+    content="{{ asset('/images/header/render07.png') }}"
+  @endif
+/>
+<meta property="og:image:width" content="500"/>
+<meta property="og:image:height" content="340"/>
 
 <!-- CSRF Token
 http://kep.cdn.index.hu/1/0/1822/18221/182218/18221803_1114737_4bd1354ee8beae18d5f35c4a036731a2_wm.jpg"
