@@ -10,6 +10,7 @@ use Google_Service_Calendar_EventDateTime;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class GoogleCalendarController extends Controller
 {
@@ -30,18 +31,22 @@ class GoogleCalendarController extends Controller
     public function index(Request $request)
     {
       session_start();
-
+// dd($request->session());
+      // SESSION::forget('access_token');
       $client = new Google_Client();
       $client->setAuthConfig('client_credentials.json');
       $client->addScope(Google_Service_Calendar::CALENDAR);
+
+$client->refreshToken(env('GOOGLE_REFRESH_TOKEN'));
+
       $guzzleClient = new \GuzzleHttp\Client(array('curl' => array(CURLOPT_SSL_VERIFYPEER => false)));
       $client->setHttpClient($guzzleClient);
 // dd($client);
       if ($request->session()->exists('access_token'))  {
-          $sessionToken = $request->session()->get('access_token');
-          $client->setAccessToken($sessionToken);
+          // $sessionToken = $request->session()->get('access_token');
+          $client->setAccessToken( $request->session()->get('access_token') );
           $service = new Google_Service_Calendar($client);
-          $calendarId = 'v4splud4t53abmnefsq3j7u1sk@group.calendar.google.com';
+          $calendarId = env('GOOGLE_CALENDAR_ID');
 
           $optParams = array(
             'maxResults' => 10,
@@ -63,6 +68,7 @@ class GoogleCalendarController extends Controller
               printf("%s (%s)\n", $event->getSummary(), $start);
             }
           }
+// dd($request->session()->get('access_token'));
           return $results->getItems();
       } else {
 // dd($client);
@@ -79,26 +85,31 @@ class GoogleCalendarController extends Controller
         $client->setAuthConfig('client_credentials.json');
         $client->setRedirectUri($rurl);
         $client->addScope(Google_Service_Calendar::CALENDAR);
+        $client->setAccessType("offline");
+// $client->setRedirectUri($rurl);
+        $client->refreshToken(env('GOOGLE_REFRESH_TOKEN'));
+$client->setIncludeGrantedScopes(true);
+$client->setAccessType("offline");
 
         $guzzleClient = new \GuzzleHttp\Client(array('curl' => array(CURLOPT_SSL_VERIFYPEER => false)));
         $client->setHttpClient($guzzleClient);
-        // $auth_url = $client->createAuthUrl();
+// $auth_url = $client->createAuthUrl();
 // $auth_url = "https://accounts.google.com/signin/oauth/oauthchooseaccount?client_id=668486990036-0p186432aeqvi1cnm27ftng7hqap3pgr.apps.googleusercontent.com&as=-79d53ea2fdcb621b&destination=http%3A%2F%2Fkvn.dev&approval_state=!ChRNNUhBLU5FcTNfOVMzeksyNWV1OBIfdzd4Z1VaRVg1ejhZd0Q4c01wTnQ0WVlYakxhYjVCVQ%E2%88%99AHw7d_cAAAAAWa3LNB6QZzWKz5Yl7OrOOF3kCXKJ9bPb&xsrfsig=AHgIfE8QpEFynVM8XM7749eE-KzxuKdXuw&flowName=GeneralOAuthFlow";
 
 // dd($auth_url);
-
+// if (!env('GOOGLE_AUTHORIZATION_CODE')) {
         if (!isset($_GET['code'])) {
             $auth_url = $client->createAuthUrl();
             $filtered_url = filter_var($auth_url, FILTER_SANITIZE_URL);
-            // dd($filtered_url);
+// dd($filtered_url);
             return redirect($filtered_url);
 
         } else {
             $client->authenticate($_GET['code']);
-            $access_token = $client->getAccessToken();
+// $client->authenticate(env('GOOGLE_AUTHORIZATION_CODE'));
+            $access_token = $client->getAccessToken();//setAccessToken('ya29.Glu8BLE9X6nOaeq5bJ6A10l1Kesu9eiBpmlrNhAVJGE-XC_Ddk_unqkyj71KXOzILJ3LMVo0XA4c-AiaIoTmgDgGB4mZLwonlnEhrPr29itQbfVooHdi4gtwdB6x');
             $request->session()->put('access_token', $access_token);
-            // dd($access_token);
-            // $_SESSION['access_token'] = $client->getAccessToken();
+// dd($access_token);
             return redirect()->route('calendar.index');
         }
     }

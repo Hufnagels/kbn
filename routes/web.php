@@ -31,7 +31,8 @@ Route::get('/', 'PagesController@getIndex')->name('welcome');
 Route::group(['middleware' => 'auth'], function () {
 });
 
-
+// / GOOGLE CALENDAR SECTION TOO FOR OAUTH request (outside auth middleware)
+Route::get('/manage/calendar/oauth', 'Manage\GoogleCalendarController@oauth')->name('calendar.oauthCallback');
 
 Auth::routes();
 
@@ -80,7 +81,6 @@ Route::prefix('manage')->group(function(){
   // GOOGLE CALENDAR SECTION
   Route::resource('/calendar', 'Manage\GoogleCalendarController');
 });
-// GOOGLE CALENDAR SECTION TOO FOR OAUTH request (outside auth middleware)
-Route::get('/manage/calendar/oauth', 'Manage\GoogleCalendarController@oauth')->name('calendar.oauthCallback');
+
 
 Route::get('/home', 'Manage\ManageController@index')->name('home');
