@@ -58,7 +58,7 @@
 -->
 <a href="https://www.facebook.com/sharer/sharer.php?u=http://jorenvanhocht.be" class="social-button " id=""><span class="fa fa-facebook-official"></span></a>
 
-                  <a class="fbshare" href="https://www.facebook.com/sharer/sharer.php?u=http://kvn.dev/news/{{$item->slug}}&display=popup"><span class="icon is-small"><i class="fa fa-facebook-square"></i></span>Megosztás</a>
+                  <a class="fbshare" href="https://www.facebook.com/sharer/sharer.php?u={{ Request::url() }}&display=popup"><span class="icon is-small"><i class="fa fa-facebook-square"></i></span>Megosztás</a>
                 </div>
               </nav>
 
