@@ -42,7 +42,7 @@
             </a>
           @endforeach
           <hr class="navbar-divider">
-          <a class="navbar-item " href="{{ route('newses') }}">More News</a>
+          <a class="navbar-item " href="{{ route('newses') }}">Még több hír</a>
         </div>
       </div>
       <a class="navbar-item" href="{{ route('projects') }}">Projektek</a>

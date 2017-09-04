@@ -1,4 +1,5 @@
-<a class="button is-primary" id="myBtn" href="#top" title="Go to top">Top</a>
+
+<a href="#" id="top" class="button is-primary" ><i class="fa fa-angle-double-up"></i></a>
 <footer class="footer m-t-20">
   <div class="container">
     <div class="columns">
@@ -7,7 +8,7 @@
         <p class="is-size-6 is-lowercase">Digitális Oktatási Műhely</p>
         <p class="is-size-7 is-lowercase m-t-20">
           <figure class="image is-128x30">
-            <a href="http://www.microbit.org/" target="_blank"><img class="img" src="images/new-logo.svg"></a>
+            <a href="http://www.microbit.org/" target="_blank"><img class="img" src="/images/new-logo.svg"></a>
           </figure>
         </p>
       </div>
@@ -26,8 +27,8 @@
 
       <div class="column  has-text-white-ter">
         <p class="is-size-5 is-uppercase is-paddingless  m-b-10 footer-header">Kövessen</p>
-        <p class="is-size-7 is-paddingless  m-b-10">Kövessen minket a Facebookon</p>
-        <p  class="is-size-7 is-paddingless  m-t-10"><a class="icon" href="https://www.facebook.com/kodvetok/" target="_blank"><i class="fa fa-facebook"></i></a></p>
+        <p class="is-size-7 is-paddingless m-b-10">Kövessen minket a Facebookon</p>
+        <p  class="is-size-7 is-paddingless m-t-10 footer_social"><a class="icon bg-facebook" href="https://www.facebook.com/kodvetok/" target="_blank"><i class="fa fa-facebook"></i></a></p>
       </div>
 
       <div class="column  has-text-white-ter">

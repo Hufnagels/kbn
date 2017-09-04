@@ -415,7 +415,7 @@ FOOTER SECTION
   background-color: #2a2a2a !important;
 
 	&>.container {
-			padding: 3rem 1.5rem 0rem;
+			padding: 3rem 1.5rem 1rem;
 	    max-width: 100%;
 	    width: 100%;
 
@@ -424,9 +424,10 @@ FOOTER SECTION
 			}
 			&.is-black {
 				padding: 1rem 0 1rem;
-				background-color:#30013e;
+				background-color:$janiLila;
 				max-width: 100%;
 				width: 100%;
+				border-top: 3px solid $janiZold;
 			}
 	}
 }
@@ -442,21 +443,42 @@ FOOTER SECTION
     content: "";
     display: block;
     width: 35px;
-    border-bottom: 2px solid #9fff26;
+    border-bottom: 2px solid $janiZold;
     margin: 5px auto 10px 0;
     z-index: 10;
     position: relative;
 }
 
-#myBtn {
-    display: block; /* Hidden by default */
-    position: fixed; /* Fixed/sticky position */
-    bottom: 20px; /* Place the button at the bottom of the page */
-    right: 30px; /* Place the button 30px from the right */
-    z-index: 99; /* Make sure it does not overlap */
-    border: none; /* Remove borders */
-    outline: none; /* Remove outline */
-    color: white; /* Text color */
-    cursor: pointer; /* Add a mouse pointer on hover */
-    border-radius: 10px; /* Rounded corners */
+.footer_social a {
+    display: block;
+    height: 35px;
+    width: 35px;
+    line-height: 37px;
+    text-align: center;
+    text-decoration: none !important;
+    border-radius: 3px;
+    margin: 3px;
+    opacity: 0.8;
+    &.bg-facebook {
+        background-color: #3b5998;
+        &>.fa-facebook {
+          color: #ffffff !important;
+          margin-top: 8px;
+        }
+    }
+}
+
+
+#top {
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+		padding: 15px 20px 0;
+		color: white;
+		display:none;
+		font-size: 2em;
+		/* display: none; */
+		border-radius: 4px 4px 0 0;
+		z-index: 5;
+		height: 2em;
 }

@@ -48,9 +48,17 @@
               </div>
               <nav class="level is-mobile">
                 <div class="level-left">
-                  <a class="level-item"><span class="icon is-small"><i class="fa fa-reply"></i></span></a>
-                  <a class="level-item"><span class="icon is-small"><i class="fa fa-retweet"></i></span></a>
+                  <!--<a class="level-item"><span class="icon is-small"><i class="fa fa-reply"></i></span></a>-->
+<!--
+                  <a class="level-item"><span class="icon is-small"><i class="fa fa-facebook-square"></i></span>
+
+                  </a>
+                  <div class="fb-share-button" data-href="http://kvn.dev/news/{{$item->slug}}" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fkvn.dev%2Fnews%2F{{$item->slug}}&amp;src=sdkpreparse">Megosztás</a></div>
                   <a class="level-item"><span class="icon is-small"><i class="fa fa-heart"></i></span></a>
+-->
+<a href="https://www.facebook.com/sharer/sharer.php?u=http://jorenvanhocht.be" class="social-button " id=""><span class="fa fa-facebook-official"></span></a>
+
+                  <a class="fbshare" href="https://www.facebook.com/sharer/sharer.php?u=http://kvn.dev/news/{{$item->slug}}&display=popup"><span class="icon is-small"><i class="fa fa-facebook-square"></i></span>Megosztás</a>
                 </div>
               </nav>
 

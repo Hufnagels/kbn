@@ -1,31 +1,22 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}" class="mdc-typography">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  @include('_includes.head.meta')
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+  <title>{{ config('app.name', 'Laravel') }} - Manage @yield('title')</title>
+  <link rel="icon" href="fav.ico">
 
-    <title>{{ config('app.name', 'Laravel') }} - Manage @yield('title')</title>
+  @include('_includes.head.appstyles')
+  @include('_includes.head.managestyles')
 
-    <!-- Styles
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    -->
-    <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet">
+  @yield('styles')
 
-    @yield('styles')
+  @include('_includes.head.managescripts')
 
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/manage.css') }}" rel="stylesheet">
-
-    <!-- Scripts -->
-    <script type="text/javascript" src="{{ asset('js/manifest.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/vendor.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/manage.js') }}"></script>
 </head>
+
 <body class="m-b-5">
+  
   @include('_includes.nav.navbar')
   <div class="columns manage">
     <div class="column is-one-quarter">

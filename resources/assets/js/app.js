@@ -42,4 +42,19 @@ $(document).ready(function(){
               };
   owl.owlCarousel(owlConfig);
 
+  $(window).scroll(function () {
+	    	if ($(this).scrollTop() > 100) {
+	    		$('#top').slideDown();
+	    	} else {
+	    		$('#top').fadeOut();
+	    	}
+	    });
+
+	    $('#top').click(function (e) {
+	    	e.preventDefault();
+	    	$("html, body").animate({
+	    		scrollTop: 0
+	    	}, 800);
+
+	    });
 });

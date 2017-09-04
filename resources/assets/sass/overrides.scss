@@ -48,7 +48,22 @@ a.navbar-item:hover, a.navbar-item.is-active, .navbar-link:hover, .navbar-link.i
   right:0;
   left: auto;
 }
-
+/*
+nav.navbar {
+    background-image: url("/images/header/navbar_wo_logo.png");
+    background-size: cover;
+    background-position: center center;
+    border-bottom: 5px solid $janiZold;
+    color: $janiZold;
+}
+.navbar-item, .navbar-link {
+    color: #9fff26;
+}
+.navbar-burger span {
+    background-color: $janiZold;
+    height: 3px;
+}
+*/
 /*
 Login page
 */
@@ -214,6 +229,23 @@ button.nav-item {
 a.categoryItem {
   color: rgba(255, 255, 255, 0.81); /*hsl(348, 100%, 61%);*/
 }
+a.tagItem {
+    color: whitesmoke;
+}
+a.fbshare {
+    color: white;
+    background-color: #365899;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 12px;
+    vertical-align: middle;
+}
+.fbshare span.icon {
+    color: white;
+    margin-bottom: 2px;
+    margin-right: 5px;
+}
+
 small {
     line-height: 2rem;
 }

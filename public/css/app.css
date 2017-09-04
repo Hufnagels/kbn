@@ -18070,7 +18070,7 @@ FOOTER SECTION
 }
 
 .footer > .container {
-  padding: 3rem 1.5rem 0rem;
+  padding: 3rem 1.5rem 1rem;
   max-width: 100%;
   width: 100%;
 }
@@ -18084,6 +18084,7 @@ FOOTER SECTION
   background-color: #30013e;
   max-width: 100%;
   width: 100%;
+  border-top: 3px solid #9fff26;
 }
 
 .footer-navbar-list li a.navbar-item {
@@ -18105,27 +18106,39 @@ FOOTER SECTION
   position: relative;
 }
 
-#myBtn {
+.footer_social a {
   display: block;
-  /* Hidden by default */
+  height: 35px;
+  width: 35px;
+  line-height: 37px;
+  text-align: center;
+  text-decoration: none !important;
+  border-radius: 3px;
+  margin: 3px;
+  opacity: 0.8;
+}
+
+.footer_social a.bg-facebook {
+  background-color: #3b5998;
+}
+
+.footer_social a.bg-facebook > .fa-facebook {
+  color: #ffffff !important;
+  margin-top: 8px;
+}
+
+#top {
   position: fixed;
-  /* Fixed/sticky position */
-  bottom: 20px;
-  /* Place the button at the bottom of the page */
-  right: 30px;
-  /* Place the button 30px from the right */
-  z-index: 99;
-  /* Make sure it does not overlap */
-  border: none;
-  /* Remove borders */
-  outline: none;
-  /* Remove outline */
+  bottom: 0;
+  right: 20px;
+  padding: 15px 20px 0;
   color: white;
-  /* Text color */
-  cursor: pointer;
-  /* Add a mouse pointer on hover */
-  border-radius: 10px;
-  /* Rounded corners */
+  display: none;
+  font-size: 2em;
+  /* display: none; */
+  border-radius: 4px 4px 0 0;
+  z-index: 5;
+  height: 2em;
 }
 
 html {
@@ -18194,6 +18207,23 @@ a.navbar-item.is-active,
   right: 0;
   left: auto;
 }
+
+/*
+nav.navbar {
+    background-image: url("/images/header/navbar_wo_logo.png");
+    background-size: cover;
+    background-position: center center;
+    border-bottom: 5px solid $janiZold;
+    color: $janiZold;
+}
+.navbar-item, .navbar-link {
+    color: #9fff26;
+}
+.navbar-burger span {
+    background-color: $janiZold;
+    height: 3px;
+}
+*/
 
 /*
 Login page
@@ -18376,6 +18406,25 @@ button.nav-item.is-active {
 a.categoryItem {
   color: rgba(255, 255, 255, 0.81);
   /*hsl(348, 100%, 61%);*/
+}
+
+a.tagItem {
+  color: whitesmoke;
+}
+
+a.fbshare {
+  color: white;
+  background-color: #365899;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+.fbshare span.icon {
+  color: white;
+  margin-bottom: 2px;
+  margin-right: 5px;
 }
 
 small {

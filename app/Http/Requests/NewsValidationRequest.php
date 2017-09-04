@@ -27,6 +27,7 @@ class NewsValidationRequest extends FormRequest
         'title' => 'required',
         'subtitle' => 'required',
         'slug' => 'required|unique:news',
+        'excerpt' => 'required',
         'body' => 'required',
         'category_id' => 'required',
         'image' => 'image'
