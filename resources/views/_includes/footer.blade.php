@@ -1,12 +1,12 @@
+<a class="button is-primary" id="myBtn" href="#top" title="Go to top">Top</a>
 <footer class="footer m-t-20">
   <div class="container">
     <div class="columns">
-      <div class="content"></div>
       <div class="column has-text-white-ter">
         <p class="is-size-3 is-uppercase is-paddingless is-marginless ">Kódvetők</p>
         <p class="is-size-6 is-lowercase">Digitális Oktatási Műhely</p>
         <p class="is-size-7 is-lowercase m-t-20">
-          <figure class="image is-128x128">
+          <figure class="image is-128x30">
             <a href="http://www.microbit.org/" target="_blank"><img class="img" src="images/new-logo.svg"></a>
           </figure>
         </p>
@@ -32,7 +32,7 @@
 
       <div class="column  has-text-white-ter">
         <p class="is-size-5 is-uppercase is-paddingless m-b-10 footer-header">Kapcsolat</p>
-        <p class="is-size-7 is-paddingless  m-t-10">Email : kodvetok@gmail.com </p>
+        <p class="is-size-7 is-paddingless m-t-10 m-b-10">Email : kodvetok@gmail.com </p>
       </div>
 
 
