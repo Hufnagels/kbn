@@ -48,17 +48,11 @@
               </div>
               <nav class="level is-mobile">
                 <div class="level-left">
-                  <!--<a class="level-item"><span class="icon is-small"><i class="fa fa-reply"></i></span></a>-->
-<!--
-                  <a class="level-item"><span class="icon is-small"><i class="fa fa-facebook-square"></i></span>
-
-                  </a>
-
-                -->
-                  <div class="fb-share-button" data-href="{{ Request::url() }}" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fvarkonyi.eu%2Fnews%2F{{$item->slug}}&amp;src=sdkpreparse">Megosztás</a></div>
+                  <!--<a class="level-item"><span class="icon is-small"><i class="fa fa-reply"></i></span></a>
+                  <a class="level-item"><span class="icon is-small"><i class="fa fa-facebook-square"></i></span></a>
                   <a class="level-item"><span class="icon is-small"><i class="fa fa-heart"></i></span></a>
-
-                  <a class="fbshare" href="https://www.facebook.com/sharer/sharer.php?u={{ Request::url() }}&display=popup"><span class="icon is-small"><i class="fa fa-facebook-square"></i></span>Megosztás</a>
+                  -->
+                  <a class="fbshare" href="https://www.facebook.com/sharer/sharer.php?u={{ Request::url() }}&display=popup" target="_blank"><span class="icon is-small"><i class="fa fa-facebook-square"></i></span>Megosztás</a>
                 </div>
               </nav>
 
