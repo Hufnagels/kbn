@@ -38,6 +38,38 @@ return [
         'width' => 250,
         'height' => 170
       ]
+    ],
+    'google' => [
+      /*
+      |--------------------------------------------------------------------------
+      | Client ID
+      |--------------------------------------------------------------------------
+      |
+      | The Client ID can be found in the OAuth Credentials under Service Account
+      |
+      */
+      'client_id' => '117196289637951485763',
+
+      /*
+      |--------------------------------------------------------------------------
+      | Service account name
+      |--------------------------------------------------------------------------
+      |
+      | The Service account name is the Email Address that can be found in the
+      | OAuth Credentials under Service Account
+      |
+      */
+      'service_account_name' => 'kodvetokservice@inlaid-marker-178817.iam.gserviceaccount.com',
+
+      /*
+      |--------------------------------------------------------------------------
+      | Key file location
+      |--------------------------------------------------------------------------
+      |
+      | This is the location of the .p12 file from the Laravel root directory
+      |
+      */
+      'key_file_location' => '/public/MyProject-7847c546ef6a.json',
     ]
 
   ]

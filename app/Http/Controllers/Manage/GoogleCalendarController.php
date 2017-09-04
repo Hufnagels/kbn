@@ -12,9 +12,13 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Config;
+
 class GoogleCalendarController extends Controller
 {
     protected $client;
+    protected $service;
 
     public function __construct()
     {
@@ -56,20 +60,23 @@ $client->refreshToken(env('GOOGLE_REFRESH_TOKEN'));
 
           );
           $results = $service->events->listEvents($calendarId, $optParams);
-          if (count($results->getItems()) == 0) {
-            print "No upcoming events found.\n";
-          } else {
-            print "Upcoming events:\n";
-            foreach ($results->getItems() as $event) {
-              $start = $event->start->dateTime;
-              if (empty($start)) {
-                $start = $event->start->date;
-              }
-              printf("%s (%s)\n", $event->getSummary(), $start);
-            }
-          }
-// dd($request->session()->get('access_token'));
-          return $results->getItems();
+//           if (count($results->getItems()) == 0) {
+//             print "No upcoming events found.\n";
+//           } else {
+//             print "Upcoming events:\n";
+//             foreach ($results->getItems() as $event) {
+//               $start = $event->start->dateTime;
+//               $end = $event->end->dateTime;
+//               if (empty($start)) {
+//                 $start = $event->start->date;
+//               }
+//               printf("%s (%s)\n", $event->getSummary(), $start);
+//             }
+//           }
+// // dd($request->session()->get('access_token'));
+//           return $results->getItems();
+          $events = $results->getItems();
+          return view('manage.googlecalendar.index', compact('events'));//, ['users' => $users]);
       } else {
 // dd($client);
           return redirect()->route('calendar.oauthCallback');
