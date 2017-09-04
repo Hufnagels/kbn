@@ -54,12 +54,19 @@
     <section class="hero has-text-centered">
       <div class="hero-body m-t-40">
         <div class="container">
-          <h1 class="title is-size-1 is-spaced is-uppercase wow bounceInDown" data-wow-duration="5s" data-wow-delay=".1s" style="visibility:hidden;">
-            Kódvetők
+          <h1 class="title is-size-3 is-spaced is-uppercase wow bounceInDown" data-wow-duration="2s" data-wow-delay=".1s" style="visibility:hidden;">
+            Csatlakozz
           </h1>
-          <h2 class="subtitle is-size-3 is-spaced has-text-warning is-lowercase m-t-70 wow bounceInDown" data-wow-duration="2s" data-wow-delay=".1s" style="visibility:hidden;">
-            a Kódfarmon
+          <h2 class="title is-size-3 is-spaced has-text-warning is-uppercase m-t-70 wow bounceInDown" data-wow-duration="5s" data-wow-delay=".1s" style="visibility:hidden;">
+            Kódolj
           </h2>
+          <h2 class="title is-size-3 is-spaced has-text-primary is-uppercase m-t-70 wow bounceInDown" data-wow-duration="8s" data-wow-delay=".1s" style="visibility:hidden;">
+            Alkoss
+          </h2>
+          <p class="is-size-4 is-spaced has-text-white m-t-50 wow bounceInDown" data-wow-duration="12s" data-wow-delay=".1s" style="visibility:hidden;">
+            Könnyedén megtanulhatsz programozni a BBC módszertanával!<br>
+            Játékos bevezetés az algoritmikus gondolkodás világába 7-14 éves korosztály számára.
+          </p>
         </div>
       </div>
     </section>
@@ -82,7 +89,7 @@
 
 </section>
 
-<section class="gallery wow zoomIn" id="gallerysection">
+<section class="gallery wow zoomIn" id="gallerysection" style="min-height:100px;">
 
 </section>
 

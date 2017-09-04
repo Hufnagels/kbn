@@ -17644,34 +17644,72 @@ label.panel-block:hover {
 FONT SECTION
 */
 
+/*
 @font-face {
-  font-family: 'Baloo Bhaijaan';
-  src: url("/fonts/Baloo_Bhaijaan/BalooBhaijaan-Regular.eot");
-  src: url("/fonts/Baloo_Bhaijaan/BalooBhaijaan-Regular.eot?#iefix") format("embedded-opentype"), url("/fonts/Baloo_Bhaijaan/BalooBhaijaan-Regular.woff2") format("woff2"), url("/fonts/Baloo_Bhaijaan/BalooBhaijaan-Regular.woff") format("woff"), url("/fonts/Baloo_Bhaijaan/BalooBhaijaan-Regular.ttf") format("truetype"), url("/fonts/Baloo_Bhaijaan/BalooBhaijaan-Regular.svg#BalooBhaijaan-Regular") format("svg");
-  font-weight: normal;
-  font-style: normal;
+	font-family: 'Baloo Bhaijaan';
+	src: url('/fonts/Baloo_Bhaijaan/BalooBhaijaan-Regular.eot');
+	src: url('/fonts/Baloo_Bhaijaan/BalooBhaijaan-Regular.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/Baloo_Bhaijaan/BalooBhaijaan-Regular.woff2') format('woff2'),
+		url('/fonts/Baloo_Bhaijaan/BalooBhaijaan-Regular.woff') format('woff'),
+		url('/fonts/Baloo_Bhaijaan/BalooBhaijaan-Regular.ttf') format('truetype'),
+		url('/fonts/Baloo_Bhaijaan/BalooBhaijaan-Regular.svg#BalooBhaijaan-Regular') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
-
 @font-face {
   font-family: 'Mukta Mahee';
-  src: url("/fonts/Mukta_Mahee/medium/subset-MuktaMahee-Medium.eot");
-  src: url("/fonts/Mukta_Mahee/medium/subset-MuktaMahee-Medium.eot?#iefix") format("embedded-opentype"), url("/fonts/Mukta_Mahee/medium/subset-MuktaMahee-Medium.woff2") format("woff2"), url("/fonts/Mukta_Mahee/medium/subset-MuktaMahee-Medium.woff") format("woff"), url("/fonts/Mukta_Mahee/medium/subset-MuktaMahee-Medium.ttf") format("truetype"), url("/fonts/Mukta_Mahee/medium/subset-MuktaMahee-Medium.svg#MuktaMahee-Medium") format("svg");
+  src: url('/fonts/Mukta_Mahee/medium/subset-MuktaMahee-Medium.eot');
+  src: url('/fonts/Mukta_Mahee/medium/subset-MuktaMahee-Medium.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/Mukta_Mahee/medium/subset-MuktaMahee-Medium.woff2') format('woff2'),
+  url('/fonts/Mukta_Mahee/medium/subset-MuktaMahee-Medium.woff') format('woff'),
+  url('/fonts/Mukta_Mahee/medium/subset-MuktaMahee-Medium.ttf') format('truetype'),
+  url('/fonts/Mukta_Mahee/medium/subset-MuktaMahee-Medium.svg#MuktaMahee-Medium') format('svg');
   font-weight: 500;
   font-style: normal;
 }
+@font-face {
+	font-family: 'Press Start 2P';
+	src: url('/fonts/PressStart/subset-PressStart2P-Regular.eot');
+	src: url('/fonts/PressStart/subset-PressStart2P-Regular.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/PressStart/subset-PressStart2P-Regular.woff2') format('woff2'),
+		url('/fonts/PressStart/subset-PressStart2P-Regular.woff') format('woff'),
+		url('/fonts/PressStart/subset-PressStart2P-Regular.ttf') format('truetype'),
+		url('/fonts/PressStart/subset-PressStart2P-Regular.svg#PressStart2P-Regular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Eater';
+	src: url('/fonts/Eater/Eater-Regular.eot');
+	src: url('/fonts/Eater/Eater-Regular.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/Eater/Eater-Regular.woff2') format('woff2'),
+		url('/fonts/Eater/Eater-Regular.woff') format('woff'),
+		url('/fonts/Eater/Eater-Regular.ttf') format('truetype'),
+		url('/fonts/Eater/Eater-Regular.svg#Eater-Regular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+*/
 
 @font-face {
-  font-family: 'Press Start 2P';
-  src: url("/fonts/PressStart/subset-PressStart2P-Regular.eot");
-  src: url("/fonts/PressStart/subset-PressStart2P-Regular.eot?#iefix") format("embedded-opentype"), url("/fonts/PressStart/subset-PressStart2P-Regular.woff2") format("woff2"), url("/fonts/PressStart/subset-PressStart2P-Regular.woff") format("woff"), url("/fonts/PressStart/subset-PressStart2P-Regular.ttf") format("truetype"), url("/fonts/PressStart/subset-PressStart2P-Regular.svg#PressStart2P-Regular") format("svg");
+  font-family: 'SilomRegular';
+  src: url("/fonts/SilomRegular/Krungthep.eot");
+  src: url("/fonts/SilomRegular/Krungthep.woff2") format("woff2"), url("/fonts/SilomRegular/Krungthep.woff") format("woff"), url("/fonts/SilomRegular/Krungthep.ttf") format("truetype"), url("/fonts/SilomRegular/Krungthep.svg#Krungthep") format("svg"), url("/fonts/SilomRegular/Krungthep.eot?#iefix") format("embedded-opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Eater';
-  src: url("/fonts/Eater/Eater-Regular.eot");
-  src: url("/fonts/Eater/Eater-Regular.eot?#iefix") format("embedded-opentype"), url("/fonts/Eater/Eater-Regular.woff2") format("woff2"), url("/fonts/Eater/Eater-Regular.woff") format("woff"), url("/fonts/Eater/Eater-Regular.ttf") format("truetype"), url("/fonts/Eater/Eater-Regular.svg#Eater-Regular") format("svg");
+  font-family: 'Impact';
+  src: url("/fonts/ImpactRegular/Impact.woff") format("woff"), url("/fonts/ImpactRegular/Impact.ttf") format("truetype"), url("/fonts/ImpactRegular/Impact.svg#Impact") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ImpactRegular';
+  src: url("/fonts/ImpactRegular/ImpactRegular.eot");
+  src: url("/fonts/ImpactRegular/ImpactRegular.woff2") format("woff2"), url("/fonts/ImpactRegular/ImpactRegular.eot?#iefix") format("embedded-opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -17679,6 +17717,10 @@ FONT SECTION
 /*
 INDEX PAGE
 */
+
+#navMenu {
+  font-family: 'SilomRegular';
+}
 
 .fa-google-plus {
   color: #d34836;
@@ -17703,7 +17745,8 @@ INDEX PAGE
 
 .headersection .hero .title,
 .headersection .hero .subtitle {
-  font-family: 'Eater';
+  font-family: 'ImpactRegular';
+  text-transform: uppercase;
 }
 
 .headersection .hero .title {
@@ -17720,7 +17763,7 @@ INDEX PAGE
   margin-left: 10%;
   margin-right: 10%;
   position: relative;
-  top: -50px;
+  top: -100px;
 }
 
 .headersection .notification {
@@ -18017,6 +18060,51 @@ NEWS PAGE
   color: #363636;
 }
 
+/*
+FOOTER SECTION
+*/
+
+.footer {
+  font-family: 'SilomRegular';
+  background-color: #2a2a2a !important;
+}
+
+.footer > .container {
+  padding: 3rem 1.5rem 0rem;
+  max-width: 100%;
+  width: 100%;
+}
+
+.footer > .container.is-dark {
+  background-color: #4a4a4a;
+}
+
+.footer > .container.is-black {
+  padding: 1rem 0 1rem;
+  background-color: #363636;
+  max-width: 100%;
+  width: 100%;
+}
+
+.footer-navbar-list li a.navbar-item {
+  color: whitesmoke !important;
+  line-height: 0.5;
+}
+
+.footer_header {
+  position: relative;
+}
+
+.footer_header:after {
+  content: "";
+  display: block;
+  width: 35px;
+  border-bottom: 2px solid #f0ad4e;
+  margin: 20px auto 25px 0;
+  z-index: 10;
+  position: relative;
+}
+
 html {
   margin: 0;
   padding: 0;
@@ -18230,6 +18318,10 @@ button.nav-item.is-active {
   margin-bottom: 0.0rem;
 }
 
+.news-container > .tag.is-danger {
+  color: rgba(255, 255, 255, 0.81);
+}
+
 /*
 .news-container .box:first-child, :not(.box) + .box {
     margin-top: 1.5rem;
@@ -18253,10 +18345,6 @@ button.nav-item.is-active {
   color: whitesmoke;
 }
 
-.news-container > .tag.is-danger {
-  color: rgba(255, 255, 255, 0.81);
-}
-
 a.categoryItem {
   color: rgba(255, 255, 255, 0.81);
   /*hsl(348, 100%, 61%);*/
@@ -18264,6 +18352,10 @@ a.categoryItem {
 
 small {
   line-height: 2rem;
+}
+
+.footer {
+  padding: 0;
 }
 
 /**

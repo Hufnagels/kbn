@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Krungthep';
+  src: url('Krungthep.eot');
+  src: url('Krungthep.woff2') format('woff2'),
+       url('Krungthep.woff') format('woff'),
+       url('Krungthep.ttf') format('truetype'),
+       url('Krungthep.svg#Krungthep') format('svg'),
+       url('Krungthep.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+

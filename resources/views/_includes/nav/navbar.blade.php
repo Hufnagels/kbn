@@ -26,14 +26,9 @@
 
   <div id="navMenu" class="navbar-menu">
     <div class="navbar-start">
-
       <a class="navbar-item " href="{{ route('welcome') }}">Home</a>
-      <a class="navbar-item " href="{{ route('about') }}">About</a>
-      <a class="navbar-item " href="{{ route('team') }}">Team</a>
-      <a class="navbar-item " href="{{ route('contact') }}">Contact</a>
-      <!--<a class="navbar-item " href="{{ route('newses') }}">News</a>-->
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link " href="{{ route('newses') }}">News</a>
+        <a class="navbar-link " href="{{ route('newses') }}">Hírek</a>
         <div id="blogDropdown" class="navbar-dropdown " data-style="width: 18rem;">
           @foreach ($popularposts as $post)
             <a class="navbar-item" href="{{ route('news.show', $post->slug)}}">
@@ -46,12 +41,15 @@
               </div>
             </a>
           @endforeach
-
           <hr class="navbar-divider">
           <a class="navbar-item " href="{{ route('newses') }}">More News</a>
         </div>
       </div>
-      <a class="navbar-item" href="{{ route('projects') }}">Projects</a>
+      <a class="navbar-item" href="{{ route('projects') }}">Projektek</a>
+      <a class="navbar-item " href="{{ route('team') }}">Csapat</a>
+      <a class="navbar-item " href="{{ route('about') }}">Mit csinálunk</a>
+      <a class="navbar-item " href="{{ route('contact') }}">Kapcsolat</a>
+      <!--<a class="navbar-item " href="{{ route('newses') }}">News</a>-->
     </div>
 
     <div class="navbar-end">

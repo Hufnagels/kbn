@@ -184,7 +184,9 @@ button.nav-item {
 .news-container .field.is-grouped.is-grouped-multiline:last-child {
     margin-bottom: 0.0rem;
 }
-
+.news-container > .tag.is-danger {
+  color: rgba(255, 255, 255, 0.81);;
+}
 /*
 .news-container .box:first-child, :not(.box) + .box {
     margin-top: 1.5rem;
@@ -203,13 +205,15 @@ button.nav-item {
     background-color: #ff3860; /*hsl(348, 100%, 61%);*/
     color: whitesmoke;
 }
-.news-container > .tag.is-danger {
-  color: rgba(255, 255, 255, 0.81);;
-}
+
 
 a.categoryItem {
   color: rgba(255, 255, 255, 0.81); /*hsl(348, 100%, 61%);*/
 }
 small {
     line-height: 2rem;
+}
+
+.footer {
+	padding: 0;
 }
