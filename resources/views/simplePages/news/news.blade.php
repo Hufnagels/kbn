@@ -41,7 +41,7 @@
                   <small>{{$item->date}}</small>
                   @if( !( $item->category->id == config('ownAttributes.default_category.id') ))
                   <br>
-                  <small><a href="{{ route('news.category', $item->category->slug)}}">{{$item->category->title}}</a></small>
+                  <small><a href="{{ route('news.category', $item->category->slug)}}">{{$item->category->title}}</a></small> | 
                   @endif
                   {!! $item->tags_html !!}
                 </p>

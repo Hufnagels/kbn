@@ -139,7 +139,7 @@ class News extends Model
           }
         }
         // dd(count($anchors));
-        return count($anchors) ? (' | ' . implode(" ", $anchors)) : '';
+        return count($anchors) ? ( implode(" ", $anchors)) : '';
     }
 
     public function setPublishedAtAttribute($value)
