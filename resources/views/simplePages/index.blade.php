@@ -51,16 +51,16 @@
 
   <div class="parallax-window" data-parallax="scroll" data-image-src="{{ asset('/images/header/render07.png') }}">
 
-    <section class="hero has-text-centered">
+    <div class="hero has-text-left">
       <div class="hero-body m-t-40">
         <div class="container">
           <h1 class="title is-size-3 is-spaced is-uppercase wow bounceInDown" data-wow-duration="2s" data-wow-delay=".1s" style="visibility:hidden;">
             Csatlakozz
           </h1>
-          <h2 class="title is-size-3 is-spaced has-text-warning is-uppercase m-t-70 wow bounceInDown" data-wow-duration="5s" data-wow-delay=".1s" style="visibility:hidden;">
+          <h2 class="title is-size-3 is-spaced has-text-warning is-uppercase m-t-50 wow bounceInDown" data-wow-duration="5s" data-wow-delay=".1s" style="visibility:hidden;">
             Kódolj
           </h2>
-          <h2 class="title is-size-3 is-spaced has-text-primary is-uppercase m-t-70 wow bounceInDown" data-wow-duration="8s" data-wow-delay=".1s" style="visibility:hidden;">
+          <h2 class="title is-size-3 is-spaced has-text-primary is-uppercase m-t-50 wow bounceInDown" data-wow-duration="8s" data-wow-delay=".1s" style="visibility:hidden;">
             Alkoss
           </h2>
           <p class="is-size-4 is-spaced has-text-white m-t-50 wow bounceInDown" data-wow-duration="12s" data-wow-delay=".1s" style="visibility:hidden;">
@@ -69,35 +69,29 @@
           </p>
         </div>
       </div>
-    </section>
-
-  </div>
-
-  @include('simplePages.index.header')
-
-</section>
-
-<section class="testimonial wow fadeInUp" id="testimonialsection"  data-wow-duration="5s" data-wow-delay="1s" style="visibility:hidden;">
-  <div class="hero-body">
-    <div class="container gt_hdg_1 white_hdg">
-      <h1 class="title has-text-centered wow zoomIn" data-wow-duration="5s" data-wow-delay="1s" >Rólunk mondták</h1>
-      <h2 class="subtitle has-text-centered wow zoomIn" data-wow-duration="5s" data-wow-delay="1s">Milyenek vagyunk mi?</h2>
     </div>
+
   </div>
 
-  @include('simplePages.index.testimonial')
+  @include('simplePages.index.s01_posts')
 
 </section>
 
-<section class="gallery wow zoomIn" id="gallerysection" style="min-height:100px;">
+<section class="testimonialsection testimonial wow fadeInUp" id="testimonialsection"  data-wow-duration="5s" data-wow-delay="1s" style="visibility:hidden;">
+
+  @include('simplePages.index.s02_testimonial')
 
 </section>
 
-<section class="" id="">
+<section class="gallerysection gallery wow zoomIn" id="gallerysection" style="min-height:100px;">
 
 </section>
 
-<section class="" id="">
+<section class="videosection video wow zoomIn" id="videosection" style="min-height:100px;">
+  @include('simplePages.index.s03_video')
+</section>
+
+<section class="postsection posts wow zoomIn" id="postsection" style="min-height:100px;">
 
 </section>
 
@@ -108,13 +102,9 @@
 <script type="text/javascript" src="{{ asset('assets/js/parallax.min.js') }}"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-
-  $('.headersection .parallax-window').parallax({imageSrc: "{{ asset('/images/header/headerimage.jpg') }}"});
-
-  console.log('Owl');
-
+  $('.headersection .parallax-window').parallax();
 });
-  // $('.owl-carousel').owlCarousel()
+
 
 
 </scripts>
