@@ -14,7 +14,7 @@ use App\News;
 use App\Video;
 use App\Photo;
 
-class ManageTagController extends BackendController
+class TagController extends BackendController
 {
     protected $paginateLimit = 10;
 

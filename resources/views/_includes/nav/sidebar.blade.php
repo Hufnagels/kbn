@@ -10,6 +10,7 @@
     <li><a {{ ( strpos(Route::currentRouteName(), 'users') > -1) ? 'class=is-active' : '' }} href="{{ route('users.index') }}">Users</a></li>
     <li><a {{ ( strpos(Route::currentRouteName(), 'roles') > -1) ? 'class=is-active' : '' }} href="{{route('roles.index')}}">Roles</a></li>
     <li><a {{ ( strpos(Route::currentRouteName(), 'permissions') > -1) ? 'class=is-active' : '' }} href="{{route('permissions.index')}}">Permissions</a></li>
+    <li><a {{ ( strpos(Route::currentRouteName(), 'fm') > -1) ? 'class=is-active' : '' }} href="{{ route('fm.show') }}">Filemanager</a></li>
   </ul>
 @endif
 
@@ -25,8 +26,19 @@
     <li><a {{ ( strpos(Route::currentRouteName(), 'tag') > -1) ? 'class=is-active' : '' }} href="{{ route('tag.index') }}">Tags</a></li>
     @endif
     @if (check_user_permissions(request(), "ManageTag@index"))
-    <li><a {{ ( strpos(Route::currentRouteName(), 'fm') > -1) ? 'class=is-active' : '' }} href="{{ route('fm.show') }}">Filemanager</a></li>
+
     @endif
+    <li><a {{ ( strpos(Route::currentRouteName(), 'video') > -1) ? 'class=is-active' : '' }} href="{{ route('video.index') }}">Videos</a></li>
+    <li><a {{ ( strpos(Route::currentRouteName(), 'photo') > -1) ? 'class=is-active' : '' }} href="{{ route('photo.index') }}">Image gallery</a></li>
+  </ul>
+
+  <p class="menu-label">Main site elements</p>
+  <ul class="menu-list">
     <li><a {{ ( strpos(Route::currentRouteName(), 'calendar') > -1) ? 'class=is-active' : '' }} href="{{ route('calendar.index') }}">Calendar</a></li>
+  </ul>
+
+  <p class="menu-label">Main site elements</p>
+  <ul class="menu-list">
+    <li><a {{ ( strpos(Route::currentRouteName(), 'calendar') > -1) ? 'class=is-active' : '' }} href="{{ route('calendar.index') }}">Elements</a></li>
   </ul>
 </aside>

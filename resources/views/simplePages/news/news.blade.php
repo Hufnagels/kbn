@@ -41,7 +41,7 @@
                   <small>{{$item->date}}</small>
                   @if( !( $item->category->id == config('ownAttributes.default_category.id') ))
                   <br>
-                  <small><a href="{{ route('news.category', $item->category->slug)}}">{{$item->category->title}}</a></small> | 
+                  <small><a href="{{ route('news.category', $item->category->slug)}}">{{$item->category->title}}</a></small> |
                   @endif
                   {!! $item->tags_html !!}
                 </p>
@@ -52,6 +52,7 @@
                   <a class="level-item"><span class="icon is-small"><i class="fa fa-facebook-square"></i></span></a>
                   <a class="level-item"><span class="icon is-small"><i class="fa fa-heart"></i></span></a>
                   -->
+                  
                   <a class="fbshare" href="https://www.facebook.com/sharer/sharer.php?u={{ Request::url() }}&display=popup" target="_blank"><span class="icon is-small"><i class="fa fa-facebook-square"></i></span>Megosztás</a>
                 </div>
               </nav>

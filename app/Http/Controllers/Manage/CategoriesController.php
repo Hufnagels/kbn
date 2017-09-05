@@ -12,7 +12,7 @@ use App\Category;
 use App\News;
 
 
-class ManageCategoriesController extends BackendController
+class CategoriesController extends BackendController
 {
     protected $paginateLimit = 10;
     /**

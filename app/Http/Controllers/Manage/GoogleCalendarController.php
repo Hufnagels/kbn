@@ -37,8 +37,21 @@ class GoogleCalendarController extends Controller
       session_start();
 // dd($request->session());
       // SESSION::forget('access_token');
+
+// https://developers.google.com/youtube/v3/code_samples/php
+// $OAUTH2_CLIENT_ID = '668486990036-0p186432aeqvi1cnm27ftng7hqap3pgr.apps.googleusercontent.com';
+// $OAUTH2_CLIENT_SECRET = 'lW7Ii_WHaLxm_SibfvHvq9lG';
+//
+// $client = new Google_Client();
+// $client->setClientId($OAUTH2_CLIENT_ID);
+// $client->setClientSecret($OAUTH2_CLIENT_SECRET);
+// $client->setScopes('https://www.googleapis.com/auth/youtube');
+// $redirect = filter_var('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'], FILTER_SANITIZE_URL);
+// $client->setRedirectUri($redirect);
+
+// Define an object that will be used to make all API requests.
       $client = new Google_Client();
-      $client->setAuthConfig('client_credentials.json');
+      $client->setAuthConfig('../client_credentials.json');
       $client->addScope(Google_Service_Calendar::CALENDAR);
 
 $client->refreshToken(env('GOOGLE_REFRESH_TOKEN'));
@@ -89,7 +102,7 @@ $client->refreshToken(env('GOOGLE_REFRESH_TOKEN'));
         $rurl = action('Manage\GoogleCalendarController@oauth');
 
         $client = new Google_Client();
-        $client->setAuthConfig('client_credentials.json');
+        $client->setAuthConfig('../client_credentials.json');
         $client->setRedirectUri($rurl);
         $client->addScope(Google_Service_Calendar::CALENDAR);
         $client->setAccessType("offline");

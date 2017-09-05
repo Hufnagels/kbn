@@ -12,5 +12,6 @@ class BackendController extends Controller
   {
       $this->middleware('auth');
       $this->middleware('checkPermissions');
+      $this->middleware('cors');
   }
 }

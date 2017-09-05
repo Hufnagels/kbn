@@ -13,7 +13,7 @@ use App\Tag;
 use Intervention\Image\Facades\Image;
 
 
-class ManageNewsController extends BackendController
+class NewsController extends BackendController
 {
 
     protected $paginateLimit = 10;

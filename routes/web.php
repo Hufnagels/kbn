@@ -40,10 +40,10 @@ Auth::routes();
 Route::prefix('manage')->group(function(){
   Route::get('/', 'Manage\ManageController@index');
 
-  // INDIVIDUAL MENU FOR UNISHARP FILEMANAGER
+  // INDIVIDUAL FILEMANAGER MENU FOR UNISHARP FILEMANAGER
   Route::get('/filemanager', 'Manage\ManageController@filemanager')->name('fm.show');;
 
-  // UNISHARP FILEMANAGER
+  // UNISHARP FILEMANAGER IN NEWS MENU
   Route::get('/laravel-filemanager', '\Unisharp\Laravelfilemanager\controllers\LfmController@show');
   Route::post('/laravel-filemanager/upload', '\Unisharp\Laravelfilemanager\controllers\UploadController@upload');
 
@@ -65,21 +65,30 @@ Route::prefix('manage')->group(function(){
   Route::resource('/roles', 'Manage\RoleController', ['except' => 'destroy']);
 
   // MANAGE NEWS
-  Route::put('/post/restore/{post}', 'Manage\ManageNewsController@restore')->name('post.restore');
-  Route::delete('/post/force-destroy/{post}', 'Manage\ManageNewsController@forcedestroy')->name('post.force-destroy');
-  Route::resource('/post', 'Manage\ManageNewsController');
+  Route::put('/post/restore/{post}', 'Manage\NewsController@restore')->name('post.restore');
+  Route::delete('/post/force-destroy/{post}', 'Manage\NewsController@forcedestroy')->name('post.force-destroy');
+  Route::resource('/post', 'Manage\NewsController');
 
   // SEARCH SECTION
-  Route::put('/category/restore/{category}', 'Manage\ManageCategoriesController@restore')->name('category.restore');
-  Route::delete('/category/force-destroy/{category}', 'Manage\ManageCategoriesController@forcedestroy')->name('category.force-destroy');
-  Route::resource('/category', 'Manage\ManageCategoriesController');
+  Route::put('/category/restore/{category}', 'Manage\CategoriesController@restore')->name('category.restore');
+  Route::delete('/category/force-destroy/{category}', 'Manage\CategoriesController@forcedestroy')->name('category.force-destroy');
+  Route::resource('/category', 'Manage\CategoriesController');
 
-  Route::put('/tag/restore/{tag}', 'Manage\ManageTagController@restore')->name('tag.restore');
-  Route::delete('/tag/force-destroy/{tag}', 'Manage\ManageTagController@forcedestroy')->name('tag.force-destroy');
-  Route::resource('/tag', 'Manage\ManageTagController');
+  Route::put('/tag/restore/{tag}', 'Manage\TagController@restore')->name('tag.restore');
+  Route::delete('/tag/force-destroy/{tag}', 'Manage\TagController@forcedestroy')->name('tag.force-destroy');
+  Route::resource('/tag', 'Manage\TagController');
 
   // GOOGLE CALENDAR SECTION
   Route::resource('/calendar', 'Manage\GoogleCalendarController');
+
+  // GOOGLE YOUTUBE SECTION
+
+  // PHOTOS SECTION
+  Route::resource('/photo', 'Manage\PhotoController', ['except' => 'destroy']);
+
+  // VIDEOS SECTION
+  Route::resource('/video', 'Manage\VideoController', ['except' => 'destroy']);
+
 });
 
 

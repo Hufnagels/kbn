@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Manage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ManageEventsController extends BackendController
+class EventsController extends BackendController
 {
     /**
      * Display a listing of the resource.

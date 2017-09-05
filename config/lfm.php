@@ -84,7 +84,7 @@ return [
     'max_file_size' => 50000,
 
     // If true, the uploading file's mime type will be valid in valid_image_mimetypes/valid_file_mimetypes.
-    'should_validate_mime' => false,
+    'should_validate_mime' => true,
 
     // available since v1.3.0
     'valid_image_mimetypes' => [

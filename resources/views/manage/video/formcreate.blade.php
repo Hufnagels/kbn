@@ -1,0 +1,100 @@
+<div class="tile is-ancestor is-marginless ">
+  <div class="tile is-vertical is-6">
+    <div class="tile">
+      <div class="tile is-parent is-vertical is-paddingless">
+        <article class="tile is-child notification">
+
+          <div class="field">
+            <label class="label">{!! Form::label('title', 'Title') !!}</label>
+            <div class="control {{ $errors->has('title') ? 'is-danger' : ''}}">{!! Form::text('title', null, ['class' => 'input']) !!}</div>
+            @if($errors->has('title'))
+            <p class="help is-danger">Title is invalid</p>
+            @endif
+          </div>
+
+          <div class="field">
+            <label class="label">{!! Form::label('slug', 'Slug') !!}</label>
+            <div class="control {{ $errors->has('slug') ? 'is-danger' : ''}}">{!! Form::text('slug', null, ['class' => 'input']) !!}</div>
+            @if($errors->has('slug'))
+            <p class="help is-danger">Slug must be set and must be unique</p>
+            @endif
+          </div>
+
+          <div class="field">
+            <label class="label">{!! Form::label('description', 'Description') !!}</label>
+            <div class="control">{!! Form::textarea('description', null, ['class' => 'textarea description'] ,['attributes' => ['cols'=> 50, 'rows'=> 5]]) !!}</div>
+          </div>
+
+        </article>
+      </div>
+    </div>
+
+  </div>
+  <div class="tile is-parent is-paddingless">
+    <article class="tile is-child notification ">
+
+      <div class="field">
+        <label class="label">{!! Form::label('published_at', 'Publishing date') !!}</label>
+        <div class="control">{!! Form::text('published_at', null, ['class' => 'input', 'id' => 'datetimepicker']) !!}</div>
+      </div>
+
+      <div class="field">
+        <label class="label">{!! Form::label('category_id', 'Category') !!}</label>
+        <div class="control {{ $errors->has('category_id') ? 'is-danger' : ''}}">
+          <div class="select">{!! Form::select('category_id', App\Category::pluck('title', 'id'), null, ['placeholder' => 'Select a category']) !!}</div>
+        </div>
+        @if($errors->has('category_id'))
+        <p class="help is-danger">Select one</p>
+        @endif
+      </div>
+
+      <div class="field">
+        <label class="label">{!! Form::label('image', 'News header image') !!}</label>
+        <div class="control {{ $errors->has('image') ? 'is-danger' : ''}}">
+          <figure>
+            <img id="target" class="image is-250x170" src="{{ ($video->image_thumb_url) ? $video->image_thumb_url : 'http://placehold.it/250x170&text=No+image%20(250x170)'}}" alt="">
+          </figure>
+          <div class="file m-t-20">
+            <label class="file-label">
+              <input class="file-input" type="file" name="image" id="imgInp">
+              <span class="file-cta">
+                <span class="file-icon"><i class="fa fa-upload"></i></span>
+                <span class="file-label">Choose a file…</span>
+              </span>
+            </label>
+          </div>
+
+        </div>
+        @if($errors->has('image'))
+        <p class="help is-danger">Upload one</p>
+        @endif
+      </div>
+
+      <div class="field">
+        <label class="label">{!! Form::label('tags', 'Tags') !!}</label>
+        <div class="control {{ $errors->has('tags') ? 'is-danger' : ''}}">
+          <div class="select1">
+            <select class="select2-multi" id="tag_create" multiple="multiple" style="width:100%;" name="tags[]">
+              @foreach($tags as $tag)
+                <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+              @endforeach
+
+            </select>
+          </div>
+        </div>
+        @if($errors->has('tag_id'))
+        <p class="help is-danger">Select one</p>
+        @endif
+      </div>
+
+      <hr>
+      <div class="control m-t-30">
+        @if (check_user_permissions(request(), "ManageVideo@edit", $video->id))
+        {!! Form::submit('Publish', ['class' => 'button is-primary']) !!}
+        @endif
+        <a href="{{ route('post.index') }}" class="button">Cancel</a>
+      </div>
+
+    </article>
+  </div>
+</div>
