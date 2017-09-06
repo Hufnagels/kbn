@@ -18,10 +18,10 @@
 <body >
 
 @include('_includes.nav.navbar')
-    <div id="app1">
+    <div id="app1"></div>
         @yield('content')
         @yield('sidebar')
-    </div>
+
     @include('_includes.footer')
     @yield('scripts')
 </body>

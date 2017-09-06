@@ -1,7 +1,7 @@
 <div class="hero-body">
-  <div class="container gt_hdg_1 white_hdg">
-    <h1 class="title has-text-centered wow zoomIn" data-wow-duration="5s" data-wow-delay="1s" >Rólunk mondták</h1>
-    <h2 class="subtitle has-text-centered wow zoomIn" data-wow-duration="5s" data-wow-delay="1s">Milyenek vagyunk mi?</h2>
+  <div class="container">
+    <h1 class="title has-text-centered has-text-white-bis wow zoomIn" data-wow-duration="5s" data-wow-delay="1s" >Rólunk mondták</h1>
+    <h2 class="subtitle has-text-centered has-text-white-bis wow zoomIn" data-wow-duration="5s" data-wow-delay="1s">Milyenek vagyunk mi?</h2>
   </div>
 </div>
 

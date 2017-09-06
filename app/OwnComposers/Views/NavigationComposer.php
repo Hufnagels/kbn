@@ -4,8 +4,8 @@ namespace App\OwnComposers\Views;
 
 use Illuminate\View\View;
 
-use App\Category;
 use App\News;
+use App\Category;
 use App\Tag;
 
 class NavigationComposer
@@ -20,7 +20,7 @@ class NavigationComposer
 
     $this->composeNewsWithImages($view);
 
-    $this->composeNewsCategoryProjects($view);
+    $this->composeNewsWithProjectCategory($view);
     // $this->composeNewsPopularPostsInMainNav($view);
   }
 
@@ -54,11 +54,15 @@ class NavigationComposer
 // MAIN SITE INDEX PAGES BOXES
   public function composeNewsWithImages(View $view)
   {
-    $latestpostswithimages = News::withImages()->published()->take(2)->get();
+    $latestpostswithimages = News::withImages()
+      ->filterNotProjectCategory()
+      ->published()
+      ->take(2)
+      ->get();
     $view->with( 'latestpostswithimages' , $latestpostswithimages);
   }
 
-  public function composeNewsCategoryProjects(View $view)
+  public function composeNewsWithProjectCategory(View $view)
   {
     $projectcategories = News::filterProjectCategory()
       ->published()

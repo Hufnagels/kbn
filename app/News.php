@@ -207,13 +207,25 @@ class News extends Model
       }
     }
 
+    public function scopeFilterNotProjectCategory($query)
+    {
+        $query->where(function($q)
+        {
+          $q->whereHas('category', function($qr)
+          {
+            $qr->where('id', '<>', config('ownAttributes.default_project_category.id'));
+          });
+
+        });
+    }
+
     public function scopeFilterProjectCategory($query)
     {
         $query->where(function($q)
         {
           $q->whereHas('category', function($qr)
           {
-            $qr->where('id',  10);
+            $qr->where('id',  config('ownAttributes.default_project_category.id'));
           });
 
         });

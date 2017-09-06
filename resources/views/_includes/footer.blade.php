@@ -1,6 +1,6 @@
 
 <a href="#" id="top" class="button is-primary" ><i class="fa fa-angle-double-up"></i></a>
-<footer class="footer m-t-20">
+<footer class="footer m-t-0">
   <div class="container">
     <div class="columns">
       <div class="column has-text-white-ter">

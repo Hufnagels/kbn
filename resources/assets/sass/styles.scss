@@ -81,6 +81,18 @@ FONT SECTION
 INDEX PAGE
 */
 
+// PARALLAX
+
+.parallax-window {
+    min-height: 400px;
+    background-color: transparent;
+    background: transparent;
+}
+
+.parallax-mirror {
+  z-index:0 !important
+}
+
 // Navbar icons on mobile devices
 #navMenu{
     font-family: 'SilomRegular';
@@ -94,10 +106,16 @@ INDEX PAGE
 .navbar-burger {
     margin-top: .7rem;
 }
+
+.wrapper{
+    background-color: #fdd1b0;
+    z-index: -200;
+    margin-bottom:0;
+}
 // Header section
 // image with parallax effect
 .headersection {
-  min-height:900px;
+  min-height:700px;
 }
 .headersection .parallax-window {
   min-height:900px;
@@ -155,25 +173,26 @@ INDEX PAGE
     font-size: 125%;
 }
 
-// PARALLAX
 
-.parallax-window {
-    min-height: 400px;
-    background-color: transparent;
-    background: transparent;
-}
 
 // Testimonial section
 .testimonial {
   min-height:400px;
-  background-image: url( '/images/header/testimonial-overlay.png' );
+  /*background-image: url( '/images/header/testimonial-overlay.png' );
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     padding-bottom: 65px;
-    background-color: rgb(175, 23, 65);
+    background-color: rgb(175, 23, 65);*/
+
     position: relative;
+    &>.hero-body {
+      background-color: #ab1110;
+      margin-right:10%;
+      margin-bottom:20px;
+    }
 }
+/*
 .testimonial:before {
     content: "";
     position: absolute;
@@ -185,6 +204,7 @@ INDEX PAGE
     background-position: center;
     opacity: 1;
 }
+
 .gt_hdg_1 {
 
     width: 100%;
@@ -198,6 +218,44 @@ INDEX PAGE
 .gt_hdg_1 h1 {
     text-transform: uppercase;
     font-weight: 600;
+}
+*/
+/*
+VIDEO SECTION
+*/
+section#videosection {
+    /*background-color: #5ecaac;*/
+    margin-top:20px;
+    position: relative;
+    &>.hero-body {
+      background-color: #4367b9;
+      margin-left:10%;
+      margin-bottom: 20px;
+    }
+}
+.videocontent {
+  &>.intrinsic-container {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    /* 16x9 Aspect Ratio */
+    &.intrinsic-container-16x9 {
+      padding-bottom: 56.25%;
+    }
+
+    /* 4x3 Aspect Ratio */
+    &.intrinsic-container-4x3 {
+      padding-bottom: 75%;
+    }
+
+    &> iframe {
+      position: absolute;
+      top:0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 
 /*
