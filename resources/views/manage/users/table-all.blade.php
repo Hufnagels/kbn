@@ -14,9 +14,11 @@
 
       <td>{{$user->name}}</td>
       <td>{{$user->email}}</td>
-      <td>{{$user->roles->first()->display_name}}</td>
-
-
+      <td>
+        @foreach( $user->roles as $role)
+          {{$role->display_name}}
+        @endforeach
+      </td>
       <td>
         {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id],'class'=>'allnewstable']) !!}
         <a href="{{ route('users.edit', $user->id)}}" title="Edit"><span class="fa fa-edit"></span></a>

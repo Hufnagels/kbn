@@ -10,6 +10,7 @@ use App\Http\Requests\UserDestroyRequest;
 
 use App\User;
 use App\News;
+use App\Role;
 
 
 class UsersController extends BackendController
@@ -31,68 +32,39 @@ class UsersController extends BackendController
         }
         else
         {
-          $users = User::with('news')->orderBy('name', 'asc')->paginate($this->paginateLimit);
+// dd(
+//     class_uses(\App\User::class),
+//     get_class_methods(\App\User::first())
+// );
+          $users = User::orderBy('name', 'asc')->paginate($this->paginateLimit);
+          // $roles = Role::get();
+// dd($roles[0]->display_name);
           $usersCount = User::count();
         }
-
         return view('manage.users.index', compact('users','usersCount', 'onlyTrashed'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $user = new User();
         return view('manage.users.create',compact('user'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(UserStoreRequest $request)
     {
         $user = User::create($request->all());
-        $user = attachRole($request->role);
+        $user->attachRole($request->role);
         return redirect()->route('users.index')->with('message','User was created successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+    public function show($id) { }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
       $user = User::findOrFail($id); //all();
-      //$newses = News::with('users_id',$id)->first();
       return view('manage.users.edit', compact('user'));//, ['users' => $users]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(UserUpdateRequest $request, $id)
     {
       $user = User::findOrFail($id);
@@ -105,8 +77,8 @@ class UsersController extends BackendController
         unset($user['password']);
       }
       $user->save();
-      $user = detachRoles(); // detachRole($user->role);
-      $user = attachRole($request->role);
+      $user->detachRole($user->role);
+      $user->attachRole($request->role);
 
       // ->update( $request->all() );
       return redirect()->route('users.index')->with('message','User was updated successfully');

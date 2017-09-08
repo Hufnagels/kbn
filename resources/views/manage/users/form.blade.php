@@ -51,7 +51,7 @@
               <p class="is-size-6 has-text-primary">{{ $user->roles->first()->display_name}}</p>
             @else
               <div class="select {{ $errors->has('role') ? 'is-danger' : ''}}">
-                {!! Form::select('role', App\Role::pluck('display_name', 'id'), $user->exists ? $user->roles->first()->id : null, ['placeholder' => 'Select role....']) !!}
+                {!! Form::select('role', App\Role::pluck('display_name', 'id'), $user->exists ? $user->roles : null, ['placeholder' => 'Select role....']) !!}
               </div>
               @if($errors->first('role'))
               <p class="help is-danger">Must select user role</p>

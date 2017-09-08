@@ -60,8 +60,8 @@ class Kernel extends HttpKernel
 
         'checkPermissions' => \App\Http\Middleware\CheckPermissionsMiddleware::class,
         'cors' => \App\Http\Middleware\Cors::class,
-        // 'role' => \Laratrust\Middleware\LaratrustRole::class,
-        // 'permission' => \Laratrust\Middleware\LaratrustPermission::class,
-        // 'ability' => \Laratrust\Middleware\LaratrustAbility::class,
+        'role' => \Laratrust\Middleware\LaratrustRole::class,
+        'permission' => \Laratrust\Middleware\LaratrustPermission::class,
+        'ability' => \Laratrust\Middleware\LaratrustAbility::class,
     ];
 }

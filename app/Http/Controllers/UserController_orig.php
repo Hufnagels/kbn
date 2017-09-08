@@ -11,7 +11,7 @@ use Hash;
 use Session;
 use Input;
 
-class UserController extends Controller
+class UsersController extends Controller
 {
     //
     protected $paginationLimit = 10;
