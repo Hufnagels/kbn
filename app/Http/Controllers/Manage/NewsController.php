@@ -78,15 +78,18 @@ class NewsController extends BackendController
     public function create(News $post)
     {
         $tags = Tag::where('id', '<>', config('ownAttributes.default_tag.id'))->get();
-        return view('manage.news.create',compact('post', 'tags'));
+        // $categories = Category::where('id', '<>', config('ownAttributes.default_category.id'))->get();
+// dd($categories);
+        return view('manage.news.create',compact('post', 'tags', 'categories'));
     }
 
     public function store(NewsValidationRequest $request)
     {
         $data = $this->handelRequest($request);
-// dd($data['tags']);
-        // if($request['published_at'] <> NULL) $request['is_published']='1';
+
         $post = $request->user()->news()->create($data);
+
+        $post->category()->sync($data['category_id']);
 // dd($post);
         if(!empty($data['tags']))
         {
@@ -110,9 +113,10 @@ class NewsController extends BackendController
         $post = News::findOrFail($id);
         $oldImage = $post->image;
         $data = $this->handelRequest($request);
-// dd($data['tags']);
-        $post->update($data);
 
+        $post->category()->sync($data['category_id']);
+// dd($data);
+        $post->update($data);
 
         if( $oldImage !== $post->image)
         {
@@ -140,6 +144,7 @@ class NewsController extends BackendController
         $news = News::withTrashed()->findOrFail($id);
         $news->forceDelete();
         $news->tags()->detach();
+        $news->category()->detach();
         $this->removeImage($news->image);
 
         return redirect('/manage/post?status=trash')->with('message','News has been deleted permanently');
@@ -164,6 +169,7 @@ class NewsController extends BackendController
     {
         $data = $request->all();
         if($request['published_at'] <> NULL) $request['is_published'] = '1';
+
         if($request->hasFile('image'))
         {
           $image = $request->file('image');
@@ -188,6 +194,7 @@ class NewsController extends BackendController
           $data['image'] = $fileName;
 
         }
+
         return $data;
     }
 

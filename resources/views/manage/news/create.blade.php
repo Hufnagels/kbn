@@ -35,4 +35,4 @@
 
 @endsection
 
-@include('manage.news.newsscripts')
+@include('manage.news.scripts')

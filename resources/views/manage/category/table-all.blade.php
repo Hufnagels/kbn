@@ -4,7 +4,7 @@
       <!--<th><abbr title="Id">ID</abbr></th>-->
       <th width="40%"><abbr title="Title">Title</abbr></th>
       <th><abbr title="Slug">slug</abbr></th>
-      <th><abbr title="Newscount">News count</abbr></th>
+      <th><abbr title="Newscount">Newses</abbr></th>
       <th><abbr title="Actions">Actions</abbr></th>
     </tr>
   </thead>
@@ -21,7 +21,7 @@
       <td>
         {!! Form::open(['method' => 'DELETE', 'route' => ['category.destroy', $category->id],'class'=>'allnewstable']) !!}
         <a href="{{ route('category.edit', $category->id)}}" title="Edit"><span class="fa fa-edit"></span></a>
-        @if (check_user_permissions(request(), "ManageTag@destroy"))
+        @if (check_user_permissions(request(), "Tag@destroy"))
           @if( ! (($category->id == config('ownAttributes.default_category.id')) ||  ($category->id == config('ownAttributes.default_project_category.id')) ))
           <button type="submit"
           @if($category->news->count() > 0)

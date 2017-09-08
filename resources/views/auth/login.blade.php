@@ -82,6 +82,6 @@
 </div>
 
 <!-- Scripts -->
-<script src="{{ asset('js/app.js') }}"></script>
+@include('_includes.head.appscripts')
 </body>
 </html>

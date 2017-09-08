@@ -105,8 +105,8 @@
 
       <hr>
       <div class="control m-t-30">
-        @if (check_user_permissions(request(), "ManageNews@edit", $post->id))
-        {!! Form::submit('Publish', ['class' => 'button is-primary']) !!}
+        @if (check_user_permissions(request(), "News@edit", $post->id))
+        {!! Form::submit('Update', ['class' => 'button is-primary']) !!}
         @endif
         <a href="{{ route('post.index') }}" class="button">Cancel</a>
       </div>

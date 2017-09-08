@@ -17,7 +17,7 @@
   </div>
 </section>
 
-  <div class="container m-t-20 news-container">
+  <div class="container m-t-20 news-container  p-b-20">
     <div class="columns">
       <div class="column is-three-quarters">
 
@@ -39,10 +39,9 @@
                   <small class="icon is-small postcount"><i class="fa fa-clone"></i>{{$postCount}} {{str_plural('post', $postCount)}}</small>
                   <br>
                   <small>{{$item->date}}</small>
-                  @if( !( $item->category->id == config('ownAttributes.default_category.id') ))
                   <br>
-                  <small><a href="{{ route('news.category', $item->category->slug)}}">{{$item->category->title}}</a></small> |
-                  @endif
+                  {!! $item->category_html !!}
+                  <br>
                   {!! $item->tags_html !!}
                 </p>
               </div>
@@ -52,7 +51,7 @@
                   <a class="level-item"><span class="icon is-small"><i class="fa fa-facebook-square"></i></span></a>
                   <a class="level-item"><span class="icon is-small"><i class="fa fa-heart"></i></span></a>
                   -->
-                  
+
                   <a class="fbshare" href="https://www.facebook.com/sharer/sharer.php?u={{ Request::url() }}&display=popup" target="_blank"><span class="icon is-small"><i class="fa fa-facebook-square"></i></span>Megosztás</a>
                 </div>
               </nav>

@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Manage;
 use Illuminate\Http\Request;
+use App\Http\Requests\RoleValidationRequest;
 use App\Role;
 use App\Permission;
 use Session;
@@ -21,10 +22,10 @@ class RoleController extends BackendController
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Role $role)
     {
       $permissions = Permission::all();
-      return view('manage.roles.create')->withPermissions($permissions);
+      return view('manage.roles.create', compact('role', 'permissions'));//->withPermissions($permissions);
     }
     /**
      * Store a newly created resource in storage.
@@ -32,18 +33,18 @@ class RoleController extends BackendController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RoleValidationRequest $request)
     {
-      $this->validate($request, [
-        'display_name' => 'required|max:255',
-        'name' => 'required|max:100|alpha_dash|unique:role,name',
-        'description' => 'sometimes|max:255'
-      ]);
+
+      $data = $request->all();
+
+
       $role = new Role();
       $role->display_name = $request->display_name;
       $role->name = $request->name;
       $role->description = $request->description;
       $role->save();
+
       if ($request->permissions) {
         $role->syncPermissions(explode(',', $request->permissions));
       }
@@ -71,7 +72,9 @@ class RoleController extends BackendController
     {
       $role = Role::where('id', $id)->with('permissions')->first();
       $permissions = Permission::all();
-      return view('manage.roles.edit')->withRole($role)->withPermissions($permissions);
+      $rolePermissions = $role->permissions->pluck('id')->toArray();
+// dd($rolePermissions);
+      return view('manage.roles.edit', compact('role','permissions','rolePermissions'));//->withRole($role)->withPermissions($permissions);
     }
     /**
      * Update the specified resource in storage.
@@ -86,12 +89,14 @@ class RoleController extends BackendController
         'display_name' => 'required|max:255',
         'description' => 'sometimes|max:255'
       ]);
+// dd($request->permissions);
       $role = Role::findOrFail($id);
       $role->display_name = $request->display_name;
       $role->description = $request->description;
       $role->save();
+// dd( $request->permissions );
       if ($request->permissions) {
-        $role->syncPermissions(explode(',', $request->permissions));
+        $role->syncPermissions( $request->permissions);
       }
       Session::flash('success', 'Successfully update the '. $role->display_name . ' role in the database.');
       return redirect()->route('roles.show', $id);

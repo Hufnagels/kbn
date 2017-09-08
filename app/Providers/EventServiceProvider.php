@@ -32,22 +32,22 @@ class EventServiceProvider extends ServiceProvider
         // });
 
         //dd('vege');
-        // Event::listen('Unisharp\Laravelfilemanager\Events\*', function ($eventName, array $data){
-        //   switch ($eventName) {
-        //     case 'Unisharp\Laravelfilemanager\Events\FolderIsRenaming': break;
-        //     case 'Unisharp\Laravelfilemanager\Events\FolderWasRenamed':
-        //     // dd($eventName);
-        //     // dd($data);
-        //       break;
-        //     case 'Unisharp\Laravelfilemanager\Events\ImageWasDeleted': break;
-        //     case 'Unisharp\Laravelfilemanager\Events\ImageWasRenamed': break;
-        //     case 'Unisharp\Laravelfilemanager\Events\ImageWasUploaded':
-        //     // dd($eventName);
-        //     dd($data);
-        //     break;
-        //   }
-        //
-        // });
-        //
+//         Event::listen('Unisharp\Laravelfilemanager\Events\*', function ($eventName, array $data){
+//           switch ($eventName) {
+//             case 'Unisharp\Laravelfilemanager\Events\FolderIsRenaming': break;
+//             case 'Unisharp\Laravelfilemanager\Events\FolderWasRenamed':
+//             // dd($eventName);
+//             // dd($data);
+//               break;
+//             case 'Unisharp\Laravelfilemanager\Events\ImageWasDeleted': break;
+//             case 'Unisharp\Laravelfilemanager\Events\ImageWasRenamed': break;
+//             case 'Unisharp\Laravelfilemanager\Events\ImageWasUploaded':break;
+//             case 'Unisharp\Laravelfilemanager\Events\ImageIsUploading':
+// // dd(get_object_vars ( $data[0] ));
+//             break;
+//           }
+//
+//         });
+
     }
 }

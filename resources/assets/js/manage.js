@@ -85,5 +85,5 @@ $(document).ready(function(){
   })
   window.wow.init();
 
-  
+
 });

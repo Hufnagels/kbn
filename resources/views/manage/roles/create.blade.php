@@ -1,82 +1,94 @@
 @extends('layouts.manage')
 @section('title',' - Create role')
 @section('content')
-  <div class="flex-container">
-    <div class="columns m-t-10">
-      <div class="column">
-        <h1 class="title">Create New Role</h1>
-      </div>
-    </div>
-    <hr class="m-t-0">
-    <form action="{{route('roles.store')}}" method="POST">
-      {{ csrf_field() }}
-      <div class="columns">
+<div class="columns">
+  <div class="column">
+    <div class="card">
+      <div class="card-header notification is-primary">
         <div class="column">
-          <div class="box">
-            <article class="media">
-              <div class="media-content">
-                <div class="content">
-                  <h2 class="title">Role Details:</h1>
-                  <div class="field">
-                    <p class="control">
-                      <label for="display_name" class="label">Name (Human Readable)</label>
-                      <input type="text" class="input" name="display_name" value="{{old('display_name')}}" id="display_name">
-                    </p>
-                  </div>
-                  <div class="field">
-                    <p class="control">
-                      <label for="name" class="label">Slug (Can not be changed)</label>
-                      <input type="text" class="input" name="name" value="{{old('name')}}" id="name">
-                    </p>
-                  </div>
-                  <div class="field">
-                    <p class="control">
-                      <label for="description" class="label">Description</label>
-                      <input type="text" class="input" value="{{old('description')}}" id="description" name="description">
-                    </p>
-                  </div>
-                  <input type="hidden" :value="permissionsSelected" name="permissions">
-                </div>
-              </div>
-            </article>
-          </div>
+          <div class="title">Create role</div>
         </div>
       </div>
+      <div class="card-content">
+        {!! Form::model( $role, [
+                'method' => 'POST',
+                'route' => ['roles.store'],
+                'id' => 'update-post-form',
+                ])  !!}
 
-      <div class="columns">
-        <div class="column">
-          <div class="box">
-            <article class="media">
-              <div class="media-content">
-                <div class="content">
-                  <h2 class="title">Permissions:</h1>
-                  <b-checkbox-group v-model="permissionsSelected">
-                    @foreach ($permissions as $permission)
-                      <div class="field">
-                        <b-checkbox class="vueItem" :custom-value="{{$permission->id}}">{{$permission->display_name}} <em>({{$permission->description}})</em></b-checkbox>
+                <div class="columns">
+                  <div class="column">
+                    <div class="title">Role detail</div>
+                    <div class="field">
+                      <label class="label">{!! Form::label('display_name', 'Name (Human Readable)') !!}</label>
+                      <div class="control">{!! Form::text('display_name', null, ['class' => 'input']) !!}
+                        <!-- <input type="text" class="input" name="display_name" value="{{$role->display_name}}" id="display_name"> -->
+                        @if ($errors->has('display_name'))<span class="icon is-small is-right"><i class="fa fa-warning"></i></span>@endif
                       </div>
-                    @endforeach
-                  </ul>
-                </div>
-              </div>
-            </article>
-          </div> <!-- end of .box -->
+                      @if ($errors->has('display_name'))<p class="help is-danger">{{ $errors->first('display_name') }}</p>@endif
+                    </div>
 
-          <button class="button is-primary">Create new User</button>
-        </div>
+                    <div class="field">
+                      <label class="label">{!! Form::label('name', 'Slug (Can not be edited)') !!}</label>
+                      <div class="control">{!! Form::text('name', null, ['class' => 'input', 'disabled' => 'disabled']) !!}</div>
+                    </div>
+                    <div class="field">
+                      <label class="label">{!! Form::label('description', 'Description') !!}</label>
+                      <div class="control">{!! Form::textarea('description', null, ['class' => 'textarea excerpt'] ,['attributes' => ['cols'=> 50, 'rows'=> 3]]) !!}
+                        @if ($errors->has('description'))<span class="icon is-small is-right"><i class="fa fa-warning"></i></span>@endif
+                      </div>
+                      @if ($errors->has('description'))<p class="help is-danger">{{ $errors->first('description') }}</p>@endif
+                    </div>
+                  </div>
+                  <div class="column">
+                    <div class="title">Permissions</div>
+
+
+                      @foreach ($permissions as $permission)
+                        <div class="field">
+                          <input
+                            type="checkbox"
+                            name="permissions[]"
+                            class="vueItem"
+                            value="{{$permission->id}}">
+                              {{$permission->display_name}} <em>({{$permission->description}})</em>
+                        </div>
+                      @endforeach
+
+                  </div>
+                </div>
+                <div class="columns">
+                  <div class="column">
+                    <div class="field is-grouped">
+                      <div class="control">
+                        <button class="button is-primary">Submit</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+        {!! Form::close() !!}
       </div>
-    </form>
+      <footer class="card-footer">
+        <a href="{{ url()->previous() }}" class="card-footer-item is-pulled-right">Back</a>
+      </footer>
+    </div>
   </div>
+</div>
 @endsection
 
 
 @section('scripts')
   <script>
-  var app = new Vue({
-    el: '#app',
-    data: {
-      permissionsSelected: []
-    }
+  $('#display_name').on('blur', function() {
+    var theTitle = this.value.toLowerCase().trim(),
+        slugInput = $('#name'),
+        theSlug = theTitle.replace(/&/g, '-and-')
+                          .replace(/[^a-z0-9-]+/g, '-')
+                          .replace(/\-\-+/g, '-')
+                          .replace(/^-+|-+$/g, '');
+        slugInput.val(theSlug);
   });
   </script>
 @endsection

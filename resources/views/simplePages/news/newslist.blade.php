@@ -17,7 +17,7 @@
   </div>
 </section>
 
-<div class="container m-t-20 news-container">
+<div class="container m-t-20 news-container  p-b-20">
   <div class="columns">
     <div class="column is-three-quarters">
       @if(!$news->count() )
@@ -29,9 +29,9 @@
           <div class="column msrItem is-mobile ">
 
             <div class="card">
-              @if( $item->image_url != NULL)
+              @if( $item->image_thumb_url != NULL)
               <div class="card-image">
-                <figure class="image is-4by3"><img src="{{ $item->image_url }}" alt="{{$item->title}}"></figure>
+                <figure class="image is-4by3"><img src="{{ $item->image_thumb_url }}" alt="{{$item->title}}"></figure>
               </div>
               @endif
               <div class="card-content">
@@ -43,17 +43,16 @@
                     <small>{{ '@'.str_slug($item->author->name,'') }}</small>
                     <br>
                     <small>{{$item->date}}</small>
-                    @if( !( $item->category->id == config('ownAttributes.default_category.id') ))
                     <br>
-                    <small><span class="tag is-danger"><a class="categoryItem" href="{{ route('news.category', $item->category->slug)}}">{{$item->category->title}}</a></span></small>
-                    @endif
+                    {!! $item->category_html !!}
+
                     {!! $item->tags_html !!}
                   </p>
                 </div>
               </div>
 
               @if (!Auth::guest())
-                @if (check_user_permissions(request(), "ManageNews@edit", $item->id))
+                @if (check_user_permissions(request(), "News@edit", $item->id))
                 <footer class="card-footer">
                   <p class="card-footer-item"><span><a href="{{ route('post.edit', $item->id)}}" title="Edit">Edit</a></span></p>
                 </footer>

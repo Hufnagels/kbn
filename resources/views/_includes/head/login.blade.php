@@ -5,7 +5,7 @@
   <meta name="description" content="KODVETOK">
   <meta name="keywords" content="KODVETOK, kodvetok, microbit, micro:bit, scratch, arduino, genuino ">
   <meta name="author" content="KODVETOK">
-
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <!--

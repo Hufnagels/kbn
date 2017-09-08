@@ -52,7 +52,7 @@ class TagController extends BackendController
     public function edit($id)
     {
       $tag = Tag::findOrFail($id); //all();
-      //$newses = News::with('tag_id',$id)->first();
+// dd($tag->news);
       return view('manage.tag.edit', compact('tag'));//, ['users' => $users]);
     }
 

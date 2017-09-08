@@ -1,7 +1,7 @@
 @extends('layouts.manage')
 @section('title',' - Edit News post')
 @section('styles')
-  
+
   <styles>
 
   </styles>
@@ -37,4 +37,4 @@
 
 @endsection
 
-@include('manage.news.newsscripts')
+@include('manage.news.scripts')

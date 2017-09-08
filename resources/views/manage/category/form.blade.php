@@ -47,7 +47,10 @@
           <tbody>
           @foreach ($category->news as $news)
               <tr>
-                <td><img src="{{ $news->image_thumb_url }}" class="image is-125x85" ></td>
+                <td>
+                  @if( $news->image_url )
+                    <img src="{{ $news->image_thumb_url }}" class="image is-125x85" ></td>
+                  @endif
                 <td><a class="" href="{{ route('news.show', $news->slug)}}">{{$news->title}}</a></td>
                 <td>{{ $news->author->name }}</td>
                 <td><a href="{{ route('post.edit', $news->id)}}" title="Edit"><span class="fa fa-edit"></span></a></td>

@@ -48,7 +48,25 @@ class User extends Authenticatable
       * second parameter is a foreign_key
       * used for show news from author
       */
-      return $this->hasMany(News::class, 'author_id');
+      return $this->hasMany(Instruction::class, 'author_id');
+    }
+
+    public function instruction()
+    {
+      /*
+      * second parameter is a foreign_key
+      * used for show news from author
+      */
+      return $this->hasMany(Instruction::class, 'author_id');
+    }
+
+    public function lession()
+    {
+      /*
+      * second parameter is a foreign_key
+      * used for show news from author
+      */
+      return $this->hasMany(Lession::class, 'author_id');
     }
 
     public function getBioHtmlAttribute($value)

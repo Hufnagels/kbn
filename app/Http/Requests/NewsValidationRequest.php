@@ -30,7 +30,7 @@ class NewsValidationRequest extends FormRequest
         'excerpt' => 'required',
         'body' => 'required',
         'category_id' => 'required',
-        'image' => 'image'
+        // 'image' => 'image'
       ];
       switch($this->method()) {
         case 'PUT':

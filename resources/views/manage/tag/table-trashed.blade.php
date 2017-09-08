@@ -27,7 +27,7 @@
         <button type="submit" class="button trashtable is-info is-outlined is-small" title="Restore"><span class="fa fa-reply"></span></button>
         {!! Form::close() !!}
 
-
+        @if (Auth::user()->hasPermission('delete-tag'))
         {!! Form::open([
           'method' => 'DELETE',
           'route' => ['tag.force-destroy', $tag->id],
@@ -35,6 +35,7 @@
           'style' => 'display:-webkit-inline-box; margin-top:0;line-height:1.8rem;' ]) !!}
         <button type="submit" class="button allnewstable is-danger is-outlined is-small"><span class="fa fa-remove"></span></button>
         {!! Form::close() !!}
+        @endif
       </td>
     </tr>
     @endforeach

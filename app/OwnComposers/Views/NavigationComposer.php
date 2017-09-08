@@ -24,13 +24,23 @@ class NavigationComposer
     // $this->composeNewsPopularPostsInMainNav($view);
   }
 
+// NEWS SECTION
   public function composeNewsCategories(View $view)
   {
-    $categories = Category::where('id', '<>', config('ownAttributes.default_category.id'))
-      ->with(['news' => function($query){
-        $query->published();
-        }])
-      ->orderBy('title', 'asc')->get();
+    // $categories = Category::where('id', '<>', config('ownAttributes.default_category.id'))
+    //   ->with(['news' => function($query){
+    //     $query->published();
+    //     }])
+    //   ->orderBy('title', 'asc')->get();
+
+
+    $categories = Category::has('news')
+        ->where('id', '<>', config('ownAttributes.default_category.id'))
+        ->with(['news' => function($query){
+            $query->published();
+            }])
+        ->get();//all();
+// dd($categories);
     $view->with('categories' , $categories);
   }
 
@@ -71,6 +81,12 @@ class NavigationComposer
       ->get();
     $view->with('projectcategories' , $projectcategories);
   }
+
+// EVENTS SECTION
+
+// OKTATASI ANYAGOK
+
+
   // public function composeNewsPopularPostsInMainNav(View $view)
   //
   // \DB::enableQueryLog();

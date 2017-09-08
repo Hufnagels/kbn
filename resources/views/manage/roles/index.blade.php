@@ -20,13 +20,13 @@
   </div>
     <div class="columns is-multiline">
       @foreach ($roles as $role)
-        <div class="column is-one-quarter roleitem">
+        <div class="column is-half roleitem">
           <div class="box">
             <article class="media">
               <div class="media-content">
                 <div class="content">
-                  <h3 class="title">{{$role->display_name}}</h3>
-                  <h4 class="subtitle"><em>{{$role->name}}</em></h4>
+                  <h3 class="title">{{$role->display_name}} - <em>{{$role->name}}</em></h3>
+
                   <p>
                     {{$role->description}}
                   </p>

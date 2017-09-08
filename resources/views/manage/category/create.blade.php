@@ -32,4 +32,4 @@
 
 @endsection
 
-@include('manage.category.categoryscripts')
+@include('manage.category.scripts')

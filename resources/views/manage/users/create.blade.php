@@ -32,4 +32,4 @@
 
 @endsection
 
-@include('manage.users.usersscripts')
+@include('manage.users.scripts')

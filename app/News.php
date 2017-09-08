@@ -32,7 +32,8 @@ class News extends Model
     //Category in categories table
     public function category()
     {
-      return $this->belongsTo(Category::class);
+      return $this->morphToMany('App\Category','categoryable');
+      // return $this->belongsTo(Category::class);
     }
 
     public function tags()
@@ -128,6 +129,18 @@ class News extends Model
     public function getExcerptHtmlAttribute($value)
     {
       return $this->excerpt ? Markdown::convertToHtml(e($this->excerpt)) : NULL;
+    }
+
+    public function getCategoryHtmlAttribute()
+    {
+        $anchors = [];
+        foreach($this->category as $cat) {
+          if( !($cat->id == config('ownAttributes.default_category.id')) ){
+            $anchors[] = '<small><span class="tag is-danger"><a class="categoryItem" href="' . route('news.category', $cat->slug) . '">' . $cat->title . '</a></small></span>';
+          }
+        }
+        // dd(count($anchors));
+        return count($anchors) ? ( implode(" ", $anchors)) : '';
     }
 
     public function getTagsHtmlAttribute()

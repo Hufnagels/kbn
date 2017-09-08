@@ -62,10 +62,10 @@ class PostController extends Controller
     $news = News::with('author', 'category', 'tags')
                 ->latestFirst()
                 ->published()
-                ->where('category_id','<>', 2)
+                // ->where('category_id','<>', config('ownAttributes.default_category.id'))
                 ->filterSearchTerm( request('term') )
                 ->paginate($this->paginateLimit);
-
+// dd($news);
     return view('simplePages.news.newslist', compact('news'));
     // view('simplePages.news.newslist', compact('news'))->render();
     // dd(\DB::getQueryLog());

@@ -20,6 +20,7 @@ class Category extends Model
 
   public function news()
   {
-    return $this->hasMany(News::class);
+    return $this->morphedByMany('App\News','categoryable');
+    // return $this->hasMany(News::class);
   }
 }

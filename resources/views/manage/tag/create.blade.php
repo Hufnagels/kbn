@@ -32,4 +32,4 @@
 
 @endsection
 
-@include('manage.tag.tagscripts')
+@include('manage.tag.scripts')

@@ -17644,53 +17644,6 @@ label.panel-block:hover {
 FONT SECTION
 */
 
-/*
-@font-face {
-	font-family: 'Baloo Bhaijaan';
-	src: url('/fonts/Baloo_Bhaijaan/BalooBhaijaan-Regular.eot');
-	src: url('/fonts/Baloo_Bhaijaan/BalooBhaijaan-Regular.eot?#iefix') format('embedded-opentype'),
-		url('/fonts/Baloo_Bhaijaan/BalooBhaijaan-Regular.woff2') format('woff2'),
-		url('/fonts/Baloo_Bhaijaan/BalooBhaijaan-Regular.woff') format('woff'),
-		url('/fonts/Baloo_Bhaijaan/BalooBhaijaan-Regular.ttf') format('truetype'),
-		url('/fonts/Baloo_Bhaijaan/BalooBhaijaan-Regular.svg#BalooBhaijaan-Regular') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-@font-face {
-  font-family: 'Mukta Mahee';
-  src: url('/fonts/Mukta_Mahee/medium/subset-MuktaMahee-Medium.eot');
-  src: url('/fonts/Mukta_Mahee/medium/subset-MuktaMahee-Medium.eot?#iefix') format('embedded-opentype'),
-  url('/fonts/Mukta_Mahee/medium/subset-MuktaMahee-Medium.woff2') format('woff2'),
-  url('/fonts/Mukta_Mahee/medium/subset-MuktaMahee-Medium.woff') format('woff'),
-  url('/fonts/Mukta_Mahee/medium/subset-MuktaMahee-Medium.ttf') format('truetype'),
-  url('/fonts/Mukta_Mahee/medium/subset-MuktaMahee-Medium.svg#MuktaMahee-Medium') format('svg');
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-	font-family: 'Press Start 2P';
-	src: url('/fonts/PressStart/subset-PressStart2P-Regular.eot');
-	src: url('/fonts/PressStart/subset-PressStart2P-Regular.eot?#iefix') format('embedded-opentype'),
-		url('/fonts/PressStart/subset-PressStart2P-Regular.woff2') format('woff2'),
-		url('/fonts/PressStart/subset-PressStart2P-Regular.woff') format('woff'),
-		url('/fonts/PressStart/subset-PressStart2P-Regular.ttf') format('truetype'),
-		url('/fonts/PressStart/subset-PressStart2P-Regular.svg#PressStart2P-Regular') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-@font-face {
-	font-family: 'Eater';
-	src: url('/fonts/Eater/Eater-Regular.eot');
-	src: url('/fonts/Eater/Eater-Regular.eot?#iefix') format('embedded-opentype'),
-		url('/fonts/Eater/Eater-Regular.woff2') format('woff2'),
-		url('/fonts/Eater/Eater-Regular.woff') format('woff'),
-		url('/fonts/Eater/Eater-Regular.ttf') format('truetype'),
-		url('/fonts/Eater/Eater-Regular.svg#Eater-Regular') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-*/
-
 @font-face {
   font-family: 'SilomRegular';
   src: url("/fonts/SilomRegular/Krungthep.eot");
@@ -17745,7 +17698,8 @@ INDEX PAGE
 }
 
 .wrapper {
-  background-color: #fdd1b0;
+  background-color: white;
+  /*#0a0a0a;*/
   z-index: -200;
   margin-bottom: 0;
 }
@@ -17792,22 +17746,146 @@ INDEX PAGE
   box-shadow: none;
 }
 
+/*
 .home-welcome {
-  background-image: linear-gradient(45deg, #361752, #B31B67);
-  background-image: -o-linear-gradient(45deg, #361752, #B31B67);
-}
+  background: -moz-radial-gradient(center, ellipse cover, rgba(254,222,200,0.18) 0%, rgba(254,220,196,0.18) 1%, rgba(252,200,166,0.18) 9%, rgba(252,200,166,0.18) 15%, rgba(252,198,164,0.18) 16%, rgba(249,126,49,0.65) 64%, rgba(191,134,82,0.87) 87%, rgba(42,42,42,1) 100%);
+background: -webkit-radial-gradient(center, ellipse cover, rgba(254,222,200,0.18) 0%,rgba(254,220,196,0.18) 1%,rgba(252,200,166,0.18) 9%,rgba(252,200,166,0.18) 15%,rgba(252,198,164,0.18) 16%,rgba(249,126,49,0.65) 64%,rgba(191,134,82,0.87) 87%,rgba(42,42,42,1) 100%);
+background: radial-gradient(ellipse at center, rgba(254,222,200,0.18) 0%,rgba(254,220,196,0.18) 1%,rgba(252,200,166,0.18) 9%,rgba(252,200,166,0.18) 15%,rgba(252,198,164,0.18) 16%,rgba(249,126,49,0.65) 64%,rgba(191,134,82,0.87) 87%,rgba(42,42,42,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2efedec8', endColorstr='#2a2a2a',GradientType=1 );
 
-.home-welcome.is-fixed {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  top: 0;
-  z-index: -1;
-  color: white;
-  padding: 10rem;
-  font-size: 125%;
+
+    background-image: linear-gradient(45deg, #361752, #B31B67);
+    background-image: -webkit-linear-gradient(45deg, #361752, #B31B67);
+    background-image: -moz-linear-gradient(45deg, #361752, #B31B67);
+    background-image: -ms-linear-gradient(45deg, #361752, #B31B67);
+    background-image: -o-linear-gradient(45deg, #361752, #B31B67);
+
 }
+.home-welcome.is-fixed{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    color: white;
+    padding: 10rem;
+    font-size: 125%;
+}
+*/
+
+/*
+// ALTERNATE INDEX PAGE WITH GRID
+
+// Colors
+$black: #353535;
+$gray: #4f4f4f;
+$medium-gray: #737373;
+$light-gray: #c4c4c4;
+$orange: #f96855;
+
+// Semantic color names
+$accent: $orange;
+
+$body-background: $black;
+$menu-background: $gray;
+
+$main-font-color: $light-gray;
+$menu-active-color: $light-gray;
+$menu-font-color: $medium-gray;
+$link-color: $accent;
+
+
+
+// ===================
+// General styles
+// ===================
+
+* { box-sizing: border-box; }
+// ===================
+// Main Content area
+// ===================
+.main-content {
+  padding: 10%;
+  flex: 1 1 80%;
+}
+// ===================
+// Portfolio
+// ===================
+.portfolio {
+  display: grid;
+  height: 100%;
+  grid-template-rows: repeat(8, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 20px;
+}
+.portfolio-item {
+  background: $accent;
+  color: $light-gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // Refractored the code a little from the video.
+  // Moved these from the .two, thought it made
+  // more sense like this.
+  font-size: 1.5em;
+  background-size: cover;
+  background-position: top left;
+  transition: all ease-in-out 300ms;
+  position: relative;
+  z-index: 10;
+
+  &.small {
+    grid-row: span 1;
+    grid-column: span 1;
+  }
+
+  &.medium {
+    grid-row: span 2;
+    grid-column: span 2;
+  }
+
+  &.large {
+    grid-row: span 3;
+    grid-column: span 3;
+  }
+
+  &.tall {
+    grid-row: span 3;
+    grid-column: span 2;
+  }
+
+  &.wide {
+    grid-row: span 2;
+    grid-column: span 3;
+  }
+}
+*/
+
+/*
+.two {
+
+
+  &::before {
+    content: '';
+    display: block;
+    background: $black;
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: all ease-in-out 300ms;
+    z-index: -1;
+  }
+
+  &:hover::before {
+    opacity: 0.2;
+  }
+}
+*/
 
 .testimonial {
   min-height: 400px;
@@ -17821,7 +17899,8 @@ INDEX PAGE
 }
 
 .testimonial > .hero-body {
-  background-color: #ab1110;
+  background-color: #3273dc;
+  /*#ab1110;*/
   margin-right: 10%;
   margin-bottom: 20px;
 }
@@ -17866,7 +17945,7 @@ section#videosection {
 }
 
 section#videosection > .hero-body {
-  background-color: #4367b9;
+  background-color: #48942f;
   margin-left: 10%;
   margin-bottom: 20px;
 }
@@ -17893,6 +17972,23 @@ section#videosection > .hero-body {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.photos {
+  min-height: 400px;
+  /*background-image: url( '/images/header/testimonial-overlay.png' );
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 65px;
+    background-color: rgb(175, 23, 65);*/
+  position: relative;
+}
+
+.photos > .hero-body {
+  background-color: #ab1110;
+  margin-right: 10%;
+  margin-bottom: 20px;
 }
 
 /*
@@ -18426,7 +18522,7 @@ button.nav-item.is-active {
 
 .image.is-500x340 {
   width: 500px;
-  height: 340px;
+  height: 375px;
 }
 
 .news-container .field.is-grouped.is-grouped-multiline:last-child {

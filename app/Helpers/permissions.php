@@ -29,15 +29,17 @@ function check_user_permissions($request, $actionName = NULL, $id = NULL)
         // 'update' => ['edit', 'update'],
         // 'delete' => ['destroy', 'restore', 'forceDestroy'],
         // 'read'   => ['index', 'view']
-        'crud' => ['create', 'store', 'edit', 'update', 'destroy', 'restore', 'forceDestroy', 'index', 'view']
+        'crud' => ['create', 'store', 'edit', 'update', 'destroy', 'restore', 'forceDestroy', 'index', 'view','dashboard']
     ];
 
     $classesMap = [
-        'ManageNews'        => 'news',
-        'Event'             => 'event',
-        'Users'             => 'user',
-        'ManageCategories'  => 'category',
-        'ManageTag'         => 'tag'
+        'News'        => 'news',
+        'Event'       => 'event',
+        'Users'       => 'user',
+        'Categories'  => 'category',
+        'Tag'         => 'tag',
+        'Instruction' => 'instruction',
+        'Lession'     => 'lession'
     ];
 
     foreach ($crudPermissionsMap as $permission => $methods)
@@ -53,7 +55,8 @@ function check_user_permissions($request, $actionName = NULL, $id = NULL)
       //   7 => "index"
       //   8 => "view"
       // ]
-
+// dd($method);
+// echo $method;
         // if the current method exists in methods list,
         // we'll check the permission
         if (in_array($method, $methods) && isset($classesMap[$controller]))

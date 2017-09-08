@@ -69,6 +69,21 @@ Route::prefix('manage')->group(function(){
   Route::delete('/post/force-destroy/{post}', 'Manage\NewsController@forcedestroy')->name('post.force-destroy');
   Route::resource('/post', 'Manage\NewsController');
 
+  // MANAGE EVENTS
+  Route::put('/event/restore/{event}', 'Manage\EventController@restore')->name('event.restore');
+  Route::delete('/event/force-destroy/{event}', 'Manage\EventController@forcedestroy')->name('event.force-destroy');
+  Route::resource('/event', 'Manage\EventController');
+
+  // MANAGE INSTRUCTION
+  Route::put('/instruction/restore/{instruction}', 'Manage\InstructionController@restore')->name('instruction.restore');
+  Route::delete('/instruction/force-destroy/{instruction}', 'Manage\InstructionController@forcedestroy')->name('instruction.force-destroy');
+  Route::resource('/instruction', 'Manage\InstructionController');
+
+  // MANAGE LESSION
+  Route::put('/lession/restore/{lession}', 'Manage\LessionController@restore')->name('lession.restore');
+  Route::delete('/lession/force-destroy/{lession}', 'Manage\LessionController@forcedestroy')->name('lession.force-destroy');
+  Route::resource('/lession', 'Manage\LessionController');
+
   // SEARCH SECTION
   Route::put('/category/restore/{category}', 'Manage\CategoriesController@restore')->name('category.restore');
   Route::delete('/category/force-destroy/{category}', 'Manage\CategoriesController@forcedestroy')->name('category.force-destroy');

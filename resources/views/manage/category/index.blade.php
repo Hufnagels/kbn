@@ -20,8 +20,8 @@
 <!---->
           <div class="tabs is-small is-right">
             <ul>
-              <li {{ ( ((app('request')->input('status') == 'all') || (app('request')->input('status') == '')) ? 'class=is-active' : '') }}><a href="?status=all">All category</a></li>
-              <li {{ (app('request')->input('status') == 'trash' ? 'class=is-active' : '') }}><a href="?status=trash">Category in Trash</a></li>
+              <li {{ ( ((app('request')->input('status') == 'all') || (app('request')->input('status') == '')) ? 'class=is-active' : '') }}><a href="?status=all">All</a></li>
+              <li {{ (app('request')->input('status') == 'trash' ? 'class=is-active' : '') }}><a href="?status=trash">in Trash</a></li>
             </ul>
           </div>
 
@@ -31,9 +31,9 @@
             <div class="notification is-warning"><strong>Currently no category found</strong></div>
           @else
             @if($onlyTrashed)
-              @include('manage.category.table-trashedcategories')
+              @include('manage.category.table-trashed')
             @else
-              @include('manage.category.table-allcategories')
+              @include('manage.category.table-all')
             @endif
 
 

@@ -21,6 +21,16 @@ class Tag extends Model
     return $this->morphedByMany('App\News','taggable');
   }
 
+  public function instruction()
+  {
+    return $this->morphedByMany('App\Instruction','taggable');
+  }
+
+  public function lession()
+  {
+    return $this->morphedByMany('App\Lession','taggable');
+  }
+
   // public function events()
   // {
   //   return $this->morphByMany('App\Event','taggable');

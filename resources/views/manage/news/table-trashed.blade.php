@@ -6,7 +6,6 @@
       <th><abbr title="Email">Author</abbr></th>
       <th><abbr title="Date created">Created</abbr></th>
       <th><abbr title="Date created">Published</abbr></th>
-      <th><abbr title="Published state">Publish state</abbr></th>
       <th><abbr title="Actions">Actions</abbr></th>
     </tr>
   </thead>
@@ -19,16 +18,23 @@
       <td>{{$news->author->name}}</td>
       <td>{{$news->created_at->toFormattedDateString()}}</td>
       <td>{{ $news->published_at ? $news->published_at->toFormattedDateString() : 'not yet published'}}</td>
-      <td>{!! $news->publicationStatusLabel() !!}</td>
+
       <td>
-        {!! Form::open(['method' => 'DELETE', 'route' => ['post.destroy', $news->id],'class'=>'allnewstable']) !!}
-        @if (check_user_permissions(request(), "ManageNews@edit", $news->id))
-        <a href="{{ route('post.edit', $news->id)}}" title="Edit"><span class="fa fa-edit"></span></a>
-        @endif
-        @if (check_user_permissions(request(), "ManageNews@destroy", $news->id))
-        <button type="submit" class="button allnewstable is-danger is-outlined is-small"><span class="fa fa-remove"></span></button>
-        @endif
+        {!! Form::open([
+          'method' => 'PUT',
+          'route' => ['post.restore', $news->id],
+          'class'=>'trashtable',
+          'style' => 'display:-webkit-inline-box; margin-top:0;line-height:1.8rem;' ]) !!}
+        <button type="submit" class="button trashtable is-info is-outlined is-small" title="Restore"><span class="fa fa-reply"></span></button>
         {!! Form::close() !!}
+        @if (Auth::user()->hasPermission('delete-news'))
+        {!! Form::open([
+          'method' => 'DELETE',
+          'route' => ['post.force-destroy', $news->id],
+          'style' => 'display:-webkit-inline-box; margin-top:0;line-height:1.8rem;' ]) !!}
+        <button type="submit" class="button trashtable is-danger is-outlined is-small" title="Delete"><span class="fa fa-remove"></span></button>
+        {!! Form::close() !!}
+        @endif
       </td>
     </tr>
     @endforeach

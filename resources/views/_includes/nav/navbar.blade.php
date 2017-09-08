@@ -78,8 +78,9 @@
           @if (check_user_permissions(request(), "Users@index"))
 
           @endif
+          @if (Auth::user()->hasPermission('edit-profile'))
           <a class="navbar-item" href="{{ route('manage.account-edit')}}">Profile</a>
-
+          @endif
           <hr class="navbar-divider">
           <a class="navbar-item" href="{{ route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
           @include('_includes.forms.logout')

@@ -20,8 +20,8 @@
 <!---->
           <div class="tabs is-small is-right">
             <ul>
-              <li {{ ( ((app('request')->input('status') == 'all') || (app('request')->input('status') == '')) ? 'class=is-active' : '') }}><a href="?status=all">All tags</a></li>
-              <li {{ (app('request')->input('status') == 'trash' ? 'class=is-active' : '') }}><a href="?status=trash">Tags in Trash</a></li>
+              <li {{ ( ((app('request')->input('status') == 'all') || (app('request')->input('status') == '')) ? 'class=is-active' : '') }}><a href="?status=all">All</a></li>
+              <li {{ (app('request')->input('status') == 'trash' ? 'class=is-active' : '') }}><a href="?status=trash">in Trash</a></li>
             </ul>
           </div>
 
@@ -31,9 +31,9 @@
             <div class="notification is-warning"><strong>Currently no tag found</strong></div>
           @else
             @if($onlyTrashed)
-              @include('manage.tag.table-trashedtags')
+              @include('manage.tag.table-trashed')
             @else
-              @include('manage.tag.table-alltags')
+              @include('manage.tag.table-all')
             @endif
 
 

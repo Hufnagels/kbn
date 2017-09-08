@@ -15,11 +15,11 @@
           <div class="tabs is-small is-right">
             <ul>
               <li {{ (app('request')->input('status') == 'own' ? 'class=is-active' : '') }}><a href="?status=own">Own news</a></li>
-              <li {{ ( ((app('request')->input('status') == 'all') || (app('request')->input('status') == '')) ? 'class=is-active' : '') }}><a href="?status=all">All news</a></li>
-              <li {{ (app('request')->input('status') == 'published' ? 'class=is-active' : '') }}><a href="?status=published">Published news</a></li>
-              <li {{ (app('request')->input('status') == 'scheduled' ? 'class=is-active' : '') }}><a href="?status=scheduled">Scheduled news</a></li>
-              <li {{ (app('request')->input('status') == 'draft' ? 'class=is-active' : '') }}><a href="?status=draft">Draft news</a></li>
-              <li {{ (app('request')->input('status') == 'trash' ? 'class=is-active' : '') }}><a href="?status=trash">News in Trash</a></li>
+              <li {{ ( ((app('request')->input('status') == 'all') || (app('request')->input('status') == '')) ? 'class=is-active' : '') }}><a href="?status=all">All</a></li>
+              <li {{ (app('request')->input('status') == 'published' ? 'class=is-active' : '') }}><a href="?status=published">Published</a></li>
+              <li {{ (app('request')->input('status') == 'scheduled' ? 'class=is-active' : '') }}><a href="?status=scheduled">Scheduled</a></li>
+              <li {{ (app('request')->input('status') == 'draft' ? 'class=is-active' : '') }}><a href="?status=draft">Draft</a></li>
+              <li {{ (app('request')->input('status') == 'trash' ? 'class=is-active' : '') }}><a href="?status=trash">in Trash</a></li>
             </ul>
           </div>
           @include('manage.news.message')
@@ -27,9 +27,9 @@
           <div class="notification is-warning"><strong>Currently no news found</strong></div>
           @else
             @if($onlyTrashed)
-              @include('manage.news.table-trashednews')
+              @include('manage.news.table-trashed')
             @else
-              @include('manage.news.table-allnews')
+              @include('manage.news.table-all')
             @endif
           {{$newses->appends(Request::query())->render() }}
           @endif

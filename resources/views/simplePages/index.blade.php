@@ -50,7 +50,7 @@
 <div class="wrapper">
   <section class="headersection" id="headersection">
 
-    <div class="parallax-window" data-parallax="scroll" data-image-src="{{ asset('/images/header/render07.png') }}">
+    <div class="parallax-window" data-parallax="scroll" data-image-src="{{ asset('/images/header/render09.png') }}">
 
       <div class="hero has-text-left">
         <div class="hero-body m-t-40">
@@ -79,19 +79,15 @@
   </section>
 
   <section class="testimonialsection testimonial wow fadeInUp" id="testimonialsection"  data-wow-duration="5s" data-wow-delay="1s" style="visibility:hidden;">
-
     @include('simplePages.index.s02_testimonial')
-
   </section>
 
-
-
-  <section class="videosection video wow zoomIn" id="videosection" style="min-height:100px;">
+  <section class="videosection video wow zoomIn m-b-10" id="videosection">
     @include('simplePages.index.s03_video')
   </section>
 
-  <section class="postsection posts wow zoomIn" id="postsection" style="min-height:100px;">
-
+  <section class="photossection photos wow zoomIn m-b-10" id="postsection">
+    @include('simplePages.index.s04_galery')
   </section>
 
 </div>
