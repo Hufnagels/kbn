@@ -53,7 +53,7 @@
     <div class="parallax-window" data-parallax="scroll" data-image-src="{{ asset('/images/header/render09.png') }}">
 
       <div class="hero has-text-left">
-        <div class="hero-body m-t-40">
+        <div class="hero-body m-t-20">
           <div class="container">
             <h1 class="title is-size-3 is-spaced is-uppercase wow bounceInDown" data-wow-duration="2s" data-wow-delay=".1s" style="visibility:hidden;">
               Csatlakozz
@@ -78,11 +78,7 @@
 
   </section>
 <div class="wrapper">
-  <div class="pen"><img src="/images/pen_v001.png" style="
-    width: 300px;
-    /* position: absolute; */
-  ">
-  </div>
+  <div class="pen"><img src="/images/pen_v001.png" style="width: 300px; display:none;"></div>
   <section class="testimonialsection testimonial wow fadeInUp" id="testimonialsection"  data-wow-duration="5s" data-wow-delay="1s" style="visibility:hidden;">
     @include('simplePages.index.s02_testimonial')
   </section>
