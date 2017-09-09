@@ -85,11 +85,5 @@
 @endsection
 
 @section('scripts')
-<script type="text/javascript" src="/assets/js/masonry.min.js"></script>
-<script type="text/javascript">
-$('.msrItems').msrItems({
-		'colums': 3, //columns number
-		'margin': 15 //right and bottom margin
-	});
-</script>
+  @include('simplePages.scripts.masonry')
 @endsection

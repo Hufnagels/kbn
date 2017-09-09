@@ -19,17 +19,13 @@
 <section id="aboutUs" class="hero is-warning m-b-20">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title has-text-centered">
-        Rólunk
-      </h1>
-      <h2 class="subtitle has-text-centered">
-        Oktatási elveink
-      </h2>
+      <h1 class="title has-text-centered">Mit csinálunk mi?</h1>
+      <h2 class="subtitle has-text-centered">Oktatási elveink</h2>
     </div>
   </div>
 </section>
 
-<div class="container aboutUs">
+<div class="container aboutUs m-b-20">
   <div class="columns">
     <div class="column is-two-thirds">
 
