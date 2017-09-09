@@ -37,11 +37,11 @@
         </figure>
         <div class="media-content">
           <div class="content">
-            <h1>Something<br>went wrong</h1>
-            <h4>The page you are looking for might have been removed, had its name changed or is temporarily unavailable</h4>
+            <h1>Sorry, Your Sessin expired</h1>
+            <h4Please, do not leave your browser for long time inactive alone</h4>
             <h3>
               <a href="{{ route('welcome') }}" class="button is-dark is-medium">Go to the welcome page</a>
-              <a href="javascript:history.back()" class="button is-dark is-inverted is-medium">Go to the previous page</a>
+              <a href="{{ route('login') }}" class="button is-dark is-inverted is-medium">Go to the login page</a>
             </h3>
           </div>
         </div>

@@ -47,7 +47,7 @@
 <!--
 <div class="home-welcome is-fixed" style="position:absolute;top0;bottom:0;left:0;right:0;">Welcome page</div>
 -->
-<div class="wrapper">
+
   <section class="headersection" id="headersection">
 
     <div class="parallax-window" data-parallax="scroll" data-image-src="{{ asset('/images/header/render09.png') }}">
@@ -77,7 +77,12 @@
     @include('simplePages.index.s01_posts')
 
   </section>
-
+<div class="wrapper">
+  <div class="pen"><img src="/images/pen_v001.png" style="
+    width: 300px;
+    /* position: absolute; */
+  ">
+  </div>
   <section class="testimonialsection testimonial wow fadeInUp" id="testimonialsection"  data-wow-duration="5s" data-wow-delay="1s" style="visibility:hidden;">
     @include('simplePages.index.s02_testimonial')
   </section>

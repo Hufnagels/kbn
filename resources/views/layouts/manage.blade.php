@@ -16,7 +16,7 @@
 </head>
 
 <body class="m-b-5">
-  
+
   @include('_includes.nav.navbar')
   <div class="columns manage">
     <div class="column is-one-quarter">
@@ -28,6 +28,7 @@
       </div>
     </div>
   </div>
+  
   @yield('scripts')
 </body>
 </html>

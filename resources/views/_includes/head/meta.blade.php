@@ -53,7 +53,4 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 <meta property="og:image:width" content="500"/>
 <meta property="og:image:height" content="340"/>
 
-<!-- CSRF Token
-http://kep.cdn.index.hu/1/0/1822/18221/182218/18221803_1114737_4bd1354ee8beae18d5f35c4a036731a2_wm.jpg"
--->
 <meta name="csrf-token" content="{{ csrf_token() }}">

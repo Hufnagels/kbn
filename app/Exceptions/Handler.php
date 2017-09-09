@@ -54,8 +54,11 @@ class Handler extends ExceptionHandler
       //     return response()->view('errors.404', $exception->name, 404);
       // }
       //
-      if ($exception instanceof AuthorizationException) {
-          return response()->view('authorization-error', [], 500);
+      if ($exception instanceof TokenMismatchException) {
+          //return response()->view('authorization-error', [], 500);
+          \SESSION::flush();
+          return response()->view('authorization-error', [], 403);
+          //return redirect()->back()->withInput()->with('error', 'Your session has expired');
       }
       // if ($exception instanceof CustomException) {
       //     return response()->view('errors.404', $exception, 404);

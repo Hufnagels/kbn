@@ -92,7 +92,12 @@
 @endsection
 
 @section('scripts')
+
+<!-- <script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/buefy"></script> -->
   <script>
+
+
     var app = new Vue({
       el: '#app',
       data: {

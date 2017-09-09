@@ -84,10 +84,7 @@
   $('#display_name').on('blur', function() {
     var theTitle = this.value.toLowerCase().trim(),
         slugInput = $('#name'),
-        theSlug = theTitle.replace(/&/g, '-and-')
-                          .replace(/[^a-z0-9-]+/g, '-')
-                          .replace(/\-\-+/g, '-')
-                          .replace(/^-+|-+$/g, '');
+        theSlug = slugize(theTitle);
         slugInput.val(theSlug);
   });
   </script>

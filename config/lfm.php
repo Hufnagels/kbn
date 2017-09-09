@@ -24,7 +24,7 @@ return [
     */
 
     // If true, private folders will be created for each signed-in user.
-    'allow_multi_user' => false,
+    'allow_multi_user' => true,
     // If true, share folder will be created when allow_multi_user is true.
     'allow_share_folder' => true,
 
@@ -60,7 +60,7 @@ return [
     // The default display type for items.
     // Supported: "grid", "list"
     'images_startup_view' => 'grid',
-    'files_startup_view' => 'list',
+    'files_startup_view' => 'grid',
 
     /*
     |--------------------------------------------------------------------------
@@ -113,8 +113,8 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'thumb_img_width' => 200,
-    'thumb_img_height' => 200,
+    'thumb_img_width' => 500,
+    'thumb_img_height' => 345,
 
     /*
     |--------------------------------------------------------------------------

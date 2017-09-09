@@ -30,6 +30,29 @@ return [
         'height' => 170
       ]
     ],
+    'lfmSettings' => [
+      'thumbs' => [
+        /* LIKE POPULAR POST LIST IN SIDEBAR 64x44 */
+        'small' => [
+          'extPref' => 'thumb_s',
+          'width' => '64',
+          'height' => '64'
+        ],
+        /* LIKE NEWSLIST  310x214 */
+        'medium' => [
+          'extPref' => 'thumb_m',
+          'width' => '310',
+          'height' => '214'
+        ],
+        /* LIKE NEWS POST HEADER */
+        'large' => [
+          'extPref' => 'thumb_l',
+          'width' => '700',
+          'height' => '482'
+        ],
+      ]
+    ],
+
     'events' => [
       'directory' => 'images/events',
       'width' => 500,

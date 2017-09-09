@@ -26,11 +26,12 @@ window.owlcarousel = require('owl.carousel');
 const WOW = require('wowjs');
 window.wow = new WOW.WOW({ live: false });
 
+window.Vue = require('vue/dist/vue.min.js');
+//import Vue from 'vue/dist/vue.min.js'
+import Buefy from 'buefy'
 
-window.Vue = require('vue');
 
-import Buefy from 'buefy';
-
+//window.Buefy = require('buefy');
 Vue.use(Buefy);
 
 
@@ -41,36 +42,7 @@ Vue.use(Buefy);
  */
 
 // Vue.component('example', require('./components/Example.vue'));
-/*
- var app = new Vue({
-   el: '#app',
-   data: {}
- });
-*/
-/*
-var app = new Vue({
-     el: '#app',
-     data: {
-       auto_password: false,
-       password_options: 'keep',
-       permissionsSelected: [],
-       permissionType: 'basic',
-        resource: '',
-        crudSelected: ['create', 'read', 'update', 'delete']
-      },
-      methods: {
-        crudName: function(item) {
-          return item.substr(0,1).toUpperCase() + item.substr(1) + " " + app.resource.substr(0,1).toUpperCase() + app.resource.substr(1);
-        },
-        crudSlug: function(item) {
-          return item.toLowerCase() + "-" + app.resource.toLowerCase();
-        },
-        crudDescription: function(item) {
-          return "Allow a User to " + item.toUpperCase() + " a " + app.resource.substr(0,1).toUpperCase() + app.resource.substr(1);
-        }
-      }
-    });
-*/
+
 /*
 new Vue({
     el: '#app',
@@ -79,6 +51,16 @@ new Vue({
     }
 })
 */
+window.slugize = function slugize(text){
+    text = text.replace(/[ÀÁÂÃÄÅàáâãä]/g,"a");
+    text = text.replace(/[ÈÉÊËé]/g,"e");
+    text = text.replace(/[Íí]/g,"i");
+    text = text.replace(/[ÓóÖöŐő]/g,"o");
+    text = text.replace(/[ÚúŰűÜü]/g,"u");
+    return text.replace(/&/g, '-and-').replace(/[^A-Za-z0-9-]+/g, '-').replace(/\-\-+/g, '-').replace(/^-+|-+$/g, '');
+  }
+
+
 $(document).ready(function(){
   $('.navbar-burger').click(function (e) {
     $('#navMenu').toggleClass('is-active');
