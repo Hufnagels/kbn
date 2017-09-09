@@ -15,7 +15,7 @@ class CategoriesTableSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         DB::table('categories')->truncate();
         $this->command->info('Create category data');
-        $date = Carbon::create(2016, 6, 20, 9
+        $date = Carbon::create(2016, 6, 20, 9);
         $updateDate = clone($date);
         DB::table('categories')->insert([
           [

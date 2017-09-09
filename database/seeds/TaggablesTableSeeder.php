@@ -19,6 +19,6 @@ class TaggablesTableSeeder extends Seeder
           'taggable_id'=>'Uncategorized',
           'taggable_type'=>'uncategorized',
         ],
-      ]};
+      ]);
     }
 }
