@@ -80,11 +80,18 @@ class News extends Model
       $imageDirectory = config('imageAttributes.image.news.directory');
       if (!is_null($this->image))
       {
+        // with old upload
+        //$imagePath = public_path()."/".$imageDirectory."/" . $this->image;
 
-        $imagePath = public_path()."/".$imageDirectory."/" . $this->image;
+        //with lfm select
+        $imagePath = public_path(). $this->image;
         if (file_exists($imagePath))
         {
-          $imageUrl = asset($imageDirectory.'/'. $this->image);
+          // with old upload
+          //$imageUrl = asset($imageDirectory.'/'. $this->image);
+
+          //with lfm select
+          $imageUrl = asset( $this->image);
         }
       } else {
         $imageUrl = NULL; //asset($imageDirectory.'/250x170.png');

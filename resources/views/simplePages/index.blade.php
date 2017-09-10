@@ -78,16 +78,17 @@
 
   </section>
 <div class="wrapper">
+
   <div class="pen"><img src="/images/pen_v001.png" style="width: 300px; display:none;"></div>
-  <section class="testimonialsection testimonial wow fadeInUp" id="testimonialsection"  data-wow-duration="5s" data-wow-delay="1s" style="visibility:hidden;">
+  <section class="testimonialsection testimonial fadeInUp" id="testimonialsection">
     @include('simplePages.index.s02_testimonial')
   </section>
 
-  <section class="videosection video wow zoomIn m-b-10" id="videosection">
+  <section class="videosection video zoomIn m-b-10" id="videosection">
     @include('simplePages.index.s03_video')
   </section>
 
-  <section class="photossection photos wow zoomIn m-b-10" id="postsection">
+  <section class="photossection photos zoomIn m-b-10" id="postsection">
     @include('simplePages.index.s04_galery')
   </section>
 

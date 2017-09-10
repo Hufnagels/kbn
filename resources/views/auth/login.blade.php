@@ -3,7 +3,7 @@
 @include('_includes.head.login')
 <body>
   <div id="app">
-
+@include('manage.partials.message')
 <section class="loginPage">
   <div class="columns">
     <div class="column is-offset-one-third is-one-third">

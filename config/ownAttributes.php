@@ -26,8 +26,8 @@ return [
       'width' => 500,
       'height' => 340,
       'thumbnail' => [
-        'width' => 250,
-        'height' => 170
+        'width' => 305,
+        'height' => 228
       ]
     ],
     'lfmSettings' => [

@@ -26,7 +26,7 @@
 
                 ])  !!}
 
-                @include('manage.news.formedit')
+                @include('manage.news.formedit_with_lfm')
 
 
         {!! Form::close() !!}

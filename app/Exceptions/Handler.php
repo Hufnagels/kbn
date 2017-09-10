@@ -44,22 +44,30 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-/**/
-      // if ( $exception instanceof \Illuminate\Session\TokenMismatchException ) {
-      //   return redirect()->route('login');
-      // }
+//dd($exception);
+       if ( $exception instanceof \Illuminate\Session\TokenMismatchException ) {
+         return redirect()->route('login')->with('error', 'Your session has expired');
+       }
       //
       // if ($exception instanceof ModelNotFoundException) {
       //     //$exception = new NotFoundHttpException($exception->getMessage(), $exception);
       //     return response()->view('errors.404', $exception->name, 404);
       // }
       //
-      if ($exception instanceof TokenMismatchException) {
-          //return response()->view('authorization-error', [], 500);
-          \SESSION::flush();
-          return response()->view('authorization-error', [], 403);
-          //return redirect()->back()->withInput()->with('error', 'Your session has expired');
-      }
+        /** 
+            TODO 
+        **/
+        //In Kernel.php $middlewareGroup->web remed this class,
+        // so it won't work
+        //Reason: bad return page. See: redirect to login from /manage/post/24
+        // should be manage/post/24/edit
+        if ($exception instanceof AuthenticationException) {
+            //return response()->view('authorization-error', [], 500);
+            $request->session()->flush();
+            return redirect()->guest('login')->with('error', 'Your session has expired');
+            //return redirect()->back()->withInput()->with('error', 'Your session has expired');
+        }
+
       // if ($exception instanceof CustomException) {
       //     return response()->view('errors.404', $exception, 404);
       // }

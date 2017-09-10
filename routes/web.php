@@ -27,84 +27,86 @@ Route::get('/news/{news}', 'PostController@showPost')->name('news.show');
 Route::get('/news', 'PostController@getPosts')->name('newses');
 Route::get('/', 'PagesController@getIndex')->name('welcome');
 
+//Route::post('/login', 'Autth\LoginController@logout')->name('logout');
 
-Route::group(['middleware' => 'auth'], function () {
-});
+
 
 // / GOOGLE CALENDAR SECTION TOO FOR OAUTH request (outside auth middleware)
 Route::get('/manage/calendar/oauth', 'Manage\GoogleCalendarController@oauth')->name('calendar.oauthCallback');
 
+
+Route::group(['middleware' => 'auth'], function () { });
+
 Auth::routes();
 
+  Route::prefix('manage')->group(function(){
+    Route::get('/', 'Manage\ManageController@index');
 
-Route::prefix('manage')->group(function(){
-  Route::get('/', 'Manage\ManageController@index');
+    // INDIVIDUAL FILEMANAGER MENU FOR UNISHARP FILEMANAGER
+    Route::get('/filemanager', 'Manage\ManageController@filemanager')->name('fm.show');;
 
-  // INDIVIDUAL FILEMANAGER MENU FOR UNISHARP FILEMANAGER
-  Route::get('/filemanager', 'Manage\ManageController@filemanager')->name('fm.show');;
+    // UNISHARP FILEMANAGER IN NEWS MENU
+    Route::get('/laravel-filemanager', '\Unisharp\Laravelfilemanager\controllers\LfmController@show');
+    Route::post('/laravel-filemanager/upload', '\Unisharp\Laravelfilemanager\controllers\UploadController@upload');
 
-  // UNISHARP FILEMANAGER IN NEWS MENU
-  Route::get('/laravel-filemanager', '\Unisharp\Laravelfilemanager\controllers\LfmController@show');
-  Route::post('/laravel-filemanager/upload', '\Unisharp\Laravelfilemanager\controllers\UploadController@upload');
+    // MANAGE USER PROFILE
+    Route::get('/edit-account', 'Manage\ManageController@edit')->name('manage.account-edit');
+    Route::put('/edit-account', 'Manage\ManageController@update')->name('manage.account-update');
 
-  // MANAGE USER PROFILE
-  Route::get('/edit-account', 'Manage\ManageController@edit')->name('manage.account-edit');
-  Route::put('/edit-account', 'Manage\ManageController@update')->name('manage.account-update');
+    // DASHBOARD
+    Route::get('/dashboard', 'Manage\ManageController@dashboard')->name('manage.dashboard');
 
-  // DASHBOARD
-  Route::get('/dashboard', 'Manage\ManageController@dashboard')->name('manage.dashboard');
+    // MANAGE USERS
+    Route::delete('/users/confirm/{user}', 'Manage\UsersController@confirm')->name('users.confirm');
+    Route::put('/users/restore/{user}', 'Manage\UsersController@restore')->name('users.restore');
+    Route::delete('/users/force-destroy/{user}', 'Manage\UsersController@forcedestroy')->name('users.force-destroy');
+    Route::resource('/users', 'Manage\UsersController');
 
-  // MANAGE USERS
-  Route::delete('/users/confirm/{user}', 'Manage\UsersController@confirm')->name('users.confirm');
-  Route::put('/users/restore/{user}', 'Manage\UsersController@restore')->name('users.restore');
-  Route::delete('/users/force-destroy/{user}', 'Manage\UsersController@forcedestroy')->name('users.force-destroy');
-  Route::resource('/users', 'Manage\UsersController');
+    // MANAGE USERS ROLE AND PERMISSIONS
+    Route::resource('/permissions', 'Manage\PermissionController', ['except' => 'destroy']);
+    Route::resource('/roles', 'Manage\RoleController', ['except' => 'destroy']);
 
-  // MANAGE USERS ROLE AND PERMISSIONS
-  Route::resource('/permissions', 'Manage\PermissionController', ['except' => 'destroy']);
-  Route::resource('/roles', 'Manage\RoleController', ['except' => 'destroy']);
+    // MANAGE NEWS
+    Route::put('/post/restore/{post}', 'Manage\NewsController@restore')->name('post.restore');
+    Route::delete('/post/force-destroy/{post}', 'Manage\NewsController@forcedestroy')->name('post.force-destroy');
+    Route::resource('/post', 'Manage\NewsController');
 
-  // MANAGE NEWS
-  Route::put('/post/restore/{post}', 'Manage\NewsController@restore')->name('post.restore');
-  Route::delete('/post/force-destroy/{post}', 'Manage\NewsController@forcedestroy')->name('post.force-destroy');
-  Route::resource('/post', 'Manage\NewsController');
+    // MANAGE EVENTS
+    Route::put('/event/restore/{event}', 'Manage\EventController@restore')->name('event.restore');
+    Route::delete('/event/force-destroy/{event}', 'Manage\EventController@forcedestroy')->name('event.force-destroy');
+    Route::resource('/event', 'Manage\EventController');
 
-  // MANAGE EVENTS
-  Route::put('/event/restore/{event}', 'Manage\EventController@restore')->name('event.restore');
-  Route::delete('/event/force-destroy/{event}', 'Manage\EventController@forcedestroy')->name('event.force-destroy');
-  Route::resource('/event', 'Manage\EventController');
+    // MANAGE INSTRUCTION
+    Route::put('/instruction/restore/{instruction}', 'Manage\InstructionController@restore')->name('instruction.restore');
+    Route::delete('/instruction/force-destroy/{instruction}', 'Manage\InstructionController@forcedestroy')->name('instruction.force-destroy');
+    Route::resource('/instruction', 'Manage\InstructionController');
 
-  // MANAGE INSTRUCTION
-  Route::put('/instruction/restore/{instruction}', 'Manage\InstructionController@restore')->name('instruction.restore');
-  Route::delete('/instruction/force-destroy/{instruction}', 'Manage\InstructionController@forcedestroy')->name('instruction.force-destroy');
-  Route::resource('/instruction', 'Manage\InstructionController');
+    // MANAGE LESSION
+    Route::put('/lession/restore/{lession}', 'Manage\LessionController@restore')->name('lession.restore');
+    Route::delete('/lession/force-destroy/{lession}', 'Manage\LessionController@forcedestroy')->name('lession.force-destroy');
+    Route::resource('/lession', 'Manage\LessionController');
 
-  // MANAGE LESSION
-  Route::put('/lession/restore/{lession}', 'Manage\LessionController@restore')->name('lession.restore');
-  Route::delete('/lession/force-destroy/{lession}', 'Manage\LessionController@forcedestroy')->name('lession.force-destroy');
-  Route::resource('/lession', 'Manage\LessionController');
+    // SEARCH SECTION
+    Route::put('/category/restore/{category}', 'Manage\CategoriesController@restore')->name('category.restore');
+    Route::delete('/category/force-destroy/{category}', 'Manage\CategoriesController@forcedestroy')->name('category.force-destroy');
+    Route::resource('/category', 'Manage\CategoriesController');
 
-  // SEARCH SECTION
-  Route::put('/category/restore/{category}', 'Manage\CategoriesController@restore')->name('category.restore');
-  Route::delete('/category/force-destroy/{category}', 'Manage\CategoriesController@forcedestroy')->name('category.force-destroy');
-  Route::resource('/category', 'Manage\CategoriesController');
+    Route::put('/tag/restore/{tag}', 'Manage\TagController@restore')->name('tag.restore');
+    Route::delete('/tag/force-destroy/{tag}', 'Manage\TagController@forcedestroy')->name('tag.force-destroy');
+    Route::resource('/tag', 'Manage\TagController');
 
-  Route::put('/tag/restore/{tag}', 'Manage\TagController@restore')->name('tag.restore');
-  Route::delete('/tag/force-destroy/{tag}', 'Manage\TagController@forcedestroy')->name('tag.force-destroy');
-  Route::resource('/tag', 'Manage\TagController');
+    // GOOGLE CALENDAR SECTION
+    Route::resource('/calendar', 'Manage\GoogleCalendarController');
 
-  // GOOGLE CALENDAR SECTION
-  Route::resource('/calendar', 'Manage\GoogleCalendarController');
+    // GOOGLE YOUTUBE SECTION
 
-  // GOOGLE YOUTUBE SECTION
+    // PHOTOS SECTION
+    Route::resource('/photo', 'Manage\PhotoController', ['except' => 'destroy']);
 
-  // PHOTOS SECTION
-  Route::resource('/photo', 'Manage\PhotoController', ['except' => 'destroy']);
+    // VIDEOS SECTION
+    Route::resource('/video', 'Manage\VideoController', ['except' => 'destroy']);
 
-  // VIDEOS SECTION
-  Route::resource('/video', 'Manage\VideoController', ['except' => 'destroy']);
-
-});
+  });
 
 
 Route::get('/home', 'Manage\ManageController@index')->name('home');

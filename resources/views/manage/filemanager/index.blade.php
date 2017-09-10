@@ -8,14 +8,14 @@
         <div class="card-header notification is-primary">
           <div class="column"><div class="title">Manage {{ $fmType }}</div></div>
         </div>
-        <div class="card-content p-t-0">
+        <div class="card-content p-t-0" id="inline-lfm">
           <div class="tabs is-small is-right">
             <ul>
               <li {{ ($fmType == 'Images' ? 'class=is-active' : '') }}><a href="?status=image">Images</a></li>
               <li {{ ($fmType == 'Files' ? 'class=is-active' : '') }}><a href="?status=file">Files</a></li>
             </ul>
           </div>
-          <iframe src="/laravel-filemanager?type={{ $fmType }}" style="width: 100%; height: 700px; overflow: hidden; border: 1px solid lightgrey;"></iframe>
+          <iframe class="in-iframe" src="/laravel-filemanager?type={{ $fmType }}" style="width: 100%; height: 700px; overflow: hidden; border: 1px solid lightgrey;"></iframe>
         </div>
       </div>
 

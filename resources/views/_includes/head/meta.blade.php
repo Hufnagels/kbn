@@ -50,7 +50,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
     content="{{ asset('/images/header/render07.png') }}"
   @endif
 />
-<meta property="og:image:width" content="500"/>
-<meta property="og:image:height" content="340"/>
+<meta property="og:image:width" content="700"/>
+<meta property="og:image:height" content="525"/>
 
 <meta name="csrf-token" content="{{ csrf_token() }}">

@@ -4,7 +4,7 @@
   @include('_includes.head.meta')
 
   <title>{{ config('app.name', 'Laravel') }} @yield('title')</title>
-  <link rel="icon" href="/fav.ico">
+  
 
   @include('_includes.head.appstyles')
 
