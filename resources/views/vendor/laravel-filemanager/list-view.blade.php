@@ -22,7 +22,7 @@
       <td>
       
         @if($item->is_file)
-          @if ( Auth::user()->hasPermission('delete-files'))
+          @if ( Auth::user()->hasPermission('delete-file'))
           <a href="javascript:trash('{{ $item->name }}')">
             <i class="fa fa-trash fa-fw"></i>
           </a>

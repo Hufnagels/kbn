@@ -26,7 +26,9 @@
           <span class="sr-only">Toggle Dropdown</span>
         </button>
         <ul class="dropdown-menu" role="menu">
+          @if ( Auth::user()->hasPermission('delete-file'))
           <li><a href="javascript:rename('{{ $item_name }}')"><i class="fa fa-edit fa-fw"></i> {{ Lang::get('laravel-filemanager::lfm.menu-rename') }}</a></li>
+          @endif
           @if($item->is_file)
           <li><a href="javascript:download('{{ $item_name }}')"><i class="fa fa-download fa-fw"></i> {{ Lang::get('laravel-filemanager::lfm.menu-download') }}</a></li>
           <li class="divider"></li>
@@ -37,7 +39,7 @@
             <li class="divider"></li>
             @endif
           @endif
-          @if ( Auth::user()->hasPermission('delete-files'))
+          @if ( Auth::user()->hasPermission('delete-file'))
           <li><a href="javascript:trash('{{ $item_name }}')"><i class="fa fa-trash fa-fw"></i> {{ Lang::get('laravel-filemanager::lfm.menu-delete') }}</a></li>
           @endif
         </ul>

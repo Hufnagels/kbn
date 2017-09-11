@@ -192,6 +192,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 

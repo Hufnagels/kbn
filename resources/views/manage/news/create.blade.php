@@ -24,7 +24,7 @@
                 'id' => 'create-post-form'
                 ])  !!}
 
-                @include('manage.news.formcreate')
+                @include('manage.news.formcreate_with_lfm')
 
 
         {!! Form::close() !!}

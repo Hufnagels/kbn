@@ -102,17 +102,30 @@ class News extends Model
     public function getImageThumbUrlAttribute($value)
     {
       $imageUrl ='';
-      $imageDirectory = config('imageAttributes.image.news.directory');
+      // with old upload
+      //$imageDirectory = config('imageAttributes.image.news.directory');
+
+      //with lfm select
 
       if (!is_null($this->image))
       {
 
         $ext = substr(strrchr($this->image, '.'), 1);
         $thumbnail = str_replace(".{$ext}", "_thumb.{$ext}", $this->image);
-        $imagePath = public_path()."/".$imageDirectory."/" . $thumbnail;
+
+        // with old upload
+        //$imagePath = public_path()."/".$imageDirectory."/" . $thumbnail;
+
+        //with lfm select
+        $imagePath = public_path() ."/"  . $this->image; //$thumbnail;
+        // . config('lfm.image.news.directorythumb_folder_name') ."/"
         if (file_exists($imagePath))
         {
-          $imageUrl = asset($imageDirectory.'/'. $thumbnail);
+          // with old upload
+          //$imageUrl = asset($imageDirectory.'/'. $thumbnail);
+
+          //with lfm select
+          $imageUrl = asset( $this->image);
         }
       } else {
         $imageUrl = NULL; //asset($imageDirectory.'/250x170.png');

@@ -1,6 +1,6 @@
 <?php
 
-function fm_filename($data, $actioneventName = NULL, $request = NULL)
+function lfm_filename($data, $actioneventName = NULL, $request = NULL)
 {
   $filename = NULL;
   if (file_exists($data))

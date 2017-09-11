@@ -117,11 +117,12 @@ class NewsController extends BackendController
         $post->category()->sync($data['category_id']);
 // dd($data);
         $post->update($data);
-
+/*
         if( $oldImage !== $post->image)
         {
           $this->removeImage($oldImage);
         }
+*/
         if(!empty($data['tags']))
         {
           $post->tags()->sync($data['tags']);
@@ -182,10 +183,10 @@ class NewsController extends BackendController
           $successUpload = $image->move($destination, $fileName);
           if($successUpload)
           {
-            $thumbWidth = config('imageAttributes.image.news.thumbnail.width');
-            $thumbHeight = config('imageAttributes.image.news.thumbnail.height');
-            $width = config('imageAttributes.image.news.width');
-            $height = config('imageAttributes.image.news.height');
+            $thumbWidth = config('ownAttributes.image.news.thumbnail.width');
+            $thumbHeight = config('ownAttributes.image.news.thumbnail.height');
+            $width = config('ownAttributes.image.news.width');
+            $height = config('imageownAttributes.image.news.height');
             $thumbnail = str_replace(".{$extension}","_thumb.{$extension}", $fileName);
             Image::make($destination . "/" . $fileName)->resize($thumbWidth,$thumbHeight)->save($destination . "/" . $thumbnail);
             Image::make($destination . "/" . $fileName)->resize($width,$height)->save($destination . "/" . $fileName);

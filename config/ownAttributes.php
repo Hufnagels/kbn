@@ -30,7 +30,25 @@ return [
         'height' => 228
       ]
     ],
-    'lfmSettings' => [
+  ],
+  'events' => [
+    'directory' => 'images/events',
+    'width' => 500,
+    'height' => 340,
+    'thumbnail' => [
+      'width' => 250,
+      'height' => 170
+    ]
+  ],
+
+  'lfmSettings' => [
+    'image' => [
+      'facebook' => [
+        'width' => '1000'
+      ],
+      'resized' => [
+        'width' => '700'
+      ],
       'thumbs' => [
         /* LIKE POPULAR POST LIST IN SIDEBAR 64x44 */
         'small' => [
@@ -51,18 +69,9 @@ return [
           'height' => '482'
         ],
       ]
-    ],
-
-    'events' => [
-      'directory' => 'images/events',
-      'width' => 500,
-      'height' => 340,
-      'thumbnail' => [
-        'width' => 250,
-        'height' => 170
-      ]
-    ],
-    'google' => [
+    ]
+  ],
+  'google' => [
       /*
       |--------------------------------------------------------------------------
       | Client ID
@@ -93,7 +102,6 @@ return [
       |
       */
       'key_file_location' => '/public/MyProject-7847c546ef6a.json',
-    ]
-
   ]
+
 ];
