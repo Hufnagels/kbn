@@ -5,6 +5,8 @@
 /vendor
 /.idea
 /.vagrant
+/public/fm/*
+/public/images/news/*
 /public/images/news/backup/*
 /public/images/news/backup_png/*
 Homestead.json

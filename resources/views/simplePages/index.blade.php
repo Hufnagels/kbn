@@ -88,7 +88,7 @@
     @include('simplePages.index.s03_video')
   </section>
 
-  <section class="photossection photos zoomIn m-b-10" id="postsection">
+  <section class="photossection zoomIn m-b-10" id="postsection">
     @include('simplePages.index.s04_galery')
   </section>
 
