@@ -42,6 +42,9 @@ Auth::routes();
   Route::prefix('manage')->group(function(){
     Route::get('/', 'Manage\ManageController@index');
 
+    // DASHBOARD
+    Route::get('/dashboard', 'Manage\ManageController@dashboard')->name('manage.dashboard');
+
     // INDIVIDUAL FILEMANAGER MENU FOR UNISHARP FILEMANAGER
     Route::get('/filemanager', 'Manage\ManageController@filemanager')->name('fm.show');;
 
@@ -52,9 +55,6 @@ Auth::routes();
     // MANAGE USER PROFILE
     Route::get('/edit-account', 'Manage\ManageController@edit')->name('manage.account-edit');
     Route::put('/edit-account', 'Manage\ManageController@update')->name('manage.account-update');
-
-    // DASHBOARD
-    Route::get('/dashboard', 'Manage\ManageController@dashboard')->name('manage.dashboard');
 
     // MANAGE USERS
     Route::delete('/users/confirm/{user}', 'Manage\UsersController@confirm')->name('users.confirm');
@@ -85,6 +85,11 @@ Auth::routes();
     Route::put('/lession/restore/{lession}', 'Manage\LessionController@restore')->name('lession.restore');
     Route::delete('/lession/force-destroy/{lession}', 'Manage\LessionController@forcedestroy')->name('lession.force-destroy');
     Route::resource('/lession', 'Manage\LessionController');
+
+    // MANAGE TESTIMONIALS ON INDEX PAGE
+    Route::put('/testimonial/restore/{testimonial}', 'Manage\TestimonialController@restore')->name('testimonial.restore');
+    Route::delete('/testimonial/force-destroy/{testimonial}', 'Manage\TestimonialController@forcedestroy')->name('testimonial.force-destroy');
+    Route::resource('/testimonial', 'Manage\TestimonialController');
 
     // SEARCH SECTION
     Route::put('/category/restore/{category}', 'Manage\CategoriesController@restore')->name('category.restore');

@@ -21,8 +21,8 @@
           </div>
 
           <div class="field">
-            <label class="label">{!! Form::label('slug', 'Slug') !!}</label>
-            <div class="control {{ $errors->has('slug') ? 'is-danger' : ''}}">{!! Form::text('slug', null, ['class' => 'input']) !!}</div>
+            <label class="label">{!! Form::label('slug', 'Slug (SEO friendly url piece)') !!}</label>
+            <div class="control {{ $errors->has('slug') ? 'is-danger' : ''}}">{!! Form::text('slug', null, ['class' => 'input', 'disabled' => 'disabled']) !!}</div>
             @if($errors->has('slug'))
             <p class="help is-danger">Slug must be set and must be unique</p>
             @endif
@@ -57,7 +57,7 @@
       <div class="field">
         <label class="label">{!! Form::label('category_id', 'Category') !!}</label>
         <div class="control {{ $errors->has('category_id') ? 'is-danger' : ''}}">
-          <div class="select">{!! Form::select('category_id', App\Category::pluck('title', 'id'), null, ['placeholder' => 'Select a category']) !!}</div>
+          <div class="select">{!! Form::select('category_id', App\Category::where('id',config('ownAttributes.default_lession_category.id'))->pluck('title', 'id'), null, ['placeholder' => 'Select a category']) !!}</div>
         </div>
         @if($errors->has('category_id'))
         <p class="help is-danger">Select one</p>

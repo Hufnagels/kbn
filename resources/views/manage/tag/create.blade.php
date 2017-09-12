@@ -14,7 +14,7 @@
           <div class="title">Create new Tag</div>
         </div>
       </div>
-      <div class="card-content is-paddingless createtag">
+      <div class="card-content is-paddingless createcategory">
 
         {!! Form::model( $tag, [
                 'method' => 'POST',
@@ -22,7 +22,7 @@
                 'id' => 'create-tag-form'
                 ])  !!}
 
-                @include('manage.tag.form')
+                @include('manage.tag.formcreate')
 
         {!! Form::close() !!}
       </div>

@@ -34,7 +34,7 @@ class InstructionValidationRequest extends FormRequest
       switch($this->method()) {
         case 'PUT':
         case 'PATCH':
-          $rules['slug'] = 'required|unique:instructions,slug,'.$this->route('instruction');
+          $rules['slug'] = '';//'required|unique:instructions,slug,'.$this->route('instruction');
           break;
       }
 

@@ -21,15 +21,15 @@
           </div>
 
           <div class="field">
-            <label class="label">{!! Form::label('slug', 'Slug') !!}</label>
-            <div class="control {{ $errors->has('slug') ? 'is-danger' : ''}}">{!! Form::text('slug', null, ['class' => 'input']) !!}</div>
+            <label class="label">{!! Form::label('slug', 'Slug (SEO friendly url piece)') !!}</label>
+            <div class="control {{ $errors->has('slug') ? 'is-danger' : ''}}">{!! Form::text('slug', null, ['class' => 'input', 'disabled' => 'disabled']) !!}</div>
             @if($errors->has('slug'))
             <p class="help is-danger">Slug must be set and must be unique</p>
             @endif
           </div>
 
           <div class="field">
-            <label class="label">{!! Form::label('excerpt', 'Excerpt') !!}</label>
+            <label class="label">{!! Form::label('excerpt', 'Excerpt (Facebook lead on sharing)') !!}</label>
             <div class="control">{!! Form::textarea('excerpt', null, ['class' => 'textarea excerpt'] ,['attributes' => ['cols'=> 50, 'rows'=> 5]]) !!}</div>
           </div>
 
@@ -57,7 +57,7 @@
       <div class="field">
         <label class="label">{!! Form::label('category_id', 'Category') !!}</label>
         <div class="control {{ $errors->has('category_id') ? 'is-danger' : ''}}">
-          <div class="select">{!! Form::select('category_id', App\Category::pluck('title', 'id'), null, ['placeholder' => 'Select a category']) !!}</div>
+          <div class="select">{!! Form::select('category_id', App\Category::where('id','<>',config('ownAttributes.default_category.id'))->pluck('title', 'id'), null, ['placeholder' => 'Select a category']) !!}</div>
         </div>
         @if($errors->has('category_id'))
         <p class="help is-danger">Select one</p>
@@ -65,7 +65,7 @@
       </div>
 
       <div class="field">
-      <label class="label">{!! Form::label('image', 'News header image') !!}</label>
+      <label class="label">{!! Form::label('image', 'News header image (shows in Facebook share)') !!}</label>
       <div class="control {{ $errors->has('image') ? 'is-danger' : ''}}">
         <figure>
           <img id="holder" class="image is-250x170" src="{{ ($post->image_thumb_url) ? $post->image_thumb_url : 'http://placehold.it/250x170&text=No+image%20(250x170)'}}" alt="">

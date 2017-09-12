@@ -23,10 +23,22 @@ class TagUpdateRequest extends FormRequest
      */
     public function rules()
     {
-      return [
+      $rules = [
         'name' => 'required|max:255|unique:tags,name,'.$this->route('tag'),
         'slug' => 'required|max:255|unique:tags,slug,'.$this->route('tag')
-
       ];
+      switch($this->method()) {
+        case 'PUT':
+        case 'PATCH':
+          $rules['slug'] = '';//'required|unique:instructions,slug,'.$this->route('instruction');
+          break;
+      }
+
+      return $rules;
+      // return [
+      //   'name' => 'required|max:255|unique:tags,name,'.$this->route('tag'),
+      //   'slug' => 'required|max:255|unique:tags,slug,'.$this->route('tag')
+      //
+      // ];
     }
 }

@@ -61,7 +61,52 @@ class Instruction extends Model
   /*
   ATTRIBUTE SECTION
   */
+  public function getDateAttribute($value)
+  {
+    //setlocale(LC_TIME, 'HU');
+    return is_null($this->published_at) ? '' : $this->published_at->format('Y.M.d'); //toFormattedDateString();
+    //return $this->created_at->diffForHumans();
+  }
 
+  public function getBodyHtmlAttribute($value)
+  {
+    // return $this->body ? Markdown::convertToHtml(e($this->body)) : NULL;
+    return $this->body ? html_entity_decode($this->body) : NULL;
+  }
+
+  public function getExcerptHtmlAttribute($value)
+  {
+    return $this->excerpt ? Markdown::convertToHtml(e($this->excerpt)) : NULL;
+  }
+
+  // public function getCategoryHtmlAttribute()
+  // {
+  //     $anchors = [];
+  //     foreach($this->category as $cat) {
+  //       if( !($cat->id == config('ownAttributes.default_category.id')) ){
+  //         $anchors[] = '<small><span class="tag is-danger"><a class="categoryItem" href="' . route('news.category', $cat->slug) . '">' . $cat->title . '</a></small></span>';
+  //       }
+  //     }
+  //     // dd(count($anchors));
+  //     return count($anchors) ? ( implode(" ", $anchors)) : '';
+  // }
+
+  // public function getTagsHtmlAttribute()
+  // {
+  //     $anchors = [];
+  //     foreach($this->tags as $tag) {
+  //       if( !($tag->id == config('ownAttributes.default_tag.id')) ){
+  //         $anchors[] = '<small><span class="tag is-dark"><a class="tagItem" href="' . route('news.tags', $tag->slug) . '">' . $tag->name . '</a></small></span>';
+  //       }
+  //     }
+  //     // dd(count($anchors));
+  //     return count($anchors) ? ( implode(" ", $anchors)) : '';
+  // }
+
+  public function setPublishedAtAttribute($value)
+  {
+    $this->attributes['published_at'] = $value ?: NULL;
+  }
 
   /*
   SCOPE SECTION

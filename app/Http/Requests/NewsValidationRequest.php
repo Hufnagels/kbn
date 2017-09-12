@@ -35,7 +35,7 @@ class NewsValidationRequest extends FormRequest
       switch($this->method()) {
         case 'PUT':
         case 'PATCH':
-          $rules['slug'] = 'required|unique:news,slug,'.$this->route('post');
+          $rules['slug'] = ''; // 'required|unique:news,slug,'.$this->route('post');
           break;
       }
 

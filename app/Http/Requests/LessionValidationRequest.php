@@ -34,7 +34,7 @@ class LessionValidationRequest extends FormRequest
       switch($this->method()) {
         case 'PUT':
         case 'PATCH':
-          $rules['slug'] = 'required|unique:lessions,slug,'.$this->route('lession');
+          $rules['slug'] = '';//'required|unique:lessions,slug,'.$this->route('lession');
           break;
       }
 

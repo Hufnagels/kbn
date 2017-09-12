@@ -17943,6 +17943,43 @@ $link-color: $accent;
 }
 */
 
+.testi-item {
+  display: grid;
+}
+
+.testi-item > .card {
+  display: grid;
+}
+
+.gt_testi2_wrap {
+  display: grid;
+  min-height: 16.5rem;
+}
+
+@media screen and (max-width: 1299px) {
+  .gt_testi2_wrap {
+    display: grid;
+    min-height: 8rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .gt_testi2_wrap {
+    display: grid;
+    min-height: 10rem;
+  }
+}
+
+.testi-item > .gt_testi2_wrap p {
+  -ms-flex-item-align: start;
+      align-self: start;
+}
+
+.gt_testi2_wrap .gt_testi2_detail {
+  -ms-flex-item-align: end;
+      align-self: end;
+}
+
 /*
 VIDEO SECTION
 */

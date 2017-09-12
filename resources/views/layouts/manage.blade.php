@@ -17,17 +17,31 @@
 <body class="m-b-5">
 
   @include('_includes.nav.navbar')
+
   <div class="columns manage">
-    <div class="column is-one-quarter">
-        @include('_includes.nav.sidebar')
-    </div>
-    <div class="column is-three-quarters">
-      <div id="app">
-        @yield('content')
+
+    @if( Auth::user()->hasRole(['teacher','student']))
+      <div class="column m-r-10 m-l-20 m-b-10">
+        <div id="app">
+          @yield('content')
+        </div>
       </div>
-    </div>
+    @endif
+
+    @if( Auth::user()->hasRole(['admin', 'editor', 'author']))
+      <div class="column is-one-quarter">
+          @include('_includes.nav.sidebar')
+      </div>
+      <div class="column is-three-quarters">
+        <div id="app">
+          @yield('content')
+        </div>
+      </div>
+    @endif
+
   </div>
-  
+
   @yield('scripts')
+
 </body>
 </html>

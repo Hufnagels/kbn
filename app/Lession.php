@@ -61,7 +61,23 @@ class Lession extends Model
   /*
   ATTRIBUTE SECTION
   */
+  public function getDateAttribute($value)
+  {
+    //setlocale(LC_TIME, 'HU');
+    return is_null($this->published_at) ? '' : $this->published_at->format('Y.M.d'); //toFormattedDateString();
+    //return $this->created_at->diffForHumans();
+  }
 
+  public function getBodyHtmlAttribute($value)
+  {
+    // return $this->body ? Markdown::convertToHtml(e($this->body)) : NULL;
+    return $this->body ? html_entity_decode($this->body) : NULL;
+  }
+
+  public function getExcerptHtmlAttribute($value)
+  {
+    return $this->excerpt ? Markdown::convertToHtml(e($this->excerpt)) : NULL;
+  }
 
   /*
   SCOPE SECTION

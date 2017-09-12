@@ -31,6 +31,18 @@ class CategoriesTableSeeder extends Seeder
             'updated_at' => $updateDate
           ],
           [
+            'title'=>'Instruction',
+            'slug'=>'instruction',
+            'created_at' => $date,
+            'updated_at' => $updateDate
+          ],
+          [
+            'title'=>'Lession',
+            'slug'=>'lession',
+            'created_at' => $date,
+            'updated_at' => $updateDate
+          ],
+          [
             'title'=>'Microbit beginner',
             'slug'=>'microbit-beginner',
             'created_at' => $date,
@@ -79,7 +91,7 @@ class CategoriesTableSeeder extends Seeder
             'updated_at' => $updateDate
           ]
         ]);
-
+/*
         //update news table
         for($news_id=1; $news_id<=20; $news_id++)
         {
@@ -89,6 +101,7 @@ class CategoriesTableSeeder extends Seeder
             ->where('id', $news_id)
             ->update(['category_id'=>$category_id]);
         }
+*/
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

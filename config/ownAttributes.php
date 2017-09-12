@@ -10,6 +10,18 @@ return [
     'slug' => 'uncategozied',
     'id' => 1,
   ],
+  'protected_categories' => [
+    '1','2','3','4'
+  ],
+  'not_news_categories' => [
+    '3','4'
+  ],
+  'default_instruction_category' => [
+    'id' => '3'
+  ],
+  'default_lession_category' => [
+    'id' => '4'
+  ],
   'default_project_category' => [
     'title' => 'Projekt',
     'slug' => 'projekt',

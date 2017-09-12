@@ -19,10 +19,14 @@ class GoogleCalendarController extends Controller
 {
     protected $client;
     protected $service;
+    protected $CLIENT_SECRET_PATH;
+    protected $CREDENTIALS_PATH;
+
 
     public function __construct()
     {
-
+      $this->CLIENT_SECRET_PATH = base_path()."/.credentials/google/";
+      $this->CREDENTIALS_PATH = base_path()."/.credentials/google/";
     }
 
     /**

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 Use App\User;
 Use App\News;
 use App\Category;
+use App\Instruction;
+use App\Lession;
 use App\Http\Requests\UserUpdateRequest;
 
 class ManageController extends BackendController
@@ -13,14 +15,23 @@ class ManageController extends BackendController
     //
     public function index()
     {
-      // latest 3 post
-      // last login
-      //
+      // route redirected here from /home
       return redirect()->route('manage.dashboard');
     }
 
     public function dashboard()
     {
+      if(\Auth::user()->hasRole('student'))
+      {
+        $lessions = Lession::with('author')->published()->orderByDesc('published_at')->get();
+        return view('manage.home.dashboards.student', compact('lessions'));
+      }
+      if(\Auth::user()->hasRole('teacher'))
+      {
+        $instructions = Instruction::with('author', 'lessions')->published()->orderByDesc('published_at')->get();
+        return view('manage.home.dashboards.teacher', compact('instructions'));
+      }
+      
       return view('manage.home.dashboard');
     }
 

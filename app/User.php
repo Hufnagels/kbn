@@ -69,6 +69,15 @@ class User extends Authenticatable
       return $this->hasMany(Lession::class, 'author_id');
     }
 
+    public function testimonial()
+    {
+      /*
+      * second parameter is a foreign_key
+      * used for show news from author
+      */
+      return $this->hasMany(Testimonial::class, 'author_id');
+    }
+
     public function getBioHtmlAttribute($value)
     {
       return $this->bio ? Markdown::convertToHtml(e($this->bio)) : NULL;

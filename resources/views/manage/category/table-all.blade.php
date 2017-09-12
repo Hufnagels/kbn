@@ -21,8 +21,9 @@
       <td>
         {!! Form::open(['method' => 'DELETE', 'route' => ['category.destroy', $category->id],'class'=>'allnewstable']) !!}
         <a href="{{ route('category.edit', $category->id)}}" title="Edit"><span class="fa fa-edit"></span></a>
-        @if (check_user_permissions(request(), "Tag@destroy"))
-          @if( ! (($category->id == config('ownAttributes.default_category.id')) ||  ($category->id == config('ownAttributes.default_project_category.id')) ))
+        @if (Auth::user()->hasPermission('crud-lession'))
+          
+          @if( !in_array($category->id,config('ownAttributes.protected_categories')) )
           <button type="submit"
           @if($category->news->count() > 0)
             onclick="return confirm('This category has {{ $category->news->count() }} News binded to it');"

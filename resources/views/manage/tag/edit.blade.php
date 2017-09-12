@@ -22,7 +22,7 @@
                 'id' => 'update-tag-form'
                 ])  !!}
 
-                @include('manage.tag.form')
+                @include('manage.tag.formedit')
 
         {!! Form::close() !!}
       </div>

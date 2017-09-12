@@ -69,13 +69,15 @@
                               <p class="is-size-6 has-text-primary">{{ $user->roles->first()->display_name}}</p>
                           </div>
 
-                          <div class="field">
-                            <label class="label">{!! Form::label('bio', 'Biography') !!}</label>
-                            <div class="control {{ $errors->has('bio') ? 'is-danger' : ''}}">{!! Form::textarea('bio', null, ['class' => 'textarea']) !!}</div>
-                            @if($errors->has('bio'))
-                            <p class="help is-danger">Biography is invalid</p>
-                            @endif
-                          </div>
+                          @if (Auth::user()->hasRole(['admin','editor','author']))
+                            <div class="field">
+                              <label class="label">{!! Form::label('bio', 'Biography') !!}</label>
+                              <div class="control {{ $errors->has('bio') ? 'is-danger' : ''}}">{!! Form::textarea('bio', null, ['class' => 'textarea']) !!}</div>
+                              @if($errors->has('bio'))
+                              <p class="help is-danger">Biography is invalid</p>
+                              @endif
+                            </div>
+                          @endif
 
                           <div class="field">
                             <div class="control">

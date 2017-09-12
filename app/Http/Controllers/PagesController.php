@@ -11,6 +11,7 @@ use App\News;
 use App\User;
 use App\Category;
 use App\Tag;
+use App\Testimonial;
 //use App\Mail\contactus;
 
 use Hash;

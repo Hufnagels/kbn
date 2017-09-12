@@ -60,7 +60,7 @@ return [
     // The default display type for items.
     // Supported: "grid", "list"
     'images_startup_view' => 'grid',
-    'files_startup_view' => 'grid',
+    'files_startup_view' => 'list',
 
     /*
     |--------------------------------------------------------------------------
@@ -105,6 +105,11 @@ return [
         'image/svg+xml',
         'application/pdf',
         'text/plain',
+        'application/msword',
+        'application/vnd.mspowerpoint',
+        'application/octet-stream',
+        'application/vnd.ms-excel',
+        'application/x-microbit-hex',
     ],
 
     /*
@@ -135,6 +140,7 @@ return [
         'png'  => 'PNG Image',
         'ppt'  => 'Microsoft PowerPoint',
         'pptx' => 'Microsoft PowerPoint',
+        'hex'  => 'HEX file',
     ],
 
     'file_icon_array' => [
@@ -150,6 +156,7 @@ return [
         'png'  => 'fa-file-image-o',
         'ppt'  => 'fa-file-powerpoint-o',
         'pptx' => 'fa-file-powerpoint-o',
+        'hex'  => 'fa-microchip',
     ],
 
     /*

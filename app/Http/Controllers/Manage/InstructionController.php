@@ -24,11 +24,7 @@ class InstructionController extends BackendController
       parent::__construct();
       // $this->uploadPath = public_path(config('imageAttributes.image.news.directory'));
   }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index(Request $request)
     {
       $onlyTrashed = FALSE;
@@ -72,23 +68,12 @@ class InstructionController extends BackendController
       return view('manage.instruction.index', compact('instructions', 'instructionCount', 'onlyTrashed', 'statusList'));//, ['users' => $users]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create(Instruction $instruction)
     {
         $tags = Tag::where('id', '<>', config('ownAttributes.default_tag.id'))->get();
         return view('manage.instruction.create',compact('instruction', 'tags', 'categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
      public function store(InstructionValidationRequest $request)
      {
          $data = $this->handelRequest($request);
@@ -111,20 +96,8 @@ class InstructionController extends BackendController
          return redirect()->route('instruction.index')->with('message','Instruction material was created successfully');
      }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id) { }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
       $tags = Tag::where('id', '<>', config('ownAttributes.default_tag.id'))->get();
@@ -134,13 +107,6 @@ class InstructionController extends BackendController
       return view('manage.instruction.edit', compact('instruction', 'tags', 'lessions'));//, ['users' => $users]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(InstructionValidationRequest $request, $id)
     {
         $instruction = Instruction::findOrFail($id);
@@ -149,6 +115,7 @@ class InstructionController extends BackendController
 // dd($data);
         $instruction->category()->sync($data['category_id']);
 
+        unset($data['slug']);
         $instruction->update($data);
 
         if( $oldImage !== $instruction->image)
@@ -172,12 +139,6 @@ class InstructionController extends BackendController
         return redirect()->route('instruction.index')->with('message','Instruction materials was updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
       Instruction::findOrFail($id)->delete();
@@ -192,7 +153,7 @@ class InstructionController extends BackendController
         $instruction->category()->detach();
         // $this->removeImage($instruction->image);
 
-        return redirect('/manage/post?status=trash')->with('message','Instruction material has been deleted permanently');
+        return redirect('/manage/instruction?status=trash')->with('message','Instruction material has been deleted permanently');
     }
 
     public function restore($id)

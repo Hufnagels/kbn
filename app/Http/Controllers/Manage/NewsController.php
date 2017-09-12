@@ -116,6 +116,7 @@ class NewsController extends BackendController
 
         $post->category()->sync($data['category_id']);
 // dd($data);
+        unset($data['slug']);
         $post->update($data);
 /*
         if( $oldImage !== $post->image)

@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use App\News;
 use App\Category;
 use App\Tag;
+use App\Testimonial;
 
 class NavigationComposer
 {
@@ -21,6 +22,10 @@ class NavigationComposer
     $this->composeNewsWithImages($view);
 
     $this->composeNewsWithProjectCategory($view);
+
+    $this->composeTestimonialSlider($view);
+
+
     // $this->composeNewsPopularPostsInMainNav($view);
   }
 
@@ -61,12 +66,13 @@ class NavigationComposer
     $view->with( 'popularposts' , $popularposts);
   }
 
-// MAIN SITE INDEX PAGES BOXES
+// PAGES HEADER BOXES
   public function composeNewsWithImages(View $view)
   {
     $latestpostswithimages = News::withImages()
       ->filterNotProjectCategory()
       ->published()
+      ->latestFirst()
       ->take(2)
       ->get();
     $view->with( 'latestpostswithimages' , $latestpostswithimages);
@@ -76,10 +82,18 @@ class NavigationComposer
   {
     $projectcategories = News::filterProjectCategory()
       ->published()
-      ->orderBy('updated_at', 'asc')
+      // ->orderBy('updated_at', 'asc')
+      ->latestFirst()
       ->take(2)
       ->get();
     $view->with('projectcategories' , $projectcategories);
+  }
+
+  // INDEX PAGES TESTIMONIALS
+  public function composeTestimonialSlider(View $view)
+  {
+    $testimonials = Testimonial::published()->get();
+    $view->with('testimonials' , $testimonials);
   }
 
 // EVENTS SECTION

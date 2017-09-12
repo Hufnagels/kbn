@@ -19,11 +19,6 @@ class LessionController extends BackendController
 
   protected $paginateLimit = 10;
   protected $uploadPath;
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
      public function __construct()
      {
@@ -74,23 +69,13 @@ class LessionController extends BackendController
        return view('manage.lession.index', compact('lessions', 'lessionCount', 'onlyTrashed', 'statusList'));//, ['users' => $users]);
      }
 
-     /**
-      * Show the form for creating a new resource.
-      *
-      * @return \Illuminate\Http\Response
-      */
+
      public function create(Lession $lession)
      {
          $tags = Tag::where('id', '<>', config('ownAttributes.default_tag.id'))->get();
          return view('manage.lession.create',compact('lession', 'tags', 'categories'));
      }
 
-     /**
-      * Store a newly created resource in storage.
-      *
-      * @param  \Illuminate\Http\Request  $request
-      * @return \Illuminate\Http\Response
-      */
       public function store(LessionValidationRequest $request)
       {
           $data = $this->handelRequest($request);
@@ -107,20 +92,9 @@ class LessionController extends BackendController
           return redirect()->route('lession.index')->with('message','Lession material was created successfully');
       }
 
-     /**
-      * Display the specified resource.
-      *
-      * @param  int  $id
-      * @return \Illuminate\Http\Response
-      */
+
      public function show($id) { }
 
-     /**
-      * Show the form for editing the specified resource.
-      *
-      * @param  int  $id
-      * @return \Illuminate\Http\Response
-      */
      public function edit($id)
      {
        $tags = Tag::where('id', '<>', config('ownAttributes.default_tag.id'))->get();
@@ -129,13 +103,6 @@ class LessionController extends BackendController
        return view('manage.lession.edit', compact('lession', 'tags'));//, ['users' => $users]);
      }
 
-     /**
-      * Update the specified resource in storage.
-      *
-      * @param  \Illuminate\Http\Request  $request
-      * @param  int  $id
-      * @return \Illuminate\Http\Response
-      */
      public function update(LessionValidationRequest $request, $id)
      {
          $lession = Lession::findOrFail($id);
@@ -144,6 +111,8 @@ class LessionController extends BackendController
 
          $lession->category()->sync($data['category_id']);
  // dd($data);
+
+        unset($data['slug']);
          $lession->update($data);
 
          if( $oldImage !== $lession->image)
@@ -161,12 +130,6 @@ class LessionController extends BackendController
          return redirect()->route('lession.index')->with('message','Lession materials was updated successfully');
      }
 
-     /**
-      * Remove the specified resource from storage.
-      *
-      * @param  int  $id
-      * @return \Illuminate\Http\Response
-      */
      public function destroy($id)
      {
        Lession::findOrFail($id)->delete();
@@ -181,7 +144,7 @@ class LessionController extends BackendController
          $lession->category()->detach();
          // $this->removeImage($lession->image);
 
-         return redirect('/manage/post?status=trash')->with('message','Lession material has been deleted permanently');
+         return redirect('/manage/lession?status=trash')->with('message','Lession material has been deleted permanently');
      }
 
      public function restore($id)

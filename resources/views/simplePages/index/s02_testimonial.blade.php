@@ -9,21 +9,27 @@
   <div class="column is-8 is-offset-2">
 
     <div class="columns owl-carousel owl-theme" id="gt_testimonial_slider">
-@for($i=0; $i<8;$i++)
-      <div class="column is-one-quarter">
+      @foreach($testimonials as $testimonial)
+      <div class="column is-one-quarter testi-item">
         <div class="card">
           <div class="card-content">
             <div class="content">
               <div class="gt_testi2_wrap">
-                  <p>Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet aenean sollicitudin, lorem quis bibendum auctor.</p>
-                  <div class="gt_testi2_detail"><div class="gt_testi2_name"><h6>Janifer Steel</h6><span>Parents</span></div></div>
+                  <p>{{ $testimonial->testi_text}}</p>
+                  <div class="gt_testi2_detail"><div class="gt_testi2_name">
+                      <h6>{{ $testimonial->testi_name}}</h6>
+                      <span>{{ $testimonial->testi_title}}</span>
+                    </div></div>
               </div>
             </div>
           </div>
         </div>
       </div>
-@endfor
+      @endforeach
     </div>
 
   </div>
 </div>
+<style>
+
+</style>

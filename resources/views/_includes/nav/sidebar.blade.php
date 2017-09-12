@@ -4,7 +4,7 @@
     <li><a {{ ( strpos(Route::currentRouteName(), 'dashboard') > -1) ? 'class=is-active' : '' }} href="{{ route('home')}}">Dashboard</a></li>
   </ul>
 
-
+  @if (Auth::user()->hasRole(['admin', 'editor']))
   <p class="menu-label">User administration</p>
   <ul class="menu-list">
     @if (Auth::user()->hasPermission('crud-user'))
@@ -17,8 +17,9 @@
     <li><a {{ ( strpos(Route::currentRouteName(), 'permissions') > -1) ? 'class=is-active' : '' }} href="{{route('permissions.index')}}">Permissions</a></li>
     @endif
   </ul>
+  @endif
 
-
+  @if (Auth::user()->hasRole(['admin', 'editor','author']))
   <p class="menu-label">Manage content</p>
   <ul class="menu-list">
     @if (Auth::user()->hasPermission('crud-news'))
@@ -40,6 +41,9 @@
     @if (Auth::user()->hasPermission('crud-tag'))
     <li><a {{ ( strpos(Route::currentRouteName(), 'tag') > -1) ? 'class=is-active' : '' }} href="{{ route('tag.index') }}">Tags</a></li>
     @endif
+    <li class="navbar-divider" style="width:50%"></li>
+    <li><a {{ ( strpos(Route::currentRouteName(), 'testimonial') > -1) ? 'class=is-active' : '' }} href="{{ route('testimonial.index') }}">Testimonial</a></li>
+  @endif
 
 
 
@@ -49,11 +53,14 @@
     @endif
 
   </ul>
-  @if (Auth::user()->hasPermission('crud-user'))
+
+  @if (Auth::user()->hasRole(['admin', 'editor']))
   <p class="menu-label">Main site elements</p>
   <ul class="menu-list">
     <li><a {{ ( strpos(Route::currentRouteName(), 'fm') > -1) ? 'class=is-active' : '' }} href="{{ route('fm.show') }}">Filemanager</a></li>
+    @if (Auth::user()->hasRole('admin'))
     <li><a {{ ( strpos(Route::currentRouteName(), 'calendar') > -1) ? 'class=is-active' : '' }} href="{{ route('calendar.index') }}">Calendar</a></li>
+    @endif
   </ul>
   @endif
 </aside>

@@ -17,7 +17,7 @@
       </div>
       <div class="card-content is-paddingless createnewspost">
 
-        {!! Form::model( $lession, [
+        {!! Form::model( $testimonial, [
                 'method' => 'POST',
                 'route' => 'lession.store',
                 'files' => TRUE,
