@@ -77,7 +77,8 @@ class News extends Model
     public function getImageUrlAttribute($value)
     {
       $imageUrl ='';
-      $imageDirectory = config('imageAttributes.image.news.directory');
+
+      // $imageDirectory = config('imageAttributes.image.news.directory');
       if (!is_null($this->image))
       {
         // with old upload
@@ -85,7 +86,7 @@ class News extends Model
 
         //with lfm select
         $imagePath = public_path(). $this->image;
-        if (file_exists($imagePath))
+        if (file_exists($this->image))
         {
           // with old upload
           //$imageUrl = asset($imageDirectory.'/'. $this->image);

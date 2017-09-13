@@ -34,8 +34,9 @@
     @if (Auth::user()->hasPermission('crud-lession'))
     <li><a {{ ( strpos(Route::currentRouteName(), 'lession') > -1) ? 'class=is-active' : '' }} href="{{ route('lession.index') }}">Lessions</a></li>
     @endif
-    <li class="navbar-divider" style="width:50%"></li>
+
     @if (Auth::user()->hasPermission('crud-category'))
+    <li class="navbar-divider" style="width:50%"></li>
     <li><a {{ ( strpos(Route::currentRouteName(), 'category') > -1) ? 'class=is-active' : '' }} href="{{ route('category.index') }}">Categories</a></li>
     @endif
     @if (Auth::user()->hasPermission('crud-tag'))
@@ -43,15 +44,13 @@
     @endif
     <li class="navbar-divider" style="width:50%"></li>
     <li><a {{ ( strpos(Route::currentRouteName(), 'testimonial') > -1) ? 'class=is-active' : '' }} href="{{ route('testimonial.index') }}">Testimonial</a></li>
-  @endif
-
-
 
     @if (Auth::user()->hasPermission('crud-media'))
     <li><a {{ ( strpos(Route::currentRouteName(), 'video') > -1) ? 'class=is-active' : '' }} href="{{ route('video.index') }}">Videos</a></li>
     <li><a {{ ( strpos(Route::currentRouteName(), 'photo') > -1) ? 'class=is-active' : '' }} href="{{ route('photo.index') }}">Image gallery</a></li>
     @endif
 
+  @endif
   </ul>
 
   @if (Auth::user()->hasRole(['admin', 'editor']))

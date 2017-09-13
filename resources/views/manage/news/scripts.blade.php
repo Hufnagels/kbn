@@ -4,7 +4,13 @@
 <script type="text/javascript" src="/assets/js/vendor/select2/select2.min.js"></script>
 <script type="text/javascript">
 $(function () {
-
+  function myCustomURLConverter(url, node, on_save, name) {
+    // Do some custom URL conversion
+    url = url.substring(3);
+console.log(url);
+    // Return new URL
+    return url;
+  };
   $('#title').on('blur', function() {
     var theTitle = this.value.toLowerCase().trim(),
         slugInput = $('#slug'),
@@ -24,6 +30,25 @@ $(function () {
     ],
     toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
     relative_urls: false,
+    remove_script_host: true,
+    urlconverter_callback : function(url, node, on_save, name) {
+      // Do some custom URL conversion
+      if(name == 'href'){
+        var type = url.match(/.(jpg|jpeg|png|gif)$/i);
+        var full = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
+  // console.log('Betöltés');
+  // console.log('full: ', full);
+  // console.log('host: ', window.location.hostname);
+  // console.log('url: ',url);
+  url = url.replace(full, '');
+  // console.log('Newurl: ',url);
+  // console.log('node:', node);
+  // console.log('name: ', name);
+      }
+
+      // Return new URL
+      return url;
+    },
     file_browser_callback : function(field_name, url, type, win) {
       var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
       var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;

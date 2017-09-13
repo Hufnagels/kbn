@@ -71,11 +71,12 @@
         <label class="label">{!! Form::label('image', 'News header image (shows in Facebook share)') !!}</label>
         <div class="control {{ $errors->has('image') ? 'is-danger' : ''}}">
           <figure>
-            <img id="holder" class="image is-250x170" src="{{ ($post->image_thumb_url) ? $post->image_thumb_url : 'http://placehold.it/250x170&text=No+image%20(250x170)'}}" alt="">
+            <img id="holder" class="image is-250x170" src="{{ ($post->image) ? $post->image : 'http://placehold.it/250x170&text=No+image%20(250x170)'}}" alt="">
           </figure>
           <div class="file m-t-20">
             <label class="file-label">
-              <input class="file-input" type="text" name="image"  id="thumbnail">
+              {!! Form::text('image', null, ['class' => 'file-input', 'id' => 'thumbnail']) !!}
+              <!-- <input class="file-input" type="text" name="image"  id="thumbnail"> -->
               <a id="lfm" data-input="thumbnail" data-preview="holder" class="">
                 <span class="file-cta">
                   <span class="file-icon"><i class="fa fa-upload"></i></span>

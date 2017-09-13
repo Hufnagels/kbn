@@ -105,6 +105,7 @@ class NewsController extends BackendController
       $tags = Tag::where('id', '<>', config('ownAttributes.default_tag.id'))->get();
       $post = News::findOrFail($id);
 // dd( $post->tags()->allRelatedIds() );
+// dd($post->image);
       return view('manage.news.edit', compact('post', 'tags'));//, ['users' => $users]);
     }
 

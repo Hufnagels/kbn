@@ -29,7 +29,7 @@
           <div class="column msrItem is-mobile ">
 
             <div class="card">
-              @if( $item->image_thumb_url != NULL)
+              @if( $item->image != NULL)
               <div class="card-image">
                 <figure class="image is-4by3"><img src="{{ $item->image_thumb_url }}" alt="{{$item->title}}"></figure>
               </div>

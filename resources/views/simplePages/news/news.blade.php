@@ -22,10 +22,10 @@
       <div class="column is-three-quarters">
 
         <div class="card">
-          @if ($item->imageUrl)
+          @if ($item->image)
             <div class="card-image">
               <figure class="image ">
-                <img src="{{ $item->imageUrl }}" alt="{{$item->title}}">
+                <img src="{{ asset($item->image) }}" alt="{{$item->title}}">
               </figure>
             </div>
           @endif
