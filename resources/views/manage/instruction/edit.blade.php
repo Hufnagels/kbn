@@ -1,7 +1,7 @@
 @extends('layouts.manage')
 @section('title',' - Edit Instruction Material')
 @section('styles')
-
+  <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet">
   <styles>
 
   </styles>

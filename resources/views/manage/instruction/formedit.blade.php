@@ -21,10 +21,14 @@
           </div>
 
           <div class="field">
-            <label class="label">{!! Form::label('slug', 'Slug') !!}</label>
-            <div class="control {{ $errors->has('slug') ? 'is-danger' : ''}}">{!! Form::text('slug', null, ['class' => 'input', 'disabled' => 'disabled']) !!}</div>
+            <label class="label">{!! Form::label('slug', 'Slug (SEO friendly url piece)') !!}</label>
+
             @if($errors->has('slug'))
+            <div class="control {{ $errors->has('slug') ? 'is-danger' : ''}}">{!! Form::text('slug', null, ['class' => 'input']) !!}</div>
             <p class="help is-danger">Slug must be set and must be unique</p>
+            @else
+            <p class="is-size-6 has-text-primary slugtext" style="min-height:24px;width:100%;">{{$instruction->slug}}</p>
+            <div class="control">{!! Form::hidden('slug', null, ['class' => 'input']) !!}</div>
             @endif
           </div>
 

@@ -12,7 +12,7 @@
     <div class="card">
       <div class="card-header notification is-primary">
         <div class="column">
-          <div class="title">Create new instruction material</div>
+          <div class="title">Create instruction material</div>
         </div>
       </div>
       <div class="card-content is-paddingless createnewspost">
@@ -21,7 +21,9 @@
                 'method' => 'POST',
                 'route' => 'instruction.store',
                 'files' => TRUE,
-                'id' => 'create-post-form'
+                'id' => 'create-post-form',
+                'enctype' => 'multipart/form-data'
+                
                 ])  !!}
 
                 @include('manage.instruction.formcreate')

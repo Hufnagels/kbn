@@ -21,7 +21,9 @@
                 'method' => 'POST',
                 'route' => 'lession.store',
                 'files' => TRUE,
-                'id' => 'create-post-form'
+                'id' => 'create-post-form',
+                'enctype' => 'multipart/form-data'
+                
                 ])  !!}
 
                 @include('manage.lession.formcreate')

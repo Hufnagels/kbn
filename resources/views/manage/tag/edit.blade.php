@@ -31,3 +31,5 @@
 </div>
 
 @endsection
+
+@include('manage.tag.scripts')

@@ -5,11 +5,14 @@
 <script type="text/javascript">
 $(function () {
 
-  $('#title').on('blur', function() {
+  $('#title').on('keyup', function() {
     var theTitle = this.value.toLowerCase().trim(),
         slugInput = $('#slug'),
         theSlug = slugize(theTitle);
         slugInput.val(theSlug);
+        if($('.slugtext')){
+          $('.slugtext').html(theSlug);
+        }
   });
 
   var editor_config = {
@@ -48,34 +51,6 @@ $(function () {
 
     tinymce.init(editor_config);
 
-/*
-  $.trumbowyg.svgPath = "{!! asset('/assets/js/ui/icons.svg') !!}";
-
-  //$('#excerpt').trumbowyg({resetCss: true});
-  $('#body').trumbowyg({
-    resetCss: true,
-    btnsDef: {
-    // Customizables dropdowns
-      image: {
-        dropdown: ['insertImage', 'upload', 'base64', 'noembed'],
-        ico: 'insertImage'
-      }
-    },
-    btns : [
-      ['viewHTML'],
-      ['formatting'],
-      'btnGrp-semantic',
-      ['superscript', 'subscript'],
-      ['link'],
-      ['image'],
-      'btnGrp-justify',
-      'btnGrp-lists',
-      ['removeformat'],
-      ['fullscreen']
-    ],
-    autogrow: true
-  });
-*/
   //$('.fileinput').fileinput();
 
   function readURL(input) {

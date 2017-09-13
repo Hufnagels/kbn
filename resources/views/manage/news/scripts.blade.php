@@ -11,11 +11,14 @@ console.log(url);
     // Return new URL
     return url;
   };
-  $('#title').on('blur', function() {
+  $('#title').on('keyup', function() {
     var theTitle = this.value.toLowerCase().trim(),
         slugInput = $('#slug'),
         theSlug = slugize(theTitle);
         slugInput.val(theSlug);
+        if($('.slugtext')){
+          $('.slugtext').html(theSlug);
+        }
   });
 
   var editor_config = {
