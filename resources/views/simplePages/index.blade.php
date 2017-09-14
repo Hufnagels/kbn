@@ -55,16 +55,16 @@
       <div class="hero has-text-right">
         <div class="hero-body">
           <div class="container">
-            <h1 class="title is-size-3 is-spaced has-text-kv is-uppercase wow bounceInDown" data-wow-duration="2s" data-wow-delay=".1s" style="visibility:hidden;">
+            <h1 class="title is-size-3 is-spaced has-text-kv is-uppercase wow bounceInDown" data-wow-duration="1s" data-wow-delay=".1s" style="visibility:hidden;">
               {{ __('indexPage.slogen1') }}
             </h1>
-            <h2 class="title is-size-3 is-spaced has-text-kv is-uppercase m-t-0 wow bounceInDown" data-wow-duration="5s" data-wow-delay=".1s" style="visibility:hidden;">
+            <h2 class="title is-size-3 is-spaced has-text-kv is-uppercase m-t-0 wow bounceInDown" data-wow-duration="2s" data-wow-delay=".1s" style="visibility:hidden;">
               {{ __('indexPage.slogen2') }}
             </h2>
-            <h2 class="title is-size-3 is-spaced has-text-kv is-uppercase m-t-0 wow bounceInDown" data-wow-duration="8s" data-wow-delay=".1s" style="visibility:hidden;">
+            <h2 class="title is-size-3 is-spaced has-text-kv is-uppercase m-t-0 wow bounceInDown" data-wow-duration="3s" data-wow-delay=".1s" style="visibility:hidden;">
               {{ __('indexPage.slogen3') }}
             </h2>
-            <p class="is-size-4 is-spaced has-text-white-bis has-text-weight-semibold m-t-50 wow bounceInDown" data-wow-duration="12s" data-wow-delay=".1s" style="visibility:hidden;">
+            <p class="is-size-4 is-spaced has-text-white-bis has-text-weight-semibold m-t-50 wow bounceInDown" data-wow-duration="5s" data-wow-delay=".1s" style="visibility:hidden;">
               {{ __('indexPage.text1') }}<br>
               {{ __('indexPage.text2') }}
             </p>
