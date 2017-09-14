@@ -17775,14 +17775,15 @@ INDEX PAGE
 
 .headersection .notification {
   padding: 0;
-  display: grid;
+  /*display: grid;*/
 }
 
 .headersection .card {
   background: transparent;
   -webkit-box-shadow: none;
   box-shadow: none;
-  display: grid;
+  /*display: grid;*/
+  min-height: 450px;
 }
 
 @media screen and (max-width: 768px) {
