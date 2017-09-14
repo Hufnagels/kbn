@@ -2,29 +2,29 @@
   <div class="navbar-brand">
     <button class="navbar-item" href="{{ route('home')}}">
       <img src="{{ asset('/images/logo_kv_004.png') }}" alt="" class="is-hidden-touch">
-      <img src="{{ asset('/images/logo_kv_003.png') }}" alt="" class="is-hidden-desktop">
+      <img src="{{ asset('/images/logo_kv_003.png') }}" alt="" class="is-hidden-desktop is-hidden-print">
     </button>
 
-    <a class="navbar-item is-hidden-desktop" href="https://www.facebook.com/kodvetok/" target="_blank">
+    <a class="navbar-item is-hidden-desktop is-hidden-print" href="https://www.facebook.com/kodvetok/" target="_blank">
       <span class="icon" style="color: #333;">
         <i class="fa fa-facebook"></i>
       </span>
     </a>
 
-    <a class="navbar-item is-hidden-desktop" href="https://plus.google.com/110795425669750457029" target="_blank">
+    <a class="navbar-item is-hidden-desktop is-hidden-print" href="https://plus.google.com/110795425669750457029" target="_blank">
       <span class="icon" style="color: #55acee;">
         <i class="fa fa-google-plus"></i>
       </span>
     </a>
 
-    <div class="navbar-burger burger" data-target="navMenu">
+    <div class="navbar-burger burger is-hidden-print" data-target="navMenu">
       <span></span>
       <span></span>
       <span></span>
     </div>
   </div>
 
-  <div id="navMenu" class="navbar-menu">
+  <div id="navMenu" class="navbar-menu is-hidden-print">
     <div class="navbar-start">
       <a class="navbar-item " href="{{ route('welcome') }}">Home</a>
       <div class="navbar-item has-dropdown is-hoverable">

@@ -25,41 +25,20 @@
       @else
         @include('simplePages.alert')
         <div class="columns is-multiline msrItems">
-          @foreach ($news as $item)
+          @foreach ($news as $post)
           <div class="column msrItem is-mobile ">
 
-            <div class="card">
-              @if( $item->image != NULL)
-              <div class="card-image">
-                <figure class="image is-4by3"><img src="{{ $item->image_thumb_url }}" alt="{{$item->title}}"></figure>
-              </div>
-              @endif
-              <div class="card-content">
-                <div class="content">
-                  <h3 class="subtitle"><a class="" href="{{ route('news.show', $item->slug)}}">{{$item->title}}</a></h3>
-                  <p>{{$item->excerpt}}</p>
-                  <p>
-                    <strong><a href="{{ route('news.author', $item->author->slug)}}">{{$item->author->name}}</a></strong> |
-                    <small>{{ '@'.str_slug($item->author->name,'') }}</small>
-                    <br>
-                    <small>{{$item->date}}</small>
-                    <br>
-                    {!! $item->category_html !!}
+            @include('manage.partials.newsBox')
 
-                    {!! $item->tags_html !!}
-                  </p>
-                </div>
-              </div>
-
-              @if (!Auth::guest())
-                @if (check_user_permissions(request(), "News@edit", $item->id))
+            @if (!Auth::guest())
+              @if (check_user_permissions(request(), "News@edit", $post->id))
+              <div class="card">
                 <footer class="card-footer">
-                  <p class="card-footer-item"><span><a href="{{ route('post.edit', $item->id)}}" title="Edit">Edit</a></span></p>
+                  <p class="card-footer-item"><span><a href="{{ route('post.edit', $post->id)}}" class="" title="Edit">Edit</a></span></p>
                 </footer>
-                @endif
+              </div>
               @endif
-
-            </div>
+            @endif
 
           </div>
           @endforeach

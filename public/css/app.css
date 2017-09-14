@@ -17738,21 +17738,75 @@ INDEX PAGE
   font-size: 3rem !important;
 }
 
+@media screen and (max-width: 1299px) {
+  .headersection .hero .title {
+    font-size: 5rem !important;
+  }
+
+  .headersection .hero .subtitle {
+    font-size: 2.5rem !important;
+  }
+
+  .headersection .hero p {
+    font-size: 1.5rem !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .headersection .hero .title {
+    font-size: 3.75rem !important;
+  }
+
+  .headersection .hero .subtitle {
+    font-size: 2rem !important;
+  }
+
+  .headersection .hero p {
+    font-size: 1.25rem !important;
+  }
+}
+
 .headersection .tile.information {
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
   position: relative;
   top: -100px;
 }
 
 .headersection .notification {
   padding: 0;
+  display: grid;
 }
 
 .headersection .card {
   background: transparent;
   -webkit-box-shadow: none;
   box-shadow: none;
+  display: grid;
+}
+
+@media screen and (max-width: 768px) {
+  .headersection .tile.information {
+    top: -170px;
+  }
+
+  .headersection .notification {
+    display: block;
+  }
+
+  .headersection .card {
+    display: block;
+  }
+}
+
+.headersection .card .card-image {
+  -ms-flex-item-align: start;
+      align-self: start;
+}
+
+.headersection .card .card-content {
+  -ms-flex-item-align: end;
+      align-self: end;
 }
 
 /*
@@ -18359,6 +18413,27 @@ body {
   width: 100%;
   overflow: hidden;
   padding: 3rem 1.5rem 4rem;
+}
+
+.is-hidden-nonprint {
+  display: none;
+  visibility: hidden;
+}
+
+@media print {
+  .is-hidden-print {
+    display: none;
+  }
+
+  .is-hidden-nonprint {
+    display: block;
+    visibility: visible;
+  }
+}
+
+i.fa.fa-print,
+.icon i.fa-print.mdi {
+  vertical-align: middle;
 }
 
 /**/

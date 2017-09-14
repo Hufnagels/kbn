@@ -86,13 +86,15 @@ class News extends Model
 
         //with lfm select
         $imagePath = public_path(). $this->image;
-        if (file_exists($this->image))
+        if (file_exists($imagePath))
         {
           // with old upload
           //$imageUrl = asset($imageDirectory.'/'. $this->image);
 
           //with lfm select
           $imageUrl = asset( $this->image);
+        } else {
+          $imageUrl = NULL;
         }
       } else {
         $imageUrl = NULL; //asset($imageDirectory.'/250x170.png');
@@ -110,28 +112,33 @@ class News extends Model
 
       if (!is_null($this->image))
       {
-
-        $ext = substr(strrchr($this->image, '.'), 1);
-        $thumbnail = str_replace(".{$ext}", "_thumb.{$ext}", $this->image);
-
         // with old upload
-        //$imagePath = public_path()."/".$imageDirectory."/" . $thumbnail;
+        // $ext = substr(strrchr($this->image, '.'), 1);
+        // $thumbnail = str_replace(".{$ext}", "_thumb.{$ext}", $this->image);
+        // $imageWithThumbUrl = public_path()."/".$imageDirectory."/" . $thumbnail;
 
-        //with lfm select
-        $imagePath = public_path() ."/"  . $this->image; //$thumbnail;
-        // . config('lfm.image.news.directorythumb_folder_name') ."/"
-        if (file_exists($imagePath))
+        $lfmThumbDir = config('lfm.thumb_folder_name'); //thumbs
+        $image = $this->image;                          // /fm/photos/shares/IndexGalery/IMG_20170726_153406.jpg'
+        $path_parts = pathinfo($image);
+        $dirname = $path_parts['dirname'];              // /fm/photos/shares/IndexGalery
+        $basename =  $path_parts['basename'];           // IMG_20170726_153406.jpg
+        $thumbImage = $dirname . '/' . $lfmThumbDir . '/' . $basename;
+        $imageWithThumbUrl = public_path() . $thumbImage;
+
+        if (file_exists($imageWithThumbUrl))
         {
           // with old upload
-          //$imageUrl = asset($imageDirectory.'/'. $thumbnail);
+          //$imageWithThumbUrl = asset($imageDirectory.'/'. $thumbnail);
 
           //with lfm select
-          $imageUrl = asset( $this->image);
+          $imageWithThumbUrl = asset( $thumbImage);
+        } else {
+          $imageWithThumbUrl = NULL;
         }
       } else {
-        $imageUrl = NULL; //asset($imageDirectory.'/250x170.png');
+        $imageWithThumbUrl = NULL; //asset($imageDirectory.'/250x170.png');
       }
-      return $imageUrl;
+      return $imageWithThumbUrl;
     }
 
     public function getDateAttribute($value)

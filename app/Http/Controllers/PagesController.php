@@ -21,7 +21,24 @@ use Input;
 class PagesController extends Controller
 {
     // protected $paginateLimit = 5;
+    public function download(Request $request)
+    {
+      $lfmFolder = "/" . config('lfm.files_folder_name') . "/" . config('lfm.shared_folder_name');
+      $sourceFile = $request->get('f');
+      $downloadPath = public_path() . $lfmFolder . $sourceFile;
 
+      if( $status = $request->get('f') )
+      {
+        if( file_exists($downloadPath))
+        {
+// dd($downloadPath);
+          return response()->download($downloadPath);
+        } else {
+          return back()->with('message','A keresett file nem található');
+        }
+      }
+      return back()->withInput();
+    }
 
     public function getIndex(){
 

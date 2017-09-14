@@ -24,7 +24,7 @@
       return sprintf('#%02X%02X%02X', $r, $g, $b);
 
   }
-  $colorArray = ['#f64c1e', '#008dd2', '#ffb100', '#f50808'];
+  $colorArray = ['#00d84c', '#008dd2', '#ffb100', '#f50808'];
   $index=0;
   ?>
 
@@ -37,27 +37,7 @@
   ?>
   <div class="tile is-parent ">
     <article class="tile is-child notification fadeInUp" data-wow-duration="2s" data-wow-delay="1s" style="background-color:{{ $colorArray[$index] }}">
-      <div class="card wow animated ">
-        <!-- -->
-        <div class="card-image"><figure class="image is-4by3"><img src="{{ $post->image_thumb_url }}" alt="{{$post->title}}"></figure></div>
-
-        <div class="card-content">
-
-          <div class="content">
-            <h3 class="subtitle"><a class="indexLatestPostsItem has-text-white-bis" href="{{ route('news.show', $post->slug)}}">{{$post->title}}</a></h3>
-            <p class="indexLatestPostsItem has-text-white-bis">
-              <strong><a href="{{ route('news.author', $post->author->slug)}}">{{$post->author->name}}</a></strong> |
-              <small>{{ '@'.str_slug($post->author->name,'') }}</small> |
-              <small>{{$post->date}}</small> |
-              {!! $post->category_html !!}
-              <br>
-              {!! $post->tags_html !!}
-            </p>
-            <!-- -->
-          </div>
-
-        </div>
-      </div>
+      @include('manage.partials.newsBox')
     </article>
   </div>
   <?php $index++; ?>
@@ -74,26 +54,7 @@
   ?>
   <div class="tile is-parent ">
     <article class="tile is-child notification fadeInUp" data-wow-duration="2s" data-wow-delay="1s" style="background-color:{{ $colorArray[$index] }}">
-      <div class="card wow animated ">
-        <!-- -->
-        <div class="card-image"><figure class="image is-4by3"><img src="{{ $post->image_thumb_url }}" alt="{{$post->title}}"></figure></div>
-
-        <div class="card-content">
-
-          <div class="content">
-            <h3 class="subtitle"><a class="indexLProjectCategoryItem has-text-white-bis" href="{{ route('news.show', $post->slug)}}">{{$post->title}}</a></h3>
-            <p class="indexLProjectCategoryItem has-text-white-bis">
-              <strong><a href="{{ route('news.author', $post->author->slug)}}">{{$post->author->name}}</a></strong> |
-              <small>{{ '@'.str_slug($post->author->name,'') }}</small> |
-              <small>{{$post->date}}</small> |
-              {!! $post->category_html !!}
-              <br>
-              {!! $post->tags_html !!}
-            </p>
-          </div>
-
-        </div>
-      </div>
+      @include('manage.partials.newsBox')
     </article>
   </div>
   <?php $index++; ?>

@@ -1,7 +1,7 @@
 
-<a href="#" id="top" class="button is-primary" ><i class="fa fa-angle-double-up"></i></a>
+<a href="#" id="top" class="button is-primary is-hidden-print" ><i class="fa fa-angle-double-up "></i></a>
 <footer class="footer m-t-0">
-  <div class="container">
+  <div class="container is-hidden-print">
     <div class="columns">
       <div class="column has-text-white-ter">
         <p class="is-size-3 is-uppercase is-paddingless is-marginless ">Kódvetők</p>
@@ -39,6 +39,11 @@
 
 
       </div>
+    </div>
+    <div class="container has-text-centered has-text-white-ter is-hidden-nonprint">
+      <p class="is-size-5 is-uppercase is-paddingless m-b-10 ">Kapcsolat</p>
+      <p class="is-size-7 is-paddingless m-t-5 m-b-5">Email : kodvetok@gmail.com </p>
+      <p class="is-size-7 is-paddingless m-t-5 m-b-5"><i class="fa fa-facebook"></i> https://www.facebook.com/kodvetok/</p>
     </div>
     <div class="container is-black">
       <div class="content has-text-centered has-text-grey-lighter">

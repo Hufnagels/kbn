@@ -22,10 +22,10 @@
       <div class="column is-three-quarters">
 
         <div class="card">
-          @if ($item->image)
+          @if ($item->image_url != NULL)
             <div class="card-image">
               <figure class="image ">
-                <img src="{{ asset($item->image) }}" alt="{{$item->title}}">
+                <img src="{{ $item->image_url }}" alt="{{$item->title}}">
               </figure>
             </div>
           @endif
@@ -37,7 +37,8 @@
                     <strong><a href="{{ route('news.author', $item->author->slug)}}">{{$item->author->name}}</a></strong> |
                     <small>{{ '@'.str_slug($item->author->name,'') }}</small> |
                     <?php $postCount = $item->author->news->count(); ?>
-                    <small class="icon is-small postcount"><i class="fa fa-clone"></i>{{$postCount}} {{str_plural('post', $postCount)}}</small>
+                    <small class="icon is-small postcount"><i class="fa fa-clone"></i>{{$postCount}} {{str_plural('post', $postCount)}}</small> |
+                    <a href="" onclick="window.print()"><i class="fa fa-print"></i></a>
                     <br>
                     <small>{{$item->date}}</small>
                     <br>
@@ -61,7 +62,7 @@
         </div>
 
         @if (!Auth::guest())
-          @if (check_user_permissions(request(), "ManageNews@edit", $item->id))
+          @if (check_user_permissions(request(), "News@edit", $item->id))
             <footer class="card-footer">
               <p class="card-footer-item"><span><a href="{{ route('post.edit', $item->id)}}" title="Edit">Edit</a></span></p>
             </footer>
@@ -69,7 +70,7 @@
         @endif
       </div><!-- end of left column -->
 
-      <div class="column news-sidebar">
+      <div class="column news-sidebar is-hidden-print">
 
         @include('simplePages.sidebar')
 

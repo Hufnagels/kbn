@@ -16,6 +16,23 @@ body {
     overflow:hidden;
     padding: 3rem 1.5rem 4rem;
 }
+.is-hidden-nonprint{
+    display: none;
+    visibility:hidden;
+ }
+@media print {
+   .is-hidden-print {
+       display: none;
+    }
+    .is-hidden-nonprint{
+        display: block;
+        visibility:visible;
+     }
+
+}
+i.fa.fa-print {
+  vertical-align:middle;
+}
 /**/
 /*
 BULMA NAVBAR nav, nav img, dropdown, button

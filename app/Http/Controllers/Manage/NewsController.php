@@ -168,6 +168,7 @@ class NewsController extends BackendController
     * FUNCTION SECTION
     */
 
+    // With single fileupload without LFM
     public function handelRequest($request)
     {
         $data = $request->all();

@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/download', 'PagesController@download')->name('download');
 Route::get('/contact', 'PagesController@getcontact')->name('contact');
 Route::post('/contact', 'PagesController@postContact')->name('contact');
 Route::get('/about', 'PagesController@getAbout')->name('about');

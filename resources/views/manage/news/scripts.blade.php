@@ -36,20 +36,17 @@ console.log(url);
     remove_script_host: true,
     urlconverter_callback : function(url, node, on_save, name) {
       // Do some custom URL conversion
-      if(name == 'href'){
-        var type = url.match(/.(jpg|jpeg|png|gif)$/i);
+      // var type = url.match(/.(jpg|jpeg|png|gif)$/i);
+console.log('Url: ', url);
+      if((name == 'href') && (url.indexOf('download?f=') == -1))
+      {
+        var filesFolder = "/" + "{{ config('lfm.files_folder_name')}}" + "/" + "{{ config('lfm.shared_folder_name')}}";
         var full = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
-  // console.log('Betöltés');
-  // console.log('full: ', full);
-  // console.log('host: ', window.location.hostname);
-  // console.log('url: ',url);
-  url = url.replace(full, '');
-  // console.log('Newurl: ',url);
-  // console.log('node:', node);
-  // console.log('name: ', name);
+        url = url.replace(full, '').replace(filesFolder, '');
+        url = "/download?f="+url;
+console.log('Newurl: ',url);
+        return url;
       }
-
-      // Return new URL
       return url;
     },
     file_browser_callback : function(field_name, url, type, win) {
