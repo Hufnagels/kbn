@@ -53,7 +53,7 @@
     <div class="parallax-window" data-parallax="scroll" data-image-src="{{ asset('/images/header/headerimage_copy1.jpg') }}">
 
       <div class="hero has-text-right">
-        <div class="hero-body m-t-20">
+        <div class="hero-body">
           <div class="container">
             <h1 class="title is-size-3 is-spaced has-text-kv is-uppercase wow bounceInDown" data-wow-duration="2s" data-wow-delay=".1s" style="visibility:hidden;">
               {{ __('indexPage.slogen1') }}

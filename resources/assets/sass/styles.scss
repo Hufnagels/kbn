@@ -82,6 +82,10 @@ INDEX PAGE
   background-color: rgba(105, 71, 71, 0.4);
 
 }
+.headersection .hero .hero-body{
+  margin-top:11rem;
+}
+
 .headersection .hero .title,
 .headersection .hero .subtitle {
   font-family: 'ImpactRegular';
@@ -89,12 +93,17 @@ INDEX PAGE
 }
 .headersection .hero .title {
   font-size: 6rem !important;
-  color: #e82525;
+  color: #a0ff27;
   /*#ffdbc0*/
 }
 .headersection .hero .subtitle {
   font-size: 3rem !important;
+  color: #a0ff27;
 }
+.headersection .hero p {
+  font-weight: 800;
+}
+
 @media screen and (max-width: 1299px) {
   .headersection .hero .title {
     font-size: 5rem !important;
