@@ -3,6 +3,8 @@
 /public/storage
 /storage/*.key
 /vendor
+!vendor/unisharp/laravel-filemanager/src/controllers
+!vendor/unisharp/laravel-filemanager/src/Events
 /.idea
 /.vagrant
 /public/fm/*
