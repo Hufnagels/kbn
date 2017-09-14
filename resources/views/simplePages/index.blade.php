@@ -50,7 +50,7 @@
 
   <section class="headersection" id="headersection">
 
-    <div class="parallax-window" data-parallax="scroll" data-image-src="{{ asset('/images/header/headerimage.jpg') }}">
+    <div class="parallax-window" data-parallax="scroll" data-image-src="{{ asset('/images/header/headerimage_copy.jpg') }}">
 
       <div class="hero has-text-right">
         <div class="hero-body m-t-20">
