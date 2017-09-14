@@ -17713,6 +17713,11 @@ INDEX PAGE
   margin-bottom: 0;
 }
 
+.has-text-kv {
+  color: #a0ff27 !important;
+  margin-bottom: 0 !important;
+}
+
 .headersection {
   min-height: 700px;
 }
