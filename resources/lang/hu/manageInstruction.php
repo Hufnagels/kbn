@@ -4,21 +4,20 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | MANGE NEW LIST, INSTRUCTION LIST, LESSION LIST PAGE Language Lines
+    | MANGE INSTRUCTION LIST PAGE Language Lines
     |--------------------------------------------------------------------------
     |
     */
-    'news' => 'Hír',
-    'manage' => 'Hírek kezelése',
-    'create' => 'Új hír',
-    'edit' => 'Hír szerkesztése',
+    // 'instruction' => 'Tanári anyagok', -> navbar instruction
+    'manage' => 'Tanári anyagok kezelése',
+    'create' => 'Új Tanári anyag',
+    'edit' => 'Tanári anyag szerkesztése',
     'own'  => 'Saját',
     'all' => 'Összes',
     'draft' => 'Piszkozat',
     'scheduled' => 'Jövőbeni',
     'published' => 'Publikált',
     'trash' => 'Kuka',
-    'noNews' => 'Ebben nincs elem',
-    'popularNews' => 'Legtöbbet olvasott hírek'
+    'noInstruction' => 'Ebben nincs elem',
 
 ];

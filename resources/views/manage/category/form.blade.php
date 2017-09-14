@@ -5,19 +5,19 @@
         <article class="tile is-child notification">
 
           <div class="field">
-            <label class="label">{!! Form::label('title', 'Title') !!}</label>
+            <label class="label">{!! Form::label('title',  __('forms.title') ) !!}</label>
             <div class="control {{ $errors->has('title') ? 'is-danger' : ''}}">{!! Form::text('title', null, ['class' => 'input']) !!}</div>
             @if($errors->has('title'))
-            <p class="help is-danger">Title is invalid</p>
+            <p class="help is-danger">{{ __('forms.errors.title') }}</p>
             @endif
           </div>
 
           <div class="field">
-            <label class="label">{!! Form::label('slug', 'Slug (SEO friendly url piece)') !!}</label>
+            <label class="label">{!! Form::label('slug',  __('forms.slug')  ) !!}</label>
 
             @if($errors->has('slug'))
             <div class="control {{ $errors->has('slug') ? 'is-danger' : ''}}">{!! Form::text('slug', null, ['class' => 'input']) !!}</div>
-            <p class="help is-danger">Slug must be set and must be unique</p>
+            <p class="help is-danger">{{ __('forms.errors.slug') }}</p>
             @else
             <p class="is-size-6 has-text-primary slugtext" style="min-height:24px;width:100%;">
               @if($category->slug)
@@ -29,8 +29,8 @@
           </div>
 
           <div class="control">
-            <button type="submit" class="button is-primary">{{ $category->id ? 'Update' : 'Store'}}</button>
-            <a href="{{ route('category.index') }}" class="button">Cancel</a>
+            <button type="submit" class="button is-primary">{{ $category->id ? __('forms.button.update') : __('forms.button.publish') }}</button>
+            <a href="{{ route('category.index') }}" class="button">{{ __('forms.button.cancel') }}</a>
           </div>
 
 
@@ -40,15 +40,15 @@
     @if( $category->id )
     <div class="tile">
       <article class="tile is-child notification">
-        <p class="subtitle">News in this category</p>
+        <p class="subtitle">{{ __('manageCategory.newsInCategory') }}</p>
       @if( $category->news )
         <table class="table is-narrow">
           <thead>
             <tr>
               <th width="100"><abbr title="Image"></abbr></th>
-              <th width="70%"><abbr title="Title">Title</abbr></th>
-              <th><abbr title="Author">Author</abbr></th>
-              <th><abbr title="Action">Action</abbr></th>
+              <th width="70%"><abbr title="{{ __('forms.title') }}">{{ __('forms.title') }}</abbr></th>
+              <th><abbr title="{{ __('forms.author') }}">{{ __('forms.author') }}</abbr></th>
+              <th><abbr title="{{ __('forms.action') }}">{{ __('forms.action') }}</abbr></th>
             </tr>
           </thead>
 

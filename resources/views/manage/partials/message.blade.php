@@ -12,7 +12,7 @@
     'method' => 'PUT',
     'route' => ['post.restore', $postId], 'style' => 'display:-webkit-inline-box; margin-top:0;line-height:1.8rem;'
     ]) !!}
-  <button class="button is-outlined is-small"> Undo delete</button>
+  <button class="button is-outlined is-small">{{ __('forms.restore') }}</button>
   {!! Form::close() !!}
 </div>
 @endif

@@ -11,7 +11,7 @@
         </div>
         <div class="card-content p-t-0">
 
-          <p class="has-text-right m-b-10">{{ $newsCount}} News {{str_plural('Item',$newsCount)}}</p>
+          <p class="has-text-right m-b-10">{{ $newsCount}} {{ __('manageNews.news') }} {{str_plural('Item',$newsCount)}}</p>
           <div class="tabs is-small is-right">
             <ul>
               <li {{ (app('request')->input('status') == 'own' ? 'class=is-active' : '') }}><a href="?status=own">{{ __('manageNews.own') }}</a></li>

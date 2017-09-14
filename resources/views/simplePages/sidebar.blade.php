@@ -10,7 +10,7 @@
 </nav>
 
 <nav class="panel is-rounded-border-5">
-  <div class="panel-heading is-danger">Categories</div>
+  <div class="panel-heading is-danger">{{ __('navbar.manage.category') }}</div>
 
   @foreach($categories as $category)
     @if($category->news->count() )
@@ -24,7 +24,7 @@
 </nav>
 
 <nav class="panel  is-rounded-border-5">
-  <div class="panel-heading is-info">Popular news</div>
+  <div class="panel-heading is-info">{{ __('manageNews.popularNews') }}</div>
 
   @foreach ($popularposts as $post)
   <a class="panel-block" href="{{ route('news.show', $post->slug)}}">
@@ -40,7 +40,7 @@
 </nav>
 
 <nav class="panel  is-rounded-border-5">
-  <div class="panel-heading is-dark">Tags</div>
+  <div class="panel-heading is-dark">{{ __('navbar.manage.tag') }}</div>
   <div class="panel-block">
     <div class="field is-grouped is-grouped-multiline">
       @foreach($tags as $tag)

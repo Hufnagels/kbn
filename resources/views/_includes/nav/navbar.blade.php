@@ -33,10 +33,7 @@
           @foreach ($popularposts as $post)
             <a class="navbar-item" href="{{ route('news.show', $post->slug)}}">
               <div class="navbar-content">
-                <p>
-                  <small class="has-text-info">{{$post->date}}</small> |
-                  <small class="has-text-info">{{$post->author->name}}</small>
-                </p>
+                <p><small class="has-text-info">{{$post->date}}</small></p>
                 <p>{{$post->title}}</p>
               </div>
             </a>

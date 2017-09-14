@@ -9,6 +9,7 @@ return [
     |
     */
 
+    // CREATE, EDIT
     'title' => 'Cím',
     'subtitle' => 'Alcím',
     'slug' => 'Keresőknek cím',
@@ -36,4 +37,10 @@ return [
     'selectTag' => 'Válasszon címkét',
     'selectImage' => 'Válasszon képet',
 
+    // TABLE-ALL, TABLE-TRASH
+    'author' =>  'Szerző',
+    'created' => 'Készült',
+    'publishedState' => 'Státusz',
+    'action' => 'Műveletek',
+    'restore' => 'Helyreállít',
 ];

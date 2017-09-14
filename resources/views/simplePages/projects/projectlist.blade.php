@@ -10,8 +10,8 @@
 <section id="newsList" class="hero is-primary">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title has-text-centered">Projektek</h1>
-      <h2 class="subtitle has-text-centered">A műhelyben készült alkotások</h2>
+      <h1 class="title has-text-centered">{{ __('simplePages.projectSlogen1') }}</h1>
+      <h2 class="subtitle has-text-centered">{{ __('simplePages.projectSlogen2') }}</h2>
     </div>
   </div>
 </section>
@@ -20,7 +20,7 @@
   <div class="columns">
     <div class="column is-three-quarters">
       @if(!$news->count() )
-      <div class="notification is-warning subtitle"><strong>Nothing found</strong></div>
+      <div class="notification is-warning subtitle"><strong>{{ __('messages.noContent') }}</strong></div>
       @else
         @include('simplePages.alert')
         <div class="columns is-multiline msrItems">
@@ -55,13 +55,13 @@
             </div>
 
             @if (!Auth::guest())
-              @if (check_user_permissions(request(), "ManageNews@edit", $item->id))
+              @if (check_user_permissions(request(), "News@edit", $item->id))
               <footer class="card-footer">
-                <p class="card-footer-item"><span><a href="{{ route('post.edit', $item->id)}}" title="Edit">Edit</a></span></p>
+                <p class="card-footer-item"><span><a href="{{ route('post.edit', $item->id)}}" title="Edit">{{ __('manageNews.edit') }}</a></span></p>
               </footer>
               @endif
             @endif
-            
+
           </div>
 
         </div>

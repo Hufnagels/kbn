@@ -10,12 +10,8 @@
 <section id="Contact" class="hero is-warning m-b-30">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title has-text-centered">
-        Kapcsolat
-      </h1>
-      <h2 class="subtitle has-text-centered">
-        Kérdezz, válaszolunk!
-      </h2>
+      <h1 class="title has-text-centered">{{ __('simplePages.contactSlogen1') }}</h1>
+      <h2 class="subtitle has-text-centered">{{ __('simplePages.contactSlogen2') }}</h2>
     </div>
   </div>
 </section>
@@ -30,9 +26,7 @@
 
 						<div class="card is-radiusless is-shadowless">
 							<header class="card-header">
-								<p class="card-header-title has-text-centered">
-									Küldj üzenetet
-								</p>
+								<p class="card-header-title has-text-centered">{{ __('simplePages.contactForm.header') }}</p>
 							</header>
 							<div class="card-content">
 								<div class="content">
@@ -45,7 +39,7 @@
 											<div class="columns">
 												<div class="column">
 													<div class="field">
-														<label class="label">Név</label>
+														<label class="label">{{ __('simplePages.contactForm.from') }}</label>
 														<div class="control has-icons-left has-icons-right">
 															<input class="input {{ $errors->has('name') ? ' is-danger' : '' }}" id="name" type="text" name="name" value="{{ old('name') }}" required autofocus>
 															<span class="icon is-small is-left"><i class="fa fa-user"></i></span>
@@ -54,7 +48,7 @@
 												</div>
 												<div class="column">
 													<div class="field">
-														<label class="label">E-Mail</label>
+														<label class="label">{{ __('simplePages.contactForm.email') }}</label>
 														<div class="control has-icons-left has-icons-right">
 															<input class="input {{ $errors->has('email') ? ' is-danger' : '' }}" id="email" type="email" name="email" value="{{ old('email') }}" required>
 															<span class="icon is-small is-left"><i class="fa fa-envelope"></i></span>
@@ -69,7 +63,7 @@
 												</div>
 												<div class="column">
 													<div class="field">
-														<label class="label">Phone</label>
+														<label class="label">{{ __('simplePages.contactForm.phone') }}</label>
 														<div class="control has-icons-left has-icons-right">
 															<input class="input" id="phone" type="number" name="phone" value="{{ old('phone') }}" placeholder="06301234567">
 															<span class="icon is-small is-left"><i class="fa fa-phone"></i></span>
@@ -80,7 +74,7 @@
 											<div class="columns">
 												<div class="column">
 													<div class="field">
-														<label class="label">Message</label>
+														<label class="label">{{ __('simplePages.contactForm.message') }}</label>
 														<div class="control">
 															<textarea class="textarea {{ $errors->has('message') ? ' is-danger' : '' }}" id="message" type="text" name="message" placeholder="" rows="5" cols="150">{{ old('message') }}</textarea>
 														</div>
@@ -89,7 +83,7 @@
 											</div>
 											<div class="field">
 												<div class="control">
-													<button class="button is-primary">Send message</button>
+													<button class="button is-primary">{{ __('simplePages.contactForm.buttonSend') }}</button>
 												</div>
 											</div>
 

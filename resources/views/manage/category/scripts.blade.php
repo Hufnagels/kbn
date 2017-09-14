@@ -1,8 +1,5 @@
 @section('scripts')
-<!-- include summernote css/js-->
-    <script type="text/javascript">
-        //$('ul.pagination').addClass('no-margin pagination-sm');
-
+<script type="text/javascript">
         $('#title').on('keyup', function() {
           var theTitle = this.value.toLowerCase().trim(),
               slugInput = $('#slug'),
@@ -12,6 +9,5 @@
                 $('.slugtext').html(theSlug);
               }
         });
-
-    </script>
+</script>
 @endsection

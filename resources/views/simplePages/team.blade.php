@@ -10,12 +10,8 @@
 <section id="ourTeam" class="hero is-warning">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title has-text-centered">
-        A csapat
-      </h1>
-      <h2 class="subtitle has-text-centered">
-        Kik vagyunk mi?
-      </h2>
+      <h1 class="title has-text-centered">{{ __('simplePages.teamSlogen1') }}</h1>
+      <h2 class="subtitle has-text-centered">{{ __('simplePages.teamSlogen2') }}</h2>
     </div>
   </div>
 </section>

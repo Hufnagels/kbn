@@ -31,7 +31,7 @@
     @if (Auth::user()->hasPermission('crud-news'))
     <li><a {{ ( strpos(Route::currentRouteName(), 'post') > -1) ? 'class=is-active' : '' }} href="{{ route('post.index') }}">{{ __('navbar.news') }}</a></li>
     @endif
-    @if (Auth::user()->hasPermission('crud-event'))
+    @if (Auth::user()->hasPermission('crud-events'))
     <li><a {{ ( strpos(Route::currentRouteName(), 'event') > -1) ? 'class=is-active' : '' }} href="{{ route('event.index') }}">{{ __('navbar.events') }}</a></li>
     @endif
     @if (Auth::user()->hasPermission('crud-instruction'))

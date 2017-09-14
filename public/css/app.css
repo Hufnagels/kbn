@@ -17724,7 +17724,7 @@ INDEX PAGE
 
 .headersection .parallax-window {
   min-height: 900px;
-  background-color: rgba(105, 71, 71, 0.4);
+  /*background-color: rgba(105, 71, 71, 0.4);*/
 }
 
 .headersection .hero .hero-body {
