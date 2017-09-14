@@ -57,6 +57,24 @@ window.slugize = function slugize(text){
     text = text.replace(/[Íí]/g,"i");
     text = text.replace(/[ÓóÖöŐő]/g,"o");
     text = text.replace(/[ÚúŰűÜü]/g,"u");
+ // text = text.replace(/[áàâãªä]/g,'a');
+ // text = text.replace(/[ÁÀÂÃÄ]/g,'A');
+ // text = text.replace(/[ÍÌÎÏ]/g,'I');
+ // text = text.replace(/[íìîï]/g,'i');
+ // text = text.replace(/[éèêë]/g,'e');
+ // text = text.replace(/[ÉÈÊË]/g,'E');
+ // text = text.replace(/[óòôõºö]/g,'o');
+ // text = text.replace(/[ÓÒÔÕÖ]/g,'O');
+ // text = text.replace(/[úùûü]/g,'u');
+ // text = text.replace(/[ÚÙÛÜ]/g,'U');
+ // text = text.replace(/ç/,'c');
+ // text = text.replace(/Ç/,'C');
+ // text = text.replace(/ñ/,'n');
+ // text = text.replace(/Ñ/,'N');
+ // text = text.replace(/–/,'-'); // UTF-8 hyphen to "normal" hyphen
+ // text = text.replace(/[’‘‹›‚]/g,' '); // Literally a single quote
+ // text = text.replace(/[“”«»„]/g,' '); // Double quote
+ // text = text.replace(/ /,' ');
     return text.replace(/&/g, '-and-').replace(/[^A-Za-z0-9-]+/g, '-').replace(/\-\-+/g, '-').replace(/^-+|-+$/g, '');
   }
 
