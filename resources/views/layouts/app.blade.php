@@ -33,11 +33,9 @@
           <div class="media-content">
             <div class="content">
               <p>
-                <strong>Sajnáljuk</strong>
-                <br>
-                A keresett file nem található
-                <br>
-                <small>Jelentés elment a hibáról, hamarosan javítjuk</small>
+                <strong>{{ __('app.sorry') }}</strong><br>
+                {{ __('app.fileNotFound') }}<br>
+                <small>{{ __('app.reportEmail') }}</small>
               </p>
             </div>
 

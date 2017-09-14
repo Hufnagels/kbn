@@ -18,7 +18,7 @@
             <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}
                 <div class="field">
-                  <label class="label">E-Mail Address</label>
+                  <label class="label">{{ __('auth.email') }}</label>
                   <div class="control has-icons-left has-icons-right">
                     <input class="input {{ $errors->has('email') ? ' is-danger' : '' }}" id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
                     <span class="icon is-small is-left"><i class="fa fa-envelope"></i></span>
@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="field">
-                  <label class="label">Password</label>
+                  <label class="label">{{ __('auth.password') }}</label>
                   <div class="control has-icons-left has-icons-right">
                     <input class="input {{ $errors->has('password') ? ' is-danger' : '' }}" id="password" type="password" name="password" required>
                     <span class="icon is-small is-left"><i class="fa fa-key"></i></span>
@@ -48,14 +48,14 @@
                 <div class="field">
                   <div class="control">
                     <label class="checkbox">
-                      <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                      <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('auth.remember') }}
                     </label>
                   </div>
                 </div>
 
                 <div class="field">
                   <div class="control">
-                    <button class="button is-primary">Login</button>
+                    <button class="button is-primary">{{ __('auth.login') }}</button>
                   </div>
                 </div>
 
@@ -64,14 +64,14 @@
         </div>
       </div>
 
-      <div class="content m-t-20">
+      <div class="content m-t-20  is-hidden">
         <div class="has-text-centered">
           <a class="button is-primary is-outlined" href="{{ route('password.request') }}" style="margin-left:0;">Forgot Your Password?</a>
         </div>
       </div>
       <div class="content m-t-20">
         <div class="has-text-centered">
-          <a class="button is-primary is-outlined" href="/" style="margin-left:0;">Back to welcome page</a>
+          <a class="button is-primary is-outlined" href="/" style="margin-left:0;">{{ __('auth.back') }}</a>
         </div>
     </div>
     </div>

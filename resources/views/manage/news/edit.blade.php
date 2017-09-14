@@ -1,5 +1,5 @@
 @extends('layouts.manage')
-@section('title',' - Edit News post')
+@section('title',' - ' .  __('manageNews.create'))
 @section('styles')
 
   <styles>
@@ -12,7 +12,7 @@
     <div class="card">
       <div class="card-header notification is-primary">
         <div class="column">
-          <div class="title">Edit news post</div>
+          <div class="title">{{ __('manageNews.edit') }}</div>
         </div>
       </div>
       <div class="card-content is-paddingless createnewspost">

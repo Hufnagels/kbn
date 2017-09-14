@@ -1,7 +1,7 @@
 <div class="hero-body">
   <div class="container">
-    <h1 class="title has-text-centered has-text-white-bis  zoomIn" data-wow-duration="3s" data-wow-delay=".5s" >Rólunk mondták</h1>
-    <h2 class="subtitle has-text-centered has-text-white-bis  zoomIn" data-wow-duration="3s" data-wow-delay=".5s">Milyenek vagyunk mi?</h2>
+    <h1 class="title has-text-centered has-text-white-bis  zoomIn" data-wow-duration="3s" data-wow-delay=".5s" >{{ __('indexPage.testimonial') }}</h1>
+    <h2 class="subtitle has-text-centered has-text-white-bis  zoomIn" data-wow-duration="3s" data-wow-delay=".5s">{{ __('indexPage.testimonialSub') }}</h2>
   </div>
 </div>
 

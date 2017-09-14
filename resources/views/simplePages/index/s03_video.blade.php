@@ -1,7 +1,7 @@
 <div class="hero-body">
-  <div class="container" style="margin-left: -10%;">
-    <h1 class="title has-text-centered has-text-white-bis wow zoomIn" data-wow-duration="5s" data-wow-delay="1s" >Kedvenc videónk</h1>
-    <h2 class="subtitle has-text-centered has-text-white-bis wow zoomIn" data-wow-duration="5s" data-wow-delay="1s">Nálunk készült!</h2>
+  <div class="container">
+    <h1 class="title has-text-centered has-text-white-bis wow zoomIn" data-wow-duration="5s" data-wow-delay="1s" >{{ __('indexPage.ourFavVideos') }}</h1>
+    <h2 class="subtitle has-text-centered has-text-white-bis wow zoomIn" data-wow-duration="5s" data-wow-delay="1s">{{ __('indexPage.ourFavVideosSub') }}</h2>
   </div>
 </div>
 <div class="columns is-mobile p-b-10">

@@ -26,9 +26,9 @@
 
   <div id="navMenu" class="navbar-menu is-hidden-print">
     <div class="navbar-start">
-      <a class="navbar-item " href="{{ route('welcome') }}">Home</a>
+      <a class="navbar-item " href="{{ route('welcome') }}">{{ __('navbar.home') }}</a>
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link " href="{{ route('newses') }}">Hírek</a>
+        <a class="navbar-link " href="{{ route('newses') }}">{{ __('navbar.news') }}</a>
         <div id="blogDropdown" class="navbar-dropdown " data-style="width: 18rem;">
           @foreach ($popularposts as $post)
             <a class="navbar-item" href="{{ route('news.show', $post->slug)}}">
@@ -42,19 +42,18 @@
             </a>
           @endforeach
           <hr class="navbar-divider">
-          <a class="navbar-item " href="{{ route('newses') }}">Még több hír</a>
+          <a class="navbar-item " href="{{ route('newses') }}">{{ __('navbar.morenews') }}</a>
         </div>
       </div>
-      <a class="navbar-item" href="{{ route('projects') }}">Projektek</a>
-      <a class="navbar-item " href="{{ route('team') }}">Csapat</a>
-      <a class="navbar-item " href="{{ route('about') }}">Mit csinálunk</a>
-      <a class="navbar-item " href="{{ route('contact') }}">Kapcsolat</a>
-      <!--<a class="navbar-item " href="{{ route('newses') }}">News</a>-->
+      <a class="navbar-item" href="{{ route('projects') }}">{{ __('navbar.projects') }}</a>
+      <a class="navbar-item " href="{{ route('team') }}">{{ __('navbar.team') }}</a>
+      <a class="navbar-item " href="{{ route('about') }}">{{ __('navbar.about') }}</a>
+      <a class="navbar-item " href="{{ route('contact') }}">{{ __('navbar.contact') }}</a>
     </div>
 
     <div class="navbar-end">
       @if (Auth::guest())
-      <a class="navbar-item" href="{{ route('login') }}">SignIn</a>
+      <a class="navbar-item" href="{{ route('login') }}">{{ __('auth.login') }}</a>
 
       @else
       <div class="navbar-item has-dropdown is-hoverable">
@@ -74,15 +73,15 @@
             </div>
           </div>
           @endif
-          <a class="navbar-item" href="{{ route('manage.dashboard')}}">Administration</a>
+          <a class="navbar-item" href="{{ route('manage.dashboard')}}">{{ __('navbar.administration') }}</a>
           @if (check_user_permissions(request(), "Users@index"))
 
           @endif
           @if (Auth::user()->hasPermission('edit-profile'))
-          <a class="navbar-item" href="{{ route('manage.account-edit')}}">Profile</a>
+          <a class="navbar-item" href="{{ route('manage.account-edit')}}">{{ __('navbar.profile') }}</a>
           @endif
           <hr class="navbar-divider">
-          <a class="navbar-item" href="{{ route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+          <a class="navbar-item" href="{{ route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('auth.logout') }}</a>
           @include('_includes.forms.logout')
         </div>
       </div>

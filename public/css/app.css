@@ -17965,7 +17965,6 @@ $link-color: $accent;
 .testimonial > .hero-body {
   background-color: #3273dc;
   /*#ab1110;*/
-  margin-right: 10%;
   margin-bottom: 20px;
 }
 
@@ -18047,7 +18046,6 @@ section#videosection {
 
 section#videosection > .hero-body {
   background-color: #48942f;
-  margin-left: 10%;
   margin-bottom: 20px;
 }
 
@@ -18088,7 +18086,6 @@ section#videosection > .hero-body {
 
 .photos > .hero-body {
   background-color: #ab1110;
-  margin-right: 10%;
   margin-bottom: 20px;
 }
 

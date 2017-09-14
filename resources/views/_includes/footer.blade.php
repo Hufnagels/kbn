@@ -16,23 +16,23 @@
       <div class="column  has-text-white-ter">
         <p class="is-size-5 is-uppercase is-paddingless is-marginless footer-header">Linkek</p>
         <ul class="footer-navbar-list m-t-10">
-          <li><a class="navbar-item " href="{{ route('welcome') }}">Home</a></li>
-          <li><a class="navbar-item " href="{{ route('newses') }}">Hírek</a></li>
-          <li><a class="navbar-item" href="{{ route('projects') }}">Projektek</a></li>
-          <li><a class="navbar-item " href="{{ route('team') }}">Csapat</a></li>
-          <li><a class="navbar-item " href="{{ route('about') }}">Mit csinálunk</a></li>
+          <li><a class="navbar-item " href="{{ route('welcome') }}">{{ __('navbar.home') }}</a></li>
+          <li><a class="navbar-item " href="{{ route('newses') }}">{{ __('navbar.news') }}</a></li>
+          <li><a class="navbar-item" href="{{ route('projects') }}">{{ __('navbar.projects') }}</a></li>
+          <li><a class="navbar-item " href="{{ route('team') }}">{{ __('navbar.team') }}</a></li>
+          <li><a class="navbar-item " href="{{ route('about') }}">{{ __('navbar.about') }}</a></li>
         </ul>
 
       </div>
 
       <div class="column  has-text-white-ter">
-        <p class="is-size-5 is-uppercase is-paddingless  m-b-10 footer-header">Kövessen</p>
-        <p class="is-size-7 is-paddingless m-b-10">Kövessen minket a Facebookon</p>
+        <p class="is-size-5 is-uppercase is-paddingless  m-b-10 footer-header">{{ __('navbar.follow') }}</p>
+        <p class="is-size-7 is-paddingless m-b-10">{{ __('navbar.followOnFacebook') }}</p>
         <p  class="is-size-7 is-paddingless m-t-10 footer_social"><a class="icon bg-facebook" href="https://www.facebook.com/kodvetok/" target="_blank"><i class="fa fa-facebook"></i></a></p>
       </div>
 
       <div class="column  has-text-white-ter">
-        <p class="is-size-5 is-uppercase is-paddingless m-b-10 footer-header">Kapcsolat</p>
+        <p class="is-size-5 is-uppercase is-paddingless m-b-10 footer-header">{{ __('navbar.contact') }}</p>
         <p class="is-size-7 is-paddingless m-t-10 m-b-10">Email : kodvetok@gmail.com </p>
       </div>
 

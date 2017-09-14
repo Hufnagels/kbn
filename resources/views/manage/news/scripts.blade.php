@@ -128,7 +128,7 @@ console.log('Newurl: ',url);
     $("#tag_create").select2({
       tags: true,
       multiple: true,
-      placeholder: "Please enter tags",
+      placeholder: "{{ __('forms.selectTag') }}",
     });
   }
 
@@ -136,7 +136,7 @@ console.log('Newurl: ',url);
     $("#tag_edit").select2({
       tags: true,
       multiple: true,
-      placeholder: "Please enter tags",
+      placeholder: "{{ __('forms.selectTag') }}",
     });
     $("#tag_edit").select2().val( {!! $post->tags()->allRelatedIds() !!} ).trigger("change");
   }

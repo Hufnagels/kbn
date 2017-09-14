@@ -11,8 +11,8 @@
 <div class="photos">
     <div class="hero-body">
       <div class="container">
-        <h1 class="title has-text-centered has-text-white-bis wow zoomIn" data-wow-duration="5s" data-wow-delay="1s" >Emlékezetes pillanatok</h1>
-        <h2 class="subtitle has-text-centered has-text-white-bis wow zoomIn" data-wow-duration="5s" data-wow-delay="1s">Szösszenetek a műhelyéletből</h2>
+        <h1 class="title has-text-centered has-text-white-bis wow zoomIn" data-wow-duration="5s" data-wow-delay="1s" >{{ __('indexPage.moments') }}</h1>
+        <h2 class="subtitle has-text-centered has-text-white-bis wow zoomIn" data-wow-duration="5s" data-wow-delay="1s">{{ __('indexPage.momentsSub') }}</h2>
       </div>
     </div>
 
@@ -20,7 +20,7 @@
       <div class="column is-8 is-offset-2">
 
         <div class="columns owl-carousel owl-theme" id="gt_testimonial_slider">
-          
+
           @foreach($scanned_directory as $image)
             <div class="column is-one-quarter">
               <div class="card">
@@ -37,5 +37,5 @@
       </div>
     </div>
 </div>
-  
+
 @endif

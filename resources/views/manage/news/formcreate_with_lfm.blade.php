@@ -5,27 +5,27 @@
         <article class="tile is-child notification">
 
           <div class="field">
-            <label class="label">{!! Form::label('title', 'Title') !!}</label>
+            <label class="label">{!! Form::label('title',  __('forms.title') ) !!}</label>
             <div class="control {{ $errors->has('title') ? 'is-danger' : ''}}">{!! Form::text('title', null, ['class' => 'input']) !!}</div>
             @if($errors->has('title'))
-            <p class="help is-danger">Title is invalid</p>
+            <p class="help is-danger">{{ __('forms.errors.title') }}</p>
             @endif
           </div>
 
           <div class="field">
-            <label class="label">{!! Form::label('subtitle', 'SubTitle') !!}</label>
+            <label class="label">{!! Form::label('subtitle',  __('forms.subtitle')  ) !!}</label>
             <div class="control {{ $errors->has('subtitle') ? 'is-danger' : ''}}">{!! Form::text('subtitle', null, ['class' => 'input']) !!}</div>
             @if($errors->has('subtitle'))
-            <p class="help is-danger">Title is invalid</p>
+            <p class="help is-danger">{{ __('forms.errors.subtitle') }}</p>
             @endif
           </div>
 
           <div class="field">
-            <label class="label">{!! Form::label('slug', 'Slug (SEO friendly url piece)') !!}</label>
+            <label class="label">{!! Form::label('slug',  __('forms.slug')  ) !!}</label>
 
             @if($errors->has('slug'))
             <div class="control {{ $errors->has('slug') ? 'is-danger' : ''}}">{!! Form::text('slug', null, ['class' => 'input']) !!}</div>
-            <p class="help is-danger">Slug must be set and must be unique</p>
+            <p class="help is-danger">{{ __('forms.errors.slug') }}</p>
             @else
             <p class="is-size-6 has-text-primary slugtext" style="min-height:24px;width:100%;"></p>
             <div class="control">{!! Form::hidden('slug', null, ['class' => 'input']) !!}</div>
@@ -33,15 +33,18 @@
           </div>
 
           <div class="field">
-            <label class="label">{!! Form::label('excerpt', 'Excerpt (Facebook lead on sharing)') !!}</label>
+            <label class="label">{!! Form::label('excerpt',  __('forms.excerpt')  ) !!}</label>
             <div class="control">{!! Form::textarea('excerpt', null, ['class' => 'textarea excerpt'] ,['attributes' => ['cols'=> 50, 'rows'=> 5]]) !!}</div>
+            @if($errors->has('excerpt'))
+            <p class="help is-danger">{{ __('forms.errors.excerpt') }}</p>
+            @endif
           </div>
 
           <div class="field">
-            <label class="label">{!! Form::label('body', 'Body') !!}</label>
+            <label class="label">{!! Form::label('body',  __('forms.body')  ) !!}</label>
             <div class="control {{ $errors->has('body') ? 'is-danger' : ''}}">{!! Form::textarea('body', null, ['class' => 'textarea']) !!}</div>
             @if($errors->has('body'))
-            <p class="help is-danger">Body is invalid</p>
+            <p class="help is-danger">{{ __('forms.errors.body') }}</p>
             @endif
           </div>
 
@@ -54,47 +57,47 @@
     <article class="tile is-child notification ">
 
       <div class="field">
-        <label class="label">{!! Form::label('published_at', 'Publishing date') !!}</label>
+        <label class="label">{!! Form::label('published_at',  __('forms.published_at')  ) !!}</label>
         <div class="control">{!! Form::text('published_at', null, ['class' => 'input', 'id' => 'datetimepicker']) !!}</div>
       </div>
 
       <div class="field">
-        <label class="label">{!! Form::label('category_id', 'Category') !!}</label>
+        <label class="label">{!! Form::label('category_id',  __('forms.category') ) !!}</label>
         <div class="control {{ $errors->has('category_id') ? 'is-danger' : ''}}">
-          <div class="select">{!! Form::select('category_id', App\Category::where('id','<>',config('ownAttributes.default_category.id'))->pluck('title', 'id'), null, ['placeholder' => 'Select a category']) !!}</div>
+          <div class="select">{!! Form::select('category_id', App\Category::where('id','<>',config('ownAttributes.default_category.id'))->pluck('title', 'id'), null, ['placeholder' =>  __('forms.selectCategory') ]) !!}</div>
         </div>
         @if($errors->has('category_id'))
-        <p class="help is-danger">Select one</p>
+        <p class="help is-danger">{{ __('forms.errors.category') }}</p>
         @endif
       </div>
 
       <div class="field">
-      <label class="label">{!! Form::label('image', 'News header image (shows in Facebook share)') !!}</label>
-      <div class="control {{ $errors->has('image') ? 'is-danger' : ''}}">
-        <figure>
-          <img id="holder" class="image is-250x170" src="{{ ($post->image_thumb_url) ? $post->image_thumb_url : 'http://placehold.it/250x170&text=No+image%20(250x170)'}}" alt="">
-        </figure>
-        <div class="file m-t-20">
-          <label class="file-label">
-            <input class="file-input" type="text" name="image"  id="thumbnail">
-            <a id="lfm" data-input="thumbnail" data-preview="holder" class="">
-              <span class="file-cta">
-                <span class="file-icon"><i class="fa fa-upload"></i></span>
-                <span class="file-label">Choose a file…</span>
-              </span>
-            </a>
+        <label class="label">{!! Form::label('image',  __('forms.image')  ) !!}</label>
+        <div class="control {{ $errors->has('image') ? 'is-danger' : ''}}">
+          <figure>
+            <img id="holder" class="image is-250x170" src="{{ ($post->image_thumb_url) ? $post->image_thumb_url : 'http://placehold.it/250x170&text=No+image%20(250x170)'}}" alt="">
+          </figure>
+          <div class="file m-t-20">
+            <label class="file-label">
+              <input class="file-input" type="text" name="image"  id="thumbnail">
+              <a id="lfm" data-input="thumbnail" data-preview="holder" class="">
+                <span class="file-cta">
+                  <span class="file-icon"><i class="fa fa-upload"></i></span>
+                  <span class="file-label">{{ __('forms.selectImage') }}</span>
+                </span>
+              </a>
 
-          </label>
+            </label>
+          </div>
+
         </div>
-
+        @if($errors->has('image'))
+        <p class="help is-danger">{{ __('forms.selectImage') }}</p>
+        @endif
       </div>
-      @if($errors->has('image'))
-      <p class="help is-danger">Upload one</p>
-      @endif
-    </div>
 
       <div class="field">
-        <label class="label">{!! Form::label('tags', 'Tags') !!}</label>
+        <label class="label">{!! Form::label('tags',  __('forms.tag')  ) !!}</label>
         <div class="control {{ $errors->has('tags') ? 'is-danger' : ''}}">
           <div class="select1">
             <select class="select2-multi" id="tag_create" multiple="multiple" style="width:100%;" name="tags[]">
@@ -106,16 +109,16 @@
           </div>
         </div>
         @if($errors->has('tag_id'))
-        <p class="help is-danger">Select one</p>
+        <p class="help is-danger">{{ __('forms.selectTag') }}</p>
         @endif
       </div>
 
       <hr>
       <div class="control m-t-30">
         @if (check_user_permissions(request(), "News@create", $post->id))
-        {!! Form::submit('Create', ['class' => 'button is-primary']) !!}
+        {!! Form::submit( __('forms.button.publish') , ['class' => 'button is-primary']) !!}
         @endif
-        <a href="{{ route('post.index') }}" class="button">Cancel</a>
+        <a href="{{ route('post.index') }}" class="button">{{ __('forms.button.cancel') }}</a>
       </div>
 
     </article>

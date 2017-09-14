@@ -13,13 +13,13 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'email' => 'E-mail address',
-    'password' => 'Password',
-    'remember' => 'Remember me',
-    'login' => 'Login',
-    'logout' => 'Logout',
-    'back' => 'Back to welcome page',
+    'failed' => 'Nincs egyezés',
+    'throttle' => 'Túl sokat próbálkozott. Próbálja meg :seconds másodperc múlva.',
+    'email' => 'E-mail cím',
+    'password' => 'Jelszó',
+    'remember' => 'Emlékezz rám',
+    'login' => 'Belépés',
+    'logout' => 'Kilépés',
+    'back' => 'Vissza a főoldalra',
 
 ];
