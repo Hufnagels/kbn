@@ -1,5 +1,5 @@
 @extends('layouts.manage')
-@section('title',' - Create Lession Material')
+@section('title',' - ' . __('manageLession.create'))
 @section('styles')
   <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet">
   <styles>
@@ -12,18 +12,18 @@
     <div class="card">
       <div class="card-header notification is-primary">
         <div class="column">
-          <div class="title">Create new Lession Material</div>
+          <div class="title">{{__('manageLession.create')}}</div>
         </div>
       </div>
       <div class="card-content is-paddingless createnewspost">
 
-        {!! Form::model( $testimonial, [
+        {!! Form::model( $lession, [
                 'method' => 'POST',
                 'route' => 'lession.store',
                 'files' => TRUE,
                 'id' => 'create-post-form',
                 'enctype' => 'multipart/form-data'
-                
+
                 ])  !!}
 
                 @include('manage.lession.formcreate')

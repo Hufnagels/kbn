@@ -8,10 +8,10 @@ return [
     |--------------------------------------------------------------------------
     |
     */
-    'lession' => 'Órai anyag',
-    'manage' => 'Órai anyagok kezelése',
-    'create' => 'Új órai anyag',
-    'edit' => 'Órai anyag szerkesztése',
-    'noLession' => 'Ebben nincs elem',
+    'lession' => 'Lession',
+    'manage' => 'Manage lessions',
+    'create' => 'New lession',
+    'edit' => 'Edit lession',
+    'noLession' => 'Nothing here',
 
 ];

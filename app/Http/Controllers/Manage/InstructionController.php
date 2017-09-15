@@ -70,8 +70,9 @@ class InstructionController extends BackendController
 
     public function create(Instruction $instruction)
     {
+        $lessions = Lession::get();
         $tags = Tag::where('id', '<>', config('ownAttributes.default_tag.id'))->get();
-        return view('manage.instruction.create',compact('instruction', 'tags', 'categories'));
+        return view('manage.instruction.create',compact('instruction', 'tags', 'categories', 'lessions'));
     }
 
      public function store(InstructionValidationRequest $request)

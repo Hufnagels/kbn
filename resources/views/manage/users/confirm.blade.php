@@ -1,5 +1,5 @@
 @extends('layouts.manage')
-@section('title',' - Delete confirmation')
+@section('title',' - ' . __('manageUser.confirm.delete'))
 @section('styles')
 <styles>
 
@@ -11,7 +11,7 @@
     <div class="card">
       <div class="card-header notification is-primary">
         <div class="column">
-          <div class="title">Delete confirmation</div>
+          <div class="title">{{ __('manageUser.confirm.delete') }}</div>
         </div>
       </div>
       <div class="card-content createcategory">
@@ -25,15 +25,17 @@
 
 
                   <div class="content">
-                    <h1 class="title is-spaced">The selected user: <strong>{{$user->name}}, with ID #{{$user->id}}</strong> is author of newses, events.</h1>
-                    <h2 class="subtitle ">What would you do?</h2>
+                    <h1 class="title is-spaced">
+                      {{ __('manageUser.confirm.text1') }}: <strong>{{$user->name}}, ID #{{$user->id}}</strong> {{ __('manageUser.confirm.text2') }}</h1>
+                    <h2 class="subtitle ">{{ __('manageUser.confirm.question') }}</h2>
                     <div class="field">
                       <div class="control m-t-20">
-                        <label class="radio confirm"><input type="radio" name="delete_option" value="delete">Delete the user and all content what user {{$user->name}} created</label>
+                        <label class="radio confirm">
+                          <input type="radio" name="delete_option" value="delete">{{ __('manageUser.confirm.option1', ['name' => $user->name]) }} </label>
                       </div>
                       <div class="control m-t-20">
                         <label class="radio confirm"><input type="radio" name="delete_option" value="attribute" checked>
-                          Delete the user and Attribute content to another user from the list:
+                          {{ __('manageUser.confirm.option2') }}:
                           <div class="select m-l-10">
                             {!! Form::select('selected_user', $users, null) !!}
                           </div>
@@ -42,8 +44,8 @@
                   </div>
                   <div class="field">
                     <div class="control">
-                      <button type="submit" class="button is-danger">Delete confirmation</button>
-                      <a href="{{ route('users.index') }}" class="button">Cancel</a>
+                      <button type="submit" class="button is-danger">{{ __('manageUser.confirm.delete') }}</button>
+                      <a href="{{ route('users.index') }}" class="button">{{ __('forms.button.cancel') }}</a>
                     </div>
                   </div>
 
@@ -55,4 +57,4 @@
 
 @endsection
 
-@include('manage.users.usersscripts')
+@include('manage.users.scripts')

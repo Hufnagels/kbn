@@ -5,27 +5,27 @@
         <article class="tile is-child notification">
 
           <div class="field">
-            <label class="label">{!! Form::label('title', 'Title') !!}</label>
+            <label class="label">{!! Form::label('title',  __('forms.title') ) !!}</label>
             <div class="control {{ $errors->has('title') ? 'is-danger' : ''}}">{!! Form::text('title', null, ['class' => 'input']) !!}</div>
             @if($errors->has('title'))
-            <p class="help is-danger">Title is invalid</p>
+            <p class="help is-danger">{{ __('forms.errors.title') }}</p>
             @endif
           </div>
 
           <div class="field">
-            <label class="label">{!! Form::label('subtitle', 'SubTitle') !!}</label>
+            <label class="label">{!! Form::label('subtitle',  __('forms.subtitle') ) !!}</label>
             <div class="control {{ $errors->has('subtitle') ? 'is-danger' : ''}}">{!! Form::text('subtitle', null, ['class' => 'input']) !!}</div>
             @if($errors->has('subtitle'))
-            <p class="help is-danger">Title is invalid</p>
+            <p class="help is-danger">{{ __('forms.errors.subtitle') }}</p>
             @endif
           </div>
 
           <div class="field">
-            <label class="label">{!! Form::label('slug', 'Slug (SEO friendly url piece)') !!}</label>
+            <label class="label">{!! Form::label('slug',  __('forms.slug') ) !!}</label>
 
             @if($errors->has('slug'))
             <div class="control {{ $errors->has('slug') ? 'is-danger' : ''}}">{!! Form::text('slug', null, ['class' => 'input']) !!}</div>
-            <p class="help is-danger">Slug must be set and must be unique</p>
+            <p class="help is-danger">{{ __('forms.errors.slug') }}</p>
             @else
             <p class="is-size-6 has-text-primary slugtext" style="min-height:24px;width:100%;">{{$instruction->slug}}</p>
             <div class="control">{!! Form::hidden('slug', null, ['class' => 'input']) !!}</div>
@@ -33,15 +33,18 @@
           </div>
 
           <div class="field">
-            <label class="label">{!! Form::label('excerpt', 'Excerpt') !!}</label>
+            <label class="label">{!! Form::label('excerpt',  __('forms.excerpt')  ) !!}</label>
             <div class="control">{!! Form::textarea('excerpt', null, ['class' => 'textarea excerpt'] ,['attributes' => ['cols'=> 50, 'rows'=> 5]]) !!}</div>
+            @if($errors->has('excerpt'))
+            <p class="help is-danger">{{ __('forms.errors.excerpt') }}</p>
+            @endif
           </div>
 
           <div class="field">
-            <label class="label">{!! Form::label('body', 'Body') !!}</label>
+            <label class="label">{!! Form::label('body',  __('forms.body')  ) !!}</label>
             <div class="control {{ $errors->has('body') ? 'is-danger' : ''}}">{!! Form::textarea('body', null, ['class' => 'textarea']) !!}</div>
             @if($errors->has('body'))
-            <p class="help is-danger">Body is invalid</p>
+            <p class="help is-danger">{{ __('forms.errors.body') }}</p>
             @endif
           </div>
 
@@ -54,17 +57,17 @@
     <article class="tile is-child notification ">
 
       <div class="field">
-        <label class="label">{!! Form::label('published_at', 'Publishing date') !!}</label>
+        <label class="label">{!! Form::label('published_at', __('forms.published_at') ) !!}</label>
         <div class="control">{!! Form::text('published_at', null, ['class' => 'input', 'id' => 'datetimepicker']) !!}</div>
       </div>
 
       <div class="field">
-        <label class="label">{!! Form::label('category_id', 'Category') !!}</label>
+        <label class="label">{!! Form::label('category_id', __('forms.category'))  !!}</label>
         <div class="control {{ $errors->has('category_id') ? 'is-danger' : ''}}">
           <div class="select">{!! Form::select('category_id', App\Category::where('id',config('ownAttributes.default_instruction_category.id'))->pluck('title', 'id'), null, ['placeholder' => 'Select a category']) !!}</div>
         </div>
         @if($errors->has('category_id'))
-        <p class="help is-danger">Select one</p>
+        <p class="help is-danger">{{ __('forms.errors.category') }}</p>
         @endif
       </div>
 <!--
@@ -91,10 +94,10 @@
       </div>
 -->
       <div class="field">
-        <label class="label">{!! Form::label('tags', 'Tags') !!}</label>
+        <label class="label">{!! Form::label('tags',  __('forms.tag')  ) !!}</label>
         <div class="control {{ $errors->has('tags') ? 'is-danger' : ''}}">
           <div class="select1">
-            <select class="select2-multi" id="tag_edit" multiple="multiple" style="width:100%;" name="tags[]">
+            <select class="select2-multi" id="tag_create" multiple="multiple" style="width:100%;" name="tags[]">
               @foreach($tags as $tag)
                 <option value="{{ $tag->id }}">{{ $tag->name }}</option>
               @endforeach
@@ -103,12 +106,12 @@
           </div>
         </div>
         @if($errors->has('tag_id'))
-        <p class="help is-danger">Select one</p>
+        <p class="help is-danger">{{ __('forms.selectTag') }}</p>
         @endif
       </div>
 
       <div class="field">
-        <label class="label">{!! Form::label('lessions', 'Lessions') !!}</label>
+        <label class="label">{!! Form::label('lessions', __('manageLession.lession') ) !!}</label>
         <div class="control {{ $errors->has('lessions') ? 'is-danger' : ''}}">
           <div class="select1">
             <select class="select2-multi" id="lession_edit" multiple="multiple" style="width:100%;" name="lessions[]">
@@ -125,9 +128,9 @@
       <hr>
       <div class="control m-t-30">
         @if (Auth::user()->hasPermission('crud-instruction'))
-        {!! Form::submit('Update', ['class' => 'button is-primary']) !!}
+        {!! Form::submit( __('forms.button.update'), ['class' => 'button is-primary']) !!}
         @endif
-        <a href="{{ route('instruction.index') }}" class="button">Cancel</a>
+        <a href="{{ route('instruction.index') }}" class="button">{{ __('forms.button.cancel') }}</a>
       </div>
 
     </article>

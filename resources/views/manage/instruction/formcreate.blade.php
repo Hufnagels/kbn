@@ -4,46 +4,7 @@
       <div class="tile is-parent is-vertical is-paddingless">
         <article class="tile is-child notification">
 
-          <div class="field">
-            <label class="label">{!! Form::label('title', 'Title') !!}</label>
-            <div class="control {{ $errors->has('title') ? 'is-danger' : ''}}">{!! Form::text('title', null, ['class' => 'input']) !!}</div>
-            @if($errors->has('title'))
-            <p class="help is-danger">Title is invalid</p>
-            @endif
-          </div>
-
-          <div class="field">
-            <label class="label">{!! Form::label('subtitle', 'SubTitle') !!}</label>
-            <div class="control {{ $errors->has('subtitle') ? 'is-danger' : ''}}">{!! Form::text('subtitle', null, ['class' => 'input']) !!}</div>
-            @if($errors->has('subtitle'))
-            <p class="help is-danger">Title is invalid</p>
-            @endif
-          </div>
-
-          <div class="field">
-            <label class="label">{!! Form::label('slug', 'Slug (SEO friendly url piece)') !!}</label>
-
-            @if($errors->has('slug'))
-            <div class="control {{ $errors->has('slug') ? 'is-danger' : ''}}">{!! Form::text('slug', null, ['class' => 'input']) !!}</div>
-            <p class="help is-danger">Slug must be set and must be unique</p>
-            @else
-            <p class="is-size-6 has-text-primary slugtext" style="min-height:24px;width:100%;"></p>
-            <div class="control">{!! Form::hidden('slug', null, ['class' => 'input']) !!}</div>
-            @endif
-          </div>
-
-          <div class="field">
-            <label class="label">{!! Form::label('excerpt', 'Excerpt') !!}</label>
-            <div class="control">{!! Form::textarea('excerpt', null, ['class' => 'textarea excerpt'] ,['attributes' => ['cols'=> 50, 'rows'=> 5]]) !!}</div>
-          </div>
-
-          <div class="field">
-            <label class="label">{!! Form::label('body', 'Body') !!}</label>
-            <div class="control {{ $errors->has('body') ? 'is-danger' : ''}}">{!! Form::textarea('body', null, ['class' => 'textarea']) !!}</div>
-            @if($errors->has('body'))
-            <p class="help is-danger">Body is invalid</p>
-            @endif
-          </div>
+          @include('manage.partials.forms.newsTypeLeftForm_edit')
 
         </article>
       </div>
@@ -53,66 +14,39 @@
   <div class="tile is-parent is-paddingless">
     <article class="tile is-child notification ">
 
-      <div class="field">
-        <label class="label">{!! Form::label('published_at', 'Publishing date') !!}</label>
-        <div class="control">{!! Form::text('published_at', null, ['class' => 'input', 'id' => 'datetimepicker']) !!}</div>
-      </div>
+      @include('manage.partials.forms.newsTypeRightForm_Publish')
 
       <div class="field">
-        <label class="label">{!! Form::label('category_id', 'Category') !!}</label>
+        <label class="label">{!! Form::label('category_id', __('forms.category')) !!}</label>
         <div class="control {{ $errors->has('category_id') ? 'is-danger' : ''}}">
-          <div class="select">{!! Form::select('category_id', App\Category::where('id',config('ownAttributes.default_instruction_category.id'))->pluck('title', 'id'), null, ['placeholder' => 'Select a category']) !!}</div>
+          <div class="select">{!! Form::select('category_id', App\Category::where('id',config('ownAttributes.default_instruction_category.id'))->pluck('title', 'id'), null, ['placeholder' =>  __('forms.selectCategory')]) !!}</div>
         </div>
         @if($errors->has('category_id'))
-        <p class="help is-danger">Select one</p>
+        <p class="help is-danger">{{ __('forms.errors.category') }}</p>
         @endif
       </div>
-<!--
-      <div class="field">
-        <label class="label">{!! Form::label('image', 'Instruction header image') !!}</label>
-        <div class="control {{ $errors->has('image') ? 'is-danger' : ''}}">
-          <figure>
-            <img id="target" class="image is-250x170" src="{{ ($instruction->image_thumb_url) ? $instruction->image_thumb_url : 'http://placehold.it/250x170&text=No+image%20(250x170)'}}" alt="">
-          </figure>
-          <div class="file m-t-20">
-            <label class="file-label">
-              <input class="file-input" type="file" name="image" id="imgInp">
-              <span class="file-cta">
-                <span class="file-icon"><i class="fa fa-upload"></i></span>
-                <span class="file-label">Choose a file…</span>
-              </span>
-            </label>
-          </div>
 
-        </div>
-        @if($errors->has('image'))
-        <p class="help is-danger">Upload one</p>
-        @endif
-      </div>
--->
+      @include('manage.partials.forms.newsTypeRightForm_Tag')
+
       <div class="field">
-        <label class="label">{!! Form::label('tags', 'Tags') !!}</label>
-        <div class="control {{ $errors->has('tags') ? 'is-danger' : ''}}">
+        <label class="label">{!! Form::label('lessions',  __('manageLession.lession') ) !!}</label>
+        <div class="control {{ $errors->has('lessions') ? 'is-danger' : ''}}">
           <div class="select1">
-            <select class="select2-multi" id="tag_create" multiple="multiple" style="width:100%;" name="tags[]">
-              @foreach($tags as $tag)
-                <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+            <select class="select2-multi" id="lession_edit" multiple="multiple" style="width:100%;" name="lessions[]">
+              @foreach($lessions as $lession)
+                <option value="{{ $lession->id }}">{{ $lession->title }}</option>
               @endforeach
-
             </select>
           </div>
         </div>
-        @if($errors->has('tag_id'))
-        <p class="help is-danger">Select one</p>
-        @endif
       </div>
 
       <hr>
       <div class="control m-t-30">
         @if (Auth::user()->hasPermission('crud-instruction'))
-        {!! Form::submit('Create', ['class' => 'button is-primary']) !!}
+        {!! Form::submit(__('forms.button.publish') , ['class' => 'button is-primary']) !!}
         @endif
-        <a href="{{ route('instruction.index') }}" class="button">Cancel</a>
+        <a href="{{ route('instruction.index') }}" class="button">{{ __('forms.button.cancel') }}</a>
       </div>
 
     </article>

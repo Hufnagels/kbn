@@ -12,12 +12,10 @@ return [
     'manage' => 'Címkék kezelése',
     'create' => 'Új címke',
     'edit' => 'Címke szerkesztése',
-    'own'  => 'Saját',
-    'all' => 'Összes',
-    'draft' => 'Piszkozat',
-    'scheduled' => 'Jövőbeni',
-    'published' => 'Publikált',
-    'trash' => 'Kuka',
     'noTag' => 'Ebben nincs elem',
+    'newsCount' => 'Hírek száma',
+    'photoCount' => 'Képek száma',
+    'videoCount' => 'Videók száma',
+    'inTag' => ':name ezzel a címkévek',
 
 ];

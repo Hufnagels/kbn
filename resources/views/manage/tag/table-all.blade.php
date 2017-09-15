@@ -2,12 +2,12 @@
   <thead>
     <tr>
       <!--<th><abbr title="Id">ID</abbr></th>-->
-      <th width="40%"><abbr title="Name">Name</abbr></th>
-      <th><abbr title="Slug">slug</abbr></th>
-      <th><abbr title="Newscount">News count</abbr></th>
-      <th><abbr title="Photoscount">Photos count</abbr></th>
-      <th><abbr title="Videosscount">Videos count</abbr></th>
-      <th><abbr title="Actions">Actions</abbr></th>
+      <th width="40%"><abbr title="{{ __('forms.title') }}">{{ __('forms.title') }}</abbr></th>
+      <th><abbr title="{{ __('forms.slug') }}">{{ __('forms.slug') }}</abbr></th>
+      <th><abbr title="{{__('manageTag.newsCount')}}">{{__('manageTag.newsCount')}}</abbr></th>
+      <th><abbr title="{{__('manageTag.photoCount')}}">{{__('manageTag.photoCount')}}</abbr></th>
+      <th><abbr title="{{__('manageTag.videoCount')}}">{{__('manageTag.videoCount')}}</abbr></th>
+      <th><abbr title="{{ __('forms.action') }}">{{ __('forms.action') }}</abbr></th>
     </tr>
   </thead>
 

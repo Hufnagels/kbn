@@ -1,5 +1,5 @@
 @extends('layouts.manage')
-@section('title',' - Edit user')
+@section('title',' - ' . __('manageUser.create'))
 @section('styles')
 <styles>
 
@@ -11,7 +11,7 @@
     <div class="card">
       <div class="card-header notification is-primary">
         <div class="column">
-          <div class="title">Create new User</div>
+          <div class="title">{{ __('manageUser.create') }}</div>
         </div>
       </div>
       <div class="card-content is-paddingless createcategory">

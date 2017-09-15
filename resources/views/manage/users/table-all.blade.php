@@ -1,10 +1,10 @@
 <table class="table is-narrow">
   <thead>
     <tr>
-      <th width="40%"><abbr title="Name">Name</abbr></th>
-      <th><abbr title="Email">Email</abbr></th>
-      <th><abbr title="Role">Role</abbr></th>
-      <th><abbr title="Actions">Actions</abbr></th>
+      <th width="40%"><abbr title="{{ __('forms.name') }}">{{ __('forms.name') }}</abbr></th>
+      <th><abbr title="{{ __('forms.email') }}">{{ __('forms.email') }}</abbr></th>
+      <th><abbr title="{{ __('forms.role') }}">{{ __('forms.role') }}</abbr></th>
+      <th><abbr title="{{ __('forms.action') }}">{{ __('forms.action') }}</abbr></th>
     </tr>
   </thead>
 

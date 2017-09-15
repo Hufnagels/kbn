@@ -25,6 +25,7 @@ return [
       'cancel' => 'Mégse',
     ],
     'errors' => [
+      'name' => 'Név szükséges',
       'title' => 'Cím szükséges',
       'subtitle' => 'Alcím szükséges',
       'slug' => 'Keresőknek cím szükséges és egyedi',
@@ -32,15 +33,38 @@ return [
       'body'  => 'Szöveg szükséges',
       'image' => 'Hír fejléc képe szükséges',
       'category' => 'Kategória szükséges',
+      'email' => 'Szükséges és egyedi legyen',
+      'password' => '',
+      'passwordConfirm' => '',
+      'role' => 'Szerep választása szükséges',
     ],
     'selectCategory' => 'Válasszon kategóriát',
     'selectTag' => 'Válasszon címkét',
     'selectImage' => 'Válasszon képet',
+    'selectRole' => 'Válasszon szerepet',
 
-    // TABLE-ALL, TABLE-TRASH
+    // INDEX page for list TABLE-ALL, TABLE-TRASH
+    'own'  => 'Saját',
+    'all' => 'Összes',
+    'draft' => 'Piszkozat',
+    'scheduled' => 'Jövőbeni',
+    'published' => 'Publikált',
+    'trash' => 'Kuka',
+
+    // DB column names
+    'name' => 'Név',
+    'email' => 'E-mail',
+    'role' => 'Szerep',
+    'password' => 'Jelszó',
+    'passwordConfirm' => 'Jelszó újra',
+    'bio' => 'Rólam',
+
+    'text' => 'Szöveg',
     'author' =>  'Szerző',
     'created' => 'Készült',
     'publishedState' => 'Státusz',
     'action' => 'Műveletek',
     'restore' => 'Helyreállít',
+    'delete' => 'Töröl',
+    'forceDestroy' => 'Véglegesen töröl',
 ];

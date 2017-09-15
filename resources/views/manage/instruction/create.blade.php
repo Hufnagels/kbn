@@ -1,5 +1,5 @@
 @extends('layouts.manage')
-@section('title',' - Create instruction material')
+@section('title',' - ' . __('manageInstruction.create'))
 @section('styles')
   <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet">
   <styles>
@@ -12,7 +12,7 @@
     <div class="card">
       <div class="card-header notification is-primary">
         <div class="column">
-          <div class="title">Create instruction material</div>
+          <div class="title">{{ __('manageInstruction.create') }}</div>
         </div>
       </div>
       <div class="card-content is-paddingless createnewspost">
@@ -23,7 +23,7 @@
                 'files' => TRUE,
                 'id' => 'create-post-form',
                 'enctype' => 'multipart/form-data'
-                
+
                 ])  !!}
 
                 @include('manage.instruction.formcreate')

@@ -3,7 +3,7 @@
     <script type="text/javascript">
         //$('ul.pagination').addClass('no-margin pagination-sm');
 
-        $('#title').on('keyup', function() {
+        $('#name').on('keyup', function() {
           var theTitle = this.value.toLowerCase().trim(),
               slugInput = $('#slug'),
               theSlug = slugize(theTitle);

@@ -1,13 +1,12 @@
 <table class="table is-narrow">
   <thead>
     <tr>
-      <!--<th><abbr title="Id">ID</abbr></th>-->
-      <th width="40%"><abbr title="name">Title</abbr></th>
-      <th><abbr title="Email">Author</abbr></th>
-      <th><abbr title="Category">Category</abbr></th>
-      <th><abbr title="Date created">Created</abbr></th>
-      <th><abbr title="Date created">Published</abbr></th>
-      <th><abbr title="Actions">Actions</abbr></th>
+      <th width="40%"><abbr title="{{ __('forms.title') }}">{{ __('forms.title') }}</abbr></th>
+      <th><abbr title="{{ __('forms.author') }}">{{ __('forms.author') }}</abbr></th>
+      <th><abbr title="{{ __('forms.category') }}">{{ __('forms.category') }}</abbr></th>
+      <th><abbr title="{{ __('forms.created') }}">{{ __('forms.created') }}</abbr></th>
+      <th><abbr title="{{ __('forms.published_at') }}">{{ __('forms.published_at') }}</abbr></th>
+      <th><abbr title="{{ __('forms.action') }}">{{ __('forms.action') }}</abbr></th>
     </tr>
   </thead>
 
@@ -27,14 +26,14 @@
           'route' => ['instruction.restore', $instruction->id],
           'class'=>'trashtable',
           'style' => 'display:-webkit-inline-box; margin-top:0;line-height:1.8rem;' ]) !!}
-        <button type="submit" class="button trashtable is-info is-outlined is-small" title="Restore"><span class="fa fa-reply"></span></button>
+        <button type="submit" class="button trashtable is-info is-outlined is-small" title="{{ __('forms.restore') }}"><span class="fa fa-reply"></span></button>
         {!! Form::close() !!}
         @if (Auth::user()->hasPermission('delete-instruction'))
         {!! Form::open([
           'method' => 'DELETE',
           'route' => ['instruction.force-destroy', $instruction->id],
           'style' => 'display:-webkit-inline-box; margin-top:0;line-height:1.8rem;' ]) !!}
-        <button type="submit" class="button trashtable is-danger is-outlined is-small" title="Delete"><span class="fa fa-remove"></span></button>
+        <button type="submit" class="button trashtable is-danger is-outlined is-small" title="{{ __('forms.forceDestroy') }}"><span class="fa fa-remove"></span></button>
         {!! Form::close() !!}
         @endif
       </td>

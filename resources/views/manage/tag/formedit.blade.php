@@ -5,19 +5,19 @@
         <article class="tile is-child notification">
 
           <div class="field">
-            <label class="label">{!! Form::label('name', 'Name') !!}</label>
+            <label class="label">{!! Form::label('name', __('forms.name')) !!}</label>
             <div class="control {{ $errors->has('name') ? 'is-danger' : ''}}">{!! Form::text('name', null, ['class' => 'input']) !!}</div>
             @if($errors->has('name'))
-            <p class="help is-danger">Name is invalid</p>
+            <p class="help is-danger">{{ __('forms.errors.name') }}</p>
             @endif
           </div>
 
           <div class="field">
-            <label class="label">{!! Form::label('slug', 'Slug (SEO friendly url piece)') !!}</label>
+            <label class="label">{!! Form::label('slug', __('forms.slug') ) !!}</label>
 
             @if($errors->has('slug'))
             <div class="control {{ $errors->has('slug') ? 'is-danger' : ''}}">{!! Form::text('slug', null, ['class' => 'input']) !!}</div>
-            <p class="help is-danger">Slug must be set and must be unique</p>
+            <p class="help is-danger">{{ __('forms.errors.slug') }}</p>
             @else
             <p class="is-size-6 has-text-primary slugtext" style="min-height:24px;width:100%;">{{$tag->slug}}</p>
             <div class="control">{!! Form::hidden('slug', null, ['class' => 'input']) !!}</div>
@@ -25,8 +25,8 @@
           </div>
 
           <div class="control">
-            <button type="submit" class="button is-primary">{{ $tag->id ? 'Update' : 'Store'}}</button>
-            <a href="{{ route('tag.index') }}" class="button">Cancel</a>
+            <button type="submit" class="button is-primary">{{ $tag->id ? __('forms.button.update') : __('forms.button.publish') }}</button>
+            <a href="{{ route('tag.index') }}" class="button">{{ __('forms.button.cancel') }}</a>
           </div>
 
 
@@ -36,15 +36,15 @@
     @if($tag->id)
     <div class="tile">
       <article class="tile is-child notification">
-        <p class="subtitle">News in this tag</p>
+        <p class="subtitle">{{ __('manageTag.inTag', ['name' => __('manageNews.news')]) }}</p>
       @if( $tag->news )
         <table class="table is-narrow">
           <thead>
             <tr>
               <th width="100"><abbr title="Image"></abbr></th>
-              <th width="70%"><abbr title="Name">Name</abbr></th>
-              <th><abbr title="Author">Author</abbr></th>
-              <th><abbr title="Action">Action</abbr></th>
+              <th width="70%"><abbr title="{{ __('forms.title') }}">{{ __('forms.title') }}</abbr></th>
+              <th><abbr title="{{ __('forms.author') }}">{{ __('forms.author') }}</abbr></th>
+              <th><abbr title="{{ __('forms.action') }}">{{ __('forms.action') }}</abbr></th>
             </tr>
           </thead>
 
@@ -68,15 +68,15 @@
 
     <div class="tile">
       <article class="tile is-child notification">
-        <p class="subtitle">Instructions in this tag</p>
+        <p class="subtitle">{{ __('manageTag.inTag', ['name' => __('manageInstruction.instruction')]) }}</p>
       @if( $tag->instruction )
         <table class="table is-narrow">
           <thead>
             <tr>
               <th width="100"><abbr title="Image"></abbr></th>
-              <th width="70%"><abbr title="Name">Name</abbr></th>
-              <th><abbr title="Author">Author</abbr></th>
-              <th><abbr title="Action">Action</abbr></th>
+              <th width="70%"><abbr title="{{ __('forms.title') }}">{{ __('forms.title') }}</abbr></th>
+              <th><abbr title="{{ __('forms.author') }}">{{ __('forms.author') }}</abbr></th>
+              <th><abbr title="{{ __('forms.action') }}">{{ __('forms.action') }}</abbr></th>
             </tr>
           </thead>
 
@@ -100,15 +100,15 @@
 
     <div class="tile">
       <article class="tile is-child notification">
-        <p class="subtitle">Lessions in this tag</p>
+        <p class="subtitle">{{ __('manageTag.inTag', ['name' => __('manageLession.lession')]) }}</p>
       @if( $tag->lession )
         <table class="table is-narrow">
           <thead>
             <tr>
               <th width="100"><abbr title="Image"></abbr></th>
-              <th width="70%"><abbr title="Name">Name</abbr></th>
-              <th><abbr title="Author">Author</abbr></th>
-              <th><abbr title="Action">Action</abbr></th>
+              <th width="70%"><abbr title="{{ __('forms.title') }}">{{ __('forms.title') }}</abbr></th>
+              <th><abbr title="{{ __('forms.author') }}">{{ __('forms.author') }}</abbr></th>
+              <th><abbr title="{{ __('forms.action') }}">{{ __('forms.action') }}</abbr></th>
             </tr>
           </thead>
 
