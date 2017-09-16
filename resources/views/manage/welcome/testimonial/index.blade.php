@@ -1,23 +1,23 @@
 @extends('layouts.manage')
-@section('title',' - Manage Testimonials')
+@section('title',' - ' . __('manageTesti.manage'))
 @section('content')
 
   <div class="columns">
     <div class="column">
       <div class="card">
         <div class="card-header notification is-primary">
-          <div class="column"><div class="title">Manage Testimonials</div></div>
+          <div class="column"><div class="title">{{ __('manageTesti.manage') }}</div></div>
           @if (Auth::user()->hasRole(['admin','editor','author']))
           <div class="column">
             <a href="{{ route('testimonial.create')}}" class="button is-primary is-inverted is-outlined is-pulled-right">
-              <i class="fa fa-plus m-r-10"></i> Create testimonial
+              <i class="fa fa-plus m-r-10"></i> {{ __('manageTesti.create') }}
             </a>
           </div>
           @endif
         </div>
         <div class="card-content p-t-0">
 
-          <p class="has-text-right m-b-10">{{ $testimonialCount}} Testimonial {{str_plural('Item',$testimonialCount)}}</p>
+          <p class="has-text-right m-b-10">{{ $testimonialCount}} {{ __('manageTesti.testimonial') }} {{str_plural('Item',$testimonialCount)}}</p>
           <div class="tabs is-small is-right">
             <ul>
               <li {{ (app('request')->input('status') == 'own' ? 'class=is-active' : '') }}><a href="?status=own">{{ __('forms.own') }}</a></li>
@@ -30,7 +30,7 @@
           </div>
           @include('manage.welcome.testimonial.message')
           @if ( ! $testimonialCount)
-          <div class="notification is-warning"><strong>Currently no testimonial found</strong></div>
+          <div class="notification is-warning"><strong>{{ __('manageTesti.noTesti') }}</strong></div>
           @else
             @if($onlyTrashed)
               @include('manage.welcome.testimonial.table-trashed')

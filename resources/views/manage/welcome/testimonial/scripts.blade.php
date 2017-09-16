@@ -8,10 +8,10 @@ function countChar(val) {
           rest;
       if (len >= max) {
         val.value = val.value.substring(0, max);
-        $('#'+id+'_counter').text('Hátralevő karakterek: 0');
+        $('#'+id+'_counter').text("{{ __('manageTesti.charsLeft')}}: 0");
       } else {
         rest = max - len;
-        $('#'+id+'_counter').text('Hátralevő karakterek: ' + rest);
+        $('#'+id+'_counter').text("{{ __('manageTesti.charsLeft')}}: " + rest);
       }
     };
 $(function () {

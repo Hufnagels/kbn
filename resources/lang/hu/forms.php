@@ -25,6 +25,7 @@ return [
       'cancel' => 'Mégse',
     ],
     'errors' => [
+      'text' => 'Szöveg szükséges.',
       'name' => 'Név szükséges',
       'title' => 'Cím szükséges',
       'subtitle' => 'Alcím szükséges',
@@ -52,6 +53,7 @@ return [
     'trash' => 'Kuka',
 
     // DB column names
+    'text' => 'Szöveg',
     'name' => 'Név',
     'email' => 'E-mail',
     'role' => 'Szerep',

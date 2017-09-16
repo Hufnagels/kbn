@@ -60,7 +60,7 @@
   @if (Auth::user()->hasRole(['admin', 'editor', 'author']))
   <p class="menu-label">{{ __('navbar.manage.indexPageElements') }}</p>
   <ul class="menu-list">
-    <li><a {{ ( strpos(Route::currentRouteName(), 'testimonial') > -1) ? 'class=is-active' : '' }} href="{{ route('testimonial.index') }}">{{ __('navbar.manage.testimonial') }}</a></li>
+    <li><a {{ ( strpos(Route::currentRouteName(), 'testimonial') > -1) ? 'class=is-active' : '' }} href="{{ route('testimonial.index') }}">{{ __('manageTesti.testimonials') }}</a></li>
 
   </ul>
   @endif

@@ -25,6 +25,7 @@ return [
       'cancel' => 'Cancel',
     ],
     'errors' => [
+      'text' => 'Text must be set.',
       'name' => 'Name must be set',
       'title' => 'Title must be set',
       'subtitle' => 'Subtitle  must be set',
@@ -59,6 +60,7 @@ return [
     'passwordConfirm' => 'Confirm password',
     'bio' => 'Biography',
 
+    'text' => 'Szöveg',
     'text' => 'Szöveg',
     'author' =>  'Author',
     'created' => 'Created at',

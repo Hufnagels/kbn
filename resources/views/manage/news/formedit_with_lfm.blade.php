@@ -27,7 +27,7 @@
             <div class="control {{ $errors->has('slug') ? 'is-danger' : ''}}">{!! Form::text('slug', null, ['class' => 'input']) !!}</div>
             <p class="help is-danger">{{ __('forms.errors.slug') }}</p>
             @else
-            <p class="is-size-6 has-text-primary slugtext" style="min-height:24px;width:100%;"></p>
+            <p class="is-size-6 has-text-primary slugtext" style="min-height:24px;width:100%;">{{$post->slug}}</p>
             <div class="control">{!! Form::hidden('slug', null, ['class' => 'input']) !!}</div>
             @endif
           </div>
