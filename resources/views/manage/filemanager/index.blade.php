@@ -5,7 +5,7 @@
   <div class="columns">
     <div class="column m-t-0">
       <div class="card">
-        <div class="card-header notification is-primary">
+        <div class="card-header notification is-primary" style="padding: .25rem 2.5rem .25rem 1.5rem;">
           <div class="column"><div class="title">Manage {{ $fmType }}</div></div>
         </div>
         <div class="card-content p-t-0" id="inline-lfm">

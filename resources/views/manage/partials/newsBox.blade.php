@@ -1,8 +1,13 @@
 <div class="card">
   @if( $post->image_url != NULL)
-  <div class="card-image">
-    <figure class="image is-4by3"><img src="{{ $post->image_url }}" alt="{{$post->title}}"></figure>
-  </div>
+    <div class="card-image"
+      @if ( strpos(Route::currentRouteName(), 'welcome') > -1)
+        style="border: 10px solid {{ $colorArray[$index] }}"
+      @endif
+        >
+        <figure class="image is-4by3"><img src="{{ $post->image_url }}" alt="{{$post->title}}"></figure>
+      </div>
+
   @endif
   <div class="card-content">
     <div class="content">

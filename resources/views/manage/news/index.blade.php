@@ -5,7 +5,7 @@
   <div class="columns">
     <div class="column">
       <div class="card">
-        <div class="card-header notification is-primary">
+        <div class="card-header notification is-primary" style="padding: .25rem 2.5rem .25rem 1.5rem;">
           <div class="column"><div class="title">{{ __('manageNews.manage') }}</div></div>
           <div class="column"><a href="{{ route('post.create')}}" class="button is-primary is-inverted is-outlined is-pulled-right"><i class="fa fa-plus m-r-10"></i> {{ __('manageNews.create') }}</a></div>
         </div>

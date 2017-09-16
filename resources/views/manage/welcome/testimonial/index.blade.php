@@ -5,7 +5,7 @@
   <div class="columns">
     <div class="column">
       <div class="card">
-        <div class="card-header notification is-primary">
+        <div class="card-header notification is-primary" style="padding: .25rem 2.5rem .25rem 1.5rem;">
           <div class="column"><div class="title">{{ __('manageTesti.manage') }}</div></div>
           @if (Auth::user()->hasRole(['admin','editor','author']))
           <div class="column">
