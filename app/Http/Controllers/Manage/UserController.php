@@ -54,7 +54,7 @@ class UsersController extends BackendController
     {
         $user = User::create($request->all());
         $user->attachRole($request->role);
-        return redirect()->route('users.index')->with('message','User was created successfully');
+        return redirect()->route('users.index')->with('message',__('manageUser.systemMessages.created'));
     }
 
     public function show($id) { }
@@ -81,7 +81,7 @@ class UsersController extends BackendController
       $user->attachRole($request->role);
 
       // ->update( $request->all() );
-      return redirect()->route('users.index')->with('message','User was updated successfully');
+      return redirect()->route('users.index')->with('message',__('manageUser.systemMessages.updated'));
     }
 
     /**
@@ -98,7 +98,7 @@ class UsersController extends BackendController
 
       if( ( $user->id == config('userAttributes.users_default.id'))  )
       {
-        return redirect()->route('users.index')->with('error', 'Can not delete this user');
+        return redirect()->route('users.index')->with('error', __('manageUser.systemMessages.cantDelete'));
       }
       elseif ( $news->count()  )
       {
@@ -108,7 +108,7 @@ class UsersController extends BackendController
       else
       {
         $user->delete();
-        return redirect()->route('users.index')->with('message', 'User was moved to trash');
+        return redirect()->route('users.index')->with('message', __('manageUser.systemMessages.deleted'));
       }
 
     }
@@ -123,7 +123,7 @@ class UsersController extends BackendController
         $user->news()->update(['author_id' => $attributeUser]);
         $user->withTrashed()->forceDelete();
         $user = User::findOrFail($attributeUser);
-        return redirect()->route('users.index')->with('message', 'User was successfully deleted, and all post where transfered to user: '.$user->name);
+        return redirect()->route('users.index')->with('message', __('manageUser.systemMessages.deleteWithTransfer').$user->name);
       }
       elseif($deletedOption == 'delete')
       {
@@ -135,7 +135,7 @@ class UsersController extends BackendController
 
         $newses->withTrashed()->forceDelete();
         $user->forceDelete();
-        return redirect()->route('users.index')->with('message', 'User and all content what user created are successfully deleted');
+        return redirect()->route('users.index')->with('message', __('manageUser.systemMessages.deleteAll'));
       }
     }
 
@@ -144,7 +144,7 @@ class UsersController extends BackendController
         $user = User::withTrashed()->findOrFail($id);
         $user->forceDelete();
 
-        return redirect('/manage/users?status=trash')->with('message','User has been deleted permanently');
+        return redirect('/manage/users?status=trash')->with('message',__('manageUser.systemMessages.forceDelete'));
         // )->route('post.index'
     }
 
@@ -153,7 +153,7 @@ class UsersController extends BackendController
         $user = User::withTrashed()->findOrFail($id);
         $user->restore();
 
-        return redirect()->back()->with('message','User has been Restored');
+        return redirect()->back()->with('message',__('manageUser.systemMessages.restored'));
         // redirect()->route('post.index')
         // route('post.index')
     }

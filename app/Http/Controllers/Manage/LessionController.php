@@ -89,7 +89,7 @@ class LessionController extends BackendController
           } else {
             $lession->tags()->sync([config('ownAttributes.default_tag.id')]); //array()
           }
-          return redirect()->route('lession.index')->with('message','Lession material was created successfully');
+          return redirect()->route('lession.index')->with('message',__('manageLession.systemMessages.created'));
       }
 
 
@@ -127,13 +127,13 @@ class LessionController extends BackendController
          }
 
 
-         return redirect()->route('lession.index')->with('message','Lession materials was updated successfully');
+         return redirect()->route('lession.index')->with('message',__('manageLession.systemMessages.updated'));
      }
 
      public function destroy($id)
      {
        Lession::findOrFail($id)->delete();
-       return redirect()->route('lession.index')->with('trash-message',['Lession material has been moved to Trash', $id]);
+       return redirect()->route('lession.index')->with('trash-message',[__('manageLession.systemMessages.deleted'), $id]);
      }
 
      public function forceDestroy($id)
@@ -144,7 +144,7 @@ class LessionController extends BackendController
          $lession->category()->detach();
          // $this->removeImage($lession->image);
 
-         return redirect('/manage/lession?status=trash')->with('message','Lession material has been deleted permanently');
+         return redirect('/manage/lession?status=trash')->with('message',__('manageLession.systemMessages.forceDelete'));
      }
 
      public function restore($id)
@@ -152,7 +152,7 @@ class LessionController extends BackendController
          $lession = Lession::withTrashed()->findOrFail($id);
          $lession->restore();
 
-         return redirect()->back()->with('message','Lession material has been Restored');
+         return redirect()->back()->with('message',__('manageLession.systemMessages.restored'));
      }
      /**
      *

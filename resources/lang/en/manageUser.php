@@ -20,7 +20,16 @@ return [
       'question' => 'What would you do?',
       'option1' => 'Delete the user and all content what user :name created.',
       'option2' => 'Delete the user and Attribute content to another user from the list',
-
-    ]
+    ],
+    'systemMessages' => [
+      'created' => 'Felhasználó sikeresn létrehozva',
+      'updated' => 'Felhasználó sikeresen frissítve',
+      'deleted' => 'Felhasználó sikeresen törölve',
+      'forceDelete' => 'Felhasználó véglegesen törölve',
+      'cantDelete' => 'Felhasználó törlése sikertelen',
+      'restored' => 'Felhasználó sikeresen visszaállítva',
+      'deleteWithTransfer' => 'User was successfully deleted, and all post where transfered to user: ',
+      'deleteAll' => 'User and all content what user created are successfully deleted',
+    ],
 
 ];

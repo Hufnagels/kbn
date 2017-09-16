@@ -94,7 +94,7 @@ class InstructionController extends BackendController
          } else {
            $instruction->lessions()->detach(); //array()
          }
-         return redirect()->route('instruction.index')->with('message','Instruction material was created successfully');
+         return redirect()->route('instruction.index')->with('message',__('manageInstruction.systemMessages.created'));
      }
 
     public function show($id) { }
@@ -137,13 +137,13 @@ class InstructionController extends BackendController
         }
 
 
-        return redirect()->route('instruction.index')->with('message','Instruction materials was updated successfully');
+        return redirect()->route('instruction.index')->with('message',__('manageInstruction.systemMessages.updated'));
     }
 
     public function destroy($id)
     {
       Instruction::findOrFail($id)->delete();
-      return redirect()->route('instruction.index')->with('trash-message',['Instruction material has been moved to Trash', $id]);
+      return redirect()->route('instruction.index')->with('trash-message',[__('manageInstruction.systemMessages.deleted'), $id]);
     }
 
     public function forceDestroy($id)
@@ -154,7 +154,7 @@ class InstructionController extends BackendController
         $instruction->category()->detach();
         // $this->removeImage($instruction->image);
 
-        return redirect('/manage/instruction?status=trash')->with('message','Instruction material has been deleted permanently');
+        return redirect('/manage/instruction?status=trash')->with('message',__('manageInstruction.systemMessages.forceDelete'));
     }
 
     public function restore($id)
@@ -162,7 +162,7 @@ class InstructionController extends BackendController
         $instruction = Instruction::withTrashed()->findOrFail($id);
         $instruction->restore();
 
-        return redirect()->back()->with('message','Instruction material has been Restored');
+        return redirect()->back()->with('message',__('manageInstruction.systemMessages.restored'));
     }
     /**
     *

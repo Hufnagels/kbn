@@ -77,7 +77,7 @@ class TestimonialController extends BackendController
 
           $testimonial = $request->user()->testimonial()->create($data);
 
-          return redirect()->route('testimonial.index')->with('message','Testimonial material was created successfully');
+          return redirect()->route('testimonial.index')->with('message',__('manageTesti.systemMessages.created'));
       }
 
 
@@ -95,13 +95,13 @@ class TestimonialController extends BackendController
          $data = $request->all();
          unset($data['slug']);
          $testimonial->update($data);
-         return redirect()->route('testimonial.index')->with('message','Testimonial was updated successfully');
+         return redirect()->route('testimonial.index')->with('message',__('manageTesti.systemMessages.updated'));
      }
 
      public function destroy($id)
      {
        Testimonial::findOrFail($id)->delete();
-       return redirect()->route('testimonial.index')->with('trash-message',['Testimonial has been moved to Trash', $id]);
+       return redirect()->route('testimonial.index')->with('trash-message',[__('manageTesti.systemMessages.deleted'), $id]);
      }
 
      public function forceDestroy($id)
@@ -109,7 +109,7 @@ class TestimonialController extends BackendController
          $testimonial = Testimonial::withTrashed()->findOrFail($id);
          $testimonial->forceDelete();
 
-         return redirect('/manage/testimonial?status=trash')->with('message','Testimonial has been deleted permanently');
+         return redirect('/manage/testimonial?status=trash')->with('message',__('manageTesti.systemMessages.forceDelete'));
      }
 
      public function restore($id)
@@ -117,7 +117,7 @@ class TestimonialController extends BackendController
          $testimonial = Testimonial::withTrashed()->findOrFail($id);
          $testimonial->restore();
 
-         return redirect()->back()->with('message','Testimonial has been Restored');
+         return redirect()->back()->with('message',__('manageTesti.systemMessages.restored'));
      }
      /**
      *

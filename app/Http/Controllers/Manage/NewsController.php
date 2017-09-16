@@ -97,7 +97,7 @@ class NewsController extends BackendController
         } else {
           $post->tags()->sync([config('ownAttributes.default_tag.id')]); //array()
         }
-        return redirect()->route('post.index')->with('message','News was created successfully');
+        return redirect()->route('post.index')->with('message',__('manageNews.systemMessages.created'));
     }
 
     public function edit($id)
@@ -133,13 +133,13 @@ class NewsController extends BackendController
         }
 
 
-        return redirect()->route('post.index')->with('message','News was updated successfully');
+        return redirect()->route('post.index')->with('message',__('manageNews.systemMessages.updated'));
     }
 
     public function destroy($id)
     {
         News::findOrFail($id)->delete();
-        return redirect()->route('post.index')->with('trash-message',['News has been moved to Trash', $id]);
+        return redirect()->route('post.index')->with('trash-message',[__('manageNews.systemMessages.deleted'), $id]);
     }
 
     public function forceDestroy($id)
@@ -150,7 +150,7 @@ class NewsController extends BackendController
         $news->category()->detach();
         $this->removeImage($news->image);
 
-        return redirect('/manage/post?status=trash')->with('message','News has been deleted permanently');
+        return redirect('/manage/post?status=trash')->with('message',__('manageNews.systemMessages.forceDelete'));
     }
 
     public function restore($id)
@@ -158,7 +158,7 @@ class NewsController extends BackendController
         $news = News::withTrashed()->findOrFail($id);
         $news->restore();
 
-        return redirect()->back()->with('message','News has been Restored');
+        return redirect()->back()->with('message',__('manageNews.systemMessages.restored'));
         // redirect()->route('post.index')
         // route('post.index')
     }

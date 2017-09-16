@@ -19,5 +19,12 @@ return [
       'part1' => 'Ebben a kategóriában ',
       'part2' => 'hír van.',
     ],
-
+    'systemMessages' => [
+      'created' => 'Kategória sikeresn létrehozva',
+      'updated' => 'Kategória sikeresen frissítve',
+      'deleted' => 'Kategória sikeresen törölve',
+      'forceDelete' => 'Kategória véglegesen törölve',
+      'cantDelete' => 'Kategória törlése sikertelen',
+      'restored' => 'Kategória sikeresen visszaállítva',
+    ],
 ];

@@ -24,6 +24,13 @@ return [
       'title' => 'Titulus szükséges',
       'name' => 'Ajánló szükséges',
     ],
-
+    'systemMessages' => [
+      'created' => 'Ajánlás sikeresn létrehozva',
+      'updated' => 'Ajánlás sikeresen frissítve',
+      'deleted' => 'Ajánlás sikeresen törölve',
+      'forceDelete' => 'Ajánlás véglegesen törölve',
+      'cantDelete' => 'Ajánlás törlése sikertelen',
+      'restored' => 'Ajánlás sikeresen visszaállítva',
+    ],
 
 ];

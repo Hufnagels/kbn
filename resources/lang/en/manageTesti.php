@@ -24,6 +24,13 @@ return [
       'title' => 'Title needed',
       'name' => 'Who sad needed',
     ],
-
+    'systemMessages' => [
+      'created' => 'Testimonial was created successfully',
+      'updated' => 'Testimonial was updated successfully',
+      'deleted' => 'Testimonial was deleted successfully',
+      'forceDelete' => 'Testimonial has been deleted permanently',
+      'cantDelete' => 'Can not delete this testimonial',
+      'restored' => 'Testimonial has been Restored',
+    ],
 
 ];

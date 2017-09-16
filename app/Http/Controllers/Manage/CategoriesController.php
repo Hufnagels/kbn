@@ -60,7 +60,7 @@ class CategoriesController extends BackendController
     public function store(CategoryStoreRequest $request)
     {
         Category::create($request->all());
-        return redirect()->route('category.index')->with('message','Category was created successfully');
+        return redirect()->route('category.index')->with('message',__('manageCategory.systemMessages.created'));
     }
 
     /**
@@ -97,7 +97,7 @@ class CategoriesController extends BackendController
     public function update(CategoryUpdateRequest $request, $id)
     {
       Category::findOrFail($id)->update( $request->all() );
-      return redirect()->route('category.index')->with('message','Category was updated successfully');
+      return redirect()->route('category.index')->with('message',__('manageCategory.systemMessages.updated'));
     }
 
     /**
@@ -119,7 +119,7 @@ class CategoriesController extends BackendController
       {
         News::where('category_id', $id)->update(['category_id' => config('ownAttributes.default_category.id')] );
         $category->delete();
-        return redirect()->route('category.index')->with('message', 'Category was deleted successfully');
+        return redirect()->route('category.index')->with('message', __('manageCategory.systemMessages.deleted'));
       }
       else
       {
@@ -135,7 +135,7 @@ class CategoriesController extends BackendController
         $category->forceDelete();
 
 
-        return redirect('/manage/category?status=trash')->with('message','Category has been deleted permanently');
+        return redirect('/manage/category?status=trash')->with('message',__('manageCategory.systemMessages.forceDelete'));
         // )->route('post.index'
     }
 
@@ -144,7 +144,7 @@ class CategoriesController extends BackendController
         $category = Category::withTrashed()->findOrFail($id);
         $category->restore();
 
-        return redirect()->back()->with('message','Category has been Restored');
+        return redirect()->back()->with('message',__('manageCategory.systemMessages.restored'));
         // redirect()->route('post.index')
         // route('post.index')
     }

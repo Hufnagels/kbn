@@ -17,5 +17,12 @@ return [
     'photoCount' => 'Képek száma',
     'videoCount' => 'Videók száma',
     'inTag' => ':name ezzel a címkévek',
-
+    'systemMessages' => [
+      'created' => 'Címke sikeresn létrehozva',
+      'updated' => 'Címke sikeresen frissítve',
+      'deleted' => 'Címke sikeresen törölve',
+      'forceDelete' => 'Címke véglegesen törölve',
+      'cantDelete' => 'Címke törlése sikertelen',
+      'restored' => 'Címke sikeresen visszaállítva',
+    ],
 ];

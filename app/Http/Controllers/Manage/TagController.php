@@ -45,7 +45,7 @@ class TagController extends BackendController
     public function store(TagStoreRequest $request)
     {
         Tag::create($request->all());
-        return redirect()->route('tag.index')->with('message','Tag was created successfully');
+        return redirect()->route('tag.index')->with('message',__('manageTag.systemMessages.created'));
     }
 
 
@@ -59,7 +59,7 @@ class TagController extends BackendController
     public function update(TagUpdateRequest $request, $id)
     {
       Tag::findOrFail($id)->update( $request->all() );
-      return redirect()->route('tag.index')->with('message','Tag was updated successfully');
+      return redirect()->route('tag.index')->with('message',__('manageTag.systemMessages.updated'));
     }
 
 
@@ -77,11 +77,11 @@ class TagController extends BackendController
 
         // dd(\DB::getQueryLog());
         $tag->delete();
-        return redirect()->route('tag.index')->with('message', 'Tag was deleted successfully');
+        return redirect()->route('tag.index')->with('message', __('manageTag.systemMessages.deleted'));
       }
       else
       {
-        return redirect()->route('tag.index')->with('error', 'Can not delete this tag');
+        return redirect()->route('tag.index')->with('error', __('manageTag.systemMessages.cantDelete'));
       }
 
     }
@@ -96,7 +96,7 @@ class TagController extends BackendController
         $tag->forceDelete();
 
 
-        return redirect('/manage/tag?status=trash')->with('message','Tag has been deleted permanently');
+        return redirect('/manage/tag?status=trash')->with('message',__('manageTag.systemMessages.forceDelete'));
         // )->route('post.index'
     }
 
@@ -104,6 +104,6 @@ class TagController extends BackendController
     {
         $tag = Tag::withTrashed()->findOrFail($id);
         $tag->restore();
-        return redirect()->back()->with('message','Tag has been Restored');
+        return redirect()->back()->with('message',__('manageTag.systemMessages.restored'));
     }
 }
