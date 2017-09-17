@@ -11,17 +11,18 @@
   }
 }
 </style>
-
-<div class="hero-body">
-  <div class="container">
-    <h1 class="title has-text-centered has-text-white-bis wow zoomIn" data-wow-duration="5s" data-wow-delay="1s" >{{ __('indexPage.ourFavVideos') }}</h1>
-    <h2 class="subtitle has-text-centered has-text-white-bis wow zoomIn" data-wow-duration="5s" data-wow-delay="1s">{{ __('indexPage.ourFavVideosSub') }}</h2>
-  </div>
-</div>
 <?php
 $relatedVideosCount = count($videos);
 ?>
 @if($relatedVideosCount > 0)
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title has-text-centered has-text-white-bis wow zoomIn" data-wow-duration="5s" data-wow-delay="1s" >{{ __('indexPage.ourFavVideos') }}</h1>
+      <h2 class="subtitle has-text-centered has-text-white-bis wow zoomIn" data-wow-duration="5s" data-wow-delay="1s">{{ __('indexPage.ourFavVideosSub') }}</h2>
+    </div>
+  </div>
+
+
   @if($relatedVideosCount % 3 == 0)
   <div class="columns is-mobile p-b-10">
     <div class="column is-8 is-offset-2">
