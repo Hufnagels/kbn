@@ -85,7 +85,11 @@ INDEX PAGE
 .headersection .hero .hero-body{
   margin-top:11rem;
 }
-
+@media screen and (max-width: 768px) {
+  .headersection .hero .hero-body{
+    margin-top:0rem;
+  }
+}
 .headersection .hero .title,
 .headersection .hero .subtitle {
   font-family: 'ImpactRegular';

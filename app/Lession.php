@@ -46,15 +46,15 @@ class Lession extends Model
   {
     if (! $this->published_at)
     {
-      return '<span class="tag is-danger">Draft</span>';
+      return '<span class="tag is-danger">' . __('forms.draft') . '</span>';
     }
     elseif ($this->published_at && $this->published_at->isFuture())
     {
-      return '<span class="tag is-warning">Scheduled</span>';
+      return '<span class="tag is-warning">' . __('forms.scheduled') . '</span>';
     }
     else
     {
-      return '<span class="tag is-success">Published</span>';
+      return '<span class="tag is-success">' . __('forms.published') . '</span>';
     }
   }
 

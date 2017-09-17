@@ -8,25 +8,23 @@ use App\News;
 use App\Category;
 use App\Tag;
 use App\Testimonial;
+use App\Video;
 
 class NavigationComposer
 {
   public function compose(View $view)
   {
+    // NEWS PAGE SIDEBAR
     $this->composeNewsCategories($view);
-
     $this->composeNewsTags($view);
-
     $this->composeNewsPopularPosts($view);
 
-    $this->composeNewsWithImages($view);
-
-    $this->composeNewsWithProjectCategory($view);
-
+    // INDEXPAGE
+    $this->composeNewsForIndexPage($view);
+    // $this->composeNewsWithImages($view);
+    // $this->composeNewsWithProjectCategory($view);
     $this->composeTestimonialSlider($view);
-
-
-    // $this->composeNewsPopularPostsInMainNav($view);
+    $this->composeVideosForIndexPage($view);
   }
 
 // NEWS SECTION
@@ -67,6 +65,19 @@ class NavigationComposer
   }
 
 // PAGES HEADER BOXES
+// ver 0.2
+public function composeNewsForIndexPage(View $view)
+{
+  $latestpostswithimages = News::withImages()
+    // ->filterNotProjectCategory()
+    ->published()
+    ->latestFirst()
+    ->take(4)
+    ->get();
+  $view->with( 'latestpostswithimages' , $latestpostswithimages);
+}
+
+//ver 0.1
   public function composeNewsWithImages(View $view)
   {
     $latestpostswithimages = News::withImages()
@@ -94,6 +105,13 @@ class NavigationComposer
   {
     $testimonials = Testimonial::published()->get();
     $view->with('testimonials' , $testimonials);
+  }
+
+  // INDEX PAGE VIDEOS
+  public function composeVideosForIndexPage(View $view)
+  {
+    $videos = Video::published()->latestFirst()->take(3)->get();
+    $view->with('videos' , $videos);
   }
 
 // EVENTS SECTION

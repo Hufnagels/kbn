@@ -22,12 +22,14 @@ return [
       'option2' => 'Törlöd a felhasználót és egy másik felhasználóhoz rendeled az anyagait?',
     ],
     'systemMessages' => [
-      'created' => 'User was created successfully',
-      'updated' => 'User was updated successfully',
-      'deleted' => 'User was deleted successfully',
-      'forceDelete' => 'User has been deleted permanently',
-      'cantDelete' => 'Can not delete this user',
-      'restored' => 'User has been Restored',
+      'created' => 'Felhasználó sikeresn létrehozva',
+      'updated' => 'Felhasználó sikeresen frissítve',
+      'deleted' => 'Felhasználó sikeresen törölve',
+      'forceDelete' => 'Felhasználó véglegesen törölve',
+      'cantDelete' => 'Felhasználó törlése sikertelen',
+      'restored' => 'Felhasználó sikeresen visszaállítva',
+      'deleteWithTransfer' => 'A felhasználó sikeresen törölve, az általa készített összes anyag a következő felhasználóhoz rendelve: ',
+      'deleteAll' => 'A felhasználó és az általa készített összes anyag sikeresen törölve.',
     ],
 
 ];

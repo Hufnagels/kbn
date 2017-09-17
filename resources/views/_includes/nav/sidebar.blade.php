@@ -61,7 +61,7 @@
   <p class="menu-label">{{ __('navbar.manage.indexPageElements') }}</p>
   <ul class="menu-list">
     <li><a {{ ( strpos(Route::currentRouteName(), 'testimonial') > -1) ? 'class=is-active' : '' }} href="{{ route('testimonial.index') }}">{{ __('manageTesti.testimonials') }}</a></li>
-
+    <li><a {{ ( strpos(Route::currentRouteName(), 'video') > -1) ? 'class=is-active' : '' }} href="{{ route('video.index') }}">{{ __('navbar.manage.video') }}</a></li>
   </ul>
   @endif
 

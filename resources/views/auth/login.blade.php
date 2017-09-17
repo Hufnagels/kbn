@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}" class="mdc-typography">
 @include('_includes.head.login')
+<style>
+.loginPage{
+    background-image: url(http://kvn.dev/images/header/headerimage_copy1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}</style>
 <body>
   <div id="app">
 @include('manage.partials.message')
@@ -71,7 +78,7 @@
       </div>
       <div class="content m-t-20">
         <div class="has-text-centered">
-          <a class="button is-primary is-outlined" href="/" style="margin-left:0;">{{ __('auth.back') }}</a>
+          <a class="button is-primary " href="/" style="margin-left:0;">{{ __('auth.back') }}</a>
         </div>
     </div>
     </div>

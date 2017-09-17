@@ -6,7 +6,7 @@
 
           <div class="field is-clearfix">
             <label class="label">{!! Form::label('url', 'URL') !!}</label>
-            <div class="control {{ $errors->has('title') ? 'is-danger' : ''}}">{!! Form::text('url', 'https://www.youtube.com/watch?v=dXk_WG6nmds', ['class' => 'input']) !!}</div>
+            <div class="control {{ $errors->has('title') ? 'is-danger' : ''}}">{!! Form::text('url', null, ['class' => 'input']) !!}</div>
             <div class="control">
               {!! Form::hidden('yt_video_id', null, ['class' => 'input']) !!}
               <a class="button is-success is-pulled-right" id="previewVideo">{{ __('manageVideo.button.check') }}</a>
@@ -17,7 +17,11 @@
           </div>
           <div class="field videocontent">
             <div class="intrinsic-container intrinsic-container-16x9">
-              <iframe id="previewIframe" src="" allowfullscreen style="margin: 0 auto;border:5px double #9fff26; width: 100%; min-height: 100%;"></iframe>
+              <iframe id="previewIframe" src="
+                @if( $video->yt_video_id !== NULL)
+                  https://www.youtube.com/embed/{{$video->yt_video_id}}
+                @endif
+                  " allowfullscreen style="margin: 0 auto;border:5px double #9fff26; width: 100%; min-height: 100%;"></iframe>
             </div>
           </div>
 
@@ -36,7 +40,7 @@
             <div class="control {{ $errors->has('slug') ? 'is-danger' : ''}}">{!! Form::text('slug', null, ['class' => 'input']) !!}</div>
             <p class="help is-danger">{{ __('forms.errors.slug') }}</p>
             @else
-            <p class="is-size-6 has-text-primary slugtext" style="min-height:24px;width:100%;"></p>
+            <p class="is-size-6 has-text-primary slugtext" style="min-height:24px;width:100%;">{{$video->slug}}</p>
             <div class="control">{!! Form::hidden('slug', null, ['class' => 'input']) !!}</div>
             @endif
           </div>
@@ -115,9 +119,9 @@
 
       <hr>
       <div class="control m-t-30">
-        @if (check_user_permissions(request(), "Video@edit", $video->id))
+
         {!! Form::submit( __('forms.button.publish') , ['class' => 'button is-primary']) !!}
-        @endif
+
         <a href="{{ route('video.index') }}" class="button">{{ __('forms.button.cancel') }}</a>
       </div>
 

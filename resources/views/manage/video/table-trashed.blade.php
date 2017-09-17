@@ -1,7 +1,7 @@
 <table class="table is-narrow">
   <thead>
     <tr>
-      <!--<th><abbr title="Id">ID</abbr></th>-->
+      <th><abbr title="thumb">Thumb</abbr></th>
       <th width="40%"><abbr title="{{ __('forms.title') }}">{{ __('forms.title') }}</abbr></th>
       <th><abbr title="{{ __('forms.author') }}">{{ __('forms.author') }}</abbr></th>
       <th><abbr title="{{ __('forms.category') }}">{{ __('forms.category') }}</abbr></th>
@@ -13,29 +13,33 @@
   </thead>
 
   <tbody>
-    @foreach($lessions as $lession)
+    @foreach($videos as $video)
     <tr>
-      <!--<td>{{$lession->id}}</td>-->
-      <td>{{$lession->title}}</td>
-      <td>{{$lession->author->name}}</td>
-      <td>{!! $lession->category[0]->title !!}</td>
-      <td>{{$lession->created_at->toFormattedDateString()}}</td>
-      <td>{{ $lession->published_at ? $lession->published_at->toFormattedDateString() : __('forms.noStatus')}}</td>
+      <td><img src="http://img.youtube.com/vi/{{$video->yt_video_id}}/default.jpg"></td>
+      <td>{{$video->title}}</td>
+      <td>{{$video->author->name}}</td>
+      <td>{!! $video->category[0]->title !!}</td>
+      <td>
+        @foreach($video->category as $category)
+          {{$category->title}}
+        @endforeach
+      </td>
+      <td>{{ $video->published_at ? $video->published_at->toFormattedDateString() : __('forms.noStatus')}}</td>
 
       <td>
         {!! Form::open([
           'method' => 'PUT',
-          'route' => ['lession.restore', $lession->id],
+          'route' => ['video.restore', $video->id],
           'class'=>'trashtable',
           'style' => 'display:-webkit-inline-box; margin-top:0;line-height:1.8rem;' ]) !!}
-        <button type="submit" class="button trashtable is-info is-outlined is-small" title="Restore"><span class="fa fa-reply"></span></button>
+        <button type="submit" class="button trashtable is-info is-outlined is-small" title="{{ __('forms.button.restore') }}"><span class="fa fa-reply"></span></button>
         {!! Form::close() !!}
-        @if (Auth::user()->hasPermission('delete-lession'))
+        @if (Auth::user()->hasPermission('delete-video'))
         {!! Form::open([
           'method' => 'DELETE',
-          'route' => ['lession.force-destroy', $lession->id],
+          'route' => ['video.force-destroy', $video->id],
           'style' => 'display:-webkit-inline-box; margin-top:0;line-height:1.8rem;' ]) !!}
-        <button type="submit" class="button trashtable is-danger is-outlined is-small" title="Delete"><span class="fa fa-remove"></span></button>
+        <button type="submit" class="button trashtable is-danger is-outlined is-small" title="{{ __('forms.button.delete') }}"><span class="fa fa-remove"></span></button>
         {!! Form::close() !!}
         @endif
       </td>

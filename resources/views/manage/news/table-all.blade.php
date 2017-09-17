@@ -24,12 +24,12 @@
         @endforeach
       </td>
       <td>{{$news->created_at->toFormattedDateString()}}</td>
-      <td>{{ $news->published_at ? $news->published_at->toFormattedDateString() : 'not yet published'}}</td>
+      <td>{{ $news->published_at ? $news->published_at->toFormattedDateString() : __('forms.noStatus')}}</td>
       <td>{!! $news->publicationStatusLabel() !!}</td>
       <td>
         {!! Form::open(['method' => 'DELETE', 'route' => ['post.destroy', $news->id],'class'=>'allnewstable']) !!}
         @if (check_user_permissions(request(), "News@edit", $news->id))
-        <a href="{{ route('post.edit', $news->id)}}" title="Edit"><span class="fa fa-edit"></span></a>
+        <a href="{{ route('post.edit', $news->id)}}" title="{{ __('forms.button.edit') }}"><span class="fa fa-edit"></span></a>
         @endif
         @if (check_user_permissions(request(), "News@destroy", $news->id))
         <button type="submit" class="button allnewstable is-danger is-outlined is-small"><span class="fa fa-remove"></span></button>

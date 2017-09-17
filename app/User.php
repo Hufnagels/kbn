@@ -78,8 +78,24 @@ class User extends Authenticatable
       return $this->hasMany(Testimonial::class, 'author_id');
     }
 
+    public function video()
+    {
+      return $this->hasMany(Video::class, 'author_id');
+    }
+
+    public function photo()
+    {
+      return $this->hasMany(Video::class, 'author_id');
+    }
+
+    // ATTRIBUTES
     public function getBioHtmlAttribute($value)
     {
       return $this->bio ? Markdown::convertToHtml(e($this->bio)) : NULL;
     }
+
+    // SCOPES
+
+    // FUNCTIONS
+    
 }

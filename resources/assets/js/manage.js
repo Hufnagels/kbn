@@ -19,7 +19,8 @@ require('./bootstrap');
 //require('../../../node_modules/trumbowyg/dist/plugins/upload/trumbowyg.upload.min.js');
 
 require('../../../node_modules/bootstrap/dist/js/bootstrap.min.js');
-require('../../../node_modules/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js');
+// require('../../../node_modules/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js');
+require('../../../public/vendor/datetimepicker/bootstrap-datetimepicker.min.js');
 // require('../../../node_modules/moment/moment.js');
 window.moment = require('moment');
 window.owlcarousel = require('owl.carousel');

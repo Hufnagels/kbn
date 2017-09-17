@@ -20,7 +20,7 @@
       <td>{{$instruction->author->name}}</td>
       <td>{!! $instruction->category[0]->title !!}</td>
       <td>{{$instruction->created_at->toFormattedDateString()}}</td>
-      <td>{{ $instruction->published_at ? $instruction->published_at->toFormattedDateString() : 'not yet published'}}</td>
+      <td>{{ $instruction->published_at ? $instruction->published_at->toFormattedDateString() : __('forms.noStatus')}}</td>
       <td>{!! $instruction->publicationStatusLabel() !!}</td>
       <td>
         {!! Form::open(['method' => 'DELETE', 'route' => ['instruction.destroy', $instruction->id],'class'=>'allnewstable']) !!}

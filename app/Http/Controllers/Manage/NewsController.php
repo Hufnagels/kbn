@@ -41,13 +41,13 @@ class NewsController extends BackendController
       }
       elseif ($status == 'published')
       {
-        $newses = News::published()->with('author', 'category')->latest()->paginate($this->paginateLimit); //all();
+        $newses = News::published()->with('author', 'category')->latestFirst()->paginate($this->paginateLimit); //all();
         $newsCount = News::published()->count();
 
       }
       elseif ($status == 'scheduled')
       {
-        $newses = News::scheduled()->with('author', 'category')->latest()->paginate($this->paginateLimit); //all();
+        $newses = News::scheduled()->with('author', 'category')->latestFirst()->paginate($this->paginateLimit); //all();
         $newsCount = News::scheduled()->count();
 
       }
@@ -59,7 +59,7 @@ class NewsController extends BackendController
       }
       elseif ($status == 'own')
       {
-        $newses = $request->user()->news()->with('author', 'category')->latest()->paginate($this->paginateLimit); //all();
+        $newses = $request->user()->news()->with('author', 'category')->latestFirst()->paginate($this->paginateLimit); //all();
         $newsCount = $request->user()->news()->count();
 
       }

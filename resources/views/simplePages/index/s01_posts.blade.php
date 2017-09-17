@@ -29,35 +29,20 @@
   ?>
 
   @foreach ($latestpostswithimages as $post)
-  <?php
-  // shuffle($colorArray);
-  // $index = rand(1, 100);
-  // $colorArray = randomColor(85,205);//random_color();
+    <?php
+    // shuffle($colorArray);
+    // $index = rand(1, 100);
+    // $colorArray = randomColor(85,205);//random_color();
 
-  ?>
-  <div class="tile is-parent ">
-    <article class="tile is-child notification fadeInUp" data-wow-duration="2s" data-wow-delay="1s" style="background-color:{{ $colorArray[$index] }}">
-      @include('manage.partials.newsBox')
-    </article>
-  </div>
-  <?php $index++; ?>
+    ?>
+    <div class="tile is-parent ">
+      <article class="tile is-child notification fadeInUp" data-wow-duration="2s" data-wow-delay="1s" style="background-color:{{ $colorArray[$index] }}">
+        @include('manage.partials.newsBox')
+      </article>
+    </div>
+    <?php $index++; ?>
   @endforeach
 
-  <?php
-  //$colorArray = ['is-success', 'is-warning', 'is-info', 'is-primary'];
-  ?>
-  @foreach ($projectcategories as $post)
-  <?php
-  // shuffle($colorArray);
-  // $index = rand(0, 3);
-  //$colorArray = $colorArray = randomColor(100,255);//random_color();
-  ?>
-  <div class="tile is-parent ">
-    <article class="tile is-child notification fadeInUp" data-wow-duration="2s" data-wow-delay="1s" style="background-color:{{ $colorArray[$index] }}">
-      @include('manage.partials.newsBox')
-    </article>
-  </div>
-  <?php $index++; ?>
-  @endforeach
+
 
 </div>

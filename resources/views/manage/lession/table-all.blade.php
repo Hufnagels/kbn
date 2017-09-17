@@ -18,9 +18,13 @@
 
       <td>{{$lession->title}}</td>
       <td>{{$lession->author->name}}</td>
-      <td>{!! $lession->category[0]->title !!}</td>
+      <td>
+        @foreach($lession->category as $category)
+          {{$category->title}}
+        @endforeach
+      </td>
       <td>{{$lession->created_at->toFormattedDateString()}}</td>
-      <td>{{ $lession->published_at ? $lession->published_at->toFormattedDateString() : 'not yet published'}}</td>
+      <td>{{ $lession->published_at ? $lession->published_at->toFormattedDateString() : __('forms.noStatus')}}</td>
       <td>{!! $lession->publicationStatusLabel() !!}</td>
       <td>
         {!! Form::open(['method' => 'DELETE', 'route' => ['lession.destroy', $lession->id],'class'=>'allnewstable']) !!}

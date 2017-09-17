@@ -1,3 +1,8 @@
+/*
+.collapse {display:in-block; background:white;}
+.collapse.in {display:none;}
+*/
+
 .menu {
   height: auto;
   overflow-y: auto;

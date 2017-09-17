@@ -8,11 +8,11 @@ return [
     |--------------------------------------------------------------------------
     |
     */
-    'user' => 'Felhasználó',
-    'manage' => 'Felhasználók kezelése',
-    'create' => 'Új felhasználó',
-    'edit' => 'Felhasználó szerkesztése',
-    'noUser' => 'Ebben nincs elem',
+    'user' => 'User',
+    'manage' => 'Manage users',
+    'create' => 'New user',
+    'edit' => 'Edit user',
+    'noUser' => 'Nothing in it',
     'confirm' => [
       'delete' => 'Delete confirmation',
       'text1' => 'The selected user',
@@ -22,12 +22,12 @@ return [
       'option2' => 'Delete the user and Attribute content to another user from the list',
     ],
     'systemMessages' => [
-      'created' => 'Felhasználó sikeresn létrehozva',
-      'updated' => 'Felhasználó sikeresen frissítve',
-      'deleted' => 'Felhasználó sikeresen törölve',
-      'forceDelete' => 'Felhasználó véglegesen törölve',
-      'cantDelete' => 'Felhasználó törlése sikertelen',
-      'restored' => 'Felhasználó sikeresen visszaállítva',
+      'created' => 'User was created successfully',
+      'updated' => 'User was updated successfully',
+      'deleted' => 'User was deleted successfully',
+      'forceDelete' => 'User has been deleted permanently',
+      'cantDelete' => 'Can not delete this user',
+      'restored' => 'User has been Restored',
       'deleteWithTransfer' => 'User was successfully deleted, and all post where transfered to user: ',
       'deleteAll' => 'User and all content what user created are successfully deleted',
     ],

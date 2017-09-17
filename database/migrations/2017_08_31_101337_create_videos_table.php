@@ -13,14 +13,15 @@ class CreateVideosTable extends Migration
      */
     public function up()
     {
+        DB::statement("TRUNCATE TABLE videos");
         Schema::create('videos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
             $table->string('slug')->unique();
-            $table->string('path');
+            $table->string('path')->nullable();
             $table->string('filename')->nullable();
-            $table->text('description');
-            $table->string('video_size');
+            $table->text('description')->nullable();
+            $table->string('video_size')->nullable();
             $table->timestamps();
         });
     }

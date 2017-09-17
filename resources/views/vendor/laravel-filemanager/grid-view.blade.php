@@ -39,6 +39,7 @@
             <li class="divider"></li>
             @endif
           @endif
+
           @if ( Auth::user()->hasPermission('delete-file'))
           <li><a href="javascript:trash('{{ $item_name }}')"><i class="fa fa-trash fa-fw"></i> {{ Lang::get('laravel-filemanager::lfm.menu-delete') }}</a></li>
           @endif

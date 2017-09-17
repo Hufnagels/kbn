@@ -23,6 +23,7 @@ return [
       'publish' => 'Save',
       'update' => 'Update',
       'cancel' => 'Cancel',
+      'edit' => 'Edit',
     ],
     'errors' => [
       'text' => 'Text must be set.',
@@ -51,6 +52,7 @@ return [
     'scheduled' => 'Scheduled',
     'published' => 'Published',
     'trash' => 'Trash',
+    'noStatus' => 'not yet published',
 
     // DB column names
     'name' => 'Name',

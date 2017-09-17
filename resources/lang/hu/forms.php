@@ -23,13 +23,14 @@ return [
       'publish' => 'Rögzít',
       'update' => 'Módosít',
       'cancel' => 'Mégse',
+      'edit' => 'Szerkeszt',
     ],
     'errors' => [
       'text' => 'Szöveg szükséges.',
       'name' => 'Név szükséges',
       'title' => 'Cím szükséges',
       'subtitle' => 'Alcím szükséges',
-      'slug' => 'Keresőknek cím szükséges és egyedi',
+      'slug' => 'Keresőknek cím szükséges és egyedi legyen (Ilyen már van)',
       'excerpt' => 'Összefoglaló szükséges',
       'body'  => 'Szöveg szükséges',
       'image' => 'Hír fejléc képe szükséges',
@@ -51,6 +52,7 @@ return [
     'scheduled' => 'Jövőbeni',
     'published' => 'Publikált',
     'trash' => 'Kuka',
+    'noStatus' => 'Nincs',
 
     // DB column names
     'text' => 'Szöveg',
