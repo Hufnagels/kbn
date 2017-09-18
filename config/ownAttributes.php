@@ -79,7 +79,7 @@ return [
         'large' => [
           'extPref' => 'thumb_l',
           'width' => '700',
-          'height' => '482',
+          'height' => '525',
         ],
       ]
     ]
