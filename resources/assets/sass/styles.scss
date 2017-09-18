@@ -83,7 +83,7 @@ INDEX PAGE
 
 }
 .headersection .hero .hero-body{
-  margin-top:11rem;
+  margin-top:10rem;
 }
 @media screen and (max-width: 768px) {
   .headersection .hero .hero-body{
@@ -177,6 +177,8 @@ INDEX PAGE
 {
     align-self: end;
 }
+
+
 /*
 .home-welcome {
   background: -moz-radial-gradient(center, ellipse cover, rgba(254,222,200,0.18) 0%, rgba(254,220,196,0.18) 1%, rgba(252,200,166,0.18) 9%, rgba(252,200,166,0.18) 15%, rgba(252,198,164,0.18) 16%, rgba(249,126,49,0.65) 64%, rgba(191,134,82,0.87) 87%, rgba(42,42,42,1) 100%);
@@ -317,6 +319,41 @@ $link-color: $accent;
 */
 
 // Testimonial section
+.gt_testi2_wrap p:before {
+    content: "\f10d";
+    position: absolute;
+    font-family: FontAwesome;
+    top: -25px;
+    left: -10px;
+    width: auto;
+    height: auto;
+    color: rgba(174, 216, 139, 0.57);
+    font-size: 45px;
+    z-index: -1;
+}
+
+
+.gt_testimonial2_slider, .gt_testi2_wrap, .gt_testi2_detail {
+
+  width: 100%;
+  position: relative;
+}
+.gt_testi2_wrap {
+  background-color: #fff;
+  z-index: 2;
+}
+
+@media screen and (min-width: 769px), print
+{
+
+}
+.owl-item .column.is-one-quarter,
+.owl-item .column.is-one-quarter-tablet {
+    width: 100%;
+}
+.owl-item .column.is-one-quarter .card {
+  z-index: 0;
+}
 .testimonial {
   min-height:400px;
   /*background-image: url( '/images/header/testimonial-overlay.png' );

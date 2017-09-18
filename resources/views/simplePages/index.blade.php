@@ -2,41 +2,7 @@
 @section('title',' - Home')
 @section('styles')
 <style>
-.gt_testi2_wrap p:before {
-    content: "\f10d";
-    position: absolute;
-    font-family: FontAwesome;
-    top: -25px;
-    left: -10px;
-    width: auto;
-    height: auto;
-    color: rgba(174, 216, 139, 0.57);
-    font-size: 45px;
-    z-index: -1;
-}
 
-
-.gt_testimonial2_slider, .gt_testi2_wrap, .gt_testi2_detail {
-
-  width: 100%;
-  position: relative;
-}
-.gt_testi2_wrap {
-  background-color: #fff;
-  z-index: 2;
-}
-
-@media screen and (min-width: 769px), print
-{
-
-}
-.owl-item .column.is-one-quarter,
-.owl-item .column.is-one-quarter-tablet {
-    width: 100%;
-}
-.owl-item .column.is-one-quarter .card {
-  z-index: 0;
-}
 
 
 </style>
