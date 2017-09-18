@@ -18,14 +18,14 @@ class UploadListener
      *
      * @param  Illuminate\Events\Dispatcher  $events
      */
-     
+
      public function subscribe($events)
      {
          $events->listen(
             'Unisharp\Laravelfilemanager\Events\ImageWasUploaded',
             'App\Listeners\UploadListener@onImageWasUploaded'
          );
- 
+
          $events->listen(
             'Unisharp\Laravelfilemanager\Events\ImageWasRenamed',
             'App\Listeners\UploadListener@onImageWasRenamed'
@@ -35,7 +35,7 @@ class UploadListener
             'Unisharp\Laravelfilemanager\Events\ImageWasDeleted',
             'App\Listeners\UploadListener@onImageWasDeleted'
          );
-         
+
          $events->listen(
             'Unisharp\Laravelfilemanager\Events\FolderWasRenamed',
             'App\Listeners\UploadListener@onFolderWasRenamed'
@@ -71,7 +71,7 @@ class UploadListener
         $pos = strpos($path, 'public/'); //48
         $lfmString = substr($path, $pos + 6); // /fm/photos/shares/Veszprem/IMG_20170726_115529.jpg
         $lfmThumbDir = config('lfm.thumb_folder_name');
-        
+
         //path info of given file
         $path_parts = pathinfo($lfmString);
         $dirname = $path_parts['dirname']; // /fm/photos/shares/Veszprem
@@ -83,9 +83,10 @@ class UploadListener
 
         /* RESIZE ORIG IMAGE */
         Image::make($path)
-            ->resize(config('ownAttributes.lfmSettings.image.resized.width'), null, function ($constraint) {
-                $constraint->aspectRatio();
-                })
+            // ->resize(config('ownAttributes.lfmSettings.image.resized.width'), null, function ($constraint) {
+            //     $constraint->aspectRatio();
+            //     })
+            ->fit(config('ownAttributes.lfmSettings.image.resized.width'), config('ownAttributes.lfmSettings.image.resized.height'))
             ->save($path, 90);
 
         /* OPTIMIZE IMAGE*/
@@ -98,7 +99,7 @@ class UploadListener
         $thumbTypeArray = config('ownAttributes.lfmSettings.image.thumbs');
         foreach($thumbTypeArray as $thumbArray)
         {
-            
+
             $new_file_path = $base_dir . $lfmThumbDir . "/" . $filename . "_" . $thumbArray['extPref']. "." . $ext;
             Image::make($path)
             ->orientate() //Apply orientation from exif data
@@ -108,24 +109,24 @@ class UploadListener
             ->save($new_file_path, 90);
         }
         */
-/** 
+/**
 TODO
-DB:save 
+DB:save
 **/
 
 
     }
-   
+
     public function onImageWasRenamed($event)
     {
         // image was renamed
     }
-   
+
     public function onImageWasDeleted($event)
     {
         // image was deleted
     }
-   
+
     public function onFolderWasRenamed($event)
     {
         // folder was renamed

@@ -49,7 +49,7 @@ return [
     'height' => 340,
     'thumbnail' => [
       'width' => 250,
-      'height' => 170
+      'height' => 170,
     ]
   ],
 
@@ -59,26 +59,27 @@ return [
         'width' => '1000'
       ],
       'resized' => [
-        'width' => '700'
+        'width' => '700',
+        'height' => '394',
       ],
       'thumbs' => [
         /* LIKE POPULAR POST LIST IN SIDEBAR 64x44 */
         'small' => [
           'extPref' => 'thumb_s',
           'width' => '64',
-          'height' => '64'
+          'height' => '64',
         ],
         /* LIKE NEWSLIST  310x214 */
         'medium' => [
           'extPref' => 'thumb_m',
           'width' => '310',
-          'height' => '214'
+          'height' => '214',
         ],
         /* LIKE NEWS POST HEADER */
         'large' => [
           'extPref' => 'thumb_l',
           'width' => '700',
-          'height' => '482'
+          'height' => '482',
         ],
       ]
     ]
