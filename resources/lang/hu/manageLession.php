@@ -14,7 +14,7 @@ return [
     'edit' => 'Órai anyag szerkesztése',
     'noLession' => 'Ebben nincs elem',
     'systemMessages' => [
-      'created' => 'Órai anyag sikeresn létrehozva',
+      'created' => 'Órai anyag sikeresen létrehozva',
       'updated' => 'Órai anyag sikeresen frissítve',
       'deleted' => 'Órai anyag sikeresen törölve',
       'forceDelete' => 'Órai anyag véglegesen törölve',

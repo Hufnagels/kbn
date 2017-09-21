@@ -1,1 +1,131 @@
-.menu{height:auto;overflow-y:auto;padding:1rem}.navbar-item.image img{max-height:100%}.navbar-item.image{min-height:128px;margin:0}@media screen and (min-width:769px){.menu{height:100vh;min-height:100%}}.manage.columns{margin-bottom:0}.manage.columns,.manage>.column{padding-bottom:0}#app{margin-right:10px}.vueItem input[type=checkbox]{display:none}.subtitle:not(:last-child){margin-bottom:.3rem}.control.is-danger>.input,.control.is-danger>.select>select,.control.is-danger>.textarea{border-color:#ff3860}.textarea.excerpt{height:100px}.createcategory .notification,.createnewspost .notification{background-color:transparent}.notification strong{color:currentColor;margin-right:20px;line-height:1.8rem}form.allnewstable a span.fa,form.alltagtable a span.fa{margin-top:.2rem}button.is-danger.is-outlined,button.is-danger.is-outlined.trashtable,button.is-info.is-outlined.trashtable{border-color:transparent;border:none}button.allnewstable>span.fa,button.alltagtable>span.fa,button.trashtable>span.fa{font-size:16px;text-align:center;vertical-align:top}.bootstrap-datetimepicker-widget{background-color:#fff;border:1px solid grey}.select2-selection__choice{background-color:#00d1b2;border:1px solid transparent}.select2-selection__choice__remove{color:#fff}.media{-webkit-box-align:flex-end;-ms-flex-align:flex-end;align-items:flex-end}.radio.confirm input[type=radio]{display:block;margin:5px 10px}.panel-primary>.panel-heading{color:#fff;background-color:#00d1b2;border-color:#00d1b2}.tabs li.is-active{border-bottom-color:#00d1b2;color:#00d1b2}
+/*
+.collapse {display:in-block; background:white;}
+.collapse.in {display:none;}
+*/
+
+.menu {
+  height: auto;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.navbar-item.image img {
+  max-height: 100%;
+}
+
+.navbar-item.image {
+  min-height: 128px;
+  margin: 0;
+}
+
+/**
+* BULMA Sidebar
+*
+*/
+
+@media screen and (min-width: 769px) {
+  .menu {
+    height: 100vh;
+    min-height: 100%;
+  }
+}
+
+.manage.columns {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.manage > .column {
+  padding-bottom: 0;
+}
+
+#app {
+  margin-right: 10px;
+}
+
+.vueItem input[type=checkbox] {
+  display: none;
+}
+
+.subtitle:not(:last-child) {
+  margin-bottom: .3rem;
+}
+
+.control.is-danger > .input,
+.control.is-danger >
+.textarea,
+.control.is-danger > .select > select {
+  border-color: #ff3860;
+}
+
+.textarea.excerpt {
+  height: 100px;
+}
+
+.createnewspost .notification,
+.createcategory .notification {
+  background-color: transparent;
+}
+
+.notification strong {
+  color: currentColor;
+  margin-right: 20px;
+  line-height: 1.8rem;
+}
+
+form.allnewstable a span.fa,
+form.alltagtable a span.fa {
+  margin-top: .2rem;
+}
+
+button.is-danger.is-outlined,
+button.is-danger.is-outlined.trashtable,
+button.is-info.is-outlined.trashtable {
+  border-color: transparent;
+  border: none;
+}
+
+button.allnewstable > span.fa,
+button.alltagtable > span.fa,
+button.trashtable > span.fa {
+  font-size: 16px;
+  text-align: center;
+  vertical-align: top;
+}
+
+.bootstrap-datetimepicker-widget {
+  background-color: white;
+  border: 1px solid grey;
+}
+
+.select2-selection__choice {
+  background-color: #00d1b2;
+  border: 1px solid transparent;
+}
+
+.select2-selection__choice__remove {
+  color: #fff;
+}
+
+.media {
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+}
+
+.radio.confirm input[type=radio] {
+  display: block;
+  margin: 5px 10px;
+}
+
+.panel-primary > .panel-heading {
+  color: #fff;
+  background-color: #00d1b2;
+  border-color: #00d1b2;
+}
+
+.tabs li.is-active {
+  border-bottom-color: #00d1b2;
+  color: #00d1b2;
+}
+

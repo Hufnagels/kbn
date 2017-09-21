@@ -109,8 +109,8 @@ Auth::routes();
     Route::resource('/photo', 'Manage\PhotoController', ['except' => 'destroy']);
 
     // VIDEOS SECTION
-    Route::put('/video/restore/{video}', 'Manage\VideoController@restore')->name('category.restore');
-    Route::delete('/video/force-destroy/{video}', 'Manage\VideoController@forcedestroy')->name('category.force-destroy');
+    Route::put('/video/restore/{video}', 'Manage\VideoController@restore')->name('video.restore');
+    Route::delete('/video/force-destroy/{video}', 'Manage\VideoController@forcedestroy')->name('video.force-destroy');
     Route::resource('/video', 'Manage\VideoController');
 
   });

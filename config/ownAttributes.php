@@ -14,7 +14,7 @@ return [
     '1','2','3','4'
   ],
   'not_news_categories' => [
-    '3','4'
+    '1','3','4'
   ],
   'default_instruction_category' => [
     'id' => '3'

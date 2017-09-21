@@ -17,7 +17,11 @@
       <!--<td>{{$news->id}}</td>-->
       <td>{{$news->title}}</td>
       <td>{{$news->author->name}}</td>
-      <td>{!! $news->category[0]->title !!}</td>
+      <td>
+        @foreach($news->category as $category)
+          {{$category->title}}
+        @endforeach
+      </td>
       <td>{{$news->created_at->toFormattedDateString()}}</td>
       <td>{{ $news->published_at ? $news->published_at->toFormattedDateString() : __('forms.noStatus')}}</td>
 

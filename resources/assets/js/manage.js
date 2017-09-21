@@ -27,13 +27,13 @@ window.owlcarousel = require('owl.carousel');
 const WOW = require('wowjs');
 window.wow = new WOW.WOW({ live: false });
 
-window.Vue = require('vue/dist/vue.min.js');
-//import Vue from 'vue/dist/vue.min.js'
-import Buefy from 'buefy'
-
-
-//window.Buefy = require('buefy');
-Vue.use(Buefy);
+// window.Vue = require('vue/dist/vue.min.js');
+// //import Vue from 'vue/dist/vue.min.js'
+// import Buefy from 'buefy'
+//
+//
+// //window.Buefy = require('buefy');
+// Vue.use(Buefy);
 
 
 /**
