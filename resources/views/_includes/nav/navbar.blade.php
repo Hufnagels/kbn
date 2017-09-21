@@ -26,26 +26,30 @@
 
   <div id="navMenu" class="navbar-menu is-hidden-print">
     <div class="navbar-start">
-      <a class="navbar-item " href="{{ route('welcome') }}">{{ __('navbar.home') }}</a>
+      <a class="navbar-item {{ ( strpos(Route::currentRouteName(), 'welcome') > -1) ? 'is-active has-text-primary' : '' }}" href="{{ route('welcome') }}">{{ __('navbar.home') }}</a>
+      @if(count($navbarpopularpost))
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link " href="{{ route('newses') }}">{{ __('navbar.news') }}</a>
+        <a class="navbar-link {{ ( strpos(Route::currentRouteName(), 'news') > -1) ? 'is-active has-text-primary' : '' }}" href="{{ route('newses') }}">{{ __('navbar.news') }}</a>
         <div id="blogDropdown" class="navbar-dropdown " data-style="width: 18rem;">
-          @foreach ($popularposts as $post)
+          @foreach ($navbarpopularpost as $post)
             <a class="navbar-item" href="{{ route('news.show', $post->slug)}}">
               <div class="navbar-content">
-                <p><small class="has-text-info">{{$post->date}}</small></p>
+                <p><small class="has-text-info">{{Carbon\Carbon::parse($post->published_at)->toFormattedDateString()}}</small></p>
                 <p>{{$post->title}}</p>
               </div>
             </a>
           @endforeach
           <hr class="navbar-divider">
-          <a class="navbar-item " href="{{ route('newses') }}">{{ __('navbar.morenews') }}</a>
+          <a class="navbar-item" href="{{ route('newses') }}">{{ __('navbar.morenews') }}</a>
         </div>
       </div>
-      <a class="navbar-item" href="{{ route('projects') }}">{{ __('navbar.projects') }}</a>
-      <a class="navbar-item " href="{{ route('team') }}">{{ __('navbar.team') }}</a>
-      <a class="navbar-item " href="{{ route('about') }}">{{ __('navbar.about') }}</a>
-      <a class="navbar-item " href="{{ route('contact') }}">{{ __('navbar.contact') }}</a>
+      @else
+      <a class="navbar-item {{ ( strpos(Route::currentRouteName(), 'newses') > -1) ? 'is-active has-text-primary' : '' }}" href="{{ route('newses') }}">{{ __('navbar.news') }}</a>
+      @endif
+      <a class="navbar-item {{ ( strpos(Route::currentRouteName(), 'projects') > -1) ? 'is-active has-text-primary' : '' }}" href="{{ route('projects') }}">{{ __('navbar.projects') }}</a>
+      <a class="navbar-item {{ ( strpos(Route::currentRouteName(), 'team') > -1) ? 'is-active has-text-primary' : '' }}" href="{{ route('team') }}">{{ __('navbar.team') }}</a>
+      <a class="navbar-item {{ ( strpos(Route::currentRouteName(), 'about') > -1) ? 'is-active has-text-primary' : '' }}" href="{{ route('about') }}">{{ __('navbar.about') }}</a>
+      <a class="navbar-item {{ ( strpos(Route::currentRouteName(), 'contact') > -1) ? 'is-active has-text-primary' : '' }}" href="{{ route('contact') }}">{{ __('navbar.contact') }}</a>
     </div>
 
     <div class="navbar-end">

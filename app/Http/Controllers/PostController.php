@@ -37,7 +37,6 @@ class PostController extends Controller
     return view('simplePages.projects.projectlist', compact('news'));//->withNews($news);//, ['users' => $users]);
     // view('simplePages.news.newslist', compact('news'))->render();
     // dd(\DB::getQueryLog());
-
   }
 
   public function showProject(News $item){
@@ -52,24 +51,17 @@ class PostController extends Controller
   * NEWS SECTION
   */
   public function getPosts(){
-  //   $post = News::find(1);
-  //
-  // foreach ($post->tags as $tag) {
-  //     echo $tag;
-  // }
-  // die();
     // \DB::enableQueryLog();
     $news = News::with('author', 'category', 'tags')
                 ->latestFirst()
                 ->published()
+                ->filterNotProjectCategory()
                 // ->where('category_id','<>', config('ownAttributes.default_category.id'))
                 ->filterSearchTerm( request('term') )
                 ->paginate($this->paginateLimit);
-// dd($news);
     return view('simplePages.news.newslist', compact('news'));
     // view('simplePages.news.newslist', compact('news'))->render();
     // dd(\DB::getQueryLog());
-
   }
 
   public function showPost(Request $request, News $item){
@@ -107,7 +99,6 @@ class PostController extends Controller
   }
 
   public function author(User $author){
-
     //\DB::enableQueryLog();
     /**
     * variable name must be equal with in the route
@@ -122,7 +113,6 @@ class PostController extends Controller
                     ->paginate($this->paginateLimit);
 
     return view('simplePages.news.newslist', compact('news', 'authorName'));
-
     //dd(\DB::getQueryLog());
   }
 
@@ -134,7 +124,6 @@ class PostController extends Controller
                           ->latestFirst()
                           ->published()
                           ->simplePaginate($this->paginateLimit);
-
          return view("simplePages.news.newslist", compact('news', 'tagName'));
     }
 }

@@ -14,10 +14,13 @@ class NavigationComposer
 {
   public function compose(View $view)
   {
+    //NAVBAR
+    $this->composeNavbarNewsPopularPosts($view);
+
     // NEWS PAGE SIDEBAR
-    $this->composeNewsCategories($view);
-    $this->composeNewsTags($view);
-    $this->composeNewsPopularPosts($view);
+    $this->composeSidebarNewsCategories($view);
+    $this->composeSidebarNewsTags($view);
+    $this->composeSidebarNewsPopularPosts($view);
 
     // INDEXPAGE
     $this->composeNewsForIndexPage($view);
@@ -27,27 +30,33 @@ class NavigationComposer
     $this->composeVideosForIndexPage($view);
   }
 
-// NEWS SECTION
-  public function composeNewsCategories(View $view)
+  //NAVBAR
+  //POPULAR NEWS
+  public function composeNavbarNewsPopularPosts(View $view)
   {
-    // $categories = Category::where('id', '<>', config('ownAttributes.default_category.id'))
-    //   ->with(['news' => function($query){
-    //     $query->published();
-    //     }])
-    //   ->orderBy('title', 'asc')->get();
+    $navbarpopularpost = News::published()
+      ->filterNotProjectCategory()
+      ->popular()
+      ->take(3)
+      ->get();
+    $view->with( 'navbarpopularpost' , $navbarpopularpost);
+  }
 
-
+  // NEWS PAGE SIDEBAR
+  // CATEGORIES
+  public function composeSidebarNewsCategories(View $view)
+  {
     $categories = Category::has('news')
-        ->whereNotIn('id', config('ownAttributes.protected_categories'))
+        ->whereNotIn('id', config('ownAttributes.not_news_categories'))
         ->with(['news' => function($query){
             $query->published();
             }])
-        ->get();//all();
-// dd($categories);
+        ->get();
     $view->with('categories' , $categories);
   }
 
-  public function composeNewsTags(View $view)
+  // TAGS
+  public function composeSidebarNewsTags(View $view)
   {
     $tags = Tag::has('news')
       ->where('id', '<>', config('ownAttributes.default_tag.id'))
@@ -55,7 +64,8 @@ class NavigationComposer
     $view->with( 'tags' , $tags);
   }
 
-  public function composeNewsPopularPosts(View $view)
+  //POPULAR POST SECTION
+  public function composeSidebarNewsPopularPosts(View $view)
   {
     $popularposts = News::published()
       ->popular()
@@ -64,20 +74,21 @@ class NavigationComposer
     $view->with( 'popularposts' , $popularposts);
   }
 
-// PAGES HEADER BOXES
-// ver 0.2
-public function composeNewsForIndexPage(View $view)
-{
-  $latestpostswithimages = News::withImages()
-    // ->filterNotProjectCategory()
-    ->published()
-    ->latestFirst()
-    ->take(4)
-    ->get();
-  $view->with( 'latestpostswithimages' , $latestpostswithimages);
-}
 
-//ver 0.1
+  // INDEX PAGE HEADER BOXES
+  // ver 0.2
+  public function composeNewsForIndexPage(View $view)
+  {
+    $latestpostswithimages = News::withImages()
+      // ->filterNotProjectCategory()
+      ->published()
+      ->latestFirst()
+      ->take(4)
+      ->get();
+    $view->with( 'latestpostswithimages' , $latestpostswithimages);
+  }
+
+  //ver 0.1
   public function composeNewsWithImages(View $view)
   {
     $latestpostswithimages = News::withImages()
