@@ -38,7 +38,7 @@ class NavigationComposer
 
 
     $categories = Category::has('news')
-        ->where('id', '<>', config('ownAttributes.default_category.id'))
+        ->whereNotIn('id', config('ownAttributes.protected_categories'))
         ->with(['news' => function($query){
             $query->published();
             }])
