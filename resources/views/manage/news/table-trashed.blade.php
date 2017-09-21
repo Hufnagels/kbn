@@ -33,7 +33,7 @@
           'style' => 'display:-webkit-inline-box; margin-top:0;line-height:1.8rem;' ]) !!}
         <button type="submit" class="button trashtable is-info is-outlined is-small" title="{{ __('forms.restore') }}"><span class="fa fa-reply"></span></button>
         {!! Form::close() !!}
-        @if (Auth::user()->hasPermission('delete-news'))
+        @if (Auth::user()->hasRole('admin'))
         {!! Form::open([
           'method' => 'DELETE',
           'route' => ['post.force-destroy', $news->id],
