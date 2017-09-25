@@ -105,7 +105,7 @@ class NewsController extends BackendController
         //->onQueue('processing')
         //->delay(Carbon::now()->addMinutes(1))
         //->onQueue('high')
-        dispatch($job);
+        //dispatch($job);
         
         return redirect()->route('post.index')->with('message',__('manageNews.systemMessages.created'));
     }

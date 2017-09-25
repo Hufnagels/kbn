@@ -92,7 +92,7 @@ class LessionController extends BackendController
           }
 
           $job = (new LessionCreatedEmail($lession));
-          dispatch($job);
+          //dispatch($job);
 
           return redirect()->route('lession.index')->with('message',__('manageLession.systemMessages.created'));
       }

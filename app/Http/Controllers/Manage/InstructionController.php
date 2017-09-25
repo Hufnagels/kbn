@@ -97,7 +97,7 @@ class InstructionController extends BackendController
          }
 
          $job = (new InstructionCreatedEmail($instruction));
-         dispatch($job);
+         //dispatch($job);
          
          return redirect()->route('instruction.index')->with('message',__('manageInstruction.systemMessages.created'));
      }
