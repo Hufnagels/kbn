@@ -42,8 +42,7 @@
                 <h3 class="subtitle"><a class="" href="{{ route('news.show', $item->slug)}}">{{$item->title}}</a></h3>
                 <p>{{$item->excerpt}}</p>
                 <p>
-                  <strong><a href="{{ route('news.author', $item->author->slug)}}">{{$item->author->name}}</a></strong> |
-                  <small>{{ '@'.str_slug($item->author->name,'') }}</small>
+                  <strong><a href="{{ route('news.author', $item->author->slug)}}">{{ '@'.split_name_lastName($item->author->name) }}</a></strong>
                   <br>
                   <small>{{$item->date}}</small>
                   <br>

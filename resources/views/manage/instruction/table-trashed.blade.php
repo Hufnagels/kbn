@@ -28,7 +28,7 @@
           'style' => 'display:-webkit-inline-box; margin-top:0;line-height:1.8rem;' ]) !!}
         <button type="submit" class="button trashtable is-info is-outlined is-small" title="{{ __('forms.restore') }}"><span class="fa fa-reply"></span></button>
         {!! Form::close() !!}
-        @if (Auth::user()->hasPermission('delete-instruction'))
+        @if ( Auth::user()->hasPermission('delete-instruction') )
         {!! Form::open([
           'method' => 'DELETE',
           'route' => ['instruction.force-destroy', $instruction->id],

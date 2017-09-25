@@ -17,7 +17,7 @@
       @endif
       <p>
         @if ( strpos(Route::currentRouteName(), 'news') > -1)
-        <strong><a href="{{ route('news.author', $post->author->slug)}}">{{$post->author->name}}</a></strong> | <small>{{ '@'.str_slug($post->author->name,'') }}</small>
+        <strong><a href="{{ route('news.author', $post->author->slug)}}">{{ '@'.split_name_lastName($post->author->name) }}</a></strong>
         @endif
         <br>
         <small>{{$post->date}}</small>

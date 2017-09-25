@@ -60,3 +60,49 @@ function hyphenize($string) {
         )
     );
 }
+
+// SPLIT NAME TO PARTS
+function split_name_lastName($name) {
+    //$name = cleanString($name);
+    $arr = explode(' ', $name);
+    $num = count($arr);
+    $first_name = '';
+    $middle_name = '';
+    $last_name = '';
+    if ($num == 2) {
+        list($first_name, $last_name) = $arr;
+    } else {
+        list($first_name, $middle_name, $last_name) = $arr;
+    }
+    $response = (empty($first_name) || $num > 3) ? false : array(
+        'first_name' => cleanString($first_name),
+        'middle_name' => cleanString($middle_name),
+        'last_name' => cleanString($last_name),
+    );
+    $response = ($response == false ? 'admin' : strtolower(cleanString($last_name)));
+    return $response;
+}
+
+function split_name($name) {
+    $name = cleanString($name);
+    $parts = array();
+
+    while ( strlen( trim($name)) > 0 ) {
+        $name = trim($name);
+        $string = preg_replace('#.*\s([\w-]*)$#', '$1', $name);
+        $parts[] = $string;
+        $name = trim( preg_replace('#'.$string.'#', '', $name ) );
+    }
+
+    if (empty($parts)) {
+        return false;
+    }
+
+    $parts = array_reverse($parts);
+    $name = array();
+    $name['first_name'] = $parts[0];
+    $name['middle_name'] = (isset($parts[2])) ? $parts[1] : '';
+    $name['last_name'] = (isset($parts[2])) ? $parts[2] : ( isset($parts[1]) ? $parts[1] : '');
+
+    return $name;
+}

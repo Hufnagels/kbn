@@ -8,10 +8,10 @@
       <div class="card-content createnewpermission">
         <form action="{{route('permissions.store')}}" method="POST">
           {{csrf_field()}}
+          
 
 
-
-          <button class="button is-success">{{ __('permission.publish')}}</button>
+          <button class="button is-primary">{{ __('permission.button.publish')}}</button>
         </form>
       </div>
     </div>

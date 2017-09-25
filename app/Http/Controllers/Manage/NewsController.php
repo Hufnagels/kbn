@@ -11,7 +11,9 @@ use App\User;
 use App\Category;
 use App\Tag;
 use Intervention\Image\Facades\Image;
-
+use App\Jobs\NewsCreatedEmail;
+//use App\Notifications\NewsCreated;
+use Carbon\Carbon;
 
 class NewsController extends BackendController
 {
@@ -97,6 +99,14 @@ class NewsController extends BackendController
         } else {
           $post->tags()->sync([config('ownAttributes.default_tag.id')]); //array()
         }
+
+        $job = (new NewsCreatedEmail($post));
+        //->onConnection('database')
+        //->onQueue('processing')
+        //->delay(Carbon::now()->addMinutes(1))
+        //->onQueue('high')
+        dispatch($job);
+        
         return redirect()->route('post.index')->with('message',__('manageNews.systemMessages.created'));
     }
 
@@ -131,7 +141,6 @@ class NewsController extends BackendController
         } else {
           $post->tags()->sync([config('ownAttributes.default_tag.id')]); //array()
         }
-
 
         return redirect()->route('post.index')->with('message',__('manageNews.systemMessages.updated'));
     }

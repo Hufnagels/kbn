@@ -7,9 +7,12 @@ use Carbon\Carbon;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+
+
 class News extends Model
 {
     use SoftDeletes;
+    
     protected $fillable = ['title','slug','subtitle', 'excerpt', 'body','image','is_published','published_at', 'category_id','view_count'];
     protected $dates = ['published_at'];
 /* implicit model binding

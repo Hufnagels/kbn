@@ -12,6 +12,7 @@ use App\Lession;
 use App\User;
 use App\Category;
 use App\Tag;
+use App\Jobs\InstructionCreatedEmail;
 use Intervention\Image\Facades\Image;
 
 class InstructionController extends BackendController
@@ -94,6 +95,10 @@ class InstructionController extends BackendController
          } else {
            $instruction->lessions()->detach(); //array()
          }
+
+         $job = (new InstructionCreatedEmail($instruction));
+         dispatch($job);
+         
          return redirect()->route('instruction.index')->with('message',__('manageInstruction.systemMessages.created'));
      }
 

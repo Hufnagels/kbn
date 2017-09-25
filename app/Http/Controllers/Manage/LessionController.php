@@ -12,6 +12,7 @@ use App\Lession;
 use App\User;
 use App\Category;
 use App\Tag;
+use App\Jobs\LessionCreatedEmail;
 use Intervention\Image\Facades\Image;
 
 class LessionController extends BackendController
@@ -89,6 +90,10 @@ class LessionController extends BackendController
           } else {
             $lession->tags()->sync([config('ownAttributes.default_tag.id')]); //array()
           }
+
+          $job = (new LessionCreatedEmail($lession));
+          dispatch($job);
+
           return redirect()->route('lession.index')->with('message',__('manageLession.systemMessages.created'));
       }
 
