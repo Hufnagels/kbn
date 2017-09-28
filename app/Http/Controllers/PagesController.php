@@ -98,6 +98,6 @@ class PagesController extends Controller
       //        ->subject('From Your Website (a new contact): ' );
       //
       //  });
-      return redirect()->route('contact')->with('success', __simplePges.contactForm.success);
+      return redirect()->route('contact')->with('success', __simplePages.contactForm.success);
     }
 }
