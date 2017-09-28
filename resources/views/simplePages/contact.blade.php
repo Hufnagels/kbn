@@ -30,8 +30,8 @@
 							</header>
 							<div class="card-content">
 								<div class="content">
-								@if(Session::has('message'))
-									<div class="notification is-success">{{Session::get('message')}}</div>
+								@if(session('success'))
+									<div class="notification is-success">{{session('success')}}</div>
 								@else
 
 									<form class="form-horizontal" method="POST" action="{{ route('contact') }}">
@@ -83,7 +83,7 @@
 											</div>
 											<div class="field">
 												<div class="control">
-													<button class="button is-primary">{{ __('simplePages.contactForm.buttonSend') }}</button>
+													<button type="submit" class="button is-primary">{{ __('simplePages.contactForm.buttonSend') }}</button>
 												</div>
 											</div>
 
@@ -100,9 +100,11 @@
 			  </div>
 			</div>
 	</div>
+	
 	<div class="contact_us_map is-hidden-touch">
 		{!! Mapper::render() !!}
 	</div>
+	
 </section>
 
 @endsection

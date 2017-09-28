@@ -12,7 +12,7 @@ use App\Category;
 use App\Tag;
 use Intervention\Image\Facades\Image;
 use App\Jobs\NewsCreatedEmail;
-//use App\Notifications\NewsCreated;
+use App\Notifications\NewsCreated;
 use Carbon\Carbon;
 
 class NewsController extends BackendController
@@ -100,12 +100,15 @@ class NewsController extends BackendController
           $post->tags()->sync([config('ownAttributes.default_tag.id')]); //array()
         }
 
-        $job = (new NewsCreatedEmail($post));
+        $user = \App\User::where('email','kbvconsulting@gmail.com')->find(1);
+        $user->notify( new NewsCreated($post,'App\News') );
+
+        //$job = ( new NewsCreatedEmail($post) );
         //->onConnection('database')
         //->onQueue('processing')
         //->delay(Carbon::now()->addMinutes(1))
         //->onQueue('high')
-        dispatch($job);
+        //dispatch($job);
         
         return redirect()->route('post.index')->with('message',__('manageNews.systemMessages.created'));
     }
@@ -141,6 +144,11 @@ class NewsController extends BackendController
         } else {
           $post->tags()->sync([config('ownAttributes.default_tag.id')]); //array()
         }
+
+        //$user = \App\User::where('email','kbvconsulting@gmail.com')->find(1);
+        //$user->notify( new NewsCreated($post,'App\News') );
+        $job = (new NewsCreatedEmail($post,'App\News'));
+        dispatch($job);
 
         return redirect()->route('post.index')->with('message',__('manageNews.systemMessages.updated'));
     }

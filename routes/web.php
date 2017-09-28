@@ -42,6 +42,12 @@ Auth::routes();
   Route::prefix('manage')->group(function(){
     Route::get('/', 'Manage\ManageController@index');
 
+    // NOTIFICATIONS
+    Route::get('/notifications', 'Manage\NotificationController@index')->name('notification.list');
+    Route::get('/notifications/{notification}', 'Manage\NotificationController@view')->name('notification.view');
+    Route::post('/notifications/{notification}', 'Manage\NotificationController@updateStatus')->name('notification.update');
+    Route::delete('/notifications/{notification}', 'Manage\NotificationController@forcedestroy')->name('notification.destroy');
+
     // DASHBOARD
     Route::get('/dashboard', 'Manage\ManageController@dashboard')->name('manage.dashboard');
 

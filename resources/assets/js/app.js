@@ -23,7 +23,7 @@ $(document).ready(function(){
   $('.navbar-burger').click(function (e) {
     $('#navMenu').toggleClass('is-active');
   })
-  console.log('Start');
+  //console.log('Start');
   window.wow.init();
 
   var owl = $('.owl-carousel'),

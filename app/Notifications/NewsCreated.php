@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -16,9 +17,10 @@ class NewsCreated extends Notification
      *
      * @return void
      */
-    public function __construct($post)
+    public function __construct($post, $type)
     {
         $this->post = $post;
+        $this->type = $type;
     }
 
     /**
@@ -29,9 +31,28 @@ class NewsCreated extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        //return ['mail'];
+        return ['database'];
     }
 
+    /**
+     * Get the database representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return App\Notifications\NewsCreated
+     */
+    public function toDatabase($notifiable)
+    {
+        $user = User::findOrFail($this->post->author_id);
+        return [
+            'type' => $this->type,
+            'title' => $this->post->title,
+            'slug' => $this->post->slug,
+            'created_at' => $this->post->created_at,
+            'author' => $user->name,
+        ];
+    }
+    
     /**
      * Get the mail representation of the notification.
      *
@@ -58,4 +79,6 @@ class NewsCreated extends Notification
             //
         ];
     }
+
+    
 }

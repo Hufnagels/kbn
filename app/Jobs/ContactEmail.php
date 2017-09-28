@@ -2,28 +2,27 @@
 
 namespace App\Jobs;
 
-use App\News;
-use App\Notifications\NewsCreated;
+use App\Notifications\ContactSended;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 
-class NewsCreatedEmail implements ShouldQueue
+class ContactEmail implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $post;
+    protected $email;
     protected $type;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct(News $post, $type)
+    public function __construct($email,$type)
     {
-        $this->post = $post;
+        $this->email = $email;
         $this->type = $type;
     }
 
@@ -37,6 +36,6 @@ class NewsCreatedEmail implements ShouldQueue
 //dd($this->post->slug);  
 $user = \App\User::where('email','kbvconsulting@gmail.com')->find(1);
 //dd(new NewsCreated($this->post));
-$user->notify( new NewsCreated($this->post, $this->type) );
+$user->notify( new ContactSended($this->email, $this->type) );
     }
 }

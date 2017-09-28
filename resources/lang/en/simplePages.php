@@ -33,6 +33,7 @@ return [
       'phone' => 'Phone',
       'message' => 'Message',
       'buttonSend' => 'Send',
+      'success' => 'Thanks for contacting us!',
     ],
     'searchResults' => [
       'tagged' => 'Tag',

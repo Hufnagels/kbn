@@ -33,6 +33,7 @@ return [
       'phone' => 'Telefon',
       'message' => 'Üzenet',
       'buttonSend' => 'Elküld',
+      'success' => 'Köszönjük! Hamarosan jelentkezünk.',
     ],
     'searchResults' => [
       'tagged' => 'Címke',

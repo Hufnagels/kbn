@@ -13,6 +13,8 @@ use App\Category;
 use App\Tag;
 use App\Testimonial;
 //use App\Mail\contactus;
+use App\Jobs\ContactEmail;
+use App\Notifications\ContactSended;
 
 use Hash;
 use Session;
@@ -69,84 +71,33 @@ class PagesController extends Controller
     }
 
     public function postContact(Request $request){
+      
       $this->validate($request,[
         'name' => 'required',
         'email' => 'required|email',
         'message' =>'required'
       ]);
-
-      $user = [
+      
+      $data = [
               'name' => $request->get('name'),
               'email' => $request->get('email'),
-              'message' => $request->get('message')
+              'message' => $request->get('message'),
           ];
           /**
           * User::create() helyett contact::create() kell
           */
       // \Mail::to($user)->send(new contactus($user));
-      \Mail::send('emails.webcontact', ['user' => $user], function ($m) use ($user) {
+      $job = (new ContactEmail($data,'App\Contact'));
+      dispatch($job);
 
-            $m->from($user['email'], $user['name']);
-
-            $m->to('kbvconsulting@gmail.com', 'admin')
-              ->subject('From Your Website (a new contact): ' );
-
-        });
-
-      return redirect()->route('contact')->with('message', 'Thanks for contacting us!');
-      //return view('simplePages.contact')->with('message', 'Thanks for contacting us!');
+      //\Mail::send('emails.webcontact', ['user' => $data], function ($m) use ($data) {
+      //
+      //      $m->from($data['email'], $data['name']);
+      //
+      //      $m->to('kbvconsulting@gmail.com', 'admin')
+      //        ->subject('From Your Website (a new contact): ' );
+      //
+      //  });
+      return redirect()->route('contact')->with('success', __simplePges.contactForm.success);
     }
-
-    /**
-    *
-    * MOVED TO PostController
-    */
-    // public function getPosts()
-    // public function showPost(News $item)
-    // public function category(Category $category)
-    // public function author(User $author)
-
-
-    // public function getPosts(){
-    //
-    //   //\DB::enableQueryLog();
-    //   $news = News::with('author')->latestFirst()->published()->paginate($this->paginateLimit);
-    //   //$news = News::orderBy('created_at', 'desc')->with('author')->paginate(5);
-    //   return view('simplePages.newslist', compact('news'));//->withNews($news);//, ['users' => $users]);
-    //   //view('simplePages.newslist', compact('news'))->render();
-    //   //dd(\DB::getQueryLog());
-    //
-    // }
-    //
-    // public function showPost(News $item){
-    //   //\DB::enableQueryLog();
-    //
-    //   // if( empty($item['slug']) ) return view('errors.404');
-    //   //dd($item);
-    //   $item->increment('view_count');
-    //   return view('simplePages.news', compact('item'));//, ['users' => $users]);
-    //   //view('simplePages.news', compact('item'))->render();
-    //   //dd(\DB::getQueryLog());
-    // }
-    //
-    // public function getEvents(){
-    //
-    // }
-    // public function category(Category $category){
-    //
-    //   //\DB::enableQueryLog();
-    //
-    //   $categoryName = $category->title;
-    //   $news = $category
-    //                   ->news()
-    //                   ->with('author')
-    //                   ->latestFirst()
-    //                   ->published()
-    //                   ->paginate($this->paginateLimit);
-    //   //$news = News::orderBy('created_at', 'desc')->with('author')->paginate(5);
-    //   return view('simplePages.newslist', compact('news', 'categoryName'));//->withNews($news);//, ['users' => $users]);
-    //   //view('simplePages.newslist', compact('news'))->render();
-    //   //dd(\DB::getQueryLog());
-    // }
-
 }
