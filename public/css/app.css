@@ -15513,6 +15513,10 @@ FOOTER SECTION
   line-height: 0.5;
 }
 
+.footer-navbar-list li a.navbar-item:hover {
+  border-bottom: 1px solid transparent;
+}
+
 .footer_header {
   position: relative;
 }
