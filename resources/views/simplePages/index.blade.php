@@ -16,7 +16,7 @@
 
   <section class="headersection" id="headersection">
 
-    <div class="parallax-window" data-parallax="scroll" data-image-src="{{ asset('/images/header/headerimage_copy1.jpg') }}">
+    <div class="parallax-window" data-parallax="scroll" data-position="left top" data-positionX="left" data-positionY="top" data-androidFix="false" data-image-src="{{ asset('/images/header/headerimage_copy1.jpg') }}">
 
       <div class="hero has-text-right">
         <div class="hero-body">
