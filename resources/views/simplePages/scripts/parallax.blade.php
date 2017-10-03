@@ -8,4 +8,4 @@ $(document).ready(function(){
   });
   jQuery(window).trigger('resize').trigger('scroll');
 });
-</scripts>
+</script>

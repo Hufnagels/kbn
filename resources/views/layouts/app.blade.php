@@ -52,5 +52,7 @@
     </div>
     @include('_includes.footer')
     @yield('scripts')
+
+    @include('cookieConsent::index')
 </body>
 </html>

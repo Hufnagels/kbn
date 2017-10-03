@@ -193,6 +193,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Spatie\CookieConsent\CookieConsentServiceProvider::class,
 
     ],
 
