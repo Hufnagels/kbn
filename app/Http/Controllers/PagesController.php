@@ -12,7 +12,7 @@ use App\User;
 use App\Category;
 use App\Tag;
 use App\Testimonial;
-//use App\Mail\contactus;
+use App\Http\Requests\ContactEmailValidationRequest;
 use App\Jobs\ContactEmail;
 use App\Notifications\ContactSended;
 
@@ -70,14 +70,15 @@ class PagesController extends Controller
       return view('simplePages.contact');
     }
 
-    public function postContact(Request $request){
-      
-      $this->validate($request,[
-        'name' => 'required',
-        'email' => 'required|email',
-        'message' =>'required'
-      ]);
-      
+    public function postContact(ContactEmailValidationRequest $request){
+
+      // $this->validate($request,[
+      //   'name' => 'required',
+      //   'email' => 'required|email',
+      //   'message' =>'required',
+      //   'g-recaptcha-response' => 'required|captcha',
+      // ]);
+
       $data = [
               'name' => $request->get('name'),
               'email' => $request->get('email'),

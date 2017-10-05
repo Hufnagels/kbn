@@ -39,6 +39,7 @@ return [
       'password' => 'Password must be set',
       'passwordConfirm' => 'Same as Password',
       'role' => 'Szerep választása szükségesRole must be selected',
+      'g-recaptcha-response' => 'Are You robot?'
     ],
     'selectCategory' => 'Select category',
     'selectTag' => 'Select tag',

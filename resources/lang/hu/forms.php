@@ -39,6 +39,7 @@ return [
       'password' => '',
       'passwordConfirm' => '',
       'role' => 'Szerep választása szükséges',
+      'g-recaptcha-response' => 'Ugye nem vagy robot?'
     ],
     'selectCategory' => 'Válasszon kategóriát',
     'selectTag' => 'Válasszon címkét',

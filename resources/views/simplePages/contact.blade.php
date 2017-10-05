@@ -37,30 +37,33 @@
 									<form class="form-horizontal" method="POST" action="{{ route('contact') }}">
 											{{ csrf_field() }}
 											<div class="columns">
+
 												<div class="column">
 													<div class="field">
 														<label class="label">{{ __('simplePages.contactForm.from') }}</label>
 														<div class="control has-icons-left has-icons-right">
-															<input class="input {{ $errors->has('name') ? ' is-danger' : '' }}" id="name" type="text" name="name" value="{{ old('name') }}" required autofocus>
+															<input class="input {{ $errors->has('name') ? ' is-danger' : '' }}" id="name" type="text" name="name" value="{{ old('name') }}"  autofocus>
 															<span class="icon is-small is-left"><i class="fa fa-user"></i></span>
+                              @if ($errors->has('name'))
+															<span class="icon is-small is-right"><i class="fa fa-warning"></i></span>
+															@endif
 														</div>
 													</div>
 												</div>
+
 												<div class="column">
 													<div class="field">
 														<label class="label">{{ __('simplePages.contactForm.email') }}</label>
 														<div class="control has-icons-left has-icons-right">
-															<input class="input {{ $errors->has('email') ? ' is-danger' : '' }}" id="email" type="email" name="email" value="{{ old('email') }}" required>
+															<input class="input {{ $errors->has('email') ? ' is-danger' : '' }}" id="email" type="email" name="email" value="{{ old('email') }}" >
 															<span class="icon is-small is-left"><i class="fa fa-envelope"></i></span>
 															@if ($errors->has('email'))
 															<span class="icon is-small is-right"><i class="fa fa-warning"></i></span>
 															@endif
 														</div>
-														@if ($errors->has('email'))
-														<p class="help is-danger">{{ $errors->first('email') }}</p>
-														@endif
 													</div>
 												</div>
+
 												<div class="column">
 													<div class="field">
 														<label class="label">{{ __('simplePages.contactForm.phone') }}</label>
@@ -71,21 +74,33 @@
 													</div>
 												</div>
 											</div>
+
 											<div class="columns">
 												<div class="column">
 													<div class="field">
 														<label class="label">{{ __('simplePages.contactForm.message') }}</label>
 														<div class="control">
-															<textarea class="textarea {{ $errors->has('message') ? ' is-danger' : '' }}" id="message" type="text" name="message" placeholder="" rows="5" cols="150">{{ old('message') }}</textarea>
+															<textarea class="textarea {{ $errors->has('message') ? ' is-danger' : '' }}" id="message" type="text" name="message" placeholder="" rows="3" cols="150">{{ old('message') }}</textarea>
 														</div>
 													</div>
 												</div>
 											</div>
-											<div class="field">
-												<div class="control">
-													<button type="submit" class="button is-primary">{{ __('simplePages.contactForm.buttonSend') }}</button>
-												</div>
-											</div>
+
+                      <div class="columns">
+												<div class="column {{ $errors->has('g-recaptcha-response') ? ' is-danger' : '' }}">
+                          {!! app('captcha')->display(); !!}
+                          @if($errors->has('g-recaptcha-response'))
+                          <p class="help is-danger">{{ __('forms.errors.g-recaptcha-response') }}</p>
+                          @endif
+                        </div>
+                        <div class="column">
+                          <div class="field is-pulled-right" style="margin-top: 1.2rem;">
+    												<div class="control">
+    													<button type="submit" class="button is-primary">{{ __('simplePages.contactForm.buttonSend') }}</button>
+    												</div>
+    											</div>
+                        </div>
+                      </div>
 
 									</form>
 								@endif
@@ -100,11 +115,11 @@
 			  </div>
 			</div>
 	</div>
-	
+
 	<div class="contact_us_map is-hidden-touch">
 		{!! Mapper::render() !!}
 	</div>
-	
+
 </section>
 
 @endsection
