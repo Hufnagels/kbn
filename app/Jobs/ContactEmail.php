@@ -33,9 +33,11 @@ class ContactEmail implements ShouldQueue
      */
     public function handle()
     {
-//dd($this->post->slug);  
-$user = \App\User::where('email','kbvconsulting@gmail.com')->find(1);
+//dd($this->post->slug);
+      $user = \App\User::where('email','kbvconsulting@gmail.com')->find(1);
 //dd(new NewsCreated($this->post));
-$user->notify( new ContactSended($this->email, $this->type) );
+      $user->notify( new ContactSended($this->email, $this->type) );
+
+      
     }
 }

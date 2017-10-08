@@ -31,5 +31,5 @@ return [
       'deleteWithTransfer' => 'User was successfully deleted, and all post where transfered to user: ',
       'deleteAll' => 'User and all content what user created are successfully deleted',
     ],
-
+    'profile' => 'My Profile',
 ];

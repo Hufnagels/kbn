@@ -15,7 +15,7 @@ use App\Role;
 
 class UsersController extends BackendController
 {
-    protected $paginateLimit = 10;
+    protected $paginateLimit = 50;
     /**
      * Display a listing of the resource.
      *
@@ -52,6 +52,11 @@ class UsersController extends BackendController
 
     public function store(UserStoreRequest $request)
     {
+//dd($request);
+        if ( $request->password == NULL)
+        {
+          unset($user['password']);
+        }
         $user = User::create($request->all());
         $user->attachRole($request->role);
         return redirect()->route('users.index')->with('message',__('manageUser.systemMessages.created'));
@@ -71,7 +76,8 @@ class UsersController extends BackendController
       $user->name = $request->name;
       $user->email = $request->email;
       $user->bio = $request->bio;
-
+      $user->image = $request->image;
+// dd($request);
       if ( $request->password == NULL)
       {
         unset($user['password']);

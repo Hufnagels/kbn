@@ -31,5 +31,5 @@ return [
       'deleteWithTransfer' => 'A felhasználó sikeresen törölve, az általa készített összes anyag a következő felhasználóhoz rendelve: ',
       'deleteAll' => 'A felhasználó és az általa készített összes anyag sikeresen törölve.',
     ],
-
+    'profile' => 'Profilom',
 ];

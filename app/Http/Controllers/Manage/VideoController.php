@@ -14,7 +14,7 @@ use Intervention\Image\Facades\Image;
 
 class VideoController extends BackendController
 {
-    protected $paginateLimit = 10;
+    protected $paginateLimit = 50;
 
 
     public function index(Request $request)

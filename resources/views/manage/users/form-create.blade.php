@@ -1,22 +1,30 @@
-<div class="tile is-ancestor is-marginless ">
-  <div class="tile is-vertical is-12">
+<div class="tile is-ancestor marginless">
+
+  <div class="tile is-vertical is-8">
     <div class="tile">
-      <div class="tile is-parent is-vertical is-paddingless">
-        <article class="tile is-child notification">
+      <div class="tile is-parent is-vertical">
+
+        <article class="tile is-child notification is-primary">
 
           <div class="field">
             <label class="label">{!! Form::label('title',  __('forms.name') ) !!}</label>
-            <div class="control {{ $errors->has('name') ? 'is-danger' : ''}}">{!! Form::text('name', null, ['class' => 'input']) !!}</div>
+            <div class="control {{ $errors->has('name') ? 'is-danger' : ''}}">{!! Form::text('name', null, ['class' => 'input', 'id' => 'name']) !!}</div>
             @if($errors->has('name'))
             <p class="help is-danger">{{ __('forms.errors.title') }}</p>
             @endif
           </div>
 
           <div class="field">
-            <label class="label">{!! Form::label('slug',  __('forms.slug') ) !!}</label>
-            <div class="control {{ $errors->has('slug') ? 'is-danger' : ''}}">{!! Form::text('slug', null, ['class' => 'input']) !!}</div>
+            <label class="label">{!! Form::label('slug',  __('forms.slug')  ) !!}</label>
+
             @if($errors->has('slug'))
+            <div class="control {{ $errors->has('slug') ? 'is-danger' : ''}}">{!! Form::text('slug', null, ['class' => 'input']) !!}</div>
             <p class="help is-danger">{{ __('forms.errors.slug') }}</p>
+            @else
+            <p class="is-size-6 has-text-primary slugtext" style="min-height:24px;width:100%;">
+              @if(isset($user)){{$user->slug}}@endif
+            </p>
+            <div class="control">{!! Form::hidden('slug', null, ['class' => 'input']) !!}</div>
             @endif
           </div>
 
@@ -67,17 +75,49 @@
             @endif
           </div>
 
-          <div class="field">
-            <div class="control">
-              <button type="submit" class="button is-primary">{{ $user->id ?  __('forms.button.update') : __('forms.button.publish') }}</button>
-              <a href="{{ route('users.index') }}" class="button">Cancel</a>
-            </div>
-          </div>
-
-
         </article>
+
       </div>
     </div>
+
+  </div>
+
+  <div class="tile is-parent">
+    <article class="tile is-child notification is-success">
+
+      <div class="field">
+        <label class="label">{!! Form::label('image',  __('forms.avatar')  ) !!}</label>
+        <div class="control {{ $errors->has('image') ? 'is-danger' : ''}}">
+          <figure>
+            <img id="holder" class="image is-250x250" src="{{ ($user->image) ? $user->image : 'http://placehold.it/400x400&text=No+image%20(400x400)'}}" alt="">
+          </figure>
+          <div class="file m-t-20">
+            <label class="file-label">
+              <input class="file-input" type="text" name="image"  id="thumbnail">
+              <a id="lfm" data-input="thumbnail" data-preview="holder" class="">
+                <span class="file-cta">
+                  <span class="file-icon"><i class="fa fa-upload"></i></span>
+                  <span class="file-label">{{ __('forms.selectImage') }}</span>
+                </span>
+              </a>
+
+            </label>
+          </div>
+
+        </div>
+        @if($errors->has('image'))
+        <p class="help is-danger">{{ __('forms.selectImage') }}</p>
+        @endif
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <button type="submit" class="button is-primary">{{ $user->id ?  __('forms.button.update') : __('forms.button.publish') }}</button>
+          <a href="{{ route('users.index') }}" class="button"> {{__('forms.button.cancel')}}</a>
+        </div>
+      </div>
+
+    </article>
   </div>
 
 </div>

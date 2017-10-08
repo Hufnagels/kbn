@@ -14,7 +14,7 @@ use App\News;
 
 class CategoriesController extends BackendController
 {
-    protected $paginateLimit = 10;
+    protected $paginateLimit = 50;
     /**
      * Display a listing of the resource.
      *

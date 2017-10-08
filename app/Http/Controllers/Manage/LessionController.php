@@ -18,7 +18,7 @@ use Intervention\Image\Facades\Image;
 class LessionController extends BackendController
 {
 
-  protected $paginateLimit = 10;
+  protected $paginateLimit = 50;
   protected $uploadPath;
 
      public function __construct()

@@ -22,7 +22,7 @@
                 'id' => 'create-user-form'
                 ])  !!}
 
-                @include('manage.users.form')
+                @include('manage.users.form-create')
 
         {!! Form::close() !!}
       </div>

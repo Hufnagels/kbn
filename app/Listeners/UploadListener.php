@@ -65,7 +65,7 @@ class UploadListener
     {
         $path = $event->path();
 /*
-//echo $path;
+echo $path;
 */
         // $path : /Users/pisti/Projects/kodvetok.com.new_site/kvn/public/fm/photos/shares/Veszprem/IMG_20170726_115529.jpg
         $pos = strpos($path, 'public/'); //48
@@ -80,14 +80,29 @@ class UploadListener
         $filename = $path_parts['filename']; // IMG_20170726_115529
 
         $base_dir = substr($path, 0, strpos($path, $basename)); // //Users/pisti/Projects/kodvetok.com.new_site/kvn/public/fm/photos/shares/Veszprem/
+/* TEST IF PROFILE PICTURE */
+        $teampos = strpos($dirname, config('ownAttributes.lfmSettings.image.avatar.path'));
+//dd($teampos);
+        if($teampos > 0)
+        {
+          /* RESIZE ORIG IMAGE */
+          Image::make($path)
+               ->resize(null, config('ownAttributes.lfmSettings.image.avatar.height'), function ($constraint) {
+                   $constraint->aspectRatio();
+                   })
+              //->fit(config('ownAttributes.lfmSettings.image.avatar.width'), config('ownAttributes.lfmSettings.image.avatar.height'))
+              ->save($path, 90);
+        } else {
+          /* RESIZE ORIG IMAGE */
+          Image::make($path)
+              // ->resize(config('ownAttributes.lfmSettings.image.resized.width'), null, function ($constraint) {
+              //     $constraint->aspectRatio();
+              //     })
+              ->fit(config('ownAttributes.lfmSettings.image.resized.width'), config('ownAttributes.lfmSettings.image.resized.height'))
+              ->save($path, 90);
+        }
 
-        /* RESIZE ORIG IMAGE */
-        Image::make($path)
-            // ->resize(config('ownAttributes.lfmSettings.image.resized.width'), null, function ($constraint) {
-            //     $constraint->aspectRatio();
-            //     })
-            ->fit(config('ownAttributes.lfmSettings.image.resized.width'), config('ownAttributes.lfmSettings.image.resized.height'))
-            ->save($path, 90);
+
 
         /* OPTIMIZE IMAGE*/
         $optimizerChain = OptimizerChainFactory::create();

@@ -17,7 +17,7 @@ return [
     'testimonial' => 'Testimonial',
     'testimonialSub' => 'How we are',
     'ourFavVideos' => 'Our favorite videos',
-    'ourFavVideosSub' => 'We make it',
+    'ourFavVideosSub' => 'Made by us or about us',
     'moments' => 'Remebering moments',
     'momentsSub' => 'Moments in our taskforce',
 

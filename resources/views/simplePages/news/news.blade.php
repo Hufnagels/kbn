@@ -30,12 +30,11 @@
             </div>
           @endif
           <div class="card-content">
-            <div class="media">
-              <div class="media-content">
+            <div class="media is-hidden-print">
+              <div class="media-content ">
                 <div class="content">
                   <p>
-                    <strong><a href="{{ route('news.author', $item->author->slug)}}">{{$item->author->name}}</a></strong> |
-                    <small>{{ '@'.str_slug($item->author->name,'') }}</small> |
+                    <strong><a href="{{ route('news.author', $item->author->slug)}}">{{ '@'.split_name_lastName($item->author->name) }}</a></strong> |
                     <?php $postCount = $item->author->news->count(); ?>
                     <small class="icon is-small postcount"><i class="fa fa-clone"></i>{{$postCount}} {{str_plural('post', $postCount)}}</small> |
                     <a href="" onclick="window.print()"><i class="fa fa-print"></i></a>
@@ -47,7 +46,7 @@
                     {!! $item->tags_html !!}
                   </p>
                 </div>
-                <nav class="level is-mobile">
+                <nav class="level is-mobile is-hidden-nonprint">
                   <div class="level-left">
                     <a class="fbshare" href="https://www.facebook.com/sharer/sharer.php?u={{ Request::url() }}&display=popup" target="_blank"><span class="icon is-small"><i class="fa fa-facebook-square"></i></span>Megosztás</a>
                   </div>

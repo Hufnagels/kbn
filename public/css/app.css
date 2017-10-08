@@ -15275,12 +15275,12 @@ TEAM PAGE
   margin-right: 0px;
 }
 
-.teamlist .notification {
+.teamlist .notificationTeam {
   padding: 0rem;
   background-color: transparent;
 }
 
-.teamlist .notification .card {
+.teamlist .notificationTeam .card {
   margin: 0rem;
 }
 
@@ -15815,6 +15815,21 @@ button.nav-item.is-active {
 .image.is-500x340 {
   width: 500px;
   height: 375px;
+}
+
+.image.is-200x200 {
+  width: 200px;
+  height: 200px;
+}
+
+.image.is-250x250 {
+  width: 200px;
+  height: 200px;
+}
+
+.image.is-400x400 {
+  width: 400px;
+  height: 400px;
 }
 
 .news-container .field.is-grouped.is-grouped-multiline:last-child {

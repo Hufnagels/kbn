@@ -55,34 +55,40 @@ return [
 
   'lfmSettings' => [
     'image' => [
-      'facebook' => [
-        'width' => '1000'
-      ],
-      'resized' => [
-        'width' => '700',
-        'height' => '394',
-      ],
-      'thumbs' => [
-        /* LIKE POPULAR POST LIST IN SIDEBAR 64x44 */
-        'small' => [
-          'extPref' => 'thumb_s',
-          'width' => '64',
-          'height' => '64',
-        ],
-        /* LIKE NEWSLIST  310x214 */
-        'medium' => [
-          'extPref' => 'thumb_m',
-          'width' => '310',
-          'height' => '214',
-        ],
-        /* LIKE NEWS POST HEADER */
-        'large' => [
-          'extPref' => 'thumb_l',
-          'width' => '700',
-          'height' => '525',
-        ],
-      ]
-    ]
+                'facebook' => [
+                                'width' => '1000'
+                              ],
+                'resized' => [
+                                'width' => '700',
+                                'height' => '394',
+                              ],
+                'thumbs' => [
+                              /* LIKE POPULAR POST LIST IN SIDEBAR 64x44 */
+                              'small' => [
+                                            'extPref' => 'thumb_s',
+                                            'width' => '64',
+                                            'height' => '64',
+                                          ],
+                              /* LIKE NEWSLIST  310x214 */
+                              'medium' => [
+                                            'extPref' => 'thumb_m',
+                                            'width' => '310',
+                                            'height' => '214',
+                                          ],
+                              /* LIKE NEWS POST HEADER */
+                              'large' => [
+                                            'extPref' => 'thumb_l',
+                                            'width' => '700',
+                                            'height' => '525',
+                                          ],
+                              ],
+                /* USER PROFILE PICTURE (FOR TEAM MEMBERS)*/
+                'avatar' => [
+                              'path' => 'team',
+                              'width' => '400',
+                              'height' => '400',
+                            ]
+              ]
   ],
   'google' => [
       /*

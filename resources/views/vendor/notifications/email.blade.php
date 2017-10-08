@@ -13,9 +13,7 @@
 {{-- Intro Lines --}}
 @foreach ($introLines as $line)
 {{ $line }}
-
 @endforeach
-
 {{-- Action Button --}}
 @isset($actionText)
 <?php
@@ -37,15 +35,14 @@
 
 {{-- Outro Lines --}}
 @foreach ($outroLines as $line)
-{{ $line }}
-
+  {{ $line }}
 @endforeach
 
 {{-- Salutation --}}
 @if (! empty($salutation))
 {{ $salutation }}
 @else
-Regards,<br>{{ config('app.name') }}
+Regards,{{ config('app.name') }}
 @endif
 
 {{-- Subcopy --}}

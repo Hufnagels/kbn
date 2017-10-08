@@ -10,4 +10,15 @@ class Role extends LaratrustRole
   protected $fillable = [
       'display_name', 'description', 'name'
   ];
+
+  public function user()
+  {
+    return $this->hasMany(User::class);
+  }
+
+  // SCOPES
+  // public function scopeTeacher($query)
+  // {
+  //   return $query->where('name', 'teacher');
+  // }
 }

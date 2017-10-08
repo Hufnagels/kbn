@@ -20,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'slug', 'password'
+        'name', 'email', 'slug', 'password','bio', 'image'
     ];
 
     /**
@@ -32,6 +32,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function routeNotificationForMail()
+    {
+        return 'kbvconsulting@gmail.com';//$this->email_address;
+    }
+
     public function setPasswordAttribute($value)
     {
       $this->attributes['password'] = bcrypt($value);
@@ -41,6 +46,11 @@ class User extends Authenticatable
     {
       return 'slug';
     }
+
+    // public function role()
+    // {
+    //   return $this->hasMany(Role::class, 'name');
+    // }
 
     public function news()
     {
@@ -97,5 +107,5 @@ class User extends Authenticatable
     // SCOPES
 
     // FUNCTIONS
-    
+
 }

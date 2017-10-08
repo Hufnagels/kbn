@@ -21,8 +21,9 @@ class ContactSended extends Notification
 
     public function via($notifiable)
     {
-//        return ['mail'];
-        return ['database'];
+      //  return ['mail'];
+      //  return ['database'];
+      return ['database','mail'];
     }
 
     public function toDatabase($notifiable)
@@ -37,10 +38,35 @@ class ContactSended extends Notification
             'message' => $data['message'],
         ];
     }
-    
+
     public function toMail($notifiable)
     {
-        return [];
+      $data  = $this->email;
+//         return (new MailMessage)->view(
+//                     'emails.webcontact', [
+//                       'type' => $this->type,
+//                       'name' => $data['name'],
+//                       'email' => $data['email'],
+//                       'created_at' => Carbon::now(),
+//                       'message' => $data['message'],
+//                     ]
+//                 );
+        return (new MailMessage)
+                ->greeting('Contact us email from website!')
+                ->line('Sender name: '. $data['name'])
+                ->line('Sender email: '. $data['email'])
+                ->line('Sender message: '. $data['message']);
+
+                // ->action('View Invoice', $data['email'])
+                // ->line('Thank you for using our application!');
+        // \Mail::send('emails.webcontact', ['user' => $data], function ($m) use ($data) {
+        //
+        //      $m->from('kbvconsulting@gmail.com', 'Kodvetok website contact sender');
+        //
+        //      $m->to('kbvconsulting@gmail.com', 'admin')
+        //        ->subject('From Your Website (a new contact): ' );
+        //
+        //  });
     }
 
     public function toArray($notifiable)
@@ -50,5 +76,5 @@ class ContactSended extends Notification
         ];
     }
 
-    
+
 }

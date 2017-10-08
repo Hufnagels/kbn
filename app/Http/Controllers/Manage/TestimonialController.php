@@ -13,7 +13,7 @@ use App\Testimonial;
 class TestimonialController extends BackendController
 {
 
-  protected $paginateLimit = 10;
+  protected $paginateLimit = 50;
   protected $uploadPath;
 
      public function __construct()

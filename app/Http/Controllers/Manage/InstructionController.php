@@ -17,7 +17,7 @@ use Intervention\Image\Facades\Image;
 
 class InstructionController extends BackendController
 {
-  protected $paginateLimit = 10;
+  protected $paginateLimit = 50;
   protected $uploadPath;
 
   public function __construct()
@@ -98,7 +98,7 @@ class InstructionController extends BackendController
 
          $job = (new InstructionCreatedEmail($instruction));
          //dispatch($job);
-         
+
          return redirect()->route('instruction.index')->with('message',__('manageInstruction.systemMessages.created'));
      }
 

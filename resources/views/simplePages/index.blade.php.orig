@@ -23,9 +23,9 @@
             <h2 class="title is-size-3 is-spaced has-text-kv is-uppercase m-t-0 wow bounceInDown" data-wow-duration="3s" data-wow-delay=".1s" style="visibility:hidden;">
               {{ __('indexPage.slogen3') }}
             </h2>
-            <p class="is-size-4 is-spaced has-text-white-bis has-text-weight-semibold has-text-left m-t-50 wow bounceInDown" data-wow-duration="5s" data-wow-delay=".1s" style="visibility:hidden;">
-
-              <a class="button is-danger is-large" href="{{ route('news.show', 'veszpremi-orak')}}" style="padding: 3rem;">Elindult az oktatás veszprémben! <br>Irány a jelentkezés</a>
+            <p class="is-size-4 is-spaced has-text-white-bis has-text-weight-semibold m-t-50 wow bounceInDown" data-wow-duration="5s" data-wow-delay=".1s" style="visibility:hidden;">
+              {{ __('indexPage.text1') }}<br>
+              {{ __('indexPage.text2') }}
             </p>
           </div>
         </div>
@@ -44,7 +44,7 @@
   </section>
 
   <section class="videosection video zoomIn m-b-10" id="videosection">
-    @include('simplePages.index.s03_video1')
+    @include('simplePages.index.s03_video')
   </section>
 
   <section class="photossection zoomIn m-b-10" id="postsection">

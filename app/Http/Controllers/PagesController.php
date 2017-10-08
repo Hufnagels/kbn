@@ -91,7 +91,7 @@ class PagesController extends Controller
       $job = (new ContactEmail($data,'App\Contact'));
       dispatch($job);
 
-      //\Mail::send('emails.webcontact', ['user' => $data], function ($m) use ($data) {
+      // \Mail::send('emails.webcontact', ['user' => $data], function ($m) use ($data) {
       //
       //      $m->from($data['email'], $data['name']);
       //

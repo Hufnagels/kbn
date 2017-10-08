@@ -36,14 +36,20 @@
         <p class="is-size-7 is-paddingless m-t-10 m-b-10">Email : kodvetok@gmail.com </p>
       </div>
 
-
+      <div class="column  has-text-white-ter">
+        <p class="is-size-5 is-uppercase is-paddingless is-marginless footer-header">Letölthető</p>
+        <ul class="footer-navbar-list m-t-10">
+          <li><a class="navbar-item " title="Jelentkez&eacute;si lap" href="/download?f=/jelentkezesek/jelentkezesi_lap.pdf" target="_blank" rel="noopener">Jelentkez&eacute;si lap</a></li>
+          <li><a class="navbar-item " title="&Aacute;SZF" href="/download?f=/Jogi_anyagok/aszf_20171008.pdf" target="_blank" rel="noopener">&Aacute;SZF</a></li>
+        </ul>
+      </div>
 
       </div>
     </div>
     <div class="container has-text-centered has-text-white-ter is-hidden-nonprint">
       <p class="is-size-5 is-uppercase is-paddingless m-b-10 ">Kapcsolat</p>
-      <p class="is-size-7 is-paddingless m-t-5 m-b-5">Email : kodvetok@gmail.com </p>
-      <p class="is-size-7 is-paddingless m-t-5 m-b-5"><i class="fa fa-facebook"></i> https://www.facebook.com/kodvetok/</p>
+      <p class="is-size-7 is-paddingless m-t-5 m-b-5">Email : info@kodvetok.com </p>
+      <p class="is-size-7 is-paddingless m-t-5 m-b-5">https://www.facebook.com/kodvetok/</p>
     </div>
     <div class="container is-black">
       <div class="content has-text-centered has-text-grey-lighter">

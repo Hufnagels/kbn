@@ -19,10 +19,11 @@
         {!! Form::model( $user, [
                 'method' => 'PUT',
                 'route' => ['users.update', $user->id],
-                'id' => 'update-user-form'
+                'id' => 'update-user-form',
+                'enctype' => 'multipart/form-data'
                 ])  !!}
 
-                @include('manage.users.form')
+                @include('manage.users.form-edit')
 
         {!! Form::close() !!}
       </div>
@@ -31,3 +32,4 @@
 </div>
 
 @endsection
+@include('manage.users.scripts')

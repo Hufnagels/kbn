@@ -20,6 +20,7 @@ class ComposerServiceProvider extends ServiceProvider
         view()->composer('simplePages.sidebar', NavigationComposer::Class);
         view()->composer('_includes.nav.navbar',NavigationComposer::Class);
         view()->composer('simplePages.index',NavigationComposer::Class);
+        view()->composer('simplePages.team',NavigationComposer::Class);
 
         // view()->composer('simplePages.sidebar', function($view){
         //   $categories = Category::with(['news' => function($query){

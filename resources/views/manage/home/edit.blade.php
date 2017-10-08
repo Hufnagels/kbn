@@ -1,5 +1,5 @@
 @extends('layouts.manage')
-@section('title',' - Edit Profile')
+@section('title',' - ' . __('manageUser.profile'))
 @section('styles')
 <styles>
 
@@ -11,7 +11,7 @@
     <div class="card">
       <div class="card-header notification is-primary">
         <div class="column">
-          <div class="title">My Profile</div>
+          <div class="title">{{__('manageUser.profile')}}</div>
         </div>
       </div>
       <div class="card-content is-paddingless createcategory">
@@ -31,7 +31,7 @@
                         <article class="tile is-child notification">
 
                           <div class="field">
-                            <label class="label">{!! Form::label('name', 'Name') !!}</label>
+                            <label class="label">{!! Form::label('name', __('forms.name')) !!}</label>
                             <div class="control {{ $errors->has('name') ? 'is-danger' : ''}}">{!! Form::text('name', null, ['class' => 'input']) !!}</div>
                             @if($errors->has('name'))
                             <p class="help is-danger">Name is invalid</p>
@@ -39,50 +39,50 @@
                           </div>
 
                           <div class="field">
-                            <label class="label">{!! Form::label('slug', 'Slug') !!}</label>
+                            <label class="label">{!! Form::label('slug', __('forms.slug')) !!}</label>
                             <p class="is-size-6 has-text-primary">{{ $user->slug}}</p>
                           </div>
 
                           <div class="field">
-                            <label class="label">{!! Form::label('email', 'Email') !!}</label>
+                            <label class="label">{!! Form::label('email', __('forms.email')) !!}</label>
                             <p class="is-size-6 has-text-primary">{{ $user->email}}</p>
                           </div>
 
                           <div class="field">
-                            <label class="label">{!! Form::label('password', 'Password') !!}</label>
+                            <label class="label">{!! Form::label('password', __('forms.password')) !!}</label>
                             <div class="control {{ $errors->has('password') ? 'is-danger' : ''}}">{!! Form::password('password',  ['class' => 'input']) !!}</div>
                             @if($errors->has('password'))
-                            <p class="help is-danger">Password </p>
+                            <p class="help is-danger">{{ __('forms.errors.password') }}</p>
                             @endif
                           </div>
 
                           <div class="field">
-                            <label class="label">{!! Form::label('password_confirmation', 'Confirm password') !!}</label>
+                            <label class="label">{!! Form::label('password_confirmation', __('forms.passwordConfirm')) !!}</label>
                             <div class="control {{ $errors->has('password_confirmation') ? 'is-danger' : ''}}">{!! Form::password('password_confirmation',  ['class' => 'input']) !!}</div>
                             @if($errors->first('password_confirmation'))
-                            <p class="help is-danger">Slug must be set and must be unique</p>
+                            <p class="help is-danger">{{ __('forms.errors.passwordConfirm') }}</p>
                             @endif
                           </div>
 
                           <div class="field">
-                            <label class="label">{!! Form::label('role', 'User role') !!}</label>
+                            <label class="label">{!! Form::label('role', __('forms.role')) !!}</label>
                               <p class="is-size-6 has-text-primary">{{ $user->roles->first()->display_name}}</p>
                           </div>
 
                           @if (Auth::user()->hasRole(['admin','editor','author']))
                             <div class="field">
-                              <label class="label">{!! Form::label('bio', 'Biography') !!}</label>
+                              <label class="label">{!! Form::label('bio', __('forms.bio')) !!}</label>
                               <div class="control {{ $errors->has('bio') ? 'is-danger' : ''}}">{!! Form::textarea('bio', null, ['class' => 'textarea']) !!}</div>
                               @if($errors->has('bio'))
-                              <p class="help is-danger">Biography is invalid</p>
+                              <p class="help is-danger">{{ __('forms.errors.bio') }}</p>
                               @endif
                             </div>
                           @endif
 
                           <div class="field">
                             <div class="control">
-                              <button type="submit" class="button is-primary">Update</button>
-                              <a href="{{ route('home') }}" class="button">Cancel</a>
+                              <button type="submit" class="button is-primary">{{__('forms.button.update')}}</button>
+                              <a href="{{ route('home') }}" class="button">{{__('forms.button.cancel')}}</a>
                             </div>
                           </div>
 

@@ -16,7 +16,7 @@ use App\Photo;
 
 class TagController extends BackendController
 {
-    protected $paginateLimit = 10;
+    protected $paginateLimit = 50;
 
     public function index(Request $request)
     {

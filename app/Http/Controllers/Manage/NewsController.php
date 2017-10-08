@@ -18,7 +18,7 @@ use Carbon\Carbon;
 class NewsController extends BackendController
 {
 
-    protected $paginateLimit = 10;
+    protected $paginateLimit = 50;
     protected $uploadPath;
     /**
      * Display a listing of the resource.
@@ -109,7 +109,7 @@ class NewsController extends BackendController
         //->delay(Carbon::now()->addMinutes(1))
         //->onQueue('high')
         //dispatch($job);
-        
+
         return redirect()->route('post.index')->with('message',__('manageNews.systemMessages.created'));
     }
 

@@ -16,12 +16,14 @@
   </div>
 </section>
 <section id="ourTeamList" class="section teamlist">
+
   <div class="container">
+
     <div class="tile is-ancestor">
       <div class="tile is-vertical is-12">
         <div class="tile">
           <div class="tile is-parent is-vertical">
-            <article class="tile is-child notification">
+            <article class="tile is-child notificationTeam">
               <div class="card">
                 <div class="card-content">
                   <div class="media">
@@ -45,7 +47,7 @@
 
           </div>
           <div class="tile is-parent">
-            <article class="tile is-child notification">
+            <article class="tile is-child notificationTeam">
               <div class="card">
                 <div class="card-content">
                   <div class="media">
@@ -69,7 +71,7 @@
           </div>
         </div>
         <div class="tile is-parent">
-          <article class="tile is-child notification">
+          <article class="tile is-child notificationTeam">
             <div class="card">
               <div class="card-content">
                 <div class="media">
@@ -95,22 +97,46 @@
 
     </div>
   </div>
+  <?php
+  $relatedTeacherCount = count($teachers);
+  ?>
+  @if($relatedTeacherCount > 0)
+    <div class="container">
+      <div class="notification is-primary">
+        <h2 class="title has-text-centered has-text-grey-dark">Tanáraink</h2>
+      </div>
+        <div class="tile is-parent">
+          <article class="tile is-child notificationTeam">
+            @foreach($teachers as $teacher)
+              @if(($teacher->bio != Null) && ($teacher->image != Null))
+              <div class="card m-b-10 is-4">
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-left">
+                      <figure class="image is-128x128">
+                        @if($teacher->image != NULL)
+                        <img src="{{  asset($teacher->image) }}" alt="Image">
+                        @endif
+                      </figure>
+                    </div>
+                    <div class="media-content">
+                      <p class="title is-4">{{ $teacher->name}}</p>
+                      <p class="subtitle is-6">Tanár</p>
+                    </div>
+                  </div>
+                  <div class="content">
+                    {{ $teacher->bio}}
+                  </div>
+                </div>
+              </div>
+              @endif
+            @endforeach
+          </article>
+        </div>
 
+    </div>
+  @endif
 </section>
-
-
-<div class="container is-fluid">
-  <div class="notification1">
-
-
-
-
-
-
-
-  </div>
-</div>
-
 
 
 @endsection
