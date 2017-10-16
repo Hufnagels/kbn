@@ -46,7 +46,7 @@
                     {!! $item->tags_html !!}
                   </p>
                 </div>
-                <nav class="level is-mobile is-hidden-nonprint">
+                <nav class="level is-mobile is-hidden-print">
                   <div class="level-left">
                     <a class="fbshare" href="https://www.facebook.com/sharer/sharer.php?u={{ Request::url() }}&display=popup" target="_blank"><span class="icon is-small"><i class="fa fa-facebook-square"></i></span>Megosztás</a>
                   </div>

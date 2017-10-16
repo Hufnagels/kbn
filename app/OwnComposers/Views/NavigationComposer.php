@@ -85,7 +85,8 @@ class NavigationComposer
       // ver 0.2
       public function composeNewsForIndexPage(View $view)
       {
-        $latestpostswithimages = News::withImages()
+        $latestpostswithimages = News::filterNotProjectCategory()
+        // withImages()
           // ->filterNotProjectCategory()
           ->published()
           ->latestFirst()

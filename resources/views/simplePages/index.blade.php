@@ -3,13 +3,23 @@
 @section('styles')
 <style>
 
+.owl-theme .owl-nav.disabled + .owl-dots {
+    display: block;
+}
+@media screen and (max-width: 768px)
+{
+
+    .owl-theme .owl-nav.disabled + .owl-dots {
+        display: none;
+    }
+}
 </style>
 @endsection
 @section('content')
 
   <section class="headersection" id="headersection">
 
-    <div class="parallax-window" data-parallax="scroll" data-position="left top" data-positionX="left" data-positionY="top" data-androidFix="false" data-image-src="{{ asset('/images/header/headerimage_copy1.jpg') }}">
+    <div class="parallax-window" data-parallax="scroll" data-position="left top" data-positionX="left" data-positionY="top" data-androidFix="false" data-image-src="{{ asset('/images/header/headerImage_L_OJ_v001.jpg') }}">
 
       <div class="hero has-text-right">
         <div class="hero-body">
@@ -23,9 +33,8 @@
             <h2 class="title is-size-3 is-spaced has-text-kv is-uppercase m-t-0 wow bounceInDown" data-wow-duration="3s" data-wow-delay=".1s" style="visibility:hidden;">
               {{ __('indexPage.slogen3') }}
             </h2>
-            <p class="is-size-4 is-spaced has-text-white-bis has-text-weight-semibold has-text-left m-t-50 wow bounceInDown" data-wow-duration="5s" data-wow-delay=".1s" style="visibility:hidden;">
-
-              <a class="button is-danger is-large" href="{{ route('news.show', 'veszpremi-orak')}}" style="padding: 3rem;">Elindult az oktatás veszprémben! <br>Irány a jelentkezés</a>
+            <p class="is-size-4 is-spaced has-text-white-bis has-text-weight-semibold has-text-right m-t-50 wow bounceInDown" data-wow-duration="5s" data-wow-delay=".1s" style="visibility:hidden;">
+              <a class="button is-danger is-medium" href="{{ route('news.show', 'veszpremi-orak')}}" >Elindult az oktatás veszprémben! <br>Irány a jelentkezés</a>
             </p>
           </div>
         </div>
@@ -39,15 +48,24 @@
 <div class="wrapper">
 
   <div class="pen"><img src="/images/pen_v001.png" style="width: 300px; display:none;"></div>
-  <section class="testimonialsection testimonial fadeInUp" id="testimonialsection">
+
+  <section class="aboutsection about fadeInUp" id="aboutsection">
+    @include('simplePages.index.s06_about')
+  </section>
+
+  <section class="testimonialsection testimonial fadeInUp" id="testimonialsection" style="display:none;">
     @include('simplePages.index.s02_testimonial')
   </section>
 
-  <section class="videosection video zoomIn m-b-10" id="videosection">
-    @include('simplePages.index.s03_video1')
+  <section class="photossection zoomIn m-b-10" id="teamsection">
+    @include('simplePages.index.s05_team')
   </section>
 
-  <section class="photossection zoomIn m-b-10" id="postsection">
+  <section class="videosection video zoomIn m-b-10" id="videosection">
+    @include('simplePages.index.s03_video')
+  </section>
+
+  <section class="photossection zoomIn m-b-10" id="imagesection">
     @include('simplePages.index.s04_galery')
   </section>
 

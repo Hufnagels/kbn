@@ -46,7 +46,7 @@
       @else
       <a class="navbar-item {{ ( strpos(Route::currentRouteName(), 'newses') > -1) ? 'is-active has-text-primary' : '' }}" href="{{ route('newses') }}">{{ __('navbar.news') }}</a>
       @endif
-      <a class="navbar-item {{ ( strpos(Route::currentRouteName(), 'projects') > -1) ? 'is-active has-text-primary' : '' }}" href="{{ route('projects') }}">{{ __('navbar.projects') }}</a>
+      <!-- <a class="navbar-item {{ ( strpos(Route::currentRouteName(), 'projects') > -1) ? 'is-active has-text-primary' : '' }}" href="{{ route('projects') }}">{{ __('navbar.projects') }}</a> -->
       <a class="navbar-item {{ ( strpos(Route::currentRouteName(), 'team') > -1) ? 'is-active has-text-primary' : '' }}" href="{{ route('team') }}">{{ __('navbar.team') }}</a>
       <a class="navbar-item {{ ( strpos(Route::currentRouteName(), 'about') > -1) ? 'is-active has-text-primary' : '' }}" href="{{ route('about') }}">{{ __('navbar.about') }}</a>
       <a class="navbar-item {{ ( strpos(Route::currentRouteName(), 'contact') > -1) ? 'is-active has-text-primary' : '' }}" href="{{ route('contact') }}">{{ __('navbar.contact') }}</a>

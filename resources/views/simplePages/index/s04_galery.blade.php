@@ -25,7 +25,7 @@
             <div class="column is-one-quarter">
               <div class="card">
                 <div class="card-image">
-                  <figure class="image is-4by3">
+                  <figure class="image">
                     <img src="{{ asset("/fm/photos/shares/IndexGalery/$image") }}" alt="">
                   </figure>
                 </div>

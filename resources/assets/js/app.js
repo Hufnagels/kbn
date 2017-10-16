@@ -32,12 +32,13 @@ $(document).ready(function(){
                   margin:0,
                   nav:false,
                   autoplay:true,
-                  autoplayTimeout:2000,
+                  autoplayTimeout:2500,
                   autoplayHoverPause:false,
                   responsive:{
                       0:{ items:1 },
-                      600:{ items:1  },
-                      1300:{ items:3 }
+                      300:{ items:2  },
+                      650:{ items:3  },
+                      1300:{ items:4 }
                   }
               };
   owl.owlCarousel(owlConfig);

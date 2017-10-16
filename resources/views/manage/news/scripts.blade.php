@@ -7,10 +7,15 @@ $(function () {
   function myCustomURLConverter(url, node, on_save, name) {
     // Do some custom URL conversion
     url = url.substring(3);
-console.log(url);
+// console.log(url);
     // Return new URL
     return url;
   };
+  $('#clearImage').on('click', function(e){
+    e.preventDefault();
+    $('#thumbnail').val('');
+    $('#holder').attr('src','http://placehold.it/250x170&text=No+image%20(250x170)');
+  });
   $('#title').on('keyup', function() {
     var theTitle = this.value.toLowerCase().trim(),
         slugInput = $('#slug'),
@@ -37,15 +42,19 @@ console.log(url);
     urlconverter_callback : function(url, node, on_save, name) {
       // Do some custom URL conversion
       // var type = url.match(/.(jpg|jpeg|png|gif)$/i);
-console.log('Url: ', url);
+// console.log('Url: ', url);
       if((name == 'href') && (url.indexOf('download?f=') == -1))
       {
-        var filesFolder = "/" + "{{ config('lfm.files_folder_name')}}" + "/" + "{{ config('lfm.shared_folder_name')}}";
-        var full = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
-        url = url.replace(full, '').replace(filesFolder, '');
-        url = "/download?f="+url;
-console.log('Newurl: ',url);
-        return url;
+        if(url.indexOf('/fm/') > 0)
+        {
+          var filesFolder = "/" + "{{ config('lfm.files_folder_name')}}" + "/" + "{{ config('lfm.shared_folder_name')}}";
+          var full = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
+          url = url.replace(full, '').replace(filesFolder, '');
+          url = "/download?f="+url;
+// console.log('Newurl: ',url);
+          return url;
+        }
+
       }
       return url;
     },
@@ -73,34 +82,6 @@ console.log('Newurl: ',url);
 
     tinymce.init(editor_config);
 
-/*
-  $.trumbowyg.svgPath = "{!! asset('/assets/js/ui/icons.svg') !!}";
-
-  //$('#excerpt').trumbowyg({resetCss: true});
-  $('#body').trumbowyg({
-    resetCss: true,
-    btnsDef: {
-    // Customizables dropdowns
-      image: {
-        dropdown: ['insertImage', 'upload', 'base64', 'noembed'],
-        ico: 'insertImage'
-      }
-    },
-    btns : [
-      ['viewHTML'],
-      ['formatting'],
-      'btnGrp-semantic',
-      ['superscript', 'subscript'],
-      ['link'],
-      ['image'],
-      'btnGrp-justify',
-      'btnGrp-lists',
-      ['removeformat'],
-      ['fullscreen']
-    ],
-    autogrow: true
-  });
-*/
   //$('.fileinput').fileinput();
 
   function readURL(input) {

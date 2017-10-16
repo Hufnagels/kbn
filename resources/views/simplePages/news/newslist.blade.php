@@ -7,7 +7,10 @@
 </style>
 @endsection
 @section('content')
+<?php
+$noImage = FALSE;
 
+?>
 <section id="newsList" class="hero is-primary">
   <div class="hero-body">
     <div class="container">

@@ -14851,12 +14851,6 @@ INDEX PAGE
   margin-top: 10rem;
 }
 
-@media screen and (max-width: 768px) {
-  .headersection .hero .hero-body {
-    margin-top: 0rem;
-  }
-}
-
 .headersection .hero .title,
 .headersection .hero .subtitle {
   font-family: 'ImpactRegular';
@@ -14878,6 +14872,10 @@ INDEX PAGE
   font-weight: 800;
 }
 
+.headersection .hero p > a {
+  padding: 3rem;
+}
+
 @media screen and (max-width: 1299px) {
   .headersection .hero .title {
     font-size: 5rem !important;
@@ -14893,8 +14891,12 @@ INDEX PAGE
 }
 
 @media screen and (max-width: 768px) {
+  .headersection .hero .hero-body {
+    margin-top: 0rem;
+  }
+
   .headersection .hero .title {
-    font-size: 3.75rem !important;
+    font-size: 3rem !important;
   }
 
   .headersection .hero .subtitle {
@@ -14903,6 +14905,12 @@ INDEX PAGE
 
   .headersection .hero p {
     font-size: 1.25rem !important;
+  }
+
+  .headersection .hero p > a {
+    padding: 3rem .7rem;
+    margin-top: 15rem !important;
+    font-size: 1rem !important;
   }
 }
 
@@ -15125,14 +15133,19 @@ $link-color: $accent;
   z-index: 0;
 }
 
+.about {
+  min-height: 400px;
+  position: relative;
+}
+
+.about > .hero-body {
+  background-color: #129611;
+  /*#ab1110;*/
+  margin-bottom: 20px;
+}
+
 .testimonial {
   min-height: 400px;
-  /*background-image: url( '/images/header/testimonial-overlay.png' );
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    padding-bottom: 65px;
-    background-color: rgb(175, 23, 65);*/
   position: relative;
 }
 
@@ -15206,6 +15219,14 @@ $link-color: $accent;
 .gt_testi2_wrap .gt_testi2_detail {
   -ms-flex-item-align: end;
       align-self: end;
+}
+
+/*
+TEAM SECTION
+*/
+
+#teamsection > .hero-body {
+  background-color: #ffa700;
 }
 
 /*

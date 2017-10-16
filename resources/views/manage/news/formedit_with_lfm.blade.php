@@ -87,6 +87,7 @@
                   <span class="file-label">{{ __('forms.selectImage') }}</span>
                 </span>
               </a>
+              <button class="button m-l-10" id="clearImage">Töröl</button>
 
             </label>
           </div>

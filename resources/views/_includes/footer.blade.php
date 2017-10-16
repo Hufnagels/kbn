@@ -18,7 +18,7 @@
         <ul class="footer-navbar-list m-t-10">
           <li><a class="navbar-item " href="{{ route('welcome') }}">{{ __('navbar.home') }}</a></li>
           <li><a class="navbar-item " href="{{ route('newses') }}">{{ __('navbar.news') }}</a></li>
-          <li><a class="navbar-item" href="{{ route('projects') }}">{{ __('navbar.projects') }}</a></li>
+          <!-- <li><a class="navbar-item" href="{{ route('projects') }}">{{ __('navbar.projects') }}</a></li> -->
           <li><a class="navbar-item " href="{{ route('team') }}">{{ __('navbar.team') }}</a></li>
           <li><a class="navbar-item " href="{{ route('about') }}">{{ __('navbar.about') }}</a></li>
         </ul>
@@ -33,7 +33,7 @@
 
       <div class="column  has-text-white-ter">
         <p class="is-size-5 is-uppercase is-paddingless m-b-10 footer-header">{{ __('navbar.contact') }}</p>
-        <p class="is-size-7 is-paddingless m-t-10 m-b-10">Email : kodvetok@gmail.com </p>
+        <p class="is-size-7 is-paddingless m-t-10 m-b-10">Email : info@kodvetok.com </p>
       </div>
 
       <div class="column  has-text-white-ter">
@@ -41,6 +41,7 @@
         <ul class="footer-navbar-list m-t-10">
           <li><a class="navbar-item " title="Jelentkez&eacute;si lap" href="/download?f=/jelentkezesek/jelentkezesi_lap.pdf" target="_blank" rel="noopener">Jelentkez&eacute;si lap</a></li>
           <li><a class="navbar-item " title="&Aacute;SZF" href="/download?f=/Jogi_anyagok/aszf_20171008.pdf" target="_blank" rel="noopener">&Aacute;SZF</a></li>
+          <li><a class="navbar-item " title="Házirend" href="/download?f=/Jogi_anyagok/hazirend_20171008.pdf" target="_blank" rel="noopener">Házirend</a></li>
         </ul>
       </div>
 

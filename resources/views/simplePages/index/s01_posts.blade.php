@@ -1,4 +1,32 @@
-<div class="tile is-ancestor information">
+<?php
+$noImage = FALSE;
+foreach ($latestpostswithimages as $post)
+{
+  if($post->image_url == NULL)
+    $imageArray[]='';
+  else
+    $imageArray[]=$post->image_url;
+}
+$result = array_search('',$imageArray);
+if($result != FALSE)
+{
+  $noImage = TRUE;
+}
+//dd($noImage);
+?>
+
+
+<style>
+.headersection .card {
+    min-height: 200px;
+}
+</style>
+
+<div class="tile is-ancestor information is-hidden-touch"
+@if($noImage)
+style="margin-bottom: -90px;"
+@endif
+>
   <?php
 
   function random_color_part() {

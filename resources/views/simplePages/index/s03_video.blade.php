@@ -22,36 +22,59 @@ $relatedVideosCount = count($videos);
     </div>
   </div>
 
+<?php $num = (int)floor($relatedVideosCount / 3 ); ?>
+  @if($num > 0)
+    @for($n=1;$n<$num+1;$n++)
+      <div class="columns is-mobile p-b-10">
+        <div class="column is-8 is-offset-2">
+          <div class="tile is-ancestor">
+            @if($n % 2 == 0)
+              <div class="tile is-4 is-vertical is-parent">
+                <div class="tile is-child box videocontent">
+                  <div class="intrinsic-container intrinsic-container-16x9">
+                    <iframe src="https://www.youtube.com/embed/{{ $videos[3*$n-2]->yt_video_id}}" allowfullscreen="" style=""></iframe>
+                  </div>
+                </div>
+                <div class="tile is-child box videocontent">
+                  <div class="intrinsic-container intrinsic-container-16x9">
+                    <iframe src="https://www.youtube.com/embed/{{ $videos[3*$n-1]->yt_video_id}}" allowfullscreen="" style=""></iframe>
+                  </div>
+                </div>
+              </div>
 
-  @if($relatedVideosCount % 3 == 0)
-  <div class="columns is-mobile p-b-10">
-    <div class="column is-8 is-offset-2">
-      <div class="tile is-ancestor">
+              <div class="tile is-parent">
+                <div class="tile is-child box videocontent">
+                  <div class="intrinsic-container intrinsic-container-16x9 big" style="">
+                    <iframe src="https://www.youtube.com/embed/{{ $videos[3*$n-3]->yt_video_id}}" allowfullscreen="" style=""></iframe>
+                  </div>
+                </div>
+              </div>
+            @else
+              <div class="tile is-parent">
+                <div class="tile is-child box videocontent">
+                  <div class="intrinsic-container intrinsic-container-16x9 big" style="">
+                    <iframe src="https://www.youtube.com/embed/{{ $videos[3*$n-3]->yt_video_id}}" allowfullscreen="" style=""></iframe>
+                  </div>
+                </div>
+              </div>
 
-        <div class="tile is-parent">
-          <div class="tile is-child box videocontent">
-            <div class="intrinsic-container intrinsic-container-16x9 big" style="">
-              <iframe src="https://www.youtube.com/embed/{{ $videos[0]->yt_video_id}}" allowfullscreen="" style=""></iframe>
-            </div>
+              <div class="tile is-4 is-vertical is-parent">
+                <div class="tile is-child box videocontent">
+                  <div class="intrinsic-container intrinsic-container-16x9">
+                    <iframe src="https://www.youtube.com/embed/{{ $videos[3*$n-2]->yt_video_id}}" allowfullscreen="" style=""></iframe>
+                  </div>
+                </div>
+                <div class="tile is-child box videocontent">
+                  <div class="intrinsic-container intrinsic-container-16x9">
+                    <iframe src="https://www.youtube.com/embed/{{ $videos[3*$n-1]->yt_video_id}}" allowfullscreen="" style=""></iframe>
+                  </div>
+                </div>
+              </div>
+            @endif
           </div>
         </div>
-
-        <div class="tile is-4 is-vertical is-parent">
-          <div class="tile is-child box videocontent">
-            <div class="intrinsic-container intrinsic-container-16x9">
-              <iframe src="https://www.youtube.com/embed/{{ $videos[1]->yt_video_id}}" allowfullscreen="" style=""></iframe>
-            </div>
-          </div>
-          <div class="tile is-child box videocontent">
-            <div class="intrinsic-container intrinsic-container-16x9">
-              <iframe src="https://www.youtube.com/embed/{{ $videos[2]->yt_video_id}}" allowfullscreen="" style=""></iframe>
-            </div>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </div>
+    @endfor
   @else
   <div class="columns is-mobile p-b-10">
     <div class="column is-6 is-offset-3">

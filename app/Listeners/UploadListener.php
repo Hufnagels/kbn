@@ -82,10 +82,10 @@ echo $path;
         $base_dir = substr($path, 0, strpos($path, $basename)); // //Users/pisti/Projects/kodvetok.com.new_site/kvn/public/fm/photos/shares/Veszprem/
 /* TEST IF PROFILE PICTURE */
         $teampos = strpos($dirname, config('ownAttributes.lfmSettings.image.avatar.path'));
-//dd($teampos);
+// dd($teampos);
         if($teampos > 0)
         {
-          /* RESIZE ORIG IMAGE */
+          /* CREATE AVATAR IMAGE */
           Image::make($path)
                ->resize(null, config('ownAttributes.lfmSettings.image.avatar.height'), function ($constraint) {
                    $constraint->aspectRatio();
@@ -94,6 +94,8 @@ echo $path;
               ->save($path, 90);
         } else {
           /* RESIZE ORIG IMAGE */
+          list($width, $height) = getimagesize($path);
+// dd($width);
           Image::make($path)
               // ->resize(config('ownAttributes.lfmSettings.image.resized.width'), null, function ($constraint) {
               //     $constraint->aspectRatio();
