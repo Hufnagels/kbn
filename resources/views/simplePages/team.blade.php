@@ -82,12 +82,16 @@
                   </div>
                   <div class="media-content">
                     <p class="title is-4">Tóthné Pálmai Zita</p>
-                    <p class="subtitle is-6">Veszprémi Műhelyvezető</p>
+                    <p class="subtitle is-6">Veszprémi oktatás szervező</p>
                   </div>
                 </div>
 
                 <div class="content">
-                  Több mint 30 éve része az életemnek a tanítás. A Kódvetők Digitális Oktatási Műhely világa rögtön magával ragadott. A gondolkodás fejlesztése, a tantárgyak összefüggéseinek felismertetése, tartalommal megtöltése lényeges, ezt 18 éves lányom és 20 éves fiam is érzékeltetik velem, aki ma nem halad, az lemarad.
+                  Több mint 30 éve része az életemnek a tanítás. A Kódvetők Digitális Oktatási Műhely világ rögtön magával ragadott. Hiszek a már kipróbált módszerekben és szeretem megismertetni másokkal. A világ változik. Más hozzáállást követel pedagógusként és szülőként is. A 18 éves lányom és 20 éves fiam is érzékeltetik ezt velem.
+                  <br>
+ „A hit sohasem hiszékenység, hanem energia, amelyből egy mustármagnyi hegyeket mozdíthat meg, feltéve, hogy akiben felfénylik, a szívével gondolkodik és az agyával is érez.”
+<br>
+Szepes Mária
                 </div>
               </div>
             </div>

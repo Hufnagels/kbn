@@ -6,11 +6,11 @@
       <div class="column has-text-white-ter">
         <p class="is-size-3 is-uppercase is-paddingless is-marginless ">Kódvetők</p>
         <p class="is-size-6 is-lowercase">Digitális Oktatási Műhely</p>
-        <p class="is-size-7 is-lowercase m-t-20">
-          <figure class="image is-128x30">
-            <a href="http://www.microbit.org/" target="_blank"><img class="img" src="/images/new-logo.svg"></a>
-          </figure>
-        </p>
+        <p class="is-size-7 is-lowercase m-t-20"></p>
+        <figure class="image is-128x30"><a href="http://www.microbit.org/" target="_blank"><img class="img" src="/images/new-logo.svg"></a></figure>
+        <p class="is-size-7 is-lowercase m-t-10"></p>
+        <figure class="image is-128x30"><a href="https://malnapc.hu/" target="_blank"><img class="img" src="/images/Malnapc_logo17.png"></a></figure>
+        <p class="is-size-7 is-lowercase m-b-20"></p>
       </div>
 
       <div class="column  has-text-white-ter">
