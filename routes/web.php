@@ -15,6 +15,8 @@ Route::get('/contact', 'PagesController@getcontact')->name('contact');
 Route::post('/contact', 'PagesController@postContact')->name('contact');
 Route::get('/about', 'PagesController@getAbout')->name('about');
 Route::get('/team', 'PagesController@getTeam')->name('team');
+Route::get('/enigma', 'PagesController@enigma')->name('enigma');
+Route::get('/enigma/challenge', 'PagesController@enigmaTasks')->name('enigmatasks');
 
 Route::get('/projects/{project}', 'PostController@showProject')->name('projects.show');
 Route::get('/projects', 'PostController@getProjects')->name('projects');

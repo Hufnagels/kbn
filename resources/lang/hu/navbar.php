@@ -15,6 +15,7 @@ return [
     'morenews' => 'Még több hír',
     'administration' => 'Adminisztráció',
     'profile' => 'Profil adatok',
+    'game' => 'Játék',
 
     'instruction' => 'Tanári anyagok',
     'lession' => 'Órai anyagok',

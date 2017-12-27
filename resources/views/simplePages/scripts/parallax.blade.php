@@ -1,11 +1,20 @@
-<script type="text/javascript" src="{{ asset('assets/js/parallax.min.js') }}"></script>
+<!--<script type="text/javascript" src="{{ asset('assets/js/parallax.min.js') }}"></script>-->
 <script type="text/javascript">
 $(document).ready(function(){
+  var img = $('.parallaxImage'),
+      headerContainer = $('.headersection');
+      headerContainer.css('min-height', img.css('height')+20);
+  /*
   $('.headersection .parallax-window').parallax({
-    position: 'left top',
-    positionX : 'left',
-    positionY: 'top'
-  });
+    position: 'center center',
+    positionX : 'center',
+    positionY: 'center'
+  });*/
+  $(window).on('resize', function(){
+      var img = $('.parallaxImage'),
+          headerContainer = $('.headersection');
+          headerContainer.css('min-height', img.height()+20)
+    });
   jQuery(window).trigger('resize').trigger('scroll');
   // var mask1 = $('#mask1 circle')[0];
   // var mask2 = $('#mask2 circle')[0];

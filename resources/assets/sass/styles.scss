@@ -39,7 +39,6 @@ INDEX PAGE
 // PARALLAX
 
 .parallax-window {
-    min-height: 400px;
     background-color: transparent;
     background: transparent;
 }
@@ -75,15 +74,23 @@ INDEX PAGE
 }
 // image with parallax effect
 .headersection {
-  min-height:700px;
+  min-height:780px;
+}
+.parallax-window {
+    /*min-height: 500px;*/
+    position:relative;
 }
 .headersection .parallax-window {
-  min-height:900px;
-  /*background-color: rgba(105, 71, 71, 0.4);*/
-
+  /*min-height:800px;
+  background-color: rgba(105, 71, 71, 0.4);*/
+}
+.parallax-window>img{
+  position:absolute;
+  max-width: 100%;
+  height: auto;
 }
 .headersection .hero .hero-body{
-  margin-top:10rem;
+  margin-top:2rem;
 }
 
 .headersection .hero .title,
@@ -107,7 +114,11 @@ INDEX PAGE
 .headersection .hero p>a{
     padding: 3rem;
 }
-
+.button.is-game {
+    background-color: rgba(156, 39, 176, 0.7215686274509804);
+    border-color: transparent;
+    color: #fff;
+}
 @media screen and (max-width: 768px) {
 
 }
@@ -141,17 +152,17 @@ INDEX PAGE
 
   .headersection .hero p>a{
       padding: 3rem .7rem;
-      margin-top: 15rem !important;
+      margin-top: 2rem !important;
       font-size: 1rem !important;
   }
 }
 
-.headersection .tile.information
+.headersection2 .tile.information
 {
     margin-left: 5%;
     margin-right: 5%;
-    position: relative;
-    top: -100px;
+    /*position: relative;
+    top: 10px;*/
 }
 .headersection .notification
 {
@@ -159,7 +170,7 @@ INDEX PAGE
   /*display: grid;*/
 }
 
-.headersection .card
+.headersection2 .card
 {
   background: transparent;
   -webkit-box-shadow: none;
@@ -170,25 +181,25 @@ INDEX PAGE
 
 @media screen and (max-width: 768px)
 {
-  .headersection .tile.information
+  .headersection2 .tile.information
   {
-      top: -170px;
+      top: 20px;
   }
   .headersection .notification
   {
     display: block;
   }
-  .headersection .card
+  .headersection2 .card
   {
     display: block;
   }
 }
 
-.headersection .card .card-image
+.headersection2 .card .card-image
 {
     align-self: start;
 }
-.headersection .card .card-content
+.headersection2 .card .card-content
 {
     align-self: end;
 }
@@ -718,7 +729,8 @@ FOOTER SECTION
 */
 .footer {
 	font-family: 'SilomRegular';
-  background-color: #2a2a2a !important;
+  background-color: #15171a !important;
+/*#2a2a2a !important;*/
 
 	&>.container {
 			padding: 3rem 1.5rem 1rem;

@@ -15,6 +15,7 @@ return [
     'morenews' => 'More News',
     'administration' => 'Administration',
     'profile' => 'Profile',
+    'game' => 'Game',
 
     'instruction' => 'For Teachers',
     'lession' => 'Lessions',

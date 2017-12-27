@@ -6,16 +6,6 @@
 .owl-theme .owl-nav.disabled + .owl-dots {
     display: block;
 }
-.has-text-kv0 {
-    color: #9E9E9E !important;
-    margin-bottom: 0 !important;
-    font-family: 'SilomRegular' !important;
-    text-transform: none !important;
-}
-.headersection .hero .title:not(.has-text-kv) {
-    font-size: 4rem !important;
-
-}
 @media screen and (max-width: 768px)
 {
 
@@ -29,38 +19,36 @@
 
   <section class="headersection" id="headersection">
 
-    <div class="parallax-window" >
-      <img class="parallaxImage" src="{{ asset('/images/header/enigma_kod_v007_folap.jpg') }}">
+    <div class="parallax-window" data-parallax="scroll" data-position="left top"
+      data-positionX="left" data-positionY="top" data-androidFix="false"
+      data-image-src="{{ asset('/images/header/headerImage_L_OJ_v001.jpg') }}">
+
       <div class="hero has-text-right">
         <div class="hero-body">
           <div class="container">
-            <h1 class="title is-size-3 is-spaced has-text-kv0 is-uppercase wow bounceInDown" data-wow-duration="1s" data-wow-delay=".1s" style="visibility:hidden;">
-              Első feladvány
+            <h1 class="title is-size-3 is-spaced has-text-kv is-uppercase wow bounceInDown" data-wow-duration="1s" data-wow-delay=".1s" style="visibility:hidden;">
+              {{ __('indexPage.slogen1') }}
             </h1>
             <h2 class="title is-size-3 is-spaced has-text-kv is-uppercase m-t-0 wow bounceInDown" data-wow-duration="2s" data-wow-delay=".1s" style="visibility:hidden;">
-              2018
+              {{ __('indexPage.slogen2') }}
             </h2>
             <h2 class="title is-size-3 is-spaced has-text-kv is-uppercase m-t-0 wow bounceInDown" data-wow-duration="3s" data-wow-delay=".1s" style="visibility:hidden;">
-              01.08.
+              {{ __('indexPage.slogen3') }}
             </h2>
-            <!---->
             <p class="is-size-4 is-spaced has-text-white-bis has-text-weight-semibold has-text-right m-t-50 wow bounceInDown" data-wow-duration="5s" data-wow-delay=".1s" style="visibility:hidden;">
-              <a class="button is-game is-medium" href="{{ route('enigma')}}" >Irány a kódtörés!</a>
+              <a class="button is-danger is-medium" href="{{ route('news.show', 'veszpremi-orak')}}" >Elindult az oktatás veszprémben! <br>Irány a jelentkezés</a>
             </p>
-
           </div>
         </div>
       </div>
 
     </div>
 
-
+    @include('simplePages.index.s01_posts')
 
   </section>
 <div class="wrapper">
-  <div class="headersection2">
-    @include('simplePages.index.s01_posts')
-  </div>
+
   <div class="pen"><img src="/images/pen_v001.png" style="width: 300px; display:none;"></div>
 
   <section class="aboutsection about fadeInUp" id="aboutsection">

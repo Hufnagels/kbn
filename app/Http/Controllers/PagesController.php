@@ -55,6 +55,12 @@ class PagesController extends Controller
       return view('simplePages.team');
     }
 
+    public function Enigma(){
+      return view('simplePages.games.enigma.index');
+    }
+    public function EnigmaTasks(){
+      return view('simplePages.games.enigma.challenge');
+    }
     public function getContact(){
       Mapper::map(
         47.4875518,

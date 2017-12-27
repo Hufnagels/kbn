@@ -24,6 +24,11 @@ return [
     'aboutSlogen1' => 'Mit csinálunk mi?',
     'aboutSlogen2' => 'Oktatási elveink',
 
+    'gameEnigmaSlogen1' => 'A Pannon Egyetem Műszaki Informatikai Kara és a Kódvetők Digitális Oktatási Műhely meghírdeti a Pannon Enigma Informatikai Programozási Kódtörő versenyt általános iskolás diákoknak.',
+    'gameEnigmaSlogen2' => 'Tovább a feladványokhoz...',
+    'gameEnigmaSlogen3' => 'Feladványok',
+    'gameEnigmaSlogen4' => 'Hogyan törjük a kódot?',
+
     'contactSlogen1' => 'Kapcsolat',
     'contactSlogen2' => 'Kérdezz, válaszolunk!',
     'contactForm' => [

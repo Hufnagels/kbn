@@ -45,6 +45,11 @@ a.navbar-item:hover, a.navbar-item.is-active, .navbar-link:hover, .navbar-link.i
     color: #0a0a0a;
     border-bottom: 1px solid $navbar-dropdown-separator-color;
 }
+a.navbar-item.game:hover, a.navbar-item.game.is-active {
+    background-color: transparent;
+    color: #ff3860;
+    border-bottom: 1px solid #ff3860;
+}
 
 .navbar .navbar-brand >a:hover {
   background-color: transparent;
@@ -175,6 +180,9 @@ button.nav-item {
   // Modifiers
   &.is-active {
     color: $link-active;
+  }
+  &.is-activeGame{
+    color: red;
   }
   &.is-tab {
     border-bottom: 1px solid transparent;

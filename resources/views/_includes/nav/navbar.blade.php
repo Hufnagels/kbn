@@ -27,6 +27,7 @@
   <div id="navMenu" class="navbar-menu is-hidden-print">
     <div class="navbar-start">
       <a class="navbar-item {{ ( strpos(Route::currentRouteName(), 'welcome') > -1) ? 'is-active has-text-primary' : '' }}" href="{{ route('welcome') }}">{{ __('navbar.home') }}</a>
+      <a class="navbar-item game {{ ( strpos(Route::currentRouteName(), 'enigma') > -1) ? 'is-active has-text-danger' : '' }}" href="{{ route('enigma') }}">{{ __('navbar.game') }}</a>
       @if(count($navbarpopularpost))
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link {{ ( strpos(Route::currentRouteName(), 'news') > -1) ? 'is-active has-text-primary' : '' }}" href="{{ route('newses') }}">{{ __('navbar.news') }}</a>

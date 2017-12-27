@@ -17,14 +17,14 @@ if($result != FALSE)
 
 
 <style>
-.headersection .card {
+.headersection2 .card {
     min-height: 200px;
 }
 </style>
 
 <div class="tile is-ancestor information is-hidden-touch"
 @if($noImage)
-style="margin-bottom: -90px;"
+style="margin-bottom: 10px;"
 @endif
 >
   <?php

@@ -14801,7 +14801,6 @@ INDEX PAGE
 */
 
 .parallax-window {
-  min-height: 400px;
   background-color: transparent;
   background: transparent;
 }
@@ -14839,16 +14838,27 @@ INDEX PAGE
 }
 
 .headersection {
-  min-height: 700px;
+  min-height: 780px;
+}
+
+.parallax-window {
+  /*min-height: 500px;*/
+  position: relative;
 }
 
 .headersection .parallax-window {
-  min-height: 900px;
-  /*background-color: rgba(105, 71, 71, 0.4);*/
+  /*min-height:800px;
+  background-color: rgba(105, 71, 71, 0.4);*/
+}
+
+.parallax-window > img {
+  position: absolute;
+  max-width: 100%;
+  height: auto;
 }
 
 .headersection .hero .hero-body {
-  margin-top: 10rem;
+  margin-top: 2rem;
 }
 
 .headersection .hero .title,
@@ -14874,6 +14884,12 @@ INDEX PAGE
 
 .headersection .hero p > a {
   padding: 3rem;
+}
+
+.button.is-game {
+  background-color: rgba(156, 39, 176, 0.721569);
+  border-color: transparent;
+  color: #fff;
 }
 
 @media screen and (max-width: 1299px) {
@@ -14909,16 +14925,16 @@ INDEX PAGE
 
   .headersection .hero p > a {
     padding: 3rem .7rem;
-    margin-top: 15rem !important;
+    margin-top: 2rem !important;
     font-size: 1rem !important;
   }
 }
 
-.headersection .tile.information {
+.headersection2 .tile.information {
   margin-left: 5%;
   margin-right: 5%;
-  position: relative;
-  top: -100px;
+  /*position: relative;
+    top: 10px;*/
 }
 
 .headersection .notification {
@@ -14926,7 +14942,7 @@ INDEX PAGE
   /*display: grid;*/
 }
 
-.headersection .card {
+.headersection2 .card {
   background: transparent;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -14935,25 +14951,25 @@ INDEX PAGE
 }
 
 @media screen and (max-width: 768px) {
-  .headersection .tile.information {
-    top: -170px;
+  .headersection2 .tile.information {
+    top: 20px;
   }
 
   .headersection .notification {
     display: block;
   }
 
-  .headersection .card {
+  .headersection2 .card {
     display: block;
   }
 }
 
-.headersection .card .card-image {
+.headersection2 .card .card-image {
   -ms-flex-item-align: start;
       align-self: start;
 }
 
-.headersection .card .card-content {
+.headersection2 .card .card-content {
   -ms-flex-item-align: end;
       align-self: end;
 }
@@ -15508,7 +15524,8 @@ FOOTER SECTION
 
 .footer {
   font-family: 'SilomRegular';
-  background-color: #2a2a2a !important;
+  background-color: #15171a !important;
+  /*#2a2a2a !important;*/
 }
 
 .footer > .container {
@@ -15648,6 +15665,13 @@ a.navbar-item.is-active,
   background-color: transparent;
   color: #0a0a0a;
   border-bottom: 1px solid #00d1b2;
+}
+
+a.navbar-item.game:hover,
+a.navbar-item.game.is-active {
+  background-color: transparent;
+  color: #ff3860;
+  border-bottom: 1px solid #ff3860;
 }
 
 .navbar .navbar-brand > a:hover {
@@ -15791,6 +15815,10 @@ button.nav-item:hover {
 
 button.nav-item.is-active {
   color: #00d1b2;
+}
+
+button.nav-item.is-activeGame {
+  color: red;
 }
 
 button.nav-item.is-tab {

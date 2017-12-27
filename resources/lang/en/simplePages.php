@@ -24,6 +24,11 @@ return [
     'aboutSlogen1' => 'Mit csinálunk mi?',
     'aboutSlogen2' => 'Oktatási elveink',
 
+    'gameEnigmaSlogen1' => 'Pannon Enigma Informatikai Programozási Kódtörő verseny',
+    'gameEnigmaSlogen2' => 'Pannon Enigma Informatikai Programozási Kódtörő verseny',
+    'gameEnigmaSlogen3' => 'Feladványok',
+    'gameEnigmaSlogen4' => 'Hogyan törjük a kódot?',
+
     'contactSlogen1' => 'Contact',
     'contactSlogen2' => 'Ask, we answer!',
     'contactForm' => [
