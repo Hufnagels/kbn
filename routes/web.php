@@ -16,7 +16,7 @@ Route::post('/contact', 'PagesController@postContact')->name('contact');
 Route::get('/about', 'PagesController@getAbout')->name('about');
 Route::get('/team', 'PagesController@getTeam')->name('team');
 Route::get('/enigma', 'PagesController@enigma')->name('enigma');
-Route::get('/enigma/challenge', 'PagesController@enigmaTasks')->name('enigmatasks');
+// Route::get('/enigma/challenge', 'PagesController@enigmaTasks')->name('enigmatasks');
 
 Route::get('/projects/{project}', 'PostController@showProject')->name('projects.show');
 Route::get('/projects', 'PostController@getProjects')->name('projects');
@@ -29,7 +29,8 @@ Route::get('/news/{news}', 'PostController@showPost')->name('news.show');
 Route::get('/news', 'PostController@getPosts')->name('newses');
 Route::get('/', 'PagesController@getIndex')->name('welcome');
 
-//Route::post('/login', 'Autth\LoginController@logout')->name('logout');
+
+//Route::post('/login', 'Auth\LoginController@logout')->name('logout');
 
 
 
@@ -40,6 +41,8 @@ Route::get('/manage/calendar/oauth', 'Manage\GoogleCalendarController@oauth')->n
 Route::group(['middleware' => 'auth'], function () { });
 
 Auth::routes();
+Route::post('/register', 'Auth\RegisterController@index')->name('register');
+  Route::get('/enigma/challenge', 'PagesController@enigmaTasks')->name('enigmatasks');
 
   Route::prefix('manage')->group(function(){
     Route::get('/', 'Manage\ManageController@index');

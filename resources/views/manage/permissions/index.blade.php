@@ -1,8 +1,8 @@
 @extends('layouts.manage')
 @section('title',' - Permissions list')
 @section('content')
-@if (Laratrust::can(['create-acl', 'create-user']) )
-@endif
+@if (Laratrust::can(['create-acl', 'crud-permission']) )
+
   <div class="flex-container"></div>
 
       <div class="columns">
@@ -46,5 +46,5 @@
           </div>
         </div>
       </div>
-
+@endif
 @endsection

@@ -1,8 +1,8 @@
 @extends('layouts.manage')
 @section('title',' - Roles list')
 @section('content')
-@if (Laratrust::can(['create-acl', 'create-user']) )
-@endif
+@if (Laratrust::can(['create-acl', 'crud-role']) )
+
   <div class="flex-container"></div>
   <div class="columns">
     <div class="column">
@@ -46,5 +46,5 @@
         </div>
       @endforeach
     </div>
-
+@endif
 @endsection

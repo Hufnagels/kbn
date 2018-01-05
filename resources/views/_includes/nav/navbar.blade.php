@@ -75,14 +75,15 @@
             </div>
           </div>
           @endif
-          <a class="navbar-item" href="{{ route('manage.dashboard')}}">{{ __('navbar.administration') }}</a>
-          @if (check_user_permissions(request(), "Users@index"))
 
+          @if (Auth::user()->hasRole('admin','author','editor'))
+          <a class="navbar-item" href="{{ route('manage.dashboard')}}">{{ __('navbar.administration') }}</a>
           @endif
-          @if (Auth::user()->hasPermission('edit-profile'))
+          @if (Auth::user()->hasRole('admin','author','editor'))
           <a class="navbar-item" href="{{ route('manage.account-edit')}}">{{ __('navbar.profile') }}</a>
-          @endif
           <hr class="navbar-divider">
+          @endif
+
           <a class="navbar-item" href="{{ route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('auth.logout') }}</a>
           @include('_includes.forms.logout')
         </div>

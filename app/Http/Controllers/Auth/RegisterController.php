@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+
+// use App\Http\Requests\UserStoreRequest;
 
 class RegisterController extends Controller
 {
@@ -27,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/manage/dashboard';
+    protected $redirectTo = '/enigma/challenge';
 
     /**
      * Create a new controller instance.
@@ -62,20 +65,48 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+      $a = array($data['name'],$data['iskola']);
+      $data['role'] = 5;
+      return  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'slug' => str_slug($data['name']),
             'password' => bcrypt($data['password']),
+            'bio' => json_encode($a, JSON_UNESCAPED_UNICODE),
         ]);
+      //   $user->attachRole($request->role);
+    }
+
+    public function index(Request $request)
+    {
+
+        $this->validate($request, [
+          'name' => 'required|string|max:255',
+          'email' => 'required|string|email|max:255|unique:users',
+          'password' => 'required|string|min:6|confirmed',
+        ]);
+        $a = array($request['name'],$request['iskola']);
+        $request['role'] = 5;
+        $request['slug'] = str_slug($request['name']);
+        $request['bio'] = json_encode($a, JSON_UNESCAPED_UNICODE);
+        $user = User::create($request->all());
+
+        $user->attachRole($request->role);
+        // User::create(request(['name', 'email', 'password']));
+
+        auth()->login($user);
+
+        return redirect()->to('/enigma/challenge');
     }
 
     public function showRegistrationForm()
     {
         abort(404);
     }
-
-    public function register(Request $request)
+    //
+    public function register()
     {
-        abort(404);
+        // auth()->login($user);
+        return redirect()->route('manage.dashboard');//abort(404);
     }
 }

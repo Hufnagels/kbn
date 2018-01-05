@@ -52,7 +52,7 @@ class UsersController extends BackendController
 
     public function store(UserStoreRequest $request)
     {
-//dd($request);
+// dd($request);
         if ( $request->password == NULL)
         {
           unset($user['password']);

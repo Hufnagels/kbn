@@ -23,15 +23,15 @@ class ManageController extends BackendController
     {
       if(\Auth::user()->hasRole('student'))
       {
-        $lessions = Lession::with('author')->published()->orderByDesc('published_at')->get();
-        return view('manage.home.dashboards.student', compact('lessions'));
+        // $lessions = Lession::with('author')->published()->orderByDesc('published_at')->get();
+        return redirect()->route('enigmatasks'); //view('manage.home.dashboards.student', compact('lessions'));
       }
       if(\Auth::user()->hasRole('teacher'))
       {
         $instructions = Instruction::with('author', 'lessions')->published()->orderByDesc('published_at')->get();
         return view('manage.home.dashboards.teacher', compact('instructions'));
       }
-      
+
       return view('manage.home.dashboard');
     }
 

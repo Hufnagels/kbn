@@ -31,7 +31,7 @@
 <div class="container aboutUs m-b-0">
   <div class="columns">
     <div class="column is-10 is-offset-1">
-      <figure class="image"><img src={{ asset("/images/games/enigma_kod_v007_96.jpg") }}></figure>
+      <figure class="image"><img src={{ asset("/images/games/enigma_kod_hatlap_leiras_v0071_96.jpg") }}></figure>
     </div>
   </div>
 </div>
