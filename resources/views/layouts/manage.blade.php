@@ -20,7 +20,7 @@
 
   <div class="columns manage">
 
-    @if( Auth::user()->hasRole(['teacher','student']))
+    @if( Auth::user()->hasRole(['teacher','student','gamevisitor']))
       <div class="column m-r-10 m-l-20 m-b-10">
         <div id="app">
           @yield('content')

@@ -28,10 +28,22 @@
                       @if ($errors->has('display_name'))<p class="help is-danger">{{ $errors->first('display_name') }}</p>@endif
                     </div>
 
+
+
                     <div class="field">
-                      <label class="label">{!! Form::label('name', 'Slug (Can not be edited)') !!}</label>
-                      <div class="control">{!! Form::text('name', null, ['class' => 'input', 'disabled' => 'disabled']) !!}</div>
+                      <label class="label">{!! Form::label('name',  __('forms.slug')  ) !!}</label>
+
+                      @if($errors->has('slug'))
+                      <div class="control {{ $errors->has('name') ? 'is-danger' : ''}}">{!! Form::text('name', null, ['class' => 'input']) !!}</div>
+                      <p class="help is-danger">{{ __('forms.errors.slug') }}</p>
+                      @else
+                      <p class="is-size-6 has-text-primary slugtext" style="min-height:24px;width:100%;">
+                        @if(isset($user)){{$role->name}}@endif
+                      </p>
+                      <div class="control">{!! Form::hidden('name', null, ['class' => 'input']) !!}</div>
+                      @endif
                     </div>
+
                     <div class="field">
                       <label class="label">{!! Form::label('description', 'Description') !!}</label>
                       <div class="control">{!! Form::textarea('description', null, ['class' => 'textarea excerpt'] ,['attributes' => ['cols'=> 50, 'rows'=> 3]]) !!}
@@ -86,6 +98,16 @@
         slugInput = $('#name'),
         theSlug = slugize(theTitle);
         slugInput.val(theSlug);
+        if($('.slugtext')){
+          $('.slugtext').html(theSlug);
+        }
   });
+
+  // $('#display_name').on('blur', function() {
+  //   var theTitle = this.value.toLowerCase().trim(),
+  //       slugInput = $('#name'),
+  //       theSlug = slugize(theTitle);
+  //       slugInput.val(theSlug);
+  // });
   </script>
 @endsection

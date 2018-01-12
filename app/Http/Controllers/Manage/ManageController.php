@@ -3,12 +3,16 @@
 namespace App\Http\Controllers\Manage;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+
 Use App\User;
 Use App\News;
 use App\Category;
 use App\Instruction;
 use App\Lession;
-use App\Http\Requests\UserUpdateRequest;
+// use App\Http\Requests\UserUpdateRequest;
+
 
 class ManageController extends BackendController
 {
@@ -31,36 +35,62 @@ class ManageController extends BackendController
         $instructions = Instruction::with('author', 'lessions')->published()->orderByDesc('published_at')->get();
         return view('manage.home.dashboards.teacher', compact('instructions'));
       }
-
-      return view('manage.home.dashboard');
-    }
-
-    public function edit(Request $request)
-    {
-        $user = $request->user();
-
-        return view('manage.home.edit', compact('user'));
-    }
-
-    public function update(UserUpdateRequest $request, $id)
-    {
-      $user = User::findOrFail($id);
-      $user->name = $request->name;
-      unset($user['email']);
-      unset($user['slug']);
-      // $user->email = $request->email;
-      $user->bio = $request->bio;
-
-      if ( $request->password == NULL)
+      if(\Auth::user()->hasRole('gamevisitor'))
       {
-        unset($user['password']);
+        // $lessions = Lession::with('author')->published()->orderByDesc('published_at')->get();
+        $collection = User::select('name', 'created_at', 'bio')->whereRoleIs('student')->get()->groupBy(DB::raw('Date(created_at)'));
+        $flattened = $collection->flatten(1);
+// dd($flattened->all());
+        $users = $flattened->all();
+        return view('manage.home.dashboards.gamevisitor', compact('users'));
       }
-      unset($user['role']);
 
-      $user->save();
-
-      return redirect()->back()->with('message', 'Profile updated successfully');
+        $collection = User::select('name', 'created_at', 'bio')->whereRoleIs('student')->get()->groupBy(DB::raw('Date(created_at)'));
+        $flattened = $collection->flatten(1);
+        $users = $flattened->all();
+      return view('manage.home.dashboard', compact('users'));
     }
+
+//     public function edit(Request $request)
+//     {
+//         $user = $request->user();
+//
+//         return view('manage.home.edit', compact('user'));
+//     }
+//
+//     public function update(Request $request, $id)
+//     {
+// dd($request->id);
+//       $user = User::findOrFail($id);
+//       $user->name = $request->name;
+//       $user->email = $request->email;
+//       $user->bio = $request->bio;
+//       $user->image = $request->image;
+// dd($request);
+//       if ( $request->password == NULL)
+//       {
+//         unset($user['password']);
+//       } else {
+//         $user->password = $request->password;
+//       }
+//       unset($user['email']);
+//       unset($user['slug']);
+//       // $user->email = $request->email;
+// dd($request);
+//       $user->bio = $request->bio;
+//
+//       if ( $request->password == NULL)
+//       {
+//         unset($user['password']);
+//       } else {
+//         $user->password = $request->password;
+//       }
+//       unset($user['role']);
+//
+//       $user->save();
+//
+//       return redirect()->back()->with('message', 'Profile updated successfully');
+//     }
     public function filemanager(Request $request)
     {
       $fmType = 'Images';

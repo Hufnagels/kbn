@@ -22,8 +22,26 @@
 <section id="gameContent" class="hero m-b-0">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title has-text-centered">{{ __('simplePages.gameEnigmaSlogen1') }}</h1>
-      <h2 class="subtitle has-text-centered m-t-5"><a class="button is-danger" href="{{ route('enigmatasks') }}">{{ __('simplePages.gameEnigmaSlogen2') }}</a></h2>
+      <h1 class="subtitle has-text-centered" style="color: #acfa32 !important;font-weight: 600;">
+A Pannon Egyetem Műszaki Informatikai Kara és a Kódvetők Digitális Oktatási Műhely<br>
+meghírdeti<br>
+a Pannon Enigma Informatikai Programozási Kódtörő versenyt<br>
+általános iskolások, osztályok, tanuló csoportok részére.<br>
+A verseny fődíja a tudás megszerzésén kívül egy Apple számítógép!
+<p class="m-t-15" style="color: #f0b9d8;background-color: rgba(57, 61, 72, 0.611764705882353);padding: 1rem;border-radius: 2rem;">
+A verseny kiírását olvassátok el figyelmesen!<br>
+A jelentkezésedet egészen 2018. május 14-ig elfogadjuk, de siess!
+</p>
+      </h1>
+      <h2 class="subtitle has-text-centered m-t-5">
+        <a class="button" style="background-color: rgba(172, 250, 50, 0.95);border-color: transparent;color: rgb(56, 44, 73);" href="{{ route('enigmatasks') }}">
+          @if (!Auth::guest())
+          {{ __('simplePages.gameEnigmaSlogen2') }}
+          @else
+          Jelentkezz a játékra!
+          @endif
+        </a>
+      </h2>
     </div>
   </div>
 </section>

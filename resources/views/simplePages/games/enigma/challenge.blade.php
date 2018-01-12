@@ -22,8 +22,13 @@
 <section id="gameContent" class="hero m-b-0">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title has-text-centered">{{ __('simplePages.gameEnigmaSlogen3') }}</h1>
-      <h2 class="subtitle has-text-centered m-t-5">{{ __('simplePages.gameEnigmaSlogen4') }}</h2>
+      @if (!Auth::guest())
+        <h1 class="title has-text-centered" style="color: rgba(172, 250, 50, 0.95);">{{ __('simplePages.gameEnigmaSlogen3') }}</h1>
+        <h2 class="subtitle has-text-centered m-t-5" style="color: rgba(172, 250, 50, 0.95);">Törd fel a az ENIGMA kódját!<br>Állítsd meg a tengeralattjárók farkasfalkáit!</h2>
+      @else
+        <h1 class="title has-text-centered" style="color: rgba(172, 250, 50, 0.95);">Jelentkezés</h1>
+        <h2 class="subtitle has-text-centered m-t-5" style="color: rgba(172, 250, 50, 0.95);">Regisztrációt követően ide visszatérve találod azokat a feladatokat,<br>amelyek megoldásaként összeáll a kód, amivel feltörheted a PANNON ENIGMA-t</h2>
+      @endif
     </div>
   </div>
 </section>
@@ -33,14 +38,18 @@
 
       @if (!Auth::guest())
         @if( Auth::user()->hasRole(['student']))
-
+        @endif
             <div class="columns is-multiline m-t-20 m-b-20">
               <div class="column is-4">
                 <div class="card">
-                  <div class="card-image"><figure class="image"><img src="{{ asset('/images/games/questionmark.png') }}" alt=""></figure></div>
+                  <div class="card-image">
+                    <a class="" href="{{ asset('/fm/photos/shares/games/enigma/enigma_001_feladat_A4_v003.jpg') }}">
+                      <figure class="image"><img src="{{ asset('/fm/photos/shares/games/enigma/enigma_001_feladat_A4_v003.jpg') }}" alt=""></figure>
+                    </a>
+                  </div>
                   <div class="card-content">
                     <div class="content">
-                      <h3 class="subtitle"><a class="" href="#">1. feladat</a></h3>
+                      <h3 class="subtitle"><a class="" href="{{ asset('/fm/photos/shares/games/enigma/enigma_001_feladat_A4_v003.jpg') }}">1. feladat</a></h3>
                       <p>2018. Január 8.</p>
                     </div>
                   </div>
@@ -151,7 +160,7 @@
             </div>
 
 
-        @endif
+
       @else
       <div class="columns">
       <div class="column is-10 is-offset-1">

@@ -13,7 +13,7 @@ class Role extends LaratrustRole
 
   public function user()
   {
-    return $this->hasMany(User::class);
+    return $this->hasMany(User::class, 'id');
   }
 
   // SCOPES
@@ -21,4 +21,9 @@ class Role extends LaratrustRole
   // {
   //   return $query->where('name', 'teacher');
   // }
+
+  public function scopeStudents($query)
+  {
+    return $query->where('name', 'student');
+  }
 }

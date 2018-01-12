@@ -3,9 +3,7 @@
 @include('_includes.head.login')
 <style>
 .loginPage{
-    background-image: url(http://kvn.dev/images/header/headerimage_copy1.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+
     height: 100vh;
 }</style>
 <body>

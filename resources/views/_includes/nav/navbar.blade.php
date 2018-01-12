@@ -1,9 +1,9 @@
 <nav class="navbar has-shadow">
   <div class="navbar-brand">
-    <button class="navbar-item" href="{{ route('home')}}">
+    <a class="navbar-item" href="{{ route('welcome')}}">
       <img src="{{ asset('/images/logo_kv_004.png') }}" alt="" class="is-hidden-touch">
       <img src="{{ asset('/images/logo_kv_003.png') }}" alt="" class="is-hidden-desktop is-hidden-print">
-    </button>
+    </a>
 
     <a class="navbar-item is-hidden-desktop is-hidden-print" href="https://www.facebook.com/kodvetok/" target="_blank">
       <span class="icon" style="color: #333;">
@@ -76,11 +76,11 @@
           </div>
           @endif
 
-          @if (Auth::user()->hasRole('admin','author','editor'))
+          @if (Auth::user()->hasRole(['admin','author','editor','gamevisitor']))
           <a class="navbar-item" href="{{ route('manage.dashboard')}}">{{ __('navbar.administration') }}</a>
           @endif
-          @if (Auth::user()->hasRole('admin','author','editor'))
-          <a class="navbar-item" href="{{ route('manage.account-edit')}}">{{ __('navbar.profile') }}</a>
+          @if (Auth::user()->hasRole(['admin','author','editor','gamevisitor']))
+          <a class="navbar-item" href="{{ route('profile.show', Auth::user()->id )}}">{{ __('navbar.profile') }}</a>
           <hr class="navbar-divider">
           @endif
 

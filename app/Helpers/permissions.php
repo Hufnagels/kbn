@@ -39,7 +39,9 @@ function check_user_permissions($request, $actionName = NULL, $id = NULL)
         'Categories'  => 'category',
         'Tag'         => 'tag',
         'Instruction' => 'instruction',
-        'Lession'     => 'lession'
+        'Lession'     => 'lession',
+        'Role'     => 'role',
+        'Permission'     => 'permission'
     ];
 
     foreach ($crudPermissionsMap as $permission => $methods)

@@ -42,7 +42,8 @@ class NavigationComposer
       {
         $navbarpopularpost = News::published()
           ->filterNotProjectCategory()
-          ->popular()
+          // ->popular()
+          ->latestFirst()
           ->take(3)
           ->get();
         $view->with( 'navbarpopularpost' , $navbarpopularpost);

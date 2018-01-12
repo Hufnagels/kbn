@@ -81,7 +81,10 @@ class UsersController extends BackendController
       if ( $request->password == NULL)
       {
         unset($user['password']);
+      } else {
+        $user->password = $request->password;
       }
+// dd($request->password);
       $user->save();
       $user->detachRole($user->role);
       $user->attachRole($request->role);

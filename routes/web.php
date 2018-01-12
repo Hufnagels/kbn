@@ -64,8 +64,9 @@ Route::post('/register', 'Auth\RegisterController@index')->name('register');
     Route::post('/laravel-filemanager/upload', '\Unisharp\Laravelfilemanager\controllers\UploadController@upload');
 
     // MANAGE USER PROFILE
-    Route::get('/edit-account', 'Manage\ManageController@edit')->name('manage.account-edit');
-    Route::put('/edit-account', 'Manage\ManageController@update')->name('manage.account-update');
+    // Route::get('/edit-account', 'Manage\ManageController@edit')->name('manage.account-edit');
+    // Route::put('/edit-account', 'Manage\ManageController@update')->name('manage.account-update');
+    Route::resource('/profile', 'Manage\ProfileController', ['except' => ['index','destroy', 'create', 'store']]);
 
     // MANAGE USERS
     Route::delete('/users/confirm/{user}', 'Manage\UsersController@confirm')->name('users.confirm');

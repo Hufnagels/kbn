@@ -16,11 +16,11 @@
       </div>
       <div class="card-content is-paddingless createcategory">
         @if ( session('message'))
-        <div class="notification is-success"><strong>{{ session('message')}}</strong></div>
+        <div class="notification" style="background-color: #00d1b2;"><strong>{{ session('message')}}</strong></div>
         @endif
         {!! Form::model( $user, [
                 'method' => 'PUT',
-                'route' => ['manage.account-update', $user->id],
+                'route' => ['profile.update', $user->id],
                 'id' => 'update-user-form'
                 ])  !!}
 

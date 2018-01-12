@@ -5,6 +5,9 @@ use App\Http\Requests\RoleValidationRequest;
 use App\Role;
 use App\Permission;
 use Session;
+
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
 class RoleController extends BackendController
 {
     /**
@@ -26,6 +29,7 @@ class RoleController extends BackendController
     {
       $permissions = Permission::all();
       return view('manage.roles.create', compact('role', 'permissions'));//->withPermissions($permissions);
+      
     }
     /**
      * Store a newly created resource in storage.
@@ -33,12 +37,13 @@ class RoleController extends BackendController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(RoleValidationRequest $request)
+    public function store(Request $request)
     {
 
       $data = $request->all();
 
-
+// dd($data);
+// dd(implode(',', $request->permissions));
       $role = new Role();
       $role->display_name = $request->display_name;
       $role->name = $request->name;
@@ -46,7 +51,15 @@ class RoleController extends BackendController
       $role->save();
 
       if ($request->permissions) {
-        $role->syncPermissions(explode(',', $request->permissions));
+        $role->syncPermissions(implode(',', $request->permissions));
+        // if(count($request->permissions) == 1)
+        // {
+        //   $perm = $request->permissions;
+        //   $role->syncPermissions($perm[0]);
+        // } else {
+        //   $role->syncPermissions(implode(',', $request->permissions));
+        // }
+
       }
       Session::flash('success', 'Successfully created the new '. $role->display_name . ' role in the database.');
       return redirect()->route('roles.show', $role->id);

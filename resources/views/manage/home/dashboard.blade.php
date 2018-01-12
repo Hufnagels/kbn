@@ -5,6 +5,16 @@
 <div class="columns m-t-10">
     <div class="column is-one-quarter">
 
+    <div class="card m-b-10">
+        <header class="card-header"></header>
+        <div class="card-content">
+          <div class="content">
+            <p class="card-header-title subtitle is-6" >Az enigma játékra jelentkezők száma: {{count($users)}}</p>
+          </div>
+        </div>
+        <footer class="card-footer"></footer>
+      </div>
+
         <div class="card">
           <header class="card-header">
             <p class="card-header-title">Your latest News post</p>

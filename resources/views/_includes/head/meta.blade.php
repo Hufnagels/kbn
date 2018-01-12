@@ -47,7 +47,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
   @if( (isset($item) && $item->imageUrl !== NULL))
     content="{{ $item->imageUrl }}"
   @else
-    content="{{ asset('/images/header/render09.png') }}"
+    content="{{ asset('/images/header/headerImage_L_OJ_v001.jpg') }}"
   @endif
 />
 <meta property="og:image:width" content="700"/>
