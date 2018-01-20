@@ -50,7 +50,26 @@
   <section class="photossection zoomIn m-b-10" id="postsection">
     @include('simplePages.index.s04_galery')
   </section>
+  <!--
+  <section class="aboutsection about fadeInUp m-t-20" id="aboutsection">
+    @include('simplePages.index.s06_about')
+  </section> -->
 
+  <!-- <section class="testimonialsection testimonial fadeInUp" id="testimonialsection" style="">
+    @include('simplePages.index.s02_testimonial')
+  </section> -->
+
+  <!-- <section class="photossection zoomIn m-b-10" id="teamsection">
+    @include('simplePages.index.s05_team')
+  </section> -->
+
+  <!-- <section class="videosection video zoomIn m-b-10" id="videosection">
+    @include('simplePages.index.s03_video')
+  </section> -->
+
+  <!-- <section class="photossection zoomIn m-b-10" id="imagesection">
+    @include('simplePages.index.s04_galery')
+  </section> -->
 </div>
 @endsection
 

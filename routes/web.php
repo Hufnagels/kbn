@@ -15,6 +15,7 @@ Route::get('/contact', 'PagesController@getcontact')->name('contact');
 Route::post('/contact', 'PagesController@postContact')->name('contact');
 Route::get('/about', 'PagesController@getAbout')->name('about');
 Route::get('/team', 'PagesController@getTeam')->name('team');
+Route::get('/gallery', 'PagesController@gallery')->name('gallery');
 Route::get('/enigma', 'PagesController@enigma')->name('enigma');
 // Route::get('/enigma/challenge', 'PagesController@enigmaTasks')->name('enigmatasks');
 
@@ -28,6 +29,8 @@ Route::get('/news/tag/{tag}', 'PostController@tag')->name('news.tags');
 Route::get('/news/{news}', 'PostController@showPost')->name('news.show');
 Route::get('/news', 'PostController@getPosts')->name('newses');
 Route::get('/', 'PagesController@getIndex')->name('welcome');
+Route::post('/OpenCourse', 'PagesController@postOpenCourse')->name('postOpenCourse');
+
 
 
 //Route::post('/login', 'Auth\LoginController@logout')->name('logout');

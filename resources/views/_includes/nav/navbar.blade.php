@@ -51,6 +51,7 @@
       <a class="navbar-item {{ ( strpos(Route::currentRouteName(), 'team') > -1) ? 'is-active has-text-primary' : '' }}" href="{{ route('team') }}">{{ __('navbar.team') }}</a>
       <a class="navbar-item {{ ( strpos(Route::currentRouteName(), 'about') > -1) ? 'is-active has-text-primary' : '' }}" href="{{ route('about') }}">{{ __('navbar.about') }}</a>
       <a class="navbar-item {{ ( strpos(Route::currentRouteName(), 'contact') > -1) ? 'is-active has-text-primary' : '' }}" href="{{ route('contact') }}">{{ __('navbar.contact') }}</a>
+      <a class="navbar-item {{ ( strpos(Route::currentRouteName(), 'gallery') > -1) ? 'is-active has-text-primary' : '' }}" href="{{ route('gallery') }}">Galéria</a>
     </div>
 
     <div class="navbar-end">

@@ -14837,10 +14837,6 @@ INDEX PAGE
   margin-bottom: 0 !important;
 }
 
-.headersection {
-  min-height: 780px;
-}
-
 .parallax-window {
   /*min-height: 500px;*/
   position: relative;

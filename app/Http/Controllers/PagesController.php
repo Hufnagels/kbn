@@ -12,6 +12,8 @@ use App\User;
 use App\Category;
 use App\Tag;
 use App\Testimonial;
+use App\Video;
+
 use App\Http\Requests\ContactEmailValidationRequest;
 use App\Jobs\ContactEmail;
 use App\Notifications\ContactSended;
@@ -19,6 +21,8 @@ use App\Notifications\ContactSended;
 use Hash;
 use Session;
 use Input;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Redirect;
 
 class PagesController extends Controller
 {
@@ -55,12 +59,19 @@ class PagesController extends Controller
       return view('simplePages.team');
     }
 
+    public function gallery(){
+      $videos = Video::published()->latestFirst()->get();
+      // $view->with('videos' , $videos);
+      return view('simplePages.gallery', compact('videos'));
+    }
+
     public function Enigma(){
       return view('simplePages.games.enigma.index');
     }
     public function EnigmaTasks(){
       return view('simplePages.games.enigma.challenge');
     }
+
     public function getContact(){
       Mapper::map(
         47.4875518,
@@ -74,6 +85,38 @@ class PagesController extends Controller
       );
 
       return view('simplePages.contact');
+    }
+
+    public function postOpenCourse(Request $request){
+// dd($request);
+      $this->validate($request,[
+        'name' => 'required',
+        'age' => 'required',
+        'selectedDateTime' => 'required',
+        'contact' =>'required',
+        'g-recaptcha-response' => 'required|captcha',
+      ]);
+
+      $data = [
+              'name' => $request->get('name'),
+              'age' => $request->get('age'),
+              'selectedDateTime' => $request->get('selectedDateTime'),
+              'contact' => $request->get('contact'),
+              // 'message' => $request->get('message'),
+          ];
+
+      \Mail::send('emails.signupOpenCourse', ['user' => $data], function ($m) use ($data) {
+
+           $m->from('info@kodvetok.com','Kódvetők website');
+
+           $m->to('zsiraf21@gmail.com', 'Zita');
+           $m->cc('akos.szakmary@gmail.com', 'Akos');
+           $m->subject('Nyílt napra jelentkező: '. $data['name'] );
+
+       });
+       $url = URL::route('welcome') . '#opencoursesection';
+       return Redirect::to($url)->with('success', 'Köszönjük, hogy érdeklődsz! Várunk szeretettel!');
+       // return redirect()->route('welcome')->with('success', 'Köszönjük, hogy érdeklődsz! Várunk szeretettel!');
     }
 
     public function postContact(ContactEmailValidationRequest $request){
