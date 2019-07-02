@@ -18,6 +18,9 @@ use App\Http\Requests\ContactEmailValidationRequest;
 use App\Jobs\ContactEmail;
 use App\Notifications\ContactSended;
 
+use App\Jobs\OpenDayContactEmail;
+use App\Notifications\OpenDayContactSended;
+
 use Hash;
 use Session;
 use Input;
@@ -104,16 +107,18 @@ class PagesController extends Controller
               'contact' => $request->get('contact'),
               // 'message' => $request->get('message'),
           ];
-
-      \Mail::send('emails.signupOpenCourse', ['user' => $data], function ($m) use ($data) {
-
-           $m->from('info@kodvetok.com','Kódvetők website');
-
-           $m->to('zsiraf21@gmail.com', 'Zita');
-           $m->cc('akos.szakmary@gmail.com', 'Akos');
-           $m->subject('Nyílt napra jelentkező: '. $data['name'] );
-
-       });
+          $job = (new OpenDayContactEmail($data,'App\OpenDayContact'))->onQueue('OpenDayContactSended');
+          dispatch($job);
+      //
+      // \Mail::send('emails.signupOpenCourse', ['user' => $data], function ($m) use ($data) {
+      //
+      //      $m->from('info@kodvetok.com','Kódvetők website');
+      //
+      //      $m->to('zsiraf21@gmail.com', 'Zita');
+      //      $m->cc('akos.szakmary@gmail.com', 'Akos');
+      //      $m->subject('Nyílt napra jelentkező: '. $data['name'] );
+      //
+      //  });
        $url = URL::route('welcome') . '#opencoursesection';
        return Redirect::to($url)->with('success', 'Köszönjük, hogy érdeklődsz! Várunk szeretettel!');
        // return redirect()->route('welcome')->with('success', 'Köszönjük, hogy érdeklődsz! Várunk szeretettel!');
@@ -137,7 +142,7 @@ class PagesController extends Controller
           * User::create() helyett contact::create() kell
           */
       // \Mail::to($user)->send(new contactus($user));
-      $job = (new ContactEmail($data,'App\Contact'));
+      $job = (new ContactEmail($data,'App\Contact'))->onQueue('ContactSended');
       dispatch($job);
 
       // \Mail::send('emails.webcontact', ['user' => $data], function ($m) use ($data) {

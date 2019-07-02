@@ -36,7 +36,13 @@
     margin-bottom: 20px;
     margin-top: -6px;
 }
-
+.headersection2 > .alert-body {
+  background-color: #f50808;
+    margin-bottom: 20px;
+    margin-top: -6px;
+    padding-top:50px;
+    padding-bottom:50px;
+}
 </style>
 @endsection
 @section('content')
@@ -45,24 +51,26 @@
 
 <div class="wrapper">
 
-  <section class="imagesection" id="imagesection" style="">
-    <a class="" href="#opencoursesection"><img class="image" src="{{ asset('/images/header/kodvetoszorolap_A5_v002.jpg') }}"></a>
-  </section>
 
-  <section class="opencoursesection" id="opencoursesection">
-    @include('simplePages.index.s02_opencourse')
-  </section>
+
+
 
   <section class="headersection" id="headersection">
     <div class="parallax-window" >
-      <a class="" href="{{ route('enigma')}}" ><img class="parallaxImage" src="{{ asset('/images/header/enigma_kod_v007_folap2.jpg') }}"></a>
+      <a class="" href="{{ route('enigma')}}" ><img class="parallaxImage" src="{{ asset('/images/header/enigma_kod_v007_folap_koszono.jpg') }}"></a>
     </div>
   </section>
+
+  
 
   <div class="headersection2 m-b-20">
     @include('simplePages.index.s01_posts')
   </div>
-  
+
+  <section class="imagesection" id="imagesection" style="">
+    <!--<a class="" href="#opencoursesection"><img class="image" src="{{ asset('/images/header/kodvetoszorolap_A5_v002.jpg') }}"></a> -->
+    <a class="" href="#"><img class="image" src="{{ asset('/images/header/headerImage_L_OJ_v001.jpg') }}"></a>
+  </section>
 
 </div>
 @endsection

@@ -1,16 +1,10 @@
-<table id="user-list"class="table is-narrow">
+<table id="user-list"class="table is-narrow datatable">
   <thead>
     <tr>
       <th width="100"><abbr title="Image"></abbr></th>
-      <th class="userName" width="40%"><abbr title="{{ __('forms.name') }}">{{ __('forms.name') }}</abbr>
-        <a href="javascript:sorting(true, 'userName', 'user-list')"><i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></a>
-				<a href="javascript:sorting(false, 'userName', 'user-list');" ><i class="fa fa-sort-alpha-desc" aria-hidden="true"></i></a>
-      </th>
+      <th class="userName" width="40%"><abbr title="{{ __('forms.name') }}">{{ __('forms.name') }}</abbr></th>
       <th class="userEmail"><abbr title="{{ __('forms.email') }}">{{ __('forms.email') }}</abbr></th>
-      <th class="userRole"><abbr title="{{ __('forms.role') }}">{{ __('forms.role') }}</abbr>
-        <a href="javascript:sorting(true, 'userRole', 'user-list')"><i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></a>
-				<a href="javascript:sorting(false, 'userRole', 'user-list');" ><i class="fa fa-sort-alpha-desc" aria-hidden="true"></i></a>
-      </th>
+      <th class="userRole"><abbr title="{{ __('forms.role') }}">{{ __('forms.role') }}</abbr></th>
       <th><abbr title="{{ __('forms.action') }}">{{ __('forms.action') }}</abbr></th>
     </tr>
   </thead>

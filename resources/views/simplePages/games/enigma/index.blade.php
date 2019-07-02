@@ -24,23 +24,21 @@
     <div class="container">
       <h1 class="subtitle has-text-centered" style="color: #acfa32 !important;font-weight: 600;">
 A Pannon Egyetem Műszaki Informatikai Kara és a Kódvetők Digitális Oktatási Műhely<br>
-meghírdeti<br>
+meghírdette<br>
 a Pannon Enigma Informatikai Programozási Kódtörő versenyt<br>
 általános iskolások, osztályok, tanuló csoportok részére.<br>
-A verseny fődíja a tudás megszerzésén kívül egy Apple számítógép!
-<p class="m-t-15" style="color: #f0b9d8;background-color: rgba(57, 61, 72, 0.611764705882353);padding: 1rem;border-radius: 2rem;">
-A verseny kiírását olvassátok el figyelmesen!<br>
-A jelentkezésedet egészen 2018. május 14-ig elfogadjuk, de siess!
-</p>
+A versenyre a regisztráció lezárult.
+
       </h1>
       <h2 class="subtitle has-text-centered m-t-5">
-        <a class="button" style="background-color: rgba(172, 250, 50, 0.95);border-color: transparent;color: rgb(56, 44, 73);" href="{{ route('enigmatasks') }}">
-          @if (!Auth::guest())
-          {{ __('simplePages.gameEnigmaSlogen2') }}
-          @else
-          Jelentkezz a játékra!
-          @endif
-        </a>
+        @if (!Auth::guest())
+          <a class="button" style="background-color: rgba(172, 250, 50, 0.95);border-color: transparent;color: rgb(56, 44, 73);" href="{{ route('enigmatasks') }}">
+            {{ __('simplePages.gameEnigmaSlogen2') }}
+          </a>
+        @else
+          
+        @endif
+        
       </h2>
     </div>
   </div>
@@ -49,7 +47,7 @@ A jelentkezésedet egészen 2018. május 14-ig elfogadjuk, de siess!
 <div class="container aboutUs m-b-0">
   <div class="columns">
     <div class="column is-10 is-offset-1">
-      <figure class="image"><img src={{ asset("/images/games/enigma_kod_hatlap_leiras_v0071_96.jpg") }}></figure>
+      <figure class="image"><img src={{ asset("/fm/photos/shares/games/enigma/koszonto.jpg") }}></figure>
     </div>
   </div>
 </div>

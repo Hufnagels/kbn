@@ -2,7 +2,8 @@
   <thead>
     <tr>
       <!--<th><abbr title="Id">ID</abbr></th>-->
-      <th width="40%"><abbr title="{{ __('forms.title') }}">{{ __('forms.title') }}</abbr></th>
+      <th><abbr title="Id">Image</abbr></th>
+      <th width="35%"><abbr title="{{ __('forms.title') }}">{{ __('forms.title') }}</abbr></th>
       <th><abbr title="{{ __('forms.author') }}">{{ __('forms.author') }}</abbr></th>
       <th><abbr title="{{ __('forms.category') }}">{{ __('forms.category') }}</abbr></th>
       <th><abbr title="{{ __('forms.created') }}">{{ __('forms.created') }}</abbr></th>
@@ -16,6 +17,7 @@
     @foreach($newses as $news)
     <tr>
       <!--<td>{{$news->id}}</td>-->
+      <td><img src="{{ asset($news->image) }}" class="128x128"/></td>
       <td>{{$news->title}}</td>
       <td>{{$news->author->name}}</td>
       <td>

@@ -58,10 +58,28 @@
                       <div class="select">
                         <select name="selectedDateTime">
                           <option>Kérem válasszon</option>
-                          <option>2018.01.19 Péntek 16.30-17.30</option>
-                          <option>2018.01.20 Szombat 10.00-11.00</option>
-                          <option>2018.01.26 Péntek 16.30-17.30</option>
-                          <option>2018.01.27 Szombat 10.00-11.00</option>
+                          
+                          <?php
+                          $date_now = date("Y.m.d"); // this format is string comparable
+                          $days = [
+                            array('2018.01.19','2018.01.19 Péntek 16.00-17.00'),
+                            array('2018.01.20','2018.01.20 Szombat 10.00-11.00'),
+                            array('2018.01.22','2018.01.22 Hétfő 16.30-17.30'),
+                            array('2018.01.24','2018.01.24 Szerda 16.30-17.30'),
+                            array('2018.01.25','2018.01.25 Csütörtök 15.00-16.00'),
+                            array('2018.01.26','2018.01.26 Péntek 15.00-16.00'),
+                            array('2018.01.27','2018.01.27 Szombat 10.00-11.00'),
+                            ];
+                          foreach($days as $day){
+                            if ($date_now > $day[0])
+                            {
+                                    // echo 'greater than';
+                            }else{
+                                    echo '<option>'.$day[1].'</option>';
+                            }
+                          }
+
+                          ?>
 
                         </select>
                       </div>
