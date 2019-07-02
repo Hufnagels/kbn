@@ -99,7 +99,7 @@ return [
       | The Client ID can be found in the OAuth Credentials under Service Account
       |
       */
-      'client_id' => '117196289637951485763',
+      'client_id' => '',
 
       /*
       |--------------------------------------------------------------------------
@@ -110,7 +110,7 @@ return [
       | OAuth Credentials under Service Account
       |
       */
-      'service_account_name' => 'kodvetokservice@inlaid-marker-178817.iam.gserviceaccount.com',
+      'service_account_name' => '',
 
       /*
       |--------------------------------------------------------------------------
@@ -120,7 +120,7 @@ return [
       | This is the location of the .p12 file from the Laravel root directory
       |
       */
-      'key_file_location' => '/public/MyProject-7847c546ef6a.json',
+      'key_file_location' => '/public/',
   ]
 
 ];
